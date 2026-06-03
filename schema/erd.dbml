@@ -1,0 +1,146 @@
+// ============================================================
+// Kokkok EV — VOC 데이터 수집·분석 DB Schema
+// dbdiagram.io 에 붙여넣어 ERD 확인
+// ============================================================
+
+// ─────────────────────────────────────
+// 1. 앱스토어 리뷰
+// ─────────────────────────────────────
+Table app_reviews {
+  id            bigserial     [pk, increment, note: "PK"]
+  store         varchar(20)   [not null, note: "google_play | app_store"]
+  app_name      varchar(100)  [not null, note: "LOCA EV | Green SM | V-Green"]
+  country       char(3)       [not null, note: "LAO | VNM | KOR (ISO 3166-1 alpha-3)"]
+  rating        smallint      [note: "1~5점. NULL 허용(평점 없는 리뷰)"]
+  author        varchar(200)
+  review_date   date
+  content       text          [not null, note: "원문"]
+  lang_detected varchar(10)   [note: "langdetect 결과: lo | vi | th | en | ko 등"]
+  translated_content text     [note: "Google Translate → 영어 번역본"]
+  sentiment_label varchar(10) [note: "positive | negative | neutral"]
+  sentiment_score float       [note: "0.0 ~ 1.0, XLM-RoBERTa confidence"]
+  keyword_category varchar(50)[note: "결제오류 | 연결실패 | UI불편 | 충전속도 | 앱오류 | 기타"]
+  created_at    timestamptz   [default: `now()`]
+
+  indexes {
+    (app_name, country)
+    rating
+    sentiment_label
+    review_date
+  }
+
+  Note: "Google Play / App Store 리뷰. 라오스·베트남 EV 충전 앱 대상."
+}
+
+// ─────────────────────────────────────
+// 2. 유튜브 영상 (부모 테이블)
+// ─────────────────────────────────────
+Table youtube_videos {
+  video_id      varchar(20)   [pk, note: "YouTube video ID (11자리)"]
+  title         text          [not null]
+  channel_name  varchar(200)
+  country       char(3)       [note: "영상 주요 언어/지역 기준: LAO | VNM | KOR | THA"]
+  upload_date   date
+  view_count    bigint
+  like_count    bigint
+  description   text
+  created_at    timestamptz   [default: `now()`]
+
+  Note: "YouTube Data API v3 로 수집한 영상 메타데이터."
+}
+
+// ─────────────────────────────────────
+// 3. 유튜브 댓글
+// ─────────────────────────────────────
+Table youtube_comments {
+  id            bigserial     [pk, increment]
+  video_id      varchar(20)   [not null, ref: > youtube_videos.video_id]
+  author        varchar(200)
+  content       text          [not null, note: "원문 댓글"]
+  like_count    int           [default: 0]
+  comment_date  timestamptz
+  lang_detected varchar(10)
+  translated_content text
+  sentiment_label varchar(10) [note: "positive | negative | neutral"]
+  sentiment_score float
+  keyword_category varchar(50)
+  created_at    timestamptz   [default: `now()`]
+
+  indexes {
+    video_id
+    sentiment_label
+  }
+
+  Note: "YouTube Data API v3 댓글 수집. video_id로 youtube_videos와 연결."
+}
+
+// ─────────────────────────────────────
+// 4. 유튜브 자막 (STT)
+// ─────────────────────────────────────
+Table youtube_stt {
+  id              bigserial   [pk, increment]
+  video_id        varchar(20) [not null, ref: > youtube_videos.video_id]
+  timestamp_start float       [not null, note: "자막 시작 시간(초 단위)"]
+  timestamp_end   float       [note: "자막 종료 시간(초 단위)"]
+  content         text        [not null, note: "원문 자막 텍스트"]
+  translated_content text     [note: "영어 번역본"]
+  created_at      timestamptz [default: `now()`]
+
+  indexes {
+    video_id
+  }
+
+  Note: "youtube-transcript-api로 수집한 자막(YouTube 자동 캡션). 라오어 자막 품질 주의."
+}
+
+// ─────────────────────────────────────
+// 5. SNS 게시물 (Facebook / Instagram)
+// ─────────────────────────────────────
+Table sns_posts {
+  id            bigserial     [pk, increment]
+  platform      varchar(20)   [not null, note: "facebook | instagram"]
+  page_name     varchar(200)  [note: "수집 대상 페이지명 (예: LocaLaos)"]
+  country       char(3)       [note: "LAO | VNM | KOR"]
+  content       text          [not null, note: "게시물 본문 원문"]
+  post_date     date
+  lang_detected varchar(10)
+  translated_content text
+  sentiment_label varchar(10)
+  sentiment_score float
+  keyword_category varchar(50)
+  collection_method varchar(30) [note: "graph_api | manual | selenium"]
+  created_at    timestamptz   [default: `now()`]
+
+  indexes {
+    platform
+    country
+    sentiment_label
+  }
+
+  Note: "Meta Graph API 우선 수집. 불가 시 수동 캡처. Meta ToS 주의."
+}
+
+// ─────────────────────────────────────
+// 6. 블로그 포스트 (네이버 블로그)
+// ─────────────────────────────────────
+Table blog_posts {
+  id            bigserial     [pk, increment]
+  platform      varchar(30)   [not null, note: "naver_blog"]
+  title         text
+  content       text          [not null, note: "본문 원문"]
+  author        varchar(200)
+  post_date     date
+  url           text          [note: "원본 URL"]
+  translated_content text     [note: "영어 번역본 (한국어→영어)"]
+  sentiment_label varchar(10)
+  sentiment_score float
+  keyword_category varchar(50)
+  created_at    timestamptz   [default: `now()`]
+
+  indexes {
+    platform
+    post_date
+  }
+
+  Note: "한국인 라오스 여행객 EV 충전 경험 리뷰 수집. BeautifulSoup 사용."
+}
