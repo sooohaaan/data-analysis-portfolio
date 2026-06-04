@@ -603,26 +603,50 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | 6 | 고객서비스 | 173건 | 1.1% | - |
 | 7 | 연결실패 | 87건 | 0.6% | QR 재시도 + 수동 입력 |
 
-#### 생성된 분석 차트 (`outputs/` 폴더) — 총 9개
+#### 분석 구성 원칙 — 앱·하드웨어 분리 + 연계 분석 1개
 
-**앱 레이어 분석 (5개)**
+앱과 하드웨어 분석을 **별도로 진행**하되, 두 레이어의 연결고리를 보여주는 통합 차트를 추가합니다.
 
-| 파일 | 내용 |
-|------|------|
-| `01_complaint_categories.png` | Negative 불만 카테고리 분포 |
-| `02_sentiment_by_app.png` | 앱별 긍/부/중립 비율 비교 |
-| `03_monthly_trend.png` | 월별 리뷰 트렌드 (2023~) |
-| `04_wordcloud_negative_en.png` | Negative 영어 리뷰 워드클라우드 |
-| `05_rating_distribution.png` | 전체 별점 분포 |
+| 분석 | 앱 별도 | 하드웨어 별도 | 이유 |
+|------|--------|------------|------|
+| 포지셔닝 맵 | 별점·리뷰수 (정량) | 뉴스 감성·카테고리 (간접) | 축이 달라 같은 차트 불가 |
+| 경쟁 분석 | 5개 앱 불만 비교 | 기기 결함·OCPP 비교 | 비교 대상과 기준이 다름 |
+| 워드클라우드 | 사용자 불만 언어 | 기술 이슈 전문 용어 | 혼재 시 특성 희석 |
+| **연계 분석** | — | — | 앱오류 35% ↔ OCPP·기기 결함 원인 매핑 |
 
-**하드웨어 레이어 분석 (4개)**
+#### 생성된 분석 차트 (`outputs/` 폴더) — 총 9개 (포지셔닝맵·경쟁분석·워드클라우드 추가 예정)
 
-| 파일 | 내용 |
-|------|------|
-| `06_hw_sentiment_by_category.png` | 하드웨어 카테고리별 감성 분포 |
-| `07_hw_keyword_categories.png` | 하드웨어 키워드 카테고리 분포 |
-| `08_hw_sentiment_by_country.png` | 국가별 하드웨어 뉴스 감성 |
-| `09_hw_failure_wordcloud.png` | 충전기 결함 뉴스 워드클라우드 |
+**앱 레이어 분석 (5개 완료 + 추가 예정)**
+
+| 파일 | 내용 | 상태 |
+|------|------|------|
+| `01_complaint_categories.png` | Negative 불만 카테고리 분포 | ✅ |
+| `02_sentiment_by_app.png` | 앱별 긍/부/중립 비율 비교 | ✅ |
+| `03_monthly_trend.png` | 월별 리뷰 트렌드 (2023~) | ✅ |
+| `04_wordcloud_negative_en.png` | Negative 영어 리뷰 워드클라우드 | ✅ |
+| `05_rating_distribution.png` | 전체 별점 분포 | ✅ |
+| `10_app_positioning_map.png` | 앱 포지셔닝 맵 (별점 × Negative 비율) | ✅ |
+| `11_app_competitive_analysis.png` | 앱별 불만 카테고리 경쟁 분석 | ✅ |
+| `12_wordcloud_vi.png` | 베트남어 Negative 워드클라우드 | ✅ |
+| `13_wordcloud_th.png` | 태국어 Negative 워드클라우드 | ✅ |
+
+**하드웨어 레이어 분석 (4개 완료 + 추가 예정)**
+
+| 파일 | 내용 | 상태 |
+|------|------|------|
+| `06_hw_sentiment_by_category.png` | 하드웨어 카테고리별 감성 분포 | ✅ |
+| `07_hw_keyword_categories.png` | 하드웨어 키워드 카테고리 분포 | ✅ |
+| `08_hw_sentiment_by_country.png` | 국가별 하드웨어 뉴스 감성 | ✅ |
+| `09_hw_failure_wordcloud.png` | 충전기 결함 뉴스 워드클라우드 (영어) | ✅ |
+| `14_hw_positioning_map.png` | 하드웨어 포지셔닝 맵 (건수 × Negative 비율) | ✅ |
+| `15_hw_competitive_analysis.png` | 국가별 하드웨어 이슈 경쟁 분석 | ✅ |
+| `16_hw_wordcloud_multilang.png` | 다국어 충전기 이슈 워드클라우드 | ✅ |
+
+**연계 분석 (1개)**
+
+| 파일 | 내용 | 상태 |
+|------|------|------|
+| `17_app_hw_linkage.png` | 앱오류 ↔ 하드웨어 원인 매핑 차트 | ✅ |
 
 ---
 
@@ -664,7 +688,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | Phase 1 | 인프라 세팅 & DB 스키마 | ✅ 완료 | Supabase 7개 테이블 |
 | Phase 2 | 데이터 수집 파이프라인 | 🔄 대부분 완료 | SNS만 예정 (하드웨어 뉴스 추가 완료) |
 | Phase 3 | 다국어 전처리 | ✅ 완료 | VOC + 하드웨어 뉴스 전체 적용 |
-| Phase 4 | 데이터 분석 | ✅ 완료 | 차트 9개 (앱 5 + 하드웨어 4) |
+| Phase 4 | 데이터 분석 | ✅ 완료 | 차트 17개 (앱 9 + 하드웨어 7 + 연계 1) |
 | Phase 5 | PRD 작성 | ✅ 완료 | 앱 6개 + 하드웨어 5개 = 총 11개 기능 |
 | - | Tableau 대시보드 | ⏳ 예정 | - |
 | - | Figma 프로토타입 | 🔄 진행중 | - |
