@@ -173,9 +173,34 @@ news_articles  (id, source, publisher, title, content, url,
 - 수집 불가 시 유튜브·블로그 데이터로 대체
 
 ### Phase 3. 다국어 전처리
-- 텍스트 클리닝 (이모티콘 제거, 중복/광고 필터링)
-- 언어 감지(`langdetect`) → Google Translate API → `translated_content` 저장
-- 이후 모든 분석은 **영어 기준** 진행 (라오어는 spaCy·NLTK 미지원)
+
+#### 전처리 파이프라인 (실제 실행 기준)
+
+```
+① 언어 감지 (langdetect)         → lang_detected 컬럼 UPDATE  ← 전체 데이터 적용
+② 감성 분석 (XLM-RoBERTa)       → sentiment_label 컬럼 UPDATE ← 번역 없이 다국어 직접 처리
+③ 키워드 카테고리 분류 (규칙 기반) → keyword_category 컬럼 UPDATE
+④ 번역 (googletrans)             → translated_content 컬럼 UPDATE ← 선택적 적용
+```
+
+#### 번역 전략 변경 이유
+
+초기 계획은 전체 데이터를 영어로 번역 후 분석하는 방식이었으나, 실제 실행 중 다음 한계를 발견했습니다:
+
+| 항목 | 내용 |
+|------|------|
+| **속도 문제** | googletrans는 HTTP 요청 1건씩 처리 → 28,890건 기준 약 8~16시간 소요 |
+| **해결책** | XLM-RoBERTa는 **번역 없이 100개 언어 직접 감성 분석** 가능 → 번역 단계 생략 |
+| **번역 적용 범위** | 키워드 분석 등 영어 기준이 필요한 경우에만 **선택적으로** 적용 |
+
+```
+변경 전: 언어 감지 → 전체 번역 → 감성 분석
+변경 후: 언어 감지 → 감성 분석 (다국어 직접) → 필요 시 선택 번역
+```
+
+#### 언어 감지 결과 (app_reviews 기준)
+
+수집된 리뷰는 베트남어(vi) 비중이 가장 높으며, 라오어(lo)·태국어(th)·영어(en) 순으로 구성됩니다. XLM-RoBERTa는 이 모든 언어를 번역 없이 직접 처리합니다.
 
 ### Phase 4. SQL 기반 데이터 분석
 1. **Unhappy Path 분석**: 별점 1~2점 리뷰 키워드 카테고리화
@@ -250,8 +275,9 @@ psycopg2 · SQLAlchemy · pandas
 
 **전처리 & 분석**
 ```
-langdetect · googletrans (Google Translate API)
-transformers (XLM-RoBERTa) · HuggingFace
+langdetect (언어 감지 — 전체 데이터)
+transformers XLM-RoBERTa (다국어 감성 분석 — 번역 없이 직접 처리)
+googletrans (선택적 번역 — 필요한 경우만)
 SQL (GROUP BY, COUNT, Window Functions)
 ```
 
@@ -296,6 +322,7 @@ Figma (화면설계) · Figma Make (프로토타입)
 - **youtube-transcript-api 버전 변경**: 신버전에서 `list_transcripts()` → 인스턴스 메서드 `api.list()` / `api.fetch()`로 변경됨
 - **Supabase 연결 리전**: 프로젝트가 Singapore(ap-southeast-1) 리전에 있어 Seoul(ap-northeast-2) pooler 사용 시 접속 실패. Session Pooler(`aws-1-ap-southeast-1`, port 5432)로 전환
 - **네이버 블로그 한계**: "라오스 EV 충전 경험"을 한국어로 기록한 블로그가 절대적으로 적음. 3단계 필터링(OR → AND → title AND + 경험단어) 끝에 42건 확보. 앱스토어·유튜브가 핵심 소스
+- **번역 전략 변경**: googletrans는 건당 HTTP 요청으로 28,890건 처리 시 8~16시간 소요 → **전체 번역 포기**. XLM-RoBERTa 다국어 모델(100개 언어 지원)로 번역 없이 직접 감성 분석. 번역은 키워드 분석 등 영어 기준 필요 시에만 선택 적용
 
 ### 필터링 전략 (네이버 블로그)
 
