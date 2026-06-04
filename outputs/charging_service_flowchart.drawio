@@ -1,0 +1,301 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ===== TITLE ===== -->
+    <mxCell id="title" value="Kokkok EV — 충전 서비스 주요 Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1a237e;" vertex="1" parent="1">
+      <mxGeometry x="527" y="20" width="600" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- ===== LEGEND ===== -->
+    <mxCell id="leg1" value="정상 플로우" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="40" y="60" width="110" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg2" value="오류 처리 (PRD 기능)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="160" y="60" width="150" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="leg3" value="의사결정" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="320" y="50" width="110" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="leg4" value="HW 연동" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="440" y="60" width="100" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- ===== START ===== -->
+    <mxCell id="s1" value="앱 실행" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="650" y="100" width="120" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 충전소 탐색 ===== -->
+    <mxCell id="s2" value="충전소 지도 탐색&#xa;(실시간 가용 상태 표시)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="190" width="180" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s1s2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s1" target="s2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 충전기 선택 ===== -->
+    <mxCell id="s3" value="충전기 선택&#xa;(속도/타입 정보 확인)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="285" width="180" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s2s3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s2" target="s3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== QR 스캔 ===== -->
+    <mxCell id="s4" value="QR 스캔 시도" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="380" width="180" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s3s4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s3" target="s4" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== QR 성공? ===== -->
+    <mxCell id="d1" value="QR 인식&#xa;성공?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="618" y="460" width="184" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s4d1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s4" target="d1" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== QR 실패 처리 (PRD Feature 2) ===== -->
+    <mxCell id="f2a" value="자동 재시도&#xa;(3초 후)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="860" y="470" width="140" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d1f2a" value="실패" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d1" target="f2a" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <mxCell id="d1b" value="재시도&#xa;성공?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="858" y="560" width="144" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="e_f2ad1b" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2a" target="d1b" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <mxCell id="f2b" value="충전기 ID&#xa;수동 입력 (6자리)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="570" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d1bf2b" value="실패" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d1b" target="f2b" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 결제 방식 선택 ===== -->
+    <mxCell id="s5" value="결제 방식 선택" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="590" width="180" height="50" as="geometry" />
+    </mxCell>
+    <!-- QR 성공 → 결제 -->
+    <mxCell id="e_d1s5" value="성공" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d1" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 재시도 성공 → 결제 -->
+    <mxCell id="e_d1bs5" value="성공" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d1b" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 수동입력 → 결제 -->
+    <mxCell id="e_f2bs5" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="f2b" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 결제 방식 분기 ===== -->
+    <mxCell id="d2" value="결제 방식" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="618" y="678" width="184" height="75" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s5d2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s5" target="d2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 앱 결제 ===== -->
+    <mxCell id="pay1" value="앱 결제&#xa;(바우처/카드)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="480" y="688" width="130" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d2pay1" value="앱결제" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d2" target="pay1" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== RFID 결제 (PRD Feature 4) ===== -->
+    <mxCell id="pay2" value="RFID 카드 태깅&#xa;(오프라인 결제)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="800" y="688" width="140" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d2pay2" value="RFID" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d2" target="pay2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 결제 처리 ===== -->
+    <mxCell id="s6" value="결제 처리" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="790" width="180" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="e_pay1s6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pay1" target="s6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_pay2s6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pay2" target="s6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 결제 성공? ===== -->
+    <mxCell id="d3" value="결제&#xa;성공?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="618" y="875" width="184" height="75" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s6d3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s6" target="d3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 결제 실패 -->
+    <mxCell id="perr" value="결제 실패 안내&#xa;+ 재시도 유도" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="860" y="885" width="150" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d3perr" value="실패" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d3" target="perr" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 결제 확인 화면 (PRD Feature 5) ===== -->
+    <mxCell id="f5" value="결제 확인 화면&#xa;'결제 완료 ✓ | 충전 시작 중...'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="608" y="985" width="204" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d3f5" value="성공" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d3" target="f5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== OCPP Handshake (HW Layer) ===== -->
+    <mxCell id="hw1" value="OCPP Handshake&#xa;(앱 ↔ 충전기)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="1080" width="180" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_f5hw1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f5" target="hw1" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Handshake 성공? -->
+    <mxCell id="d4" value="연결&#xa;성공?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="618" y="1168" width="184" height="75" as="geometry" />
+    </mxCell>
+    <mxCell id="e_hw1d4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="hw1" target="d4" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- OCPP 오류 처리 (PRD Feature 3) -->
+    <mxCell id="hw_err" value="OCPP 오류 로그 수집&#xa;+ 오류 코드 안내" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="860" y="1178" width="160" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d4hwerr" value="OCPP&#xa;오류" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d4" target="hw_err" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 충전 시작 ===== -->
+    <mxCell id="s7" value="충전 시작&#xa;(kWh · 금액 실시간 표시)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="1278" width="180" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d4s7" value="성공" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d4" target="s7" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 세션 저장 (PRD Feature 1) -->
+    <mxCell id="f1a" value="세션 상태 서버 저장&#xa;(heartbeat 30초)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="860" y="1288" width="160" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s7f1a" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s7" target="f1a" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 앱 오류 발생? -->
+    <mxCell id="d5" value="충전 중&#xa;앱/네트워크&#xa;오류?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="858" y="1370" width="164" height="85" as="geometry" />
+    </mxCell>
+    <mxCell id="e_f1ad5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1a" target="d5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 세션 자동 복구 (PRD Feature 1) -->
+    <mxCell id="f1b" value="앱 재실행 시&#xa;세션 자동 복구&#xa;'충전 진행 중 팝업'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1060" y="1380" width="160" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d5f1b" value="오류" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d5" target="f1b" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 충전 완료 ===== -->
+    <mxCell id="s8" value="충전 완료" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="620" y="1500" width="180" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s7s8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s7" target="s8" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="580" y="1305" />
+          <mxPoint x="580" y="1525" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <!-- 복구 후 → 완료 -->
+    <mxCell id="e_f1bs8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1b" target="s8" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- 오류 없음 → 완료 -->
+    <mxCell id="e_d5s8" value="정상" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d5" target="s8" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 충전 완료 알림 (PRD Feature 11) ===== -->
+    <mxCell id="f11" value="완료 5분 전 푸시 알림&#xa;충전 완료 알림 발송" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="860" y="1510" width="160" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s8f11" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s8" target="f11" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== 유예 시간 ===== -->
+    <mxCell id="s9" value="이동 유예 시간&#xa;(10분)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="1595" width="180" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s8s9" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s8" target="s9" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 초과? -->
+    <mxCell id="d6" value="10분&#xa;초과?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="618" y="1678" width="184" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="e_s9d6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s9" target="d6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 추가 과금 -->
+    <mxCell id="over" value="분당 추가 과금&#xa;안내 알림" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="860" y="1688" width="140" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d6over" value="초과" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d6" target="over" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== END ===== -->
+    <mxCell id="end" value="서비스 종료" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="650" y="1790" width="120" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="e_d6end" value="차량 이동" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="d6" target="end" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_overend" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="over" target="end" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ===== PRD Feature Labels ===== -->
+    <mxCell id="lbl1" value="[PRD F2] QR 재시도 + 수동입력" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#d6b656;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="1010" y="475" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lbl2" value="[PRD F4] RFID 오프라인 결제" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#9673a6;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="950" y="715" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lbl3" value="[PRD F5] 결제 확인 화면" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#d6b656;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="820" y="1000" width="180" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lbl4" value="[PRD F3] OCPP 오류 로그 수집" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#9673a6;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="1030" y="1195" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lbl5" value="[PRD F1] 세션 자동 복구" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#d6b656;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="1030" y="1300" width="180" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lbl6" value="[PRD F11] 충전 완료 알림" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#d6b656;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="1030" y="1528" width="180" height="20" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
