@@ -133,3 +133,30 @@ CREATE TABLE IF NOT EXISTS blog_posts (
 CREATE INDEX IF NOT EXISTS idx_blog_posts_post_date ON blog_posts (post_date);
 
 COMMENT ON TABLE blog_posts IS '한국인 라오스 여행객 EV 충전 경험 리뷰. BeautifulSoup 수집.';
+
+-- ─────────────────────────────────────
+-- 7. 뉴스 기사 (시장·정책 정보)
+-- ─────────────────────────────────────
+-- VOC(사용자 경험)와 분리: 언론 보도 기반 시장/정책/경쟁사 동향 파악용
+CREATE TABLE IF NOT EXISTS news_articles (
+    id                 BIGSERIAL    PRIMARY KEY,
+    source             VARCHAR(30)  NOT NULL,        -- naver_news | google_news | reuters 등
+    publisher          VARCHAR(200),                  -- 언론사명
+    title              TEXT         NOT NULL,
+    content            TEXT         NOT NULL,         -- 기사 본문 또는 요약
+    url                TEXT,
+    published_date     DATE,
+    country            CHAR(3),                       -- 주요 내용 관련 국가 (LAO, VNM, THA, KOR...)
+    category           VARCHAR(30),                   -- policy | market | infrastructure | company | other
+    lang_detected      VARCHAR(10),
+    translated_content TEXT,
+    created_at         TIMESTAMPTZ  DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_news_source         ON news_articles (source);
+CREATE INDEX IF NOT EXISTS idx_news_published_date ON news_articles (published_date);
+CREATE INDEX IF NOT EXISTS idx_news_country        ON news_articles (country);
+CREATE INDEX IF NOT EXISTS idx_news_category       ON news_articles (category);
+
+COMMENT ON TABLE news_articles IS '동남아 EV 충전 관련 뉴스 기사. 시장 현황·정책·경쟁사 동향 파악용.';
+COMMENT ON COLUMN news_articles.category IS 'policy(정책) | market(시장동향) | infrastructure(인프라) | company(기업동향) | other';

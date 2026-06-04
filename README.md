@@ -75,26 +75,24 @@ SQL 기반 데이터 분석
 
 ## 🗄️ DB 스키마 (ERD 요약)
 
+**VOC 데이터** (사용자 경험)
 ```sql
--- 앱스토어 리뷰
-app_reviews (id, store, app_name, country, rating, review_date,
-             content, translated_content, sentiment_label)
-
--- 유튜브 영상
-youtube_videos (video_id, title, channel, upload_date)
-
--- 유튜브 댓글
-youtube_comments (id, video_id FK, author, content, likes)
-
--- 유튜브 자막 (STT)
-youtube_stt (id, video_id FK, timestamp, content, translated_content)
-
--- SNS 게시물
-sns_posts (id, platform, country, content, post_date, translated_content)
-
--- 블로그 포스트
-blog_posts (id, platform, country, title, content, post_date)
+app_reviews    (id, store, app_name, country, rating, content, translated_content, sentiment_label)
+youtube_videos (video_id, title, channel_name, country, upload_date, view_count)
+youtube_comments (id, video_id FK, author, content, translated_content, sentiment_label)
+youtube_stt    (id, video_id FK, timestamp_start, timestamp_end, content, translated_content)
+sns_posts      (id, platform, page_name, country, content, translated_content, collection_method)
+blog_posts     (id, platform, title, content, author, post_date, url)
 ```
+
+**Market Intelligence** (시장·정책 정보 — VOC와 분리)
+```sql
+news_articles  (id, source, publisher, title, content, url,
+                published_date, country, category, translated_content)
+-- category: policy | market | infrastructure | company | other
+```
+
+> 📌 **테이블 분리 이유**: VOC(사용자 경험)는 감성 분석·키워드 카테고리화에 활용하고, 뉴스 기사는 시장 현황·정책 근거 확보에 활용. 분석 목적이 다르므로 별도 테이블로 관리.
 
 ---
 
