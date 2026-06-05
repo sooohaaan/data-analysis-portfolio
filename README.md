@@ -654,6 +654,61 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 
 데이터 분석 결과를 바탕으로 PRD(`outputs/PRD_kokkok_ev.md`)를 작성했습니다.
 
+#### 🔄 충전 서비스 주요 Flow (Flowchart)
+
+> 📁 **draw.io 원본**: [`outputs/charging_service_flowchart.drawio`](outputs/charging_service_flowchart.drawio)
+> → draw.io에서 열어 편집 가능 (GitHub 연동으로 자동 저장)
+
+```mermaid
+flowchart TD
+    A([앱 실행]) --> B[충전소 지도 탐색\n실시간 가용 상태 표시]
+    B --> C[충전기 선택\n속도·타입·예상 시간 확인]
+    C --> D[QR 스캔 시도]
+    D --> E{QR 인식 성공?}
+
+    E -- 실패 --> F1["[F2] 자동 재시도 3초"]
+    F1 --> G{재시도 성공?}
+    G -- 실패 --> F2["[F2] 충전기 ID 수동 입력 6자리"]
+    F2 --> H
+    G -- 성공 --> H
+    E -- 성공 --> H[결제 방식 선택]
+
+    H --> I{결제 방식}
+    I -- 앱결제 --> J[앱 결제\n바우처·카드·해외카드]
+    I -- RFID --> K["[F4] RFID 카드 태깅\n오프라인 결제"]
+    J --> L[결제 처리]
+    K --> L
+
+    L --> M{결제 성공?}
+    M -- 실패 --> N[결제 실패 안내\n재시도 유도]:::error
+    M -- 성공 --> O["[F5] 결제 확인 화면\n결제 완료 ✓ | 충전 시작 중..."]:::prd
+
+    O --> P["[F3] OCPP Handshake\n앱 ↔ 충전기 통신 인증"]:::hw
+    P --> Q{OCPP 연결 성공?}
+    Q -- OCPP 오류 --> R["[F3] 오류 로그 수집\n오류 코드 안내"]:::hw
+    Q -- 성공 --> S["충전 시작\nkWh · 금액 실시간 표시"]
+
+    S --> T["[F1] 세션 상태 서버 저장\nheartbeat 30초"]:::prd
+    T --> U{충전 중\n앱·네트워크 오류?}
+    U -- 오류 발생 --> V["[F1] 세션 자동 복구\n충전 진행 중 팝업"]:::prd
+    V --> W
+    U -- 정상 --> W([충전 완료])
+
+    W --> X["[F11] 완료 알림 발송\n5분 전 사전 알림"]:::prd
+    W --> Y[이동 유예 시간 10분]
+    Y --> Z{10분 초과?}
+    Z -- 초과 --> AA[분당 추가 과금 안내]:::error
+    Z -- 차량 이동 --> BB([서비스 종료])
+    AA --> BB
+
+    classDef prd fill:#ffe6cc,stroke:#d6b656,color:#000
+    classDef hw fill:#e1d5e7,stroke:#9673a6,color:#000
+    classDef error fill:#f8cecc,stroke:#b85450,color:#000
+    classDef default fill:#dae8fc,stroke:#6c8ebf,color:#000
+```
+
+> **범례**: 🔵 파란색=정상플로우 / 🟠 주황색=PRD 기능[Fx] / 🟣 보라색=HW 연동 / 🔴 빨간색=오류 상황
+
 **앱 레이어 기능 6개 + 하드웨어 레이어 기능 5개 = 총 11개**
 
 **앱 레이어 (소프트웨어)**
