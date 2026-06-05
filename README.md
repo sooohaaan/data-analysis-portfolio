@@ -55,8 +55,11 @@
               ▼
     Phase 5. 프로덕트 기획
     ├── PRD — 앱 레이어 6개 + 하드웨어 레이어 5개 = 총 11개 기능
+    ├── 시장조사 보고서 — PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT
+    ├── Flowchart — 충전 서비스 주요 Flow (draw.io + Mermaid)
+    ├── Tableau 시각화 (포지셔닝맵·경쟁분석)
     ├── Figma 화면설계 / Figma Make 프로토타입
-    └── Tableau 인터랙티브 대시보드 (예정)
+    └── 발표자료 (예정)
 ```
 
 ---
@@ -650,7 +653,56 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 
 ---
 
-### ✅ Phase 5. 프로덕트 기획 연계 — PRD 완성
+### ✅ Phase 5. 프로덕트 기획 연계 — 완성
+
+#### 📋 결과물 목록
+
+| 문서 | 파일 | 주요 내용 |
+|------|------|---------|
+| **PRD** | `outputs/PRD_kokkok_ev.md` | 앱 6개 + HW 5개 = 총 11개 기능 명세, KPI |
+| **시장조사보고서** | `outputs/market_research_report.md` | PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT·결론 |
+| **데이터 분석 결과서** | `outputs/data_analysis_report.md` | 앱·HW 통합 분석, 벤치마킹, 한계 명시 |
+| **충전 서비스 Flowchart** | `outputs/charging_service_flowchart.drawio` | PRD 11개 기능 반영, draw.io + GitHub 연동 |
+| **Tableau 워크북** | `outputs/kokkok_ev_analysis.twb` | 포지셔닝맵·경쟁분석 시각화 |
+
+---
+
+#### 📊 시장조사보고서 (`market_research_report.md`) 주요 내용
+
+> **새로 추가된 항목** — 슈퍼앱 EV 통합 전략 관점의 시장 분석
+
+**1. PEST 분석 — 검증된 공식 자료 기반**
+- 라오스 EV 수입 **4,437대** (2024.10 누적, +111% YoY) — 라오스 세관·Laotian Times
+- LOCA EV 충전소 **40개소** (2024년 말), **2026년 100개소** 목표 — KPL 통신
+- 라오스·베트남·태국 3국 정부 EV 육성 정책 비교
+
+**2. TAM-SAM-SOM — 시장조사업체 수치 배제, 공식 자료만 사용**
+- 동남아 EV 판매 2024년 **+50%**, 신차 점유율 **9%** — IEA Global EV Outlook 2025
+- ASEAN-6 EV 생태계 2035년 **$100B~$120B** (CAGR 16~39%) — EY-Parthenon 2023
+- Grab×BYD **5만 대** + Grab×GAC **2만 대** ASEAN-6 EV 플릿 — Grab 공식 보도자료
+
+**3. 경쟁사 분석 — 슈퍼앱 포함**
+
+| 앱 유형 | 대상 | 핵심 발견 |
+|---------|------|---------|
+| EV 충전 전용 | Green SM·LOCA EV·PTT·PEA·EleXA | 전체 평균 2.56점, PTT만 3.11점 |
+| 모빌리티 슈퍼앱 | Grab·Gojek·LOCA Taxi·KOKKOK Move | Grab EV 언급 75건 최다, Kokkok Move 배차 실패 44.9% |
+| KOKKOK Move 심층 | 378건 리뷰 실증 분석 | 배차·대기 실패가 근본 문제, EV 통합 전 드라이버 인센티브 필요 |
+
+**4. 타겟 유저 — 3개 페르소나**
+- EV 라이드헤일링 드라이버 (핵심) / 외국인 여행자 (성장) / EV 차량 오너
+
+**5. SWOT & Positioning — LOCA 벤치마크 기반 전략**
+- Phase 0~4 실행 로드맵, 단계별 세부 액션 포함
+
+**6. 결론 및 제언**
+- "지금 12~18개월이 Kokkok EV 골든타임"
+- "앱오류 58.6%는 기회 — 3점대 서비스만 만들어도 동남아 2위"
+- "KOKKOK Move 드라이버가 최고의 첫 번째 고객"
+
+⚠️ **데이터 신뢰도**: Mordor Intelligence·GM Insights 등 시장조사업체 수치는 검증 실패로 전량 제외. IEA·EY-Parthenon·기업 공식 발표만 사용.
+
+---
 
 데이터 분석 결과를 바탕으로 PRD(`outputs/PRD_kokkok_ev.md`)를 작성했습니다.
 
@@ -744,8 +796,8 @@ flowchart TD
 | Phase 2 | 데이터 수집 파이프라인 | 🔄 대부분 완료 | SNS만 예정 (하드웨어 뉴스 추가 완료) |
 | Phase 3 | 다국어 전처리 | ✅ 완료 | VOC + 하드웨어 뉴스 전체 적용 |
 | Phase 4 | 데이터 분석 | ✅ 완료 | 차트 17개 (앱 9 + 하드웨어 7 + 연계 1) |
-| Phase 5 | PRD 작성 | ✅ 완료 | 앱 6개 + 하드웨어 5개 = 총 11개 기능 |
-| - | Tableau 대시보드 | ⏳ 예정 | - |
+| Phase 5 | PRD + 시장조사보고서 + Flowchart | ✅ 완료 | 아래 상세 참조 |
+| - | Tableau 시각화 | 🔄 진행중 | 포지셔닝맵·경쟁분석 완료, 트렌드 예정 |
 | - | Figma 프로토타입 | 🔄 진행중 | - |
 | - | 발표 자료 | ⏳ 예정 | 2026-06-13~18 |
 | - | 최종 발표 | 📌 확정 | 2026-06-19 |
@@ -756,15 +808,17 @@ flowchart TD
 
 | 테이블 | 건수 | 전처리 완료 컬럼 | 목적 | 분석 활용도 |
 |--------|------|---------------|------|-----------|
-| `app_reviews` | **28,890건** | 언어감지✅ 감성✅ 키워드✅ | VOC 핵심 | ⭐⭐⭐ 감성 분석, 카테고리화, PRD 근거 |
+| `app_reviews` | **28,890건** | 언어감지✅ 감성✅ 키워드✅ | VOC 핵심 | ⭐⭐⭐ 감성 분석, 카테고리화, PRD·시장보고서 근거 |
 | `youtube_stt` | **2,625세그먼트** | 언어감지✅ | VOC 핵심 | ⭐⭐⭐ 실사용 맥락, 시나리오 복기 |
-| `news_articles` | **2,060건** | 언어감지✅ 감성✅ 키워드✅ | Market Intel + HW | ⭐⭐ 시장·정책·하드웨어 근거 |
+| `news_articles` | **2,483건** | 언어감지✅ 감성✅ 키워드✅ | Market Intel + HW | ⭐⭐ 시장조사보고서 PEST·TAM 근거 |
+| `superapp_reviews` | **3,370건** | 언어감지✅ 감성✅ 키워드✅ | 슈퍼앱 경쟁 분석 | ⭐⭐ Grab·Gojek·LOCA·KOKKOK Move 비교 |
 | `youtube_comments` | **527건** | 언어감지✅ 감성✅ 키워드✅ | VOC 보조 | ⭐⭐ 사용자 반응 |
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
 | `youtube_videos` | **21개** | - | 메타데이터 | ⭐ |
 | `sns_posts` | 0건 | - | 참고 | 예정 |
 
-> 📌 `news_articles` 2,060건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 (한·영·베·태 4개 언어)
+> 📌 `news_articles` 2,483건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건
+> 📌 `superapp_reviews` 3,370건 = Grab 1,479 + Gojek 1,066 + LOCA Taxi 447 + KOKKOK Move 378 — 시장조사보고서 경쟁사 분석 전용
 
 ---
 
