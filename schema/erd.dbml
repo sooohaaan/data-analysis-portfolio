@@ -144,3 +144,31 @@ Table blog_posts {
 
   Note: "한국인 라오스 여행객 EV 충전 경험 리뷰 수집. BeautifulSoup 사용."
 }
+
+// ─────────────────────────────────────
+// 7. 뉴스 기사 (시장·정책 정보)
+// VOC(사용자 경험)와 분리: 언론 보도 기반 Market Intelligence
+// ─────────────────────────────────────
+Table news_articles {
+  id                 bigserial    [pk, increment]
+  source             varchar(30)  [not null, note: "naver_news | google_news | reuters 등"]
+  publisher          varchar(200) [note: "언론사명"]
+  title              text         [not null]
+  content            text         [not null, note: "기사 본문 또는 요약"]
+  url                text
+  published_date     date
+  country            char(3)      [note: "LAO | VNM | THA | KOR | MULTI 등"]
+  category           varchar(30)  [note: "policy | market | infrastructure | company | other"]
+  lang_detected      varchar(10)
+  translated_content text
+  created_at         timestamptz  [default: `now()`]
+
+  indexes {
+    source
+    published_date
+    country
+    category
+  }
+
+  Note: "동남아 EV 충전 관련 뉴스 기사. 시장 현황·정책·경쟁사 동향 파악용. VOC와 분리 관리."
+}
