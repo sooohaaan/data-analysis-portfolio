@@ -160,3 +160,33 @@ CREATE INDEX IF NOT EXISTS idx_news_category       ON news_articles (category);
 
 COMMENT ON TABLE news_articles IS '동남아 EV 충전 관련 뉴스 기사. 시장 현황·정책·경쟁사 동향 파악용.';
 COMMENT ON COLUMN news_articles.category IS 'policy(정책) | market(시장동향) | infrastructure(인프라) | company(기업동향) | other';
+
+-- ─────────────────────────────────────
+-- 8. 슈퍼앱 리뷰 (모빌리티 슈퍼앱 경쟁 분석)
+-- ─────────────────────────────────────
+-- 충전 앱(app_reviews)과 분리: Grab·Gojek·LOCA Taxi·KOKKOK Move 등
+-- 모빌리티 슈퍼앱 리뷰 기반 경쟁사 분석·EV 통합 전략 근거용
+CREATE TABLE IF NOT EXISTS superapp_reviews (
+    id                 BIGSERIAL    PRIMARY KEY,
+    store              VARCHAR(20)  NOT NULL CHECK (store IN ('google_play', 'app_store')),
+    app_name           VARCHAR(100) NOT NULL,        -- Grab | Gojek | LOCA Taxi | KOKKOK Move | KOKKOK Hero
+    app_category       VARCHAR(50),                   -- mobility_superapp | ev_charging | kokkok
+    country            CHAR(3)      NOT NULL,         -- LAO, VNM, THA, SEA(동남아 통합)
+    rating             SMALLINT     CHECK (rating BETWEEN 1 AND 5),
+    author             VARCHAR(200),
+    review_date        DATE,
+    content            TEXT         NOT NULL,
+    lang_detected      VARCHAR(10),                   -- lo, vi, th, en 등
+    translated_content TEXT,
+    sentiment_label    VARCHAR(10)  CHECK (sentiment_label IN ('positive', 'negative', 'neutral')),
+    sentiment_score    FLOAT        CHECK (sentiment_score BETWEEN 0 AND 1),
+    keyword_category   VARCHAR(50),                   -- 배차실패 | 결제오류 | 앱오류 | UI불편 | EV언급 | 기타
+    created_at         TIMESTAMPTZ  DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_superapp_reviews_app        ON superapp_reviews (app_name);
+CREATE INDEX IF NOT EXISTS idx_superapp_reviews_category   ON superapp_reviews (app_category);
+CREATE INDEX IF NOT EXISTS idx_superapp_reviews_sentiment  ON superapp_reviews (sentiment_label);
+
+COMMENT ON TABLE superapp_reviews IS '모빌리티 슈퍼앱(Grab·Gojek·LOCA Taxi·KOKKOK Move) 리뷰. 경쟁사 분석·EV 통합 전략 근거용. google-play-scraper / app-store-scraper 수집.';
+COMMENT ON COLUMN superapp_reviews.app_category IS 'mobility_superapp(글로벌 슈퍼앱) | ev_charging(충전) | kokkok(코코넛사일로 서비스)';
