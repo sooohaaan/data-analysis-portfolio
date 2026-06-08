@@ -56,6 +56,8 @@
     Phase 5. 프로덕트 기획
     ├── PRD — 앱 레이어 6개 + 하드웨어 레이어 5개 = 총 11개 기능
     ├── 시장조사 보고서 — PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT
+    ├── 라오스 EV 충전 현황 분석 — 시장·정책·서비스 현황
+    ├── EV 충전 요금 정책안 — 데이터 기반 요금 체계 제안
     ├── Flowchart — 충전 서비스 주요 Flow (draw.io + Mermaid)
     ├── Tableau 시각화 (포지셔닝맵·경쟁분석)
     ├── Figma 화면설계 / Figma Make 프로토타입
@@ -617,9 +619,9 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | 워드클라우드 | 사용자 불만 언어 | 기술 이슈 전문 용어 | 혼재 시 특성 희석 |
 | **연계 분석** | — | — | 앱오류 35% ↔ OCPP·기기 결함 원인 매핑 |
 
-#### 생성된 분석 차트 (`outputs/` 폴더) — 총 9개 (포지셔닝맵·경쟁분석·워드클라우드 추가 예정)
+#### 생성된 분석 차트 (`outputs/` 폴더) — 총 17개 (앱 9 + 하드웨어 7 + 연계 1)
 
-**앱 레이어 분석 (5개 완료 + 추가 예정)**
+**앱 레이어 분석 (9개)**
 
 | 파일 | 내용 | 상태 |
 |------|------|------|
@@ -633,7 +635,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | `12_wordcloud_vi.png` | 베트남어 Negative 워드클라우드 | ✅ |
 | `13_wordcloud_th.png` | 태국어 Negative 워드클라우드 | ✅ |
 
-**하드웨어 레이어 분석 (4개 완료 + 추가 예정)**
+**하드웨어 레이어 분석 (7개)**
 
 | 파일 | 내용 | 상태 |
 |------|------|------|
@@ -662,6 +664,8 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | **PRD** | `outputs/PRD_kokkok_ev.md` | 앱 6개 + HW 5개 = 총 11개 기능 명세, KPI |
 | **시장조사보고서** | `outputs/market_research_report.md` | PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT·결론 |
 | **데이터 분석 결과서** | `outputs/data_analysis_report.md` | 앱·HW 통합 분석, 벤치마킹, 한계 명시 |
+| **라오스 EV 충전 현황 분석** | `outputs/laos_ev_charging_situation_analysis.md` | 라오스·인접국 충전 시장·정책·서비스 현황 (앱 리뷰+유튜브 자막+뉴스 직접 분석) |
+| **EV 충전 요금 정책안** | `outputs/ev_charging_fee_policy.md` | 데이터 기반 요금 체계 제안 (결제 Pain Point 해소·경쟁사 단가 비교) |
 | **충전 서비스 Flowchart** | `outputs/charging_service_flowchart.drawio` | PRD 11개 기능 반영, draw.io + GitHub 연동 |
 | **Tableau 워크북** | `outputs/kokkok_ev_analysis.twb` | 포지셔닝맵·경쟁분석 시각화 |
 
