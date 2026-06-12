@@ -377,9 +377,11 @@ return has_laos and has_ev and has_exp
 
 ---
 
-#### 📘 SNS (Facebook / Instagram) — 🔄 예정
+#### 📘 SNS (Facebook / Instagram) — 🔄 A안 시도 (토큰 발급 대기)
 
-Meta Graph API 액세스 토큰 미발급으로 보류 중. 수집 불가 시 유튜브·블로그 데이터로 대체.
+- **A안 — IG 해시태그 수집**: `notebooks/06_instagram_hashtag_scraper.ipynb` 작성 완료. Instagram Graph API의 Hashtag Search로 라오스·베트남·태국 EV 해시태그 공개 게시물(캡션)을 수집.
+- **실행 전제**: IG 비즈니스 계정 + 연결된 FB 페이지 + 장기 토큰(`instagram_basic`·`pages_show_list`) + `IG_USER_ID`. → `.env`에 `FACEBOOK_ACCESS_TOKEN`·`IG_USER_ID` 설정 후 실행.
+- **한계**: 30 해시태그/7일 · `recent_media` 최근 24h · **캡션·집계만(댓글 본문·작성자 불가)** · 임의 공개 페이지 스크래핑 불가. 결과 희소 시 앱리뷰·유튜브 중심(B안) 유지.
 
 ---
 
@@ -823,7 +825,7 @@ flowchart TD
 | `youtube_comments` | **527건** | 언어감지✅ 감성✅ 키워드✅ | VOC 보조 | ⭐⭐ 사용자 반응 |
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
 | `youtube_videos` | **21개** | - | 메타데이터 | ⭐ |
-| `sns_posts` | 0건 | - | 참고 | 예정 |
+| `sns_posts` | 0건 | - | 참고 | A안(IG 해시태그) 노트북 준비, 토큰 발급 후 실행 |
 
 > 📌 `news_articles` 2,483건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건
 > 📌 `superapp_reviews` 3,370건 = Grab 1,479 + Gojek 1,066 + LOCA Taxi 447 + KOKKOK Move 378 — 시장조사보고서 경쟁사 분석 전용
