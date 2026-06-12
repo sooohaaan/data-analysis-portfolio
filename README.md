@@ -61,7 +61,7 @@
     ├── Flowchart — 충전 서비스 주요 Flow (draw.io + Mermaid)
     ├── Tableau 시각화 (포지셔닝맵·경쟁분석)
     ├── Figma 화면설계 / Figma Make 프로토타입
-    └── 발표자료 (예정)
+    └── 발표자료 — 20분 발표 deck 45장 (presentation/) ✅
 ```
 
 ---
@@ -803,8 +803,11 @@ flowchart TD
 | Phase 5 | PRD + 시장조사보고서 + Flowchart | ✅ 완료 | 아래 상세 참조 |
 | - | Tableau 시각화 | 🔄 진행중 | 포지셔닝맵·경쟁분석 완료, 트렌드 예정 |
 | - | Figma 프로토타입 | 🔄 진행중 | - |
-| - | 발표 자료 | ⏳ 예정 | 2026-06-13~18 |
+| - | 발표 자료 | ✅ 완료 | `presentation/` — 20분 발표 deck 45장 (목차·챕터 간지·페르소나 포함) |
 | - | 최종 발표 | 📌 확정 | 2026-06-19 |
+
+> 📊 **발표자료**: 데이터 분석 + 기획·설계 산출물을 하나의 발표로 통합 → [`presentation/`](presentation/) 참조.
+> 거시(PEST·TAM-SAM-SOM·경쟁사) → 미시(VOC·감성·포지셔닝·페르소나) → 솔루션(PRD·여정맵·OCPP·요금정책) 흐름.
 
 ---
 
