@@ -203,6 +203,8 @@
 
 ## 3. 경쟁사 분석 (Competitor Analysis)
 
+> 🔄 **2026-06 공식 자료 보강**: 본 절의 별점·감성·리뷰수는 직접 분석 데이터입니다. 여기에 더해 **경쟁사 공식 단가(PTT·PEA·EleX·V-Green·LOCA)와 슈퍼앱 규모(IR — Grab GMV $6.08B/Q4'25, GoTo GTV Rp15.7T/Q1'25)** 를 별도 수집했습니다 → [`competitor_pricing_and_market_share.md`](competitor_pricing_and_market_share.md). 단가는 요금정책 분석에 반영(기존 유튜브 추정 "9฿"→ 공식 PTT 4.5~7.5฿로 교정).
+
 ### 3-1. 직접 경쟁 — EV 충전 전용 앱
 
 > 📊 **본 보고서 직접 분석** — Google Play Scraper로 수집 후 XLM-RoBERTa 감성 분석 (2026.06)
