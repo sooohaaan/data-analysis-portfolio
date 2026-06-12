@@ -26,7 +26,7 @@
 ├── 앱스토어 리뷰 (Google Play)       └── 뉴스 기사 (네이버·Google News)
 ├── 유튜브 (API v3 + 자막)
 ├── 네이버 블로그 (API)
-└── SNS (Meta Graph API — 예정)
+└── SNS (Meta Graph API — 보류·보조)
               │
               ▼
     PostgreSQL / Supabase Cloud
@@ -380,11 +380,11 @@ return has_laos and has_ev and has_exp
 
 ---
 
-#### 📘 SNS (Facebook / Instagram) — 🔄 A안 시도 (토큰 발급 대기)
+#### 📘 SNS (Facebook / Instagram) — ⏸️ 보류 (B안 채택, 미수집)
 
-- **A안 — IG 해시태그 수집**: `notebooks/06_instagram_hashtag_scraper.ipynb` 작성 완료. Instagram Graph API의 Hashtag Search로 라오스·베트남·태국 EV 해시태그 공개 게시물(캡션)을 수집.
-- **실행 전제**: IG 비즈니스 계정 + 연결된 FB 페이지 + 장기 토큰(`instagram_basic`·`pages_show_list`) + `IG_USER_ID`. → `.env`에 `FACEBOOK_ACCESS_TOKEN`·`IG_USER_ID` 설정 후 실행.
-- **한계**: 30 해시태그/7일 · `recent_media` 최근 24h · **캡션·집계만(댓글 본문·작성자 불가)** · 임의 공개 페이지 스크래핑 불가. 결과 희소 시 앱리뷰·유튜브 중심(B안) 유지.
+- **결정(2026-06)**: **B안 채택 — IG 수집 보류**, 앱리뷰·유튜브·뉴스·슈퍼앱(39,700+건) 중심으로 분석 완결.
+- **사유**: Instagram Graph API는 ① 익명/키워드 검색 불가(해시태그 검색만) ② **캡션·집계만, 댓글 본문·작성자 불가** ③ 라오스 EV 해시태그 **절대량 희소** ④ 실행 전제(IG 비즈니스 계정+FB 페이지 연결+앱 제품 설정+사용자 장기 토큰)의 **투입 대비 산출이 낮음**. → IG는 처음부터 보조 수단이라 보류해도 분석 품질에 영향 없음.
+- **재시도 준비**: `notebooks/06_instagram_hashtag_scraper.ipynb`(IG 해시태그 수집) 완성 상태로 보존. **향후 IG 비즈니스 계정·사용자 토큰 여건이 갖춰지면** `.env`에 사용자 토큰·`IG_USER_ID` 설정 후 즉시 실행 가능.
 
 ---
 
@@ -828,7 +828,7 @@ flowchart TD
 | `youtube_comments` | **527건** | 언어감지✅ 감성✅ 키워드✅ | VOC 보조 | ⭐⭐ 사용자 반응 |
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
 | `youtube_videos` | **21개** | - | 메타데이터 | ⭐ |
-| `sns_posts` | 0건 | - | 참고 | A안(IG 해시태그) 노트북 준비, 토큰 발급 후 실행 |
+| `sns_posts` | 0건 | - | 참고 | ⏸️ 보류(B안) — IG 여건 시 노트북 06으로 재시도 |
 | `reference_stats` | **19건** | 출처·신뢰도✅ | 시장 참조 | 라오스 공식통계 10 + 경쟁사 단가 6 + IR 3 (LSB·ASEANstats·WB·IR) |
 
 > 📌 `news_articles` 2,483건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건
