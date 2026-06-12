@@ -829,7 +829,7 @@ flowchart TD
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
 | `youtube_videos` | **21개** | - | 메타데이터 | ⭐ |
 | `sns_posts` | 0건 | - | 참고 | ⏸️ 보류(B안) — IG 여건 시 노트북 06으로 재시도 |
-| `reference_stats` | **19건** | 출처·신뢰도✅ | 시장 참조 | 라오스 공식통계 10 + 경쟁사 단가 6 + IR 3 (LSB·ASEANstats·WB·IR) |
+| `reference_stats` | **38건** | 출처·신뢰도✅ | 시장 참조 | 라오스 공식 22 + 전력 7 + 경쟁사 단가 6 + IR 3 (LSB·ASEANstats·WB·기업IR) |
 
 > 📌 `news_articles` 2,483건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건
 > 📌 `superapp_reviews` 3,370건 = Grab 1,479 + Gojek 1,066 + LOCA Taxi 447 + KOKKOK Move 378 — 시장조사보고서 경쟁사 분석 전용
@@ -839,13 +839,13 @@ flowchart TD
 ## 🇱🇦 라오스 공식 통계 보강 (LSB / IGO)
 
 라오스 현지 정량 근거를 보강하기 위해 **라오스 통계청(LSB)·ASEANstats·World Bank·ITU** 공식 자료를 수집·분석했습니다.
-→ 수집 계획: [`docs/lsb_data_acquisition_plan.md`](docs/lsb_data_acquisition_plan.md) · 분석: [`outputs/laos_official_stats_analysis.md`](outputs/laos_official_stats_analysis.md) · 재현: [`notebooks/07_laos_official_stats.ipynb`](notebooks/07_laos_official_stats.ipynb)
+→ 수집 계획: [`docs/lsb_data_acquisition_plan.md`](docs/lsb_data_acquisition_plan.md) · 분석: [`outputs/laos_official_stats_analysis.md`](outputs/laos_official_stats_analysis.md) · 재현: [`notebooks/07_laos_official_stats.ipynb`](notebooks/07_laos_official_stats.ipynb)(차량)·[`08_reference_stats_loader.ipynb`](notebooks/08_reference_stats_loader.ipynb)(참조통계 적재)
 
 | 자료(P1~P3) | 핵심 수치 | 활용 |
 |------------|----------|------|
-| 등록 차량(2024) | 총 **316만 대** · 이륜차 **244.8만(77.5%)** | EV 침투율 **0.14%**(극초기) · **이륜차 EV 충전** 기회 |
+| 등록 차량·EV(2024) | 총 **316만 대** · 이륜차 **244.8만(77.5%)** · 전기이륜차 2,039 · 충전소 **41개** | EV 침투율 **0.14%** · **이륜차 충전 미개척**(충전소 41개뿐) |
 | 이동통신·인터넷 | 모바일 **85%** · 인터넷 **66%** | 앱·Wallet 가능 + **RFID 오프라인 결제** 필요 근거 |
-| 인구 | 라오스 765만 · 비엔티안 **102.9만(13.5%)** · 가구 137만 | SOM 비엔티안 집중 (LSB 1차) |
+| 인구·가구·연령 | 비엔티안 인구 **102.9만(13.5%)** · 가구 **18.8만 ≈ Savannakhet 18.6만** · **15~39세 43.2%** | SOM 양대 거점 + 얼리어답터 세그먼트 (LSB 1차) |
 | **전력/전기 ⭐** | 보급률 **96.5%** · 수출 40.8TWh vs 수입 0.6TWh · 주택 ~647₭/kWh | "동남아 배터리" — 충전 **원가 우위·확장성** |
 | 경제 | 1인당 GDP **$2,124** · 성장 ~4% | 가격 민감 → 저가 전략 정합 |
 

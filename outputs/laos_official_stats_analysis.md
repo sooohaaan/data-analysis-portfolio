@@ -79,6 +79,8 @@
 - LOCA 충전소·EV 수요가 비엔티안·주요 회랑(Vang Vieng~Pakse)에 집중 → **SOM = 비엔티안 중심**이 인구 분포상 타당.
 - **비엔티안 수도 = 전국 인구의 13.5%(102.9만 명)** + EV 4,437대의 도시 집중분 → 보수적 SOM 기준선.
 - **2차 거점(도별 인구, LSB 2024)**: Savannakhet 113.3만 · Champasack 79.1만(팍세) · Luangprabang 48.1만(관광) → 비엔티안 다음 충전 확장 후보. LOCA 회랑(비엔티안→방비엥→팍세)과 일치.
+- **도별 가구(LSB 2024, 충전=가구·차량 단위에 가까움)**: 전국 1,372,440 / **비엔티안 187,675(13.7%) ≈ Savannakhet 186,447** · Champasack 140,231 → 가구 기준 **비엔티안·사반나켓 양대 시장**(인구로는 사반나켓>비엔티안이나 가구로는 동률, 비엔티안 가구가 더 소형·도시형).
+- **연령 구조(LSB 2024)**: **15~39세 ≈ 43.2%** = EV 얼리어답터·라이드헤일링 드라이버·스마트폰 핵심층 / 0~14세 ~30% → **젊은 인구구조**가 EV·앱 기반 서비스에 우호적.
 - 🔄 기존 웹 수치(비엔티안 84만·10.6%)는 구 도시 기준이었으며, **LSB 2024 공식(수도 102.9만·13.5%)으로 상향 교정**.
 
 > 💾 **수집 방법**: LAOSIS는 공개 API가 없어 curl 직접 호출 불가(이전 확인). **브라우저 자동화(Chrome)로 통계표 페이지(`statHtml.do?tblId=DT_YEARBOOK_C001`)에 접근해 추출**. 한편 LAOSIS "vehicle" 검색 결과는 **사고 통계뿐** → 등록차량은 LAOSIS에 없고 **ASEANstats(LSB 미러)가 출처**임을 재확인.
@@ -114,7 +116,7 @@
 
 > ⚠️ **EV 충전소·EV 등록·앱 이용은 LSB에 없음** → Customs(4,437대)·LOCA(40→100개소)·VOC(리뷰 28,890 등)로 유지. ([수집 계획](../docs/lsb_data_acquisition_plan.md) 참조)
 >
-> 💾 **DB 저장**: 본 분석의 지표 + 경쟁사 단가/IR은 `reference_stats` 테이블(19행)에 적재됨. 적재 노트북: [`notebooks/08_reference_stats_loader.ipynb`](../notebooks/08_reference_stats_loader.ipynb)
+> 💾 **DB 저장**: 본 분석의 지표 + 전력·경쟁사 단가/IR은 `reference_stats` 테이블(**38행**: 라오스 공식 22·전력 7·단가 6·IR 3)에 적재됨. 적재 노트북: [`notebooks/08_reference_stats_loader.ipynb`](../notebooks/08_reference_stats_loader.ipynb)
 
 ## 출처
 - 등록 차량·이륜차: ASEANstats (LSB 출처) https://data.aseanstats.org/indicator/ASE.TRP.ROD.B.005 · …B.011

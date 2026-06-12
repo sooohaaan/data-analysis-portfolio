@@ -29,7 +29,7 @@
 | 🔴 **P1** | 등록 차량 유형별(이륜차 비중) | TAM/SAM 분모 · EV 침투율 · 이륜차 EV 충전 기회 | ✅ 수집 완료 |
 | 🔴 **P1** | 스마트폰·이동통신 보급률 | 앱·Wallet 결제 실현성 · 오프라인 결제 필요성 | ✅ 수집 완료 |
 | 🟠 **P2** | 가구 교통·연료 지출(LECS7) | EV 경제성 · 중산층 구매력 | 🔄 LECS7 PDF 추출 필요(부분) |
-| 🟠 **P2** | 비엔티안 인구·가구 | SOM(비엔티안 집중) 분모 | ✅ 수집 완료 |
+| 🟠 **P2** | 비엔티안 인구·**도별 가구**·**연령구조** | SOM 분모 · 얼리어답터 세그먼트 | ✅ 수집 완료 (도별 가구 B001·성연령 C002 브라우저 추출) |
 | 🟡 **P3** | GDP·1인당 소득 | PEST Economic 출처 정식화 | ✅ 수집 완료 |
 
 > 수집·분석 결과: [`outputs/laos_official_stats_analysis.md`](../outputs/laos_official_stats_analysis.md) · 재현 수집: [`notebooks/07_laos_official_stats.ipynb`](../notebooks/07_laos_official_stats.ipynb)
