@@ -15,3 +15,13 @@ venv/
 
 # macOS
 .DS_Store
+
+# 발표자료 빌드 (node_modules·렌더 임시 이미지)
+presentation/node_modules/
+presentation/slide-*.jpg
+presentation/slide-*.png
+presentation/chk-*.png
+presentation/hi*.png
+
+# 대용량 참고 PDF (타 프로젝트 자료 — 저장소 미포함)
+docs/reference/

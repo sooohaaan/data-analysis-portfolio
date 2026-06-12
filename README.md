@@ -61,7 +61,7 @@
     ├── Flowchart — 충전 서비스 주요 Flow (draw.io + Mermaid)
     ├── Tableau 시각화 (포지셔닝맵·경쟁분석)
     ├── Figma 화면설계 / Figma Make 프로토타입
-    └── 발표자료 (예정)
+    └── 발표자료 — 20분 발표 deck 45장 (presentation/) ✅
 ```
 
 ---
@@ -377,9 +377,11 @@ return has_laos and has_ev and has_exp
 
 ---
 
-#### 📘 SNS (Facebook / Instagram) — 🔄 예정
+#### 📘 SNS (Facebook / Instagram) — 🔄 A안 시도 (토큰 발급 대기)
 
-Meta Graph API 액세스 토큰 미발급으로 보류 중. 수집 불가 시 유튜브·블로그 데이터로 대체.
+- **A안 — IG 해시태그 수집**: `notebooks/06_instagram_hashtag_scraper.ipynb` 작성 완료. Instagram Graph API의 Hashtag Search로 라오스·베트남·태국 EV 해시태그 공개 게시물(캡션)을 수집.
+- **실행 전제**: IG 비즈니스 계정 + 연결된 FB 페이지 + 장기 토큰(`instagram_basic`·`pages_show_list`) + `IG_USER_ID`. → `.env`에 `FACEBOOK_ACCESS_TOKEN`·`IG_USER_ID` 설정 후 실행.
+- **한계**: 30 해시태그/7일 · `recent_media` 최근 24h · **캡션·집계만(댓글 본문·작성자 불가)** · 임의 공개 페이지 스크래핑 불가. 결과 희소 시 앱리뷰·유튜브 중심(B안) 유지.
 
 ---
 
@@ -663,6 +665,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 |------|------|---------|
 | **PRD** | `outputs/PRD_kokkok_ev.md` | 앱 6개 + HW 5개 = 총 11개 기능 명세, KPI |
 | **시장조사보고서** | `outputs/market_research_report.md` | PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT·결론 |
+| **경쟁사 단가·점유율 (공식 보강)** | `outputs/competitor_pricing_and_market_share.md` | 태국 3사·V-Green·LOCA 공식 단가 + Grab·GoTo IR (공식 1차 자료 수집) |
 | **데이터 분석 결과서** | `outputs/data_analysis_report.md` | 앱·HW 통합 분석, 벤치마킹, 한계 명시 |
 | **라오스 EV 충전 현황 분석** | `outputs/laos_ev_charging_situation_analysis.md` | 라오스·인접국 충전 시장·정책·서비스 현황 (앱 리뷰+유튜브 자막+뉴스 직접 분석) |
 | **EV 충전 요금 정책안** | `outputs/ev_charging_fee_policy.md` | 데이터 기반 요금 체계 제안 (결제 Pain Point 해소·경쟁사 단가 비교) |
@@ -803,8 +806,11 @@ flowchart TD
 | Phase 5 | PRD + 시장조사보고서 + Flowchart | ✅ 완료 | 아래 상세 참조 |
 | - | Tableau 시각화 | 🔄 진행중 | 포지셔닝맵·경쟁분석 완료, 트렌드 예정 |
 | - | Figma 프로토타입 | 🔄 진행중 | - |
-| - | 발표 자료 | ⏳ 예정 | 2026-06-13~18 |
+| - | 발표 자료 | ✅ 완료 | `presentation/` — 20분 발표 deck 45장 (목차·챕터 간지·페르소나 포함) |
 | - | 최종 발표 | 📌 확정 | 2026-06-19 |
+
+> 📊 **발표자료**: 데이터 분석 + 기획·설계 산출물을 하나의 발표로 통합 → [`presentation/`](presentation/) 참조.
+> 거시(PEST·TAM-SAM-SOM·경쟁사) → 미시(VOC·감성·포지셔닝·페르소나) → 솔루션(PRD·여정맵·OCPP·요금정책) 흐름.
 
 ---
 
@@ -819,7 +825,7 @@ flowchart TD
 | `youtube_comments` | **527건** | 언어감지✅ 감성✅ 키워드✅ | VOC 보조 | ⭐⭐ 사용자 반응 |
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
 | `youtube_videos` | **21개** | - | 메타데이터 | ⭐ |
-| `sns_posts` | 0건 | - | 참고 | 예정 |
+| `sns_posts` | 0건 | - | 참고 | A안(IG 해시태그) 노트북 준비, 토큰 발급 후 실행 |
 
 > 📌 `news_articles` 2,483건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건
 > 📌 `superapp_reviews` 3,370건 = Grab 1,479 + Gojek 1,066 + LOCA Taxi 447 + KOKKOK Move 378 — 시장조사보고서 경쟁사 분석 전용
