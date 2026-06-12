@@ -340,7 +340,7 @@ divider("0", "01", "시장 분석", "Market Analysis", "거시 환경 · 시장 
   const rows = [
     ["LOCA EV", "라오스", "5.0⭐", "14.3%", "7건", "현지 1위 · LOCA 택시 연동", "리뷰 거의 없음 (현지 문화)", "laos"],
     ["PTT blueplus+", "태국", "3.11⭐", "47.6%", "1,518건", "앱+카드 이중결제 · 주유소 연계", "태국 외 미확장", "bench"],
-    ["Green SM", "라오스·베트남", "2.56⭐", "53.5%", "26,603건", "최다 리뷰 · 인지도 최고", "UX·결제 오류 빈발", "laos"],
+    ["Green SM", "라오스·베트남", "2.56⭐", "53.5%", "26,603건", "리뷰 수 1위 · 인지도 최고", "UX·결제 오류 빈발", "laos"],
     ["PEA VOLTA", "태국", "2.28⭐", "67.9%", "499건", "태국 정부(PEA) 운영", "동남아 최하위 평점", ""],
     ["EleXA", "태국", "2.41⭐", "62.4%", "263건", "EGAT 국영 전기공사", "앱오류 · UI 심각", ""],
   ];
@@ -369,8 +369,8 @@ divider("0", "01", "시장 분석", "Market Analysis", "거시 환경 · 시장 
   s.addText([
     { text: "시사점  ", options: { bold: true, color: C.amber } },
     { text: "전체 평균 2점대 레드오션 — PTT(3.11⭐)가 유일한 벤치마크. 라오스 직접 경쟁은 LOCA EV·Green SM뿐.\n", options: { color: C.white } },
-    { text: "⚠ 데이터 한계  ", options: { bold: true, color: C.tealLt } },
-    { text: "시장 점유율 정량(%)은 검증 자료 부재 → 리뷰수를 인지도 대용 지표로 사용. 공개 단가는 LOCA EV 4,300₭/kWh(시간+kWh)뿐.", options: { color: "C9DBD8" } },
+    { text: "⚠ 데이터 보강  ", options: { bold: true, color: C.tealLt } },
+    { text: "점유율 정량(%)은 검증 자료 부재 → 리뷰수를 인지도 대용으로 사용. 공식 단가 수집: PTT 4.5~7.5฿·PEA 5.3~8.8฿·EleX 7.5฿·V-Green 3,858₫·LOCA 4,300₭/kWh.", options: { color: "C9DBD8" } },
   ], { x: M + 0.42, y: ry + 0.12, w: tw - 0.8, h: 1.0, fontFace: BF, fontSize: 11, valign: "middle", lineSpacingMultiple: 1.15, margin: 0 });
 })();
 
@@ -978,7 +978,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
     s.addText(t, { x: rx + 0.66, y: iy - 0.05, w: rw - 1.0, h: 0.7, fontFace: BF, fontSize: 12, color: C.white, lineSpacingMultiple: 1.12, valign: "top", margin: 0 });
     iy += 0.74;
   });
-  s.addText("⚠ 가격축은 공개 단가(LOCA EV) 기준, 품질·기능축은 별점·기능 수 기반 정성 평가.", {
+  s.addText("⚠ 가격축은 공식 단가(태국 3사·V-Green·LOCA 수집) 기준, 품질·기능축은 별점·기능 수 기반 정성 평가.", {
     x: rx + 0.38, y: py1 - 0.35, w: rw - 0.6, h: 0.5, fontFace: BF, fontSize: 9.5, italic: true, color: "8FB3AE", lineSpacingMultiple: 1.05, valign: "top", margin: 0,
   });
 })();

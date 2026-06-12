@@ -663,6 +663,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 |------|------|---------|
 | **PRD** | `outputs/PRD_kokkok_ev.md` | 앱 6개 + HW 5개 = 총 11개 기능 명세, KPI |
 | **시장조사보고서** | `outputs/market_research_report.md` | PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT·결론 |
+| **경쟁사 단가·점유율 (공식 보강)** | `outputs/competitor_pricing_and_market_share.md` | 태국 3사·V-Green·LOCA 공식 단가 + Grab·GoTo IR (공식 1차 자료 수집) |
 | **데이터 분석 결과서** | `outputs/data_analysis_report.md` | 앱·HW 통합 분석, 벤치마킹, 한계 명시 |
 | **라오스 EV 충전 현황 분석** | `outputs/laos_ev_charging_situation_analysis.md` | 라오스·인접국 충전 시장·정책·서비스 현황 (앱 리뷰+유튜브 자막+뉴스 직접 분석) |
 | **EV 충전 요금 정책안** | `outputs/ev_charging_fee_policy.md` | 데이터 기반 요금 체계 제안 (결제 Pain Point 해소·경쟁사 단가 비교) |
