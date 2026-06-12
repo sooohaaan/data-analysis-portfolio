@@ -84,6 +84,8 @@
 | **PEST Economic** | 1인당 GDP $2,124·성장 4% → 가격 민감·저가 전략 정합 |
 
 > ⚠️ **EV 충전소·EV 등록·앱 이용은 LSB에 없음** → Customs(4,437대)·LOCA(40→100개소)·VOC(리뷰 28,890 등)로 유지. ([수집 계획](../docs/lsb_data_acquisition_plan.md) 참조)
+>
+> 💾 **DB 저장**: 본 분석의 지표 + 경쟁사 단가/IR은 `reference_stats` 테이블(19행)에 적재됨. 적재 노트북: [`notebooks/08_reference_stats_loader.ipynb`](../notebooks/08_reference_stats_loader.ipynb)
 
 ## 출처
 - 등록 차량·이륜차: ASEANstats (LSB 출처) https://data.aseanstats.org/indicator/ASE.TRP.ROD.B.005 · …B.011
