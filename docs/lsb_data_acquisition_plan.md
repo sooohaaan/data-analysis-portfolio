@@ -50,8 +50,13 @@
 
 ---
 
-## 4. 접근 시 주의
+## 4. 접근 방법별 정리 (실측 확인)
 
-- **LAOSIS(`laosis.lsb.gov.la`)**: SSL 인증서 문제로 자동 수집 불가 → 브라우저 수동 접속 또는 통계연감 2024 PDF 다운로드.
-- **ASEANstats(`data.aseanstats.org`)**: LSB 차량 데이터를 미러링하며 **REST API 제공** → 프로그래밍 수집에 가장 적합 (notebook 07에서 사용).
-- **World Bank / ITU**: GDP·인구·ICT는 IGO 포털에서 안정적으로 접근 가능.
+- **LAOSIS(`laosis.lsb.gov.la`)**:
+  - SSL 인증서 미검증 → `curl -k`로 홈은 열리나, **데이터 표(`*.do`)는 공개 API가 없고 JS 세션/토큰 필요** → curl 직접 수집 불가.
+  - ✅ **브라우저 자동화(Chrome)로 수집 성공** — 통계표 뷰어 `statHtml.do?orgId=856&tblId=DT_YEARBOOK_C001`(도별 인구) 등 접근·추출 가능.
+  - ⚠️ **등록차량 통계는 LAOSIS에 없음** ("vehicle" 검색 = 사고 통계 2건뿐) → ASEANstats가 출처.
+- **ASEANstats(`data.aseanstats.org`)**: LSB 차량 데이터 미러 + **REST API** → 차량 통계는 여기서 수집(notebook 07).
+- **World Bank / ITU**: GDP·ICT는 IGO 포털에서 안정적 접근.
+
+> 💾 수집 결과: 비엔티안 수도 인구 등 LSB 도별 인구(2024)는 브라우저 자동화로 추출해 `reference_stats`에 반영.
