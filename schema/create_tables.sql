@@ -190,3 +190,29 @@ CREATE INDEX IF NOT EXISTS idx_superapp_reviews_sentiment  ON superapp_reviews (
 
 COMMENT ON TABLE superapp_reviews IS '모빌리티 슈퍼앱(Grab·Gojek·LOCA Taxi·KOKKOK Move) 리뷰. 경쟁사 분석·EV 통합 전략 근거용. google-play-scraper / app-store-scraper 수집.';
 COMMENT ON COLUMN superapp_reviews.app_category IS 'mobility_superapp(글로벌 슈퍼앱) | ev_charging(충전) | kokkok(코코넛사일로 서비스)';
+
+-- ─────────────────────────────────────
+-- 8. 참조 통계 (Reference Stats) — 거시 통계·경쟁사 단가/IR
+--    VOC가 아닌 시장/거시 참조 지표 단일 관리용 (LSB·ASEANstats·World Bank·기업 IR)
+-- ─────────────────────────────────────
+CREATE TABLE IF NOT EXISTS reference_stats (
+    id           BIGSERIAL PRIMARY KEY,
+    category     VARCHAR(30)  NOT NULL,  -- laos_official | competitor_pricing | competitor_ir
+    entity       VARCHAR(100) NOT NULL,  -- 대상(지표/사업자): 등록차량_총 / PTT blueplus+ / Grab 등
+    metric       VARCHAR(100) NOT NULL,  -- 지표명: registered_vehicles / price_per_kwh / on_demand_gmv 등
+    value_num    NUMERIC,                -- 단일 수치값(가능 시)
+    value_text   VARCHAR(200),           -- 범위/서술값: '4.5~7.5' 등
+    unit         VARCHAR(40),            -- 단위: 대 / THB/kWh / USD billion 등
+    country      CHAR(3),                -- LAO | THA | VNM | MUL
+    period       VARCHAR(20)  NOT NULL DEFAULT '-',  -- 기준: 2024 / Q4 2025
+    source       VARCHAR(200),           -- 출처
+    reliability  VARCHAR(10),            -- official | igo | secondary
+    note         TEXT,
+    created_at   TIMESTAMPTZ  DEFAULT NOW(),
+    UNIQUE (category, entity, metric, period)
+);
+
+CREATE INDEX IF NOT EXISTS idx_reference_stats_category ON reference_stats (category);
+CREATE INDEX IF NOT EXISTS idx_reference_stats_country  ON reference_stats (country);
+
+COMMENT ON TABLE reference_stats IS '거시 통계·경쟁사 단가/IR 등 시장 참조 지표. VOC 테이블과 분리. 출처·신뢰도(official/igo/secondary) 표기 필수.';
