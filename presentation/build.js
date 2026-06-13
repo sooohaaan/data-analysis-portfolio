@@ -310,13 +310,14 @@ divider("0", "01", "시장 분석", "Market Analysis", "거시 환경 · 시장 
   const concl = [
     "골든타임 — 충전소(40→100개소)와 EV(+111% YoY)가 동시에 늘어나는 12~18개월.",
     "LOCA 모델 검증 — 40개소 운영·1년 내 투자금 회수로 라오스 충전 사업성 입증.",
+    "비엔티안·사반나켓 양대 거점 — 가구 18.8/18.6만 집중, SOM 1차 타깃.",
     "Grab×BYD·GAC 7만 대 ASEAN 진출 = EV 라이드헤일링 시장이 실재한다는 증거.",
   ];
-  let cy2 = fy + 0.78;
+  let cy2 = fy + 0.72;
   concl.forEach((t) => {
-    s.addShape(pres.shapes.OVAL, { x: rx + 0.4, y: cy2 + 0.05, w: 0.18, h: 0.18, fill: { color: C.amber } });
-    s.addText(t, { x: rx + 0.72, y: cy2 - 0.05, w: rw - 1.05, h: 1.1, fontFace: BF, fontSize: 12.5, color: C.white, lineSpacingMultiple: 1.15, valign: "top", margin: 0 });
-    cy2 += 1.18;
+    s.addShape(pres.shapes.OVAL, { x: rx + 0.4, y: cy2 + 0.05, w: 0.16, h: 0.16, fill: { color: C.amber } });
+    s.addText(t, { x: rx + 0.7, y: cy2 - 0.05, w: rw - 1.0, h: 0.95, fontFace: BF, fontSize: 12, color: C.white, lineSpacingMultiple: 1.12, valign: "top", margin: 0 });
+    cy2 += 0.9;
   });
   s.addText("⚠ 데이터 신뢰도 원칙: 시장조사업체 추정치는 검증 실패로 전량 제외. IEA·EY-Parthenon·기업 공식 발표만 인용.", {
     x: rx + 0.4, y: fy + 4.0, w: rw - 0.7, h: 0.5, fontFace: BF, fontSize: 9.5, italic: true, color: "8FB3AE", lineSpacingMultiple: 1.05, valign: "top", margin: 0,
@@ -759,7 +760,7 @@ chartSlide("Insight · HW", "하드웨어 이슈 맵 — 빈도 높고 심각한
     },
     {
       name: "EV 차량 오너", tag: "초기·충성 타겟", col: C.tealDk,
-      demo: ["비엔티안 거주 자차 충전", "라오스 EV 4,437대(+111%)", "충성 고객化 가능 초기 시장"],
+      demo: ["비엔티안 거주 자차 충전", "라오스 EV 4,437대(+111%)", "15~39세 43.2% — 젊은 얼리어답터"],
       goals: ["가까운 충전소 탐색", "충전 완료 알림", "충전기 예약"],
       pains: ["충전소 위치 정보 부족", "충전 속도 불만", "예약 기능 부재"],
       src: "근거 · 충전소위치·충전속도 불만 분석",
