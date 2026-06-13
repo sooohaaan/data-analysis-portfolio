@@ -49,6 +49,27 @@
 - **LOCA (벤치마크 타당)**: "LOCA Stays The Number One Taxi Service In Laos", "PIDG invests $2.5M in LOCA", "LOCA PAY ... Visit Laos Year 2024" → **현지 1위 + 투자 유치 + 결제·관광 연계**. 임원진의 벤치마크 선택을 데이터가 뒷받침.
 - **KOKKOK Move (인지도 공백)**: "LVMC·코코넛사일로 합작 'KOKKOK Move' 플랫폼 런칭" 류 런칭 보도 소수 → **출시 인지도가 낮은 상태에서 슈퍼앱 확장**.
 
+### 4. 라오스 정부 정책 기조 — 강한 친(親)EV (늘리려는 기조)
+
+> 질문: 라오스 정부는 EV를 **늘리려는가 / 줄이려는가 / 무관심한가?** → 뉴스 신호로 판정.
+
+라오스 EV 관련 뉴스 486건의 정책 신호를 분류한 결과 **압도적으로 친EV**입니다.
+
+| 정책 신호 | 방향 | 언급 |
+|----------|------|------|
+| 충전 인프라 확충 | 🟢 pro | **78건** |
+| 보급 목표·로드맵·전환 가속 | 🟢 pro | **73건** |
+| 보조금·인센티브 | 🟢 pro | 6건 |
+| 가격 통제(보급 촉진용) | 🟢 pro | 4건 |
+| 세제·등록세 면제 | 🟢 pro | 1건 |
+| **EV 규제·축소** | 🔴 anti | **0건** (매칭 6건은 전수 검토 결과 전부 친EV 오탐) |
+
+- **진짜 반(反)EV 신호는 0건.** "규제"로 매칭된 6건은 *"BYD seeks further EV perks", "Bosch supports EV progress", "Laos Accelerates Electric Mobility Transformation as EV Workforce Training, Policy…"* 등 전부 **친EV**였음(키워드 오탐).
+- 헤드라인 직접 근거: **"Loca Transforms Taxis Into Electric Cars By 2030"**, **"Laos Accelerates Electric Mobility Transformation — EV Workforce Training, Policy"**, **"Xanh SM launches electric taxi … to promote green mobility"** → 정부·업계가 **전동화 전환을 적극 가속**.
+- 별도 1차 정책(기수집): **2026년 내연기관차 수입 중단**, **EV 등록세 면제(~2030)**, **EV 가격 통제**, **EV 정비 인력 양성** ([`laos_ev_charging_situation_analysis.md`](laos_ev_charging_situation_analysis.md) §1-2).
+
+> ✅ **판정: 라오스 정부는 EV를 강하게 "늘리려는" 기조** — 내연기관 축소 + 전동화 가속 + 충전 인프라 확충. KOKKOK EV 충전 사업에 **정책 순풍**이며, "골든타임 12~18개월" 가설을 정책 신호가 뒷받침.
+
 ---
 
 ## 시사점 — 벤치마크·경쟁 전략

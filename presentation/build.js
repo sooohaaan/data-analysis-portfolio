@@ -711,7 +711,7 @@ chartSlide("Insight · 02", "분석 ② 불만 구조 — 도메인을 나누니
 
 // 10. 포지셔닝 맵
 chartSlide("Insight · 03", "분석 ③ 경쟁 포지셔닝 — 비어 있는 ‘오른쪽 아래’",
-  "10_app_positioning_map.png", [1486, 885],
+  "10_app_positioning_map.png", [1155, 700],
   "지금 시장엔 ‘잘 만든 충전앱’이 없다.\nPTT(3.11점)만 넘어도 KOKKOK이 1위가 될 빈 자리다.",
   [
     "5개 앱 모두 별점 2.2~3.1·부정 우세 → 좌하단 밀집.",
@@ -741,7 +741,7 @@ chartSlide("Key Insight", "핵심 인사이트 — 가설을 데이터로 뒤집
 
 // 13. 하드웨어 포지셔닝
 chartSlide("Insight · HW", "하드웨어 이슈 맵 — 빈도 높고 심각한 문제 식별",
-  "14_hw_positioning_map.png", [1478, 886],
+  "14_hw_positioning_map.png", [1148, 700],
   "하드웨어 우선순위는 둘이다.\n가장 많이 언급된 OCPP 호환, 가장 심각한 충전기 결함.",
   [
     "OCPP·호환문제 — 언급 최다(169건) → 표준 준수 최우선.",
@@ -763,6 +763,7 @@ chartSlide("Insight · HW", "하드웨어 이슈 맵 — 빈도 높고 심각한
       demo: ["라이드헤일링 생계 운전자", "하루 2~3회 충전 · 낮 시간대", "LOCA Taxi EV 언급 16.1%"],
       goals: ["빠른 충전 시작", "안정적 결제", "충전소 위치 즉시 확인"],
       pains: ["충전 실패(앱 불안정)로 영업 손실", "결제 오류 반복", "배차·충전 대기 시간"],
+      size: "전기택시 드라이버(영업용 EV)·고빈도 충전",
       src: "근거 · LOCA Taxi 447건 + 유튜브 자막",
     },
     {
@@ -772,6 +773,7 @@ chartSlide("Insight · HW", "하드웨어 이슈 맵 — 빈도 높고 심각한
       demo: ["2주 체류 · 렌트 EV/스쿠터", "영어 사용 · 해외 카드 보유", "영어 리뷰 Negative 65.8%"],
       goals: ["국제 카드 결제", "영어 UI 지원", "앱 없이 QR 1회 결제"],
       pains: ["해외 카드 미지원", "영어 UI 부재", "결제 매번 실패"],
+      size: "연 관광객 다수 중 EV·스쿠터 렌트층",
       src: "근거 · 영어 리뷰 1,992건",
     },
     {
@@ -781,10 +783,11 @@ chartSlide("Insight · HW", "하드웨어 이슈 맵 — 빈도 높고 심각한
       demo: ["비엔티안 거주 자차 충전", "라오스 EV 4,437대(+111%)", "15~39세 43.2% 젊은 얼리어답터"],
       goals: ["가까운 충전소 탐색", "충전 완료 알림", "충전기 예약"],
       pains: ["충전소 위치 정보 부족", "충전 속도 불만", "예약 기능 부재"],
+      size: "누적 EV 4,437대(2024.10) — 초기 모수",
       src: "근거 · 충전소위치·충전 불만 + LSB 연령구조",
     },
   ];
-  const gap = 0.3, cw = (W - 2 * M - 2 * gap) / 3, x0 = M, cy = 1.74, ch = 5.0;
+  const gap = 0.3, cw = (W - 2 * M - 2 * gap) / 3, x0 = M, cy = 1.74, ch = 5.18;
   const block = (s, x, y, w, label, col, items) => {
     s.addText(label, { x: x, y: y, w: w, h: 0.28, fontFace: BF, fontSize: 10.5, bold: true, color: col, charSpacing: 1, margin: 0 });
     s.addText(items.map((t) => ({ text: t, options: { bullet: { code: "2022", indent: 11 }, breakLine: true, paraSpaceAfter: 3 } })),
@@ -802,6 +805,7 @@ chartSlide("Insight · HW", "하드웨어 이슈 맵 — 빈도 높고 심각한
     block(s, x + 0.24, cy + 1.26, cw - 0.46, "인구통계 · 특성", p.col, p.demo);
     block(s, x + 0.24, cy + 2.4, cw - 0.46, "목표 (Goals)", C.tealDk, p.goals);
     block(s, x + 0.24, cy + 3.54, cw - 0.46, "좌절 요인 (Frustrations)", C.red, p.pains);
+    s.addText([{ text: "규모(추정) ", options: { bold: true, color: p.col } }, { text: p.size, options: { color: C.ink } }], { x: x + 0.24, y: cy + ch - 0.64, w: cw - 0.46, h: 0.3, fontFace: BF, fontSize: 8.5, valign: "middle", lineSpacingMultiple: 1.0, margin: 0 });
     s.addText(p.src, { x: x + 0.24, y: cy + ch - 0.3, w: cw - 0.46, h: 0.26, fontFace: BF, fontSize: 8.5, italic: true, color: C.muted, margin: 0 });
   });
 })();
