@@ -49,6 +49,42 @@
 - **LOCA (벤치마크 타당)**: "LOCA Stays The Number One Taxi Service In Laos", "PIDG invests $2.5M in LOCA", "LOCA PAY ... Visit Laos Year 2024" → **현지 1위 + 투자 유치 + 결제·관광 연계**. 임원진의 벤치마크 선택을 데이터가 뒷받침.
 - **KOKKOK Move (인지도 공백)**: "LVMC·코코넛사일로 합작 'KOKKOK Move' 플랫폼 런칭" 류 런칭 보도 소수 → **출시 인지도가 낮은 상태에서 슈퍼앱 확장**.
 
+### 4. 라오스 정부 정책 기조 — 강한 친(親)EV (늘리려는 기조)
+
+> 질문: 라오스 정부는 EV를 **늘리려는가 / 줄이려는가 / 무관심한가?** → 뉴스 신호로 판정.
+
+라오스 EV 관련 뉴스 486건의 정책 신호를 분류한 결과 **압도적으로 친EV**입니다.
+
+| 정책 신호 | 방향 | 언급 |
+|----------|------|------|
+| 충전 인프라 확충 | 🟢 pro | **78건** |
+| 보급 목표·로드맵·전환 가속 | 🟢 pro | **73건** |
+| 보조금·인센티브 | 🟢 pro | 6건 |
+| 가격 통제(보급 촉진용) | 🟢 pro | 4건 |
+| 세제·등록세 면제 | 🟢 pro | 1건 |
+| **EV 규제·축소** | 🔴 anti | **0건** (매칭 6건은 전수 검토 결과 전부 친EV 오탐) |
+
+- **진짜 반(反)EV 신호는 0건.** "규제"로 매칭된 6건은 *"BYD seeks further EV perks", "Bosch supports EV progress", "Laos Accelerates Electric Mobility Transformation as EV Workforce Training, Policy…"* 등 전부 **친EV**였음(키워드 오탐).
+- 헤드라인 직접 근거: **"Loca Transforms Taxis Into Electric Cars By 2030"**, **"Laos Accelerates Electric Mobility Transformation — EV Workforce Training, Policy"**, **"Xanh SM launches electric taxi … to promote green mobility"** → 정부·업계가 **전동화 전환을 적극 가속**.
+- 별도 1차 정책(기수집): **2026년 내연기관차 수입 중단**, **EV 등록세 면제(~2030)**, **EV 가격 통제**, **EV 정비 인력 양성** ([`laos_ev_charging_situation_analysis.md`](laos_ev_charging_situation_analysis.md) §1-2).
+
+> ✅ **판정: 라오스 정부는 EV를 강하게 "늘리려는" 기조** — 내연기관 축소 + 전동화 가속 + 충전 인프라 확충. KOKKOK EV 충전 사업에 **정책 순풍**이며, "골든타임 12~18개월" 가설을 정책 신호가 뒷받침.
+
+**🗄️ 정책 뉴스 DB 적재 (재현용)**: 정책 전용 타겟 쿼리(내연기관 수입중단·세제면제·보조금·EV 목표·green mobility 등, en+ko)로 추가 수집해 `news_articles`(`category='policy'`, `country='LAO'`)에 적재. 정리 후 **라오스 정책 기사 161건(친EV 40 / 반EV 0)** — 방향성 재확인.
+**🔗 랜드마크 1차 정책 — URL 직접 검증·적재 (`source='web_direct'`)**: RSS 검색으로 표면화되지 않던 핵심 정책 원문을 직접 확인해 DB에 적재했습니다.
+
+| 정책 | 출처 | 검증 사실 |
+|------|------|----------|
+| **내연기관차 수입 잠정 중단** | Eco-Business 2026-05-27 | 휘발유·디젤 차량 수입 **2026.6.1~12월 한시 중단** + EV(<$50k) 소비세 면제 + 가격 통제 + 2030년 EV 30%+ 목표 |
+| **긴급 전동화 조치** | Laotian Times 2026-03-16 | 공무원 재택·EV 전환, EV 등록세 30%↓, 운송사 EV 10% 의무(2026말) — 연료위기 대응 |
+| **EV 목표·세제** | MarkLines 2021-10-12 | 0% 수입관세·3% 소비세·10% VAT·등록세 30%↓, 2025년 1%→2030년 30%+ |
+| **🏛️ 정부 공식(.gov.la)** | **KPL(국영 통신사) 2023-09-27** | 산업통상부 "EV·배터리 생산·공급·사용 촉진 + 전국 충전 인프라 구축" 공표. 석유 수입=총수입 20%→EV 전환 전략적. **정부 도메인 1차 출처** |
+| **정부 목표(MEM)** | Ministry of Energy and Mines | 2030년 **차량 30% 청정에너지 + 충전소 500개** 목표(실행계획 2025·전략 2030·비전 2050) |
+
+> 🏛️ **정부 웹사이트 확인 결과**: 라오스 **정부 공식 도메인 `kpl.gov.la`(국영 통신사)**에 EV 촉진 공표가 실재함을 확인·적재(`source='gov_la_kpl'`). 산업통상부(MOIC)가 EV 정책 주관, 에너지광물부(MEM)가 30%·충전소 500개(2030) 목표 설정. → **정부가 공식 채널로 EV 확대를 공표**(친EV 기조의 1차 근거).
+
+> ⚠️ **정직한 한계**: 정책 타겟 RSS 쿼리는 글로벌·ASEAN 노이즈(뉴욕·독일 ICE 금지, 中 EV 등)를 다수 끌어와 라오스 무관 99건을 `country='OTH'`로 재태깅(데이터 위생). 라오어(lo) Google 색인은 여전히 0건이라, 위 랜드마크는 **영어 원문 URL 직접 지정**으로 수집했습니다. (앞서 인용한 "2026.05.23"은 부정확 → **Eco-Business 2026.05.27**로 교정)
+
 ---
 
 ## 시사점 — 벤치마크·경쟁 전략
