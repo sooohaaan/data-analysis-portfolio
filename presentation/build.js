@@ -1370,6 +1370,58 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
 })();
 
 // ===================================================================
+// 18.75 [전략] 벤치마크·경쟁사 선정 — 데이터 vs 경영진 (범위별)
+// ===================================================================
+(() => {
+  const s = pres.addSlide();
+  chrome(s, "Benchmark", "벤치마크·경쟁사 선정 — 데이터 분석 vs 경영진 (범위별)");
+  const tx = M, ty = 1.8, tw = W - 2 * M;
+  const heads = ["범위", "데이터가 가리키는 대상", "경영진 구상", "핵심 장 · 단점"];
+  const cwd = [2.1, 4.3, 2.1, tw - 2.1 - 4.3 - 2.1];
+  const cx = [tx, tx + cwd[0], tx + cwd[0] + cwd[1], tx + cwd[0] + cwd[1] + cwd[2]];
+  // header
+  s.addShape(pres.shapes.RECTANGLE, { x: tx, y: ty, w: tw, h: 0.5, fill: { color: C.dark } });
+  heads.forEach((h, i) => s.addText(h, { x: cx[i] + 0.12, y: ty, w: cwd[i] - 0.2, h: 0.5, fontFace: HF, fontSize: 11.5, bold: true, color: i === 1 ? C.amber : (i === 0 ? C.tealLt : C.white), valign: "middle", margin: 0 }));
+  const rows = [
+    ["라오스 국한\n(진입 시장)", C.teal,
+      [{ t: "LOCA EV", b: true }, { t: " — 현지 1위·40개소·1년 회수", b: false }],
+      [{ t: "LOCA EV  ✓ 일치", b: true, c: C.tealDk }],
+      "＋ 동일 시장·모델·검증된 사업성\n－ VOC 7건뿐 → UX 분석엔 한계"],
+    ["역내 통합\n(라오스+태국+베트남)", C.amberDk,
+      [{ t: "PTT blueplus+", b: true }, { t: "(태국·UX 1위 3.11) · ", b: false }, { t: "VinFast·Xanh SM", b: true }, { t: "(베트남→라오스·위협) · Green SM", b: false }],
+      [{ t: "미지정", b: false, c: C.muted }],
+      "＋ UX 품질 기준·미래/경쟁 동학 대비\n－ 시장·규모 상이 → 직접 이식엔 한계"],
+  ];
+  let ry = ty + 0.5;
+  const rh = 1.18;
+  rows.forEach(([scope, scol, dataRuns, execRuns, pros], i) => {
+    s.addShape(pres.shapes.RECTANGLE, { x: tx, y: ry, w: tw, h: rh, fill: { color: i % 2 ? "EAF1EF" : C.white }, line: { color: C.line, width: 0.75 } });
+    s.addShape(pres.shapes.RECTANGLE, { x: tx, y: ry, w: 0.09, h: rh, fill: { color: scol } });
+    s.addText(scope, { x: cx[0] + 0.16, y: ry, w: cwd[0] - 0.24, h: rh, fontFace: HF, fontSize: 11.5, bold: true, color: C.ink, valign: "middle", lineSpacingMultiple: 1.05, margin: 0 });
+    s.addText(dataRuns.map((r) => ({ text: r.t, options: { bold: r.b, color: r.b ? C.tealDk : C.ink } })), { x: cx[1] + 0.12, y: ry, w: cwd[1] - 0.2, h: rh, fontFace: BF, fontSize: 11, valign: "middle", lineSpacingMultiple: 1.12, margin: 0 });
+    s.addText(execRuns.map((r) => ({ text: r.t, options: { bold: r.b, color: r.c || C.ink } })), { x: cx[2] + 0.12, y: ry, w: cwd[2] - 0.2, h: rh, fontFace: BF, fontSize: 11, valign: "middle", align: "center", margin: 0 });
+    s.addText(pros, { x: cx[3] + 0.12, y: ry, w: cwd[3] - 0.2, h: rh, fontFace: BF, fontSize: 10, color: C.muted, valign: "middle", lineSpacingMultiple: 1.15, margin: 0 });
+    ry += rh;
+  });
+  // 차이 원인
+  s.addText([
+    { text: "차이의 원인 — ", options: { bold: true, color: C.amberDk } },
+    { text: "경영진은 ‘진입 시장(현지)’ 렌즈로 LOCA를, 데이터는 ‘역내(성숙 시장·EV 선례)’ 렌즈로 PTT·Xanh SM을 가리킴 → 대상이 틀린 게 아니라 ", options: { color: C.ink } },
+    { text: "범위(scope)가 다른 것 — 상호보완.", options: { bold: true, color: C.ink } },
+  ], { x: tx, y: ry + 0.12, w: tw, h: 0.5, fontFace: BF, fontSize: 11.5, valign: "middle", lineSpacingMultiple: 1.1, margin: 0 });
+  // 결론 band
+  const by = ry + 0.66;
+  card(s, M, by, tw, 1.18, C.dark, false);
+  s.addShape(pres.shapes.RECTANGLE, { x: M, y: by, w: 0.16, h: 1.18, fill: { color: C.amber } });
+  s.addText([
+    { text: "결론 — LOCA EV를 경쟁사·벤치마크로 채택 ", options: { bold: true, color: C.amber } },
+    { text: "(동일 비즈모델·동일 시장·검증된 현지 사업성·동급 스케일).  ", options: { color: C.white } },
+    { text: "보완: ", options: { bold: true, color: C.tealLt } },
+    { text: "PTT blueplus+ = UX 품질 지향점 · VinFast·Xanh SM = 추적할 위협. → 경영진 판단을 데이터로 검증·강화.", options: { color: C.white } },
+  ], { x: M + 0.45, y: by + 0.16, w: tw - 0.9, h: 0.9, fontFace: BF, fontSize: 12.5, lineSpacingMultiple: 1.18, valign: "middle", margin: 0 });
+})();
+
+// ===================================================================
 // 18.8 [전략] 왜 우리가 이기나 — LOCA EV 대비
 // ===================================================================
 (() => {
