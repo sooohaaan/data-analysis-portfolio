@@ -846,6 +846,20 @@ flowchart TD
 라오스 현지 정량 근거를 보강하기 위해 **라오스 통계청(LSB)·ASEANstats·World Bank·ITU** 공식 자료를 수집·분석했습니다.
 → 수집 계획: [`docs/lsb_data_acquisition_plan.md`](docs/lsb_data_acquisition_plan.md) · 분석: [`outputs/laos_official_stats_analysis.md`](outputs/laos_official_stats_analysis.md) · 재현: [`notebooks/07_laos_official_stats.ipynb`](notebooks/07_laos_official_stats.ipynb)(차량)·[`08_reference_stats_loader.ipynb`](notebooks/08_reference_stats_loader.ipynb)(참조통계 적재)
 
+### 🔧 수집 방식 — VOC와 달리 출처별 접근법이 모두 다름
+
+reference 데이터는 앱·뉴스처럼 한 가지 스크래퍼로 받을 수 없어 **출처 성격에 맞춰 4가지 방식**으로 수집했습니다.
+
+| 데이터 | 수집 방식 | 도구 / 출처 | 비고 |
+|--------|----------|------------|------|
+| 라오스 **도별 인구·가구·연령** | **브라우저 자동화**로 통계표 뷰어(`statHtml.do?orgId=856&tblId=DT_YEARBOOK_*`) 접근·추출 | Chrome(claude-in-chrome MCP) — LAOSIS | LAOSIS는 **공개 API 없음**, `.do`가 JS 세션/토큰 게이트 → **curl 직접 호출 불가** |
+| 등록 **차량·이륜차** | **REST API** 호출 | ASEANstats(`data.aseanstats.org`) — LSB 미러 | LAOSIS엔 차량 통계 없음("vehicle"=사고 2건뿐) → ASEANstats가 출처 |
+| **전력·보급률·ICT·GDP** | 공식 포털 조회 / 보도 인용 | World Bank·IEA·ITU·EDL·DataReportal | IGO 포털은 안정적 접근 |
+| 경쟁사 **공식 단가·IR** | **웹 리서치**(공식 고지·IR 원문 직접 확인) | PTT·PEA·EGAT·VinFast 단가, Grab·GoTo IR | 시장조사업체 추정치는 전량 배제 |
+| (위 전부) **DB 적재** | Python `upsert`(`category·entity·metric·period` 키 충돌 갱신) | [`notebooks/08_reference_stats_loader.ipynb`](notebooks/08_reference_stats_loader.ipynb) | `reference_stats` 38건 |
+
+> ⚠️ **LAOSIS 직접 수집이 막힌 경위**: `curl -k`로 홈은 열리나 데이터 표(`*.do`)는 공개 API가 없고 JS 세션이 필요해 직접 수집 불가. SPA 통계표(`TblInfoList.do`)는 `document_idle`이 안 떠 캡처도 실패 → **홈 인기통계 직링크의 `statHtml.do` 표**를 브라우저 자동화로 접근하는 방식으로 우회. (상세: [`lsb_data_acquisition_plan.md`](docs/lsb_data_acquisition_plan.md) §4)
+
 | 자료(P1~P3) | 핵심 수치 | 활용 |
 |------------|----------|------|
 | 등록 차량·EV(2024) | 총 **316만 대** · 이륜차 **244.8만(77.5%)** · 전기이륜차 2,039 · 충전소 **41개** | EV 침투율 **0.14%** · **이륜차 충전 미개척**(충전소 41개뿐) |
