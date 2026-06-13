@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS app_reviews (
     translated_content TEXT,                  -- Google Translate → 영어
     sentiment_label    VARCHAR(10)  CHECK (sentiment_label IN ('positive', 'negative', 'neutral')),
     sentiment_score    FLOAT        CHECK (sentiment_score BETWEEN 0 AND 1),
-    keyword_category   VARCHAR(50),           -- 결제오류 | 연결실패 | UI불편 | 충전속도 | 앱오류 | 기타
+    keyword_category   VARCHAR(50),           -- 2계층 재분류: 앱오류·작동불가 | 계정·인증·KYC | 결제·환불·지갑 | 배차·호출실패 | 드라이버·서비스불만 | 충전소·위치 | 외국인·다국어 | 기타·미상 등 (src/review_classifier.py)
+    keyword_domain     VARCHAR(12),           -- 도메인: 충전 | 라이드 | 앱공통 | 검토 | 미상 (도메인 분리 재분류, notebook 09)
     created_at         TIMESTAMPTZ  DEFAULT NOW()
 );
 
