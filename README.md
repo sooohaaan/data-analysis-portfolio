@@ -857,7 +857,7 @@ flowchart TD
 |--------|------|---------------|------|-----------|
 | `app_reviews` | **28,890건** | 언어감지✅ 감성✅ 키워드✅ | VOC 핵심 | ⭐⭐⭐ 감성 분석, 카테고리화, PRD·시장보고서 근거 |
 | `youtube_stt` | **2,625세그먼트** | 언어감지✅ | VOC 핵심 | ⭐⭐⭐ 실사용 맥락, 시나리오 복기 |
-| `news_articles` | **2,483건** | 언어감지✅ 감성✅ 키워드✅ | Market Intel + HW | ⭐⭐ 시장조사보고서 PEST·TAM 근거 |
+| `news_articles` | **2,902건** | 언어감지✅ 감성✅ 키워드✅ | Market Intel + HW | ⭐⭐ 시장조사보고서 PEST·TAM·라오스 점유율 근거 |
 | `superapp_reviews` | **3,370건** | 언어감지✅ 감성✅ 키워드✅ | 슈퍼앱 경쟁 분석 | ⭐⭐ Grab·Gojek·LOCA·KOKKOK Move 비교 |
 | `youtube_comments` | **527건** | 언어감지✅ 감성✅ 키워드✅ | VOC 보조 | ⭐⭐ 사용자 반응 |
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
@@ -865,7 +865,7 @@ flowchart TD
 | `sns_posts` | 0건 | - | 참고 | ⏸️ 보류(B안) — IG 여건 시 노트북 06으로 재시도 |
 | `reference_stats` | **38건** | 출처·신뢰도✅ | 시장 참조 | 라오스 공식 22 + 전력 7 + 경쟁사 단가 6 + IR 3 (LSB·ASEANstats·WB·기업IR) |
 
-> 📌 `news_articles` 2,483건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건
+> 📌 `news_articles` 2,902건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건 + 라오스 타겟 419건
 > 📌 `superapp_reviews` 3,370건 = Grab 1,479 + Gojek 1,066 + LOCA Taxi 447 + KOKKOK Move 378 — 시장조사보고서 경쟁사 분석 전용
 
 ---
@@ -894,6 +894,17 @@ flowchart TD
 | **모빌리티·충전 앱 이용** | 정부통계 아님 | **본 프로젝트 VOC**(앱리뷰 28,890 등) |
 
 > 📌 **EV 충전소·EV 등록·앱 이용 = LSB에 없음 → Customs(4,437대)·LOCA·VOC 유지.**
+
+---
+
+## 🇱🇦 라오스 뉴스 점유율 분석 (Share of Voice)
+
+라오스 현지 경쟁 구도를 정량화하기 위해 **Google News RSS(en) + Naver(ko)** 로 라오스 모빌리티·EV 타겟 뉴스 **419건 신규** 수집 → EV·모빌리티 관련 **393건** 분석.
+→ 분석: [`outputs/laos_market_share_of_voice.md`](outputs/laos_market_share_of_voice.md) · 재현: [`notebooks/10_laos_news_collection.ipynb`](notebooks/10_laos_news_collection.ipynb) · 차트 [`outputs/19_laos_share_of_voice.png`](outputs/19_laos_share_of_voice.png)·[`outputs/20_laos_news_trend.png`](outputs/20_laos_news_trend.png)
+
+- **브랜드 뉴스 점유율**(언급 41건): **VinFast·Xanh SM 21 > LOCA 17 > KOKKOK Move 3 > Grab 0**. 뉴스량 2022(10)→2026(132) 약 13배 급증.
+- **시사점**: 벤치마크 2축(LOCA + Xanh SM)으로 확장 · Grab 미진출로 경쟁군 축소 · KOKKOK Move 인지도 약세.
+- ⚠️ 라오어(lo) 색인 0건·Facebook 미수집·표본 N 작음 → 점유율·인지도 **프록시**로 해석.
 
 ---
 
