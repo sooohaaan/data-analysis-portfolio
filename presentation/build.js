@@ -125,17 +125,20 @@ const tocRowMeta = [];     // {key, x, y, w} for deferred page-number text
 function divider(key, no, ko, en, sub) {
   chapStart[key] = pageNo + 1;            // next numbered (chrome) slide
   const s = pres.addSlide();
-  s.background = { color: C.dark };
-  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: W, h: 0.14, fill: { color: C.amber } });
-  s.addShape(pres.shapes.OVAL, { x: W - 3.2, y: -1.9, w: 4.8, h: 4.8, fill: { color: C.dark2, transparency: 38 } });
-  s.addShape(pres.shapes.OVAL, { x: W - 1.4, y: 3.9, w: 3.0, h: 3.0, fill: { color: C.tealDk, transparency: 45 } });
-  // huge faded chapter number
-  s.addText(no, { x: W - 4.6, y: 1.0, w: 4.2, h: 5.2, fontFace: HF, fontSize: 200, bold: true, color: C.dark2, align: "right", valign: "middle", margin: 0 });
-  s.addShape(pres.shapes.RECTANGLE, { x: M, y: 2.55, w: 0.16, h: 2.0, fill: { color: C.amber } });
-  s.addText("CHAPTER " + no, { x: M + 0.42, y: 2.55, w: 8, h: 0.4, fontFace: BF, fontSize: 15, bold: true, color: C.tealLt, charSpacing: 3, margin: 0 });
-  s.addText(ko, { x: M + 0.4, y: 3.0, w: 9, h: 1.0, fontFace: HF, fontSize: 48, bold: true, color: C.white, margin: 0 });
-  s.addText(en, { x: M + 0.42, y: 4.05, w: 9, h: 0.4, fontFace: HF, fontSize: 18, italic: true, color: C.amber, margin: 0 });
-  if (sub) s.addText(sub, { x: M + 0.42, y: 4.55, w: 9.5, h: 0.4, fontFace: BF, fontSize: 14, color: C.tealLt, margin: 0 });
+  // NAVER-style divider: light bg + green gradient glow + big centered title
+  s.background = { color: C.light };
+  s.addShape(pres.shapes.OVAL, { x: W - 7.5, y: -4.0, w: 14, h: 14, fill: { color: C.tealLt, transparency: 52 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 5.0, y: -2.0, w: 9, h: 9, fill: { color: C.teal, transparency: 64 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 2.4, y: 3.6, w: 4.6, h: 4.6, fill: { color: C.tealLt, transparency: 38 } });
+  s.addShape(pres.shapes.OVAL, { x: -2.2, y: 4.2, w: 5.0, h: 5.0, fill: { color: C.tealLt, transparency: 66 } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: W, h: 0.1, fill: { color: C.amber } });
+  // ghost chapter number (light)
+  s.addText(no, { x: 0, y: 0.5, w: W - 0.6, h: 1.6, fontFace: HF, fontSize: 120, bold: true, color: "FFFFFF", align: "right", valign: "top", margin: 0, transparency: 35 });
+  // centered eyebrow + title + sub
+  s.addText("CHAPTER " + no + "   ·   " + en.toUpperCase(), { x: 0, y: 2.78, w: W, h: 0.4, fontFace: BF, fontSize: 14, bold: true, color: C.teal, charSpacing: 3, align: "center", valign: "middle", margin: 0 });
+  s.addText(ko, { x: 0, y: 3.2, w: W, h: 1.2, fontFace: HF, fontSize: 54, bold: true, color: C.ink, align: "center", valign: "middle", margin: 0 });
+  s.addShape(pres.shapes.RECTANGLE, { x: W / 2 - 0.55, y: 4.55, w: 1.1, h: 0.05, fill: { color: C.amber } });
+  if (sub) s.addText(sub, { x: 0, y: 4.74, w: W, h: 0.4, fontFace: BF, fontSize: 14, color: C.muted, align: "center", valign: "middle", margin: 0 });
 }
 
 // ===================================================================
@@ -550,20 +553,29 @@ divider("1", "02", "문제 정의", "Problem Definition", "데이터로 검증�
 (() => {
   const s = pres.addSlide();
   chrome(s, "Problem", "왜 EV 충전인가 — 골든타임의 라오스 시장");
-  // top stat strip
-  const stats = [
-    ["4,437대", "라오스 EV 누적 수입\n(2024.10, +111% YoY)", C.teal],
-    ["40 → 100개소", "LOCA EV 충전소\n2024년 말 → 2026 목표", C.amber],
-    ["2.56점", "동남아 충전앱 평균 별점\n/ 5점 (Negative 53.5%)", C.red],
-    ["12~18개월", "Kokkok EV\n시장 진입 골든타임", C.tealDk],
-  ];
-  const sw = 2.95, sg = 0.2, sx0 = (W - (4 * sw + 3 * sg)) / 2, sy = 1.72;
-  stats.forEach(([num, lab, col], i) => {
-    const x = sx0 + i * (sw + sg);
-    card(s, x, sy, sw, 1.96);
-    s.addShape(pres.shapes.RECTANGLE, { x, y: sy, w: sw, h: 0.1, fill: { color: col } });
-    s.addText(num, { x: x + 0.1, y: sy + 0.32, w: sw - 0.2, h: 0.7, fontFace: HF, fontSize: 28, bold: true, color: col, align: "center", valign: "middle", margin: 0 });
-    s.addText(lab, { x: x + 0.12, y: sy + 1.04, w: sw - 0.24, h: 0.85, fontFace: BF, fontSize: 11, color: C.muted, align: "center", valign: "top", lineSpacingMultiple: 1.1, margin: 0 });
+  // top stat strip — NAVER-style: big circle + growth bars + big numbers
+  const zw = (W - 2 * M) / 4, sy = 1.72;
+  const zx = (i) => M + i * zw;
+  // Zone 0: big green circle (EV 누적, hero)
+  const cd = 1.75, ccx = zx(0) + zw / 2, ccy = sy + 1.0;
+  s.addShape(pres.shapes.OVAL, { x: ccx - cd / 2, y: ccy - cd / 2, w: cd, h: cd, fill: { color: C.teal } });
+  s.addText([{ text: "4,437", options: { fontSize: 30, bold: true, color: C.white } }, { text: "대", options: { fontSize: 15, color: C.white } }],
+    { x: ccx - cd / 2, y: ccy - cd / 2, w: cd, h: cd, fontFace: HF, align: "center", valign: "middle", margin: 0 });
+  s.addText([{ text: "라오스 EV 누적 수입  ", options: { color: C.muted } }, { text: "+111%↑", options: { bold: true, color: C.teal } }],
+    { x: zx(0) - 0.1, y: sy + 2.02, w: zw + 0.2, h: 0.34, fontFace: BF, fontSize: 10.5, align: "center", valign: "top", margin: 0 });
+  // Zone 1: before/after growth bars (충전소 40 → 100)
+  const bx = zx(1) + 0.2, bw = zw - 0.6, by = sy + 0.5;
+  s.addText("LOCA EV 충전소 (개소)", { x: zx(1), y: sy + 0.08, w: zw, h: 0.3, fontFace: BF, fontSize: 10.5, bold: true, color: C.ink, align: "center", margin: 0 });
+  s.addShape(pres.shapes.RECTANGLE, { x: bx, y: by, w: bw * 0.4, h: 0.34, fill: { color: C.line } });
+  s.addText("2024  40", { x: bx + 0.08, y: by, w: bw, h: 0.34, fontFace: BF, fontSize: 10, color: C.muted, valign: "middle", margin: 0 });
+  s.addShape(pres.shapes.RECTANGLE, { x: bx, y: by + 0.5, w: bw, h: 0.34, fill: { color: C.amber } });
+  s.addText("2026  100", { x: bx + 0.08, y: by + 0.5, w: bw, h: 0.34, fontFace: BF, fontSize: 10, bold: true, color: C.white, valign: "middle", margin: 0 });
+  s.addText([{ text: "2.5배 ↑", options: { bold: true, color: C.amber } }, { text: "  2026 목표", options: { color: C.muted } }],
+    { x: zx(1), y: by + 1.0, w: zw, h: 0.32, fontFace: BF, fontSize: 11, align: "center", margin: 0 });
+  // Zone 2,3: big numbers
+  [["2.56점", "동남아 충전앱 평균 별점 (Neg 53.5%)", C.red, 2], ["12~18개월", "Kokkok EV 시장 진입 골든타임", C.tealDk, 3]].forEach(([num, lab, col, i]) => {
+    s.addText(num, { x: zx(i), y: sy + 0.5, w: zw, h: 0.95, fontFace: HF, fontSize: 36, bold: true, color: col, align: "center", valign: "middle", margin: 0 });
+    s.addText(lab, { x: zx(i) + 0.1, y: sy + 1.5, w: zw - 0.2, h: 0.6, fontFace: BF, fontSize: 10.5, color: C.muted, align: "center", valign: "top", lineSpacingMultiple: 1.1, margin: 0 });
   });
   // insight band
   card(s, M, 4.05, W - 2 * M, 2.3, C.dark, false);
