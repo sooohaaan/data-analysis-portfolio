@@ -801,7 +801,7 @@ function artifactSlide(d) {
 }
 
 // 8. 감성 분석
-chartSlide("Insight · 01", "분석 ① 채널별 감성 분포 — 앱 UX가 가장 아프다",
+chartSlide("Insight · 01", "분석 ① 채널별 감성 분포 — 사용자 Pain Point 1순위: 서비스 앱 사용성",
   "02_sentiment_by_app_nv.png", [1336, 734],
   "사용자 불만은 ‘앱스토어 리뷰’에 집중된다.\n앱 UX가 가장 시급한 개선 지점이다.",
   [
@@ -1387,7 +1387,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   // left: final fee table (KOKKOK vs LOCA)
   const heads = ["항목", "KOKKOK (확정)", "LOCA EV (참고)"];
   const rows = [
-    ["결제 방식", "Wallet 선불", "카드 가승인·후불"],
+    ["결제 방식", "wallet 충전식 결제", "카드 가승인·후불"],
     ["충전 최소 잔액", "20,000 ₭", "15,000 ₭"],
     ["과금 방식", "전력량(kWh) 단일", "시간(분) + kWh"],
     ["에너지 단가", "4,000 ₭/kWh", "4,300 ₭/kWh"],
@@ -1419,7 +1419,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   s.addShape(pres.shapes.RECTANGLE, { x: rx, y: ty, w: 0.14, h: ph, fill: { color: C.teal } });
   s.addText("운영 규칙", { x: rx + 0.4, y: ty + 0.2, w: rw - 0.7, h: 0.4, fontFace: HF, fontSize: 15, bold: true, color: C.ink, margin: 0 });
   const rules = [
-    ["결제 · 정산", "Wallet 선불 차감 → 잔액 0 도달 시 충전 자동 종료 (미수금 0)"],
+    ["결제 · 정산", "사용한도 기반 후불제 → 잔액 0 도달 시 충전 자동 종료 (미수금 0)"],
     ["충전 시작 조건", "충전기 Available · 통신 정상 · 최소 잔액 · 1계정 1충전"],
     ["충전 종료", "완충(BMS) · 종료 버튼 · 5분 통신 단절 자동 종료 · 잔액 소진"],
     ["충전기 상태 (OCPP)", "Faulted · Offline 상태는 시작 버튼 자동 비활성화"],
