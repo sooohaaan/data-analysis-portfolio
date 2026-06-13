@@ -70,6 +70,9 @@
 
 > ✅ **판정: 라오스 정부는 EV를 강하게 "늘리려는" 기조** — 내연기관 축소 + 전동화 가속 + 충전 인프라 확충. KOKKOK EV 충전 사업에 **정책 순풍**이며, "골든타임 12~18개월" 가설을 정책 신호가 뒷받침.
 
+**🗄️ 정책 뉴스 DB 적재 (재현용)**: 정책 전용 타겟 쿼리(내연기관 수입중단·세제면제·보조금·EV 목표·green mobility 등, en+ko)로 추가 수집해 `news_articles`(`category='policy'`, `country='LAO'`)에 적재. 정리 후 **라오스 정책 기사 161건(친EV 40 / 반EV 0)** — 방향성 재확인.
+> ⚠️ **정직한 한계**: 타겟 쿼리가 글로벌·ASEAN 정책 뉴스(뉴욕·독일 ICE 금지, 中 EV 등)를 다수 끌어와 라오스 무관 99건은 `country='OTH'`로 재태깅(데이터 위생). 또한 **랜드마크 1차 정책 기사(2026 내연기관 수입중단·등록세 면제)는 Google/Naver 색인에 표면화되지 않아** 별도 수집 실패 → 해당 사실은 [`laos_ev_charging_situation_analysis.md`](laos_ev_charging_situation_analysis.md) §1-2의 Laotian Times 인용으로 유지. (라오어 색인·Facebook 미수집 한계와 동일 맥락)
+
 ---
 
 ## 시사점 — 벤치마크·경쟁 전략
