@@ -43,8 +43,8 @@ const C = {
   white:  "FFFFFF",
 };
 
-const HF = "Arial";          // header font (NAVER-style bold sans; Korean→gothic fallback)
-const BF = "Calibri";        // body font
+const HF = "Arial";          // NAVER monoline gothic — headers (Korean → gothic fallback)
+const BF = "Arial";          // body — same neo-grotesque family for NAVER consistency
 
 const W = 13.333, H = 7.5;
 const M = 0.62;              // outer margin
@@ -62,10 +62,10 @@ const sh = (o = {}) => ({ type: "outer", color: "0E2A2E", blur: 9, offset: 3, an
 // ---------- shared chrome ----------
 let pageNo = 0;
 function chrome(slide, kicker, title, opts = {}) {
-  slide.background = { color: opts.bg || C.light };
+  slide.background = { color: opts.bg || C.white };
   pageNo++;
-  // ---- top navigation bar (NAVER-style chapter nav) ----
-  slide.addText("KOKKOK EV", { x: M, y: 0.16, w: 2.2, h: 0.26, fontFace: HF, fontSize: 12, bold: true, color: C.dark, valign: "middle", margin: 0 });
+  // ---- NAVER global header: wordmark (left) · chapter nav (right) · hairline ----
+  slide.addText("KOKKOK EV", { x: M, y: 0.18, w: 2.4, h: 0.3, fontFace: HF, fontSize: 13, bold: true, color: C.ink, charSpacing: 1, valign: "middle", margin: 0 });
   const chaps = [
     ["시장 분석", /market|benchmark|lesson/i],
     ["문제 정의", /problem/i],
@@ -74,32 +74,32 @@ function chrome(slide, kicker, title, opts = {}) {
     ["기대효과", /impact|retro|risk|roadmap/i],
     ["부록", /appendix|glossary|inventory/i],
   ];
-  const navX0 = 4.95, navW = (W - M - navX0) / 6;
+  const navW = 1.16, navGap = 0.1, navTot = chaps.length * navW + (chaps.length - 1) * navGap;
+  const navX0 = W - M - navTot;
   const activeIdx = chaps.findIndex(([, rx]) => rx.test(kicker || ""));
   chaps.forEach(([label], i) => {
     const active = i === activeIdx;
-    const x = navX0 + i * navW;
-    slide.addText(label, { x, y: 0.16, w: navW, h: 0.26, fontFace: BF, fontSize: 9, bold: active, color: active ? C.teal : C.muted, align: "center", valign: "middle", margin: 0 });
-    if (active) slide.addShape(pres.shapes.RECTANGLE, { x: x + navW / 2 - 0.36, y: 0.45, w: 0.72, h: 0.028, fill: { color: C.teal } });
+    const x = navX0 + i * (navW + navGap);
+    slide.addText(label, { x, y: 0.18, w: navW, h: 0.3, fontFace: BF, fontSize: 9, bold: active, color: active ? C.ink : C.muted, align: "center", valign: "middle", margin: 0 });
+    if (active) slide.addShape(pres.shapes.RECTANGLE, { x: x + navW / 2 - 0.28, y: 0.5, w: 0.56, h: 0.032, fill: { color: C.teal } });
   });
-  slide.addShape(pres.shapes.LINE, { x: M, y: 0.5, w: W - 2 * M, h: 0, line: { color: C.line, width: 0.75 } });
-  // ---- kicker + title ----
-  slide.addShape(pres.shapes.RECTANGLE, { x: M, y: 0.72, w: 0.16, h: 0.52, fill: { color: C.amber } });
-  slide.addText((kicker || "").toUpperCase(), {
-    x: M + 0.28, y: 0.68, w: 8, h: 0.3, fontFace: BF, fontSize: 11.5, bold: true,
+  slide.addShape(pres.shapes.LINE, { x: M, y: 0.6, w: W - 2 * M, h: 0, line: { color: C.line, width: 0.75 } });
+  // ---- NAVER page title: small green eyebrow + big black title (no colored bar) ----
+  if (kicker) slide.addText((kicker || "").toUpperCase(), {
+    x: M, y: 0.78, w: 11.6, h: 0.26, fontFace: BF, fontSize: 10.5, bold: true,
     color: C.teal, charSpacing: 2, align: "left", valign: "middle", margin: 0,
   });
   slide.addText(title, {
-    x: M + 0.28, y: 0.94, w: 11.6, h: 0.62, fontFace: HF, fontSize: 26, bold: true,
+    x: M, y: 1.0, w: 12.1, h: 0.58, fontFace: HF, fontSize: 27, bold: true,
     color: C.ink, align: "left", valign: "middle", margin: 0,
   });
-  // footer
-  slide.addShape(pres.shapes.LINE, { x: M, y: H - 0.5, w: W - 2 * M, h: 0, line: { color: C.line, width: 1 } });
-  slide.addText("코코넛사일로 · KOKKOK EV 서비스 기획", {
-    x: M, y: H - 0.46, w: 6, h: 0.3, fontFace: BF, fontSize: 9, color: C.muted, align: "left", margin: 0,
+  // ---- NAVER footer: hairline + report name (left) · page number (right) ----
+  slide.addShape(pres.shapes.LINE, { x: M, y: H - 0.46, w: W - 2 * M, h: 0, line: { color: C.line, width: 0.75 } });
+  slide.addText("KOKKOK EV  ·  핀테크 서비스 기획 4회차", {
+    x: M, y: H - 0.42, w: 7, h: 0.28, fontFace: BF, fontSize: 8.5, color: C.muted, charSpacing: 1, align: "left", valign: "middle", margin: 0,
   });
   slide.addText(`${pageNo}`, {
-    x: W - M - 0.6, y: H - 0.46, w: 0.6, h: 0.3, fontFace: BF, fontSize: 9, color: C.muted, align: "right", margin: 0,
+    x: W - M - 0.7, y: H - 0.42, w: 0.7, h: 0.28, fontFace: BF, fontSize: 10.5, bold: true, color: C.ink, align: "right", valign: "middle", margin: 0,
   });
 }
 
@@ -126,20 +126,19 @@ const tocRowMeta = [];     // {key, x, y, w} for deferred page-number text
 function divider(key, no, ko, en, sub) {
   chapStart[key] = pageNo + 1;            // next numbered (chrome) slide
   const s = pres.addSlide();
-  // NAVER-style divider: light bg + green gradient glow + big centered title
-  s.background = { color: C.light };
-  s.addShape(pres.shapes.OVAL, { x: W - 7.5, y: -4.0, w: 14, h: 14, fill: { color: C.tealLt, transparency: 52 } });
-  s.addShape(pres.shapes.OVAL, { x: W - 5.0, y: -2.0, w: 9, h: 9, fill: { color: C.teal, transparency: 64 } });
-  s.addShape(pres.shapes.OVAL, { x: W - 2.4, y: 3.6, w: 4.6, h: 4.6, fill: { color: C.tealLt, transparency: 38 } });
-  s.addShape(pres.shapes.OVAL, { x: -2.2, y: 4.2, w: 5.0, h: 5.0, fill: { color: C.tealLt, transparency: 66 } });
-  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: W, h: 0.1, fill: { color: C.amber } });
-  // ghost chapter number (light)
-  s.addText(no, { x: 0, y: 0.5, w: W - 0.6, h: 1.6, fontFace: HF, fontSize: 120, bold: true, color: "FFFFFF", align: "right", valign: "top", margin: 0, transparency: 35 });
-  // centered eyebrow + title + sub
-  s.addText("CHAPTER " + no + "   ·   " + en.toUpperCase(), { x: 0, y: 2.78, w: W, h: 0.4, fontFace: BF, fontSize: 14, bold: true, color: C.teal, charSpacing: 3, align: "center", valign: "middle", margin: 0 });
-  s.addText(ko, { x: 0, y: 3.2, w: W, h: 1.2, fontFace: HF, fontSize: 54, bold: true, color: C.ink, align: "center", valign: "middle", margin: 0 });
-  s.addShape(pres.shapes.RECTANGLE, { x: W / 2 - 0.55, y: 4.55, w: 1.1, h: 0.05, fill: { color: C.amber } });
-  if (sub) s.addText(sub, { x: 0, y: 4.74, w: W, h: 0.4, fontFace: BF, fontSize: 14, color: C.muted, align: "center", valign: "middle", margin: 0 });
+  // NAVER main divider: full-bleed green gradient + big white title (corner bloom)
+  s.background = { color: C.tealDk };
+  // gradient bloom — deeper green base → brighter green from top-right corner
+  s.addShape(pres.shapes.OVAL, { x: W - 9.5, y: -7.0, w: 18, h: 18, fill: { color: C.teal, transparency: 8 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 6.5, y: -4.5, w: 12, h: 12, fill: { color: "2DD46F", transparency: 30 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 3.4, y: -1.4, w: 6.5, h: 6.5, fill: { color: C.tealLt, transparency: 58 } });
+  // ghost chapter number (white, faint) bottom-right
+  s.addText(no, { x: 0, y: 4.6, w: W - 0.85, h: 2.4, fontFace: HF, fontSize: 150, bold: true, color: "FFFFFF", align: "right", valign: "bottom", margin: 0, transparency: 78 });
+  // eyebrow + title + rule + sub (left-anchored, NAVER vertical-middle)
+  s.addText("CHAPTER " + no + "   ·   " + en.toUpperCase(), { x: M + 0.05, y: 2.74, w: W - 2, h: 0.4, fontFace: BF, fontSize: 14, bold: true, color: "DFFBE9", charSpacing: 3, align: "left", valign: "middle", margin: 0 });
+  s.addText(ko, { x: M, y: 3.18, w: W - 2, h: 1.2, fontFace: HF, fontSize: 56, bold: true, color: C.white, align: "left", valign: "middle", margin: 0 });
+  s.addShape(pres.shapes.RECTANGLE, { x: M + 0.05, y: 4.62, w: 1.0, h: 0.06, fill: { color: C.white } });
+  if (sub) s.addText(sub, { x: M + 0.05, y: 4.82, w: W - 3.2, h: 0.6, fontFace: BF, fontSize: 14, color: "EAFBF1", align: "left", valign: "top", lineSpacingMultiple: 1.1, margin: 0 });
 }
 
 // ===================================================================
@@ -148,42 +147,38 @@ function divider(key, no, ko, en, sub) {
 (() => {
   const s = pres.addSlide();
   s.background = { color: C.white };
-  // NAVER-style faint green graphic flourish (top-right corner, subtle on white)
-  s.addShape(pres.shapes.OVAL, { x: W - 6.4, y: -3.6, w: 10, h: 10, fill: { color: C.tealLt, transparency: 55 } });
-  s.addShape(pres.shapes.OVAL, { x: W - 4.4, y: -2.6, w: 6.4, h: 6.4, fill: { color: C.tealLt, transparency: 35 } });
-  s.addShape(pres.shapes.OVAL, { x: W - 2.4, y: 1.0, w: 3.2, h: 3.2, fill: { color: C.teal, transparency: 82 } });
-  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: W, h: 0.14, fill: { color: C.teal } });
+  // NAVER cover: faint vertical green gradient bands (white center, green edges)
+  s.addShape(pres.shapes.OVAL, { x: W - 5.6, y: -4.6, w: 11.5, h: 11.5, fill: { color: C.tealLt, transparency: 48 } });
+  s.addShape(pres.shapes.RECTANGLE, { x: W * 0.6, y: 0, w: W * 0.4, h: H, fill: { color: C.teal, transparency: 86 } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: 2.0, h: H, fill: { color: C.teal, transparency: 91 } });
+  s.addShape(pres.shapes.RECTANGLE, { x: W * 0.735, y: 0, w: 0.035, h: H, fill: { color: C.teal, transparency: 46 } });
 
-  s.addText("코코넛사일로  ·  핀테크 서비스 기획 4회차", {
-    x: M + 0.1, y: 1.35, w: 10, h: 0.4, fontFace: BF, fontSize: 15, bold: true, color: C.teal, charSpacing: 1, margin: 0,
-  });
+  // giant title (top) — NAVER hero typography
   s.addText("KOKKOK EV", {
-    x: M + 0.05, y: 1.95, w: 11, h: 1.2, fontFace: HF, fontSize: 64, bold: true, color: C.ink, margin: 0,
+    x: M, y: 0.46, w: 12.1, h: 1.5, fontFace: HF, fontSize: 92, bold: true, color: C.ink, valign: "top", margin: 0,
   });
-  s.addText([
-    { text: "데이터로 문제를 풀어 서비스를 만드는 기획자", options: { color: C.teal, bold: true } },
-  ], { x: M + 0.1, y: 3.2, w: 11.5, h: 0.6, fontFace: HF, fontSize: 28, italic: true, margin: 0 });
+  // theme tagline + one-line description
+  s.addText("데이터로 문제를 풀어 서비스를 만드는 기획자", {
+    x: M + 0.04, y: 2.12, w: 11.5, h: 0.6, fontFace: HF, fontSize: 27, bold: true, color: C.teal, valign: "top", margin: 0,
+  });
   s.addText(
-    "동남아 EV 충전 시장 VOC 28,890건을 멀티채널로 수집·분석하고,\n그 인사이트를 라오스 KOKKOK EV 서비스 기획으로 연결한 엔드투엔드 프로젝트",
-    { x: M + 0.1, y: 3.95, w: 11, h: 0.9, fontFace: BF, fontSize: 15, color: C.muted, lineSpacingMultiple: 1.15, margin: 0 }
+    "동남아 EV 충전 시장 VOC 28,890건을 멀티채널로 수집·분석하고,\n그 인사이트를 라오스 KOKKOK EV 서비스 기획으로 연결한 엔드투엔드 프로젝트.",
+    { x: M + 0.04, y: 2.82, w: 8.8, h: 0.9, fontFace: BF, fontSize: 14, color: C.muted, lineSpacingMultiple: 1.2, valign: "top", margin: 0 }
   );
 
-  // bottom meta row
-  const meta = [
-    ["분석 대상", "라오스·베트남 (태국 비교군)"],
-    ["수집 데이터", "39,700+ 건 · 4개 언어"],
-    ["산출물", "PRD · 플로우 · 요금정책"],
-    ["발표", "2026-06-19"],
-  ];
-  const bw = 2.85, gap = 0.18, bx0 = M + 0.05, by = 5.55;
-  meta.forEach(([k, v], i) => {
-    const x = bx0 + i * (bw + gap);
-    s.addShape(pres.shapes.RECTANGLE, { x, y: by, w: 0.06, h: 0.84, fill: { color: C.teal } });
-    s.addText(k, { x: x + 0.18, y: by, w: bw - 0.2, h: 0.3, fontFace: BF, fontSize: 10.5, bold: true, color: C.teal, charSpacing: 1, margin: 0 });
-    s.addText(v, { x: x + 0.18, y: by + 0.32, w: bw - 0.2, h: 0.5, fontFace: BF, fontSize: 12.5, bold: true, color: C.ink, margin: 0, valign: "top" });
+  // bottom-left edition (NAVER big year)
+  s.addText("핀테크 서비스 기획 4회차", {
+    x: M, y: 5.34, w: 8, h: 0.36, fontFace: BF, fontSize: 14, bold: true, color: C.ink, charSpacing: 1, valign: "middle", margin: 0,
   });
-  s.addText("발표자  마수한 (Data Engineer & PM) · 김재희 (Data Analyst & PM)", {
-    x: M + 0.1, y: 6.75, w: 11, h: 0.3, fontFace: BF, fontSize: 11, color: C.muted, margin: 0,
+  s.addText("2026", {
+    x: M - 0.03, y: 5.62, w: 6, h: 1.15, fontFace: HF, fontSize: 60, bold: true, color: C.ink, valign: "top", margin: 0,
+  });
+  // bottom-right publisher wordmark + presenters
+  s.addText("코코넛사일로  Coconut Silo", {
+    x: W - 6.6, y: 6.26, w: 5.98, h: 0.34, fontFace: HF, fontSize: 15, bold: true, color: C.ink, align: "right", valign: "middle", margin: 0,
+  });
+  s.addText("마수한 (Data Engineer & PM)  ·  김재희 (Data Analyst & PM)", {
+    x: W - 8.5, y: 6.64, w: 7.88, h: 0.3, fontFace: BF, fontSize: 11, color: C.muted, align: "right", valign: "middle", margin: 0,
   });
 })();
 
