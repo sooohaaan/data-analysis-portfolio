@@ -63,14 +63,33 @@ let pageNo = 0;
 function chrome(slide, kicker, title, opts = {}) {
   slide.background = { color: opts.bg || C.light };
   pageNo++;
-  // top kicker chip
-  slide.addShape(pres.shapes.RECTANGLE, { x: M, y: 0.5, w: 0.16, h: 0.52, fill: { color: C.amber } });
+  // ---- top navigation bar (NAVER-style chapter nav) ----
+  slide.addText("KOKKOK EV", { x: M, y: 0.16, w: 2.2, h: 0.26, fontFace: HF, fontSize: 12, bold: true, color: C.dark, valign: "middle", margin: 0 });
+  const chaps = [
+    ["시장 분석", /market|benchmark|lesson/i],
+    ["문제 정의", /problem/i],
+    ["데이터·분석", /approach|collection|insight|persona|pipeline/i],
+    ["기획·설계", /bridge|product|business|why we win/i],
+    ["기대효과", /impact|retro|risk|roadmap/i],
+    ["부록", /appendix|glossary|inventory/i],
+  ];
+  const navX0 = 4.95, navW = (W - M - navX0) / 6;
+  const activeIdx = chaps.findIndex(([, rx]) => rx.test(kicker || ""));
+  chaps.forEach(([label], i) => {
+    const active = i === activeIdx;
+    const x = navX0 + i * navW;
+    slide.addText(label, { x, y: 0.16, w: navW, h: 0.26, fontFace: BF, fontSize: 9, bold: active, color: active ? C.teal : C.muted, align: "center", valign: "middle", margin: 0 });
+    if (active) slide.addShape(pres.shapes.RECTANGLE, { x: x + navW / 2 - 0.36, y: 0.45, w: 0.72, h: 0.028, fill: { color: C.teal } });
+  });
+  slide.addShape(pres.shapes.LINE, { x: M, y: 0.5, w: W - 2 * M, h: 0, line: { color: C.line, width: 0.75 } });
+  // ---- kicker + title ----
+  slide.addShape(pres.shapes.RECTANGLE, { x: M, y: 0.72, w: 0.16, h: 0.52, fill: { color: C.amber } });
   slide.addText((kicker || "").toUpperCase(), {
-    x: M + 0.28, y: 0.46, w: 8, h: 0.3, fontFace: BF, fontSize: 11.5, bold: true,
+    x: M + 0.28, y: 0.68, w: 8, h: 0.3, fontFace: BF, fontSize: 11.5, bold: true,
     color: C.teal, charSpacing: 2, align: "left", valign: "middle", margin: 0,
   });
   slide.addText(title, {
-    x: M + 0.28, y: 0.72, w: 11.6, h: 0.66, fontFace: HF, fontSize: 26, bold: true,
+    x: M + 0.28, y: 0.94, w: 11.6, h: 0.62, fontFace: HF, fontSize: 26, bold: true,
     color: C.ink, align: "left", valign: "middle", margin: 0,
   });
   // footer
