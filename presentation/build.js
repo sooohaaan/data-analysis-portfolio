@@ -42,7 +42,7 @@ const C = {
   white:  "FFFFFF",
 };
 
-const HF = "Georgia";        // header font
+const HF = "Arial";          // header font (NAVER-style bold sans; Korean→gothic fallback)
 const BF = "Calibri";        // body font
 
 const W = 13.333, H = 7.5;
@@ -144,10 +144,12 @@ function divider(key, no, ko, en, sub) {
 (() => {
   const s = pres.addSlide();
   s.background = { color: C.dark };
-  // decorative panels
+  // NAVER-style green gradient glow (layered teal ovals: dark→teal→light)
+  s.addShape(pres.shapes.OVAL, { x: W - 7.2, y: -3.2, w: 11, h: 11, fill: { color: C.tealDk, transparency: 62 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 5.0, y: -2.4, w: 7.2, h: 7.2, fill: { color: C.teal, transparency: 60 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 2.6, y: 2.6, w: 4.2, h: 4.2, fill: { color: C.tealLt, transparency: 74 } });
+  s.addShape(pres.shapes.OVAL, { x: W - 1.2, y: 4.6, w: 2.2, h: 2.2, fill: { color: C.tealLt, transparency: 55 } });
   s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: W, h: 0.14, fill: { color: C.amber } });
-  s.addShape(pres.shapes.OVAL, { x: W - 3.4, y: -2.0, w: 5.2, h: 5.2, fill: { color: C.dark2, transparency: 35 } });
-  s.addShape(pres.shapes.OVAL, { x: W - 1.6, y: 3.6, w: 3.4, h: 3.4, fill: { color: C.tealDk, transparency: 45 } });
 
   s.addText("코코넛사일로  ·  핀테크 서비스 기획 4회차", {
     x: M + 0.1, y: 1.35, w: 10, h: 0.4, fontFace: BF, fontSize: 15, bold: true, color: C.tealLt, charSpacing: 1, margin: 0,
@@ -1559,20 +1561,23 @@ divider("4", "05", "기대효과 & 회고", "Impact & Retrospective", "측정 �
   const s = pres.addSlide();
   chrome(s, "Impact", "기대 효과 — 데이터로 세운 목표");
   const ks = [
-    ["2.56", "→ 3.8", "평균 별점", "PTT 벤치마크 추월", C.teal],
-    ["58%", "→ 25%", "1~2점 저별점 비율", "앱 안정성 개선", C.amber],
-    ["27.6%", "→ ½", "충전앱 앱 불안정", "세션 안정성 개선", C.red],
-    ["15.0%", "→ 개선", "계정·KYC 온보딩", "간편 가입·외국인", C.tealDk],
+    ["2.56", "3.8", "점", "평균 별점", "PTT 벤치마크 추월", C.teal],
+    ["58%", "25", "%", "1~2점 저별점", "앱 안정성 개선", C.amber],
+    ["27.6%", "14", "%", "충전앱 앱 불안정", "세션 안정성(½)", C.red],
+    ["15.0%", "7", "%", "계정·KYC 온보딩", "이탈 절반 목표", C.tealDk],
   ];
   const sw = 2.95, sg = 0.2, sx0 = (W - (4 * sw + 3 * sg)) / 2, sy = 1.95;
-  ks.forEach(([from, to, label, sub, col], i) => {
+  ks.forEach(([from, to, unit, label, sub, col], i) => {
     const x = sx0 + i * (sw + sg);
     card(s, x, sy, sw, 3.0);
     s.addShape(pres.shapes.RECTANGLE, { x, y: sy, w: sw, h: 0.12, fill: { color: col } });
-    s.addText(from, { x: x + 0.1, y: sy + 0.4, w: sw - 0.2, h: 0.55, fontFace: BF, fontSize: 22, color: C.muted, align: "center", valign: "middle", strike: false, margin: 0 });
-    s.addText(to, { x: x + 0.1, y: sy + 0.95, w: sw - 0.2, h: 0.85, fontFace: HF, fontSize: 40, bold: true, color: col, align: "center", valign: "middle", margin: 0 });
-    s.addText(label, { x: x + 0.1, y: sy + 1.9, w: sw - 0.2, h: 0.4, fontFace: HF, fontSize: 14, bold: true, color: C.ink, align: "center", margin: 0 });
-    s.addText(sub, { x: x + 0.12, y: sy + 2.32, w: sw - 0.24, h: 0.5, fontFace: BF, fontSize: 11, color: C.muted, align: "center", valign: "top", margin: 0 });
+    s.addText("현재 " + from + "  →", { x: x + 0.1, y: sy + 0.34, w: sw - 0.2, h: 0.32, fontFace: BF, fontSize: 12.5, color: C.muted, align: "center", valign: "middle", margin: 0 });
+    s.addText([
+      { text: to, options: { fontSize: 50, bold: true, color: col } },
+      { text: unit, options: { fontSize: 22, bold: true, color: col } },
+    ], { x: x + 0.1, y: sy + 0.64, w: sw - 0.2, h: 1.05, fontFace: HF, align: "center", valign: "middle", margin: 0 });
+    s.addText(label, { x: x + 0.1, y: sy + 1.86, w: sw - 0.2, h: 0.4, fontFace: HF, fontSize: 14, bold: true, color: C.ink, align: "center", margin: 0 });
+    s.addText(sub, { x: x + 0.12, y: sy + 2.3, w: sw - 0.24, h: 0.5, fontFace: BF, fontSize: 11, color: C.muted, align: "center", valign: "top", margin: 0 });
   });
   card(s, M, 5.35, W - 2 * M, 1.05, C.dark, false);
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 5.35, w: 0.16, h: 1.05, fill: { color: C.amber } });
@@ -1630,14 +1635,15 @@ divider("4", "05", "기대효과 & 회고", "Impact & Retrospective", "측정 �
     ["키워드 분류 확장", "Negative만 → 전체 리뷰로 확대 (긍·중립 포함)"],
     ["스키마 컬럼 보강", "실행 중 오류 발견 → ALTER TABLE 즉시 대응"],
   ];
-  const cw = (W - 2 * M - 0.4) / 3, gap = 0.2, ch = 1.55;
+  // NAVER-style green dotted timeline
+  const lineY = 3.72, x0 = M + 0.55, xw = W - 2 * M - 1.1, step = xw / (items.length - 1);
+  s.addShape(pres.shapes.LINE, { x: x0, y: lineY, w: xw, h: 0, line: { color: C.teal, width: 2, dashType: "dash" } });
   items.forEach(([h, d], i) => {
-    const x = M + (i % 3) * (cw + gap);
-    const y = 1.9 + Math.floor(i / 3) * (ch + 0.25);
-    card(s, x, y, cw, ch);
-    s.addShape(pres.shapes.RECTANGLE, { x, y, w: cw, h: 0.1, fill: { color: i < 3 ? C.teal : C.amber } });
-    s.addText(h, { x: x + 0.25, y: y + 0.22, w: cw - 0.45, h: 0.5, fontFace: HF, fontSize: 13.5, bold: true, color: C.ink, valign: "top", margin: 0 });
-    s.addText(d, { x: x + 0.25, y: y + 0.74, w: cw - 0.45, h: 0.72, fontFace: BF, fontSize: 11, color: C.muted, lineSpacingMultiple: 1.12, valign: "top", margin: 0 });
+    const cx = x0 + i * step;
+    s.addText(`0${i + 1}`, { x: cx - 0.95, y: lineY - 1.52, w: 1.9, h: 0.3, fontFace: HF, fontSize: 13, bold: true, color: C.teal, align: "center", margin: 0 });
+    s.addText(h, { x: cx - 0.98, y: lineY - 1.2, w: 1.96, h: 0.84, fontFace: HF, fontSize: 10.5, bold: true, color: C.ink, align: "center", valign: "bottom", lineSpacingMultiple: 1.05, margin: 0 });
+    s.addShape(pres.shapes.OVAL, { x: cx - 0.1, y: lineY - 0.1, w: 0.2, h: 0.2, fill: { color: C.teal }, line: { color: C.light, width: 2.5 } });
+    s.addText(d, { x: cx - 0.98, y: lineY + 0.28, w: 1.96, h: 1.1, fontFace: BF, fontSize: 9.5, color: C.muted, align: "center", valign: "top", lineSpacingMultiple: 1.12, margin: 0 });
   });
   card(s, M, 5.55, W - 2 * M, 0.92, C.dark, false);
   s.addText([
