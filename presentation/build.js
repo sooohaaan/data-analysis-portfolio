@@ -1915,7 +1915,7 @@ glossarySlide("용어 사전 ② — 시각화 · 기획 · 설계", [
     ["VOC", "슈퍼앱 리뷰", "superapp_reviews", "역내 4개(Grab·Gojek·LOCA·KOKKOK)", "3,370", "슈퍼앱 경쟁 구도", "경쟁사 ②·SoV", C.teal],
     ["VOC", "유튜브", "youtube_videos/comments/stt", "다국어 영상·댓글·자막", "21·527·2,625", "실사용 맥락·정성", "시나리오·여정맵", C.teal],
     ["VOC", "블로그", "blog_posts", "한국어(네이버)", "42", "한국인 여행객 시각", "참고", C.teal],
-    ["Market Intel", "뉴스", "news_articles", "다국어 · SoV·정책·HW·기업", "3,083", "시장·정책·경쟁 동향", "PEST·SoV·정책·경쟁사", C.amber],
+    ["Market Intel", "뉴스", "news_articles", "다국어 · SoV·정책·HW·기업", "3,085", "시장·정책·경쟁 동향", "PEST·SoV·정책·경쟁사", C.amber],
     ["참조 통계", "공식 통계", "reference_stats", "라오스·역내 6범주(LSB·WFP·WB·IR)", "54", "정량 시장 근거", "PEST·TAM·요금·사업성", C.amberDk],
     ["보류", "SNS", "sns_posts", "Instagram 해시태그(B안)", "0", "현지 SNS 여론", "여건 시 재시도(노트북 06)", C.muted],
   ];
@@ -1934,7 +1934,7 @@ glossarySlide("용어 사전 ② — 시각화 · 기획 · 설계", [
   });
   s.addText([
     { text: "총괄 — ", options: { bold: true, color: C.teal } },
-    { text: "VOC 멀티채널(앱·슈퍼앱·유튜브·블로그) + Market Intel 뉴스 3,083 + 공식 참조통계 54. 모든 정량 주장은 위 출처로 추적 가능.", options: { color: C.muted } },
+    { text: "VOC 멀티채널(앱·슈퍼앱·유튜브·블로그) + Market Intel 뉴스 3,085 + 공식 참조통계 54. 모든 정량 주장은 위 출처로 추적 가능.", options: { color: C.muted } },
   ], { x: tx, y: ry + 0.14, w: tw, h: 0.5, fontFace: BF, fontSize: 10.5, valign: "top", lineSpacingMultiple: 1.1, margin: 0 });
 })();
 
