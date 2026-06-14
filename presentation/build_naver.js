@@ -1254,7 +1254,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   const steps = [
     ["지도 탐색", "실시간 가용 상태", C.teal, "F2"],
     ["QR 스캔", "실패 시 자동 재시도\n→ 수동 ID 입력", C.amber, "F2"],
-    ["결제", "Wallet 선불 / RFID\n결제 확인 화면", C.amber, "F4·F5"],
+    ["결제", "wallet 충전식 결제 / RFID\n결제 확인 화면", C.amber, "F4·F5"],
     ["OCPP\nHandshake", "앱↔충전기 통신 인증\n오류 로그 수집", C.amberDk, "F3"],
     ["충전 진행", "세션 서버 저장\nheartbeat 30초", C.teal, "F1"],
     ["완료·정산", "5분 전 알림\n유예 10분·유휴 과금", C.tealDk, "F11"],
@@ -1339,7 +1339,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   // comparison table
   const heads = ["항목", "LOCA EV (경쟁사)", "KOKKOK (제안)"];
   const rows = [
-    ["결제 기반", "카드 가승인 / 후불", "Wallet 선불 (미수금 차단)"],
+    ["결제 기반", "카드 가승인 / 후불", "wallet 충전식 결제 (사용한도 후불)"],
     ["과금 방식", "시간(분) + 전력량", "전력량(kWh) 단일 — 공정성"],
     ["에너지 단가", "4,300 ₭/kWh", "4,000 ₭/kWh"],
     ["유휴 유예 시간", "7분", "10분 (넉넉한 유예)"],
@@ -1363,7 +1363,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   // right principle cards
   const rx = tx + tw + 0.3, rw = W - M - rx;
   const cards = [
-    ["선불 Wallet 결제", "OCPP 실시간 계량 데이터로 잔액 대조·즉시 차감 → 미수금 원천 차단", C.teal],
+    ["wallet 충전식 결제", "OCPP 실시간 계량으로 사용량·사용한도 관리 → 한도 내 사용 후 후불 정산, 미수금 방지", C.teal],
     ["kWh 단일 과금", "시간 과금 제거로 사용자 체감 공정성 확보", C.amber],
     ["데이터로 단가 설계", "결제 Pain Point 해소 + 경쟁사 단가 대비 가격 우위", C.amberDk],
   ];
@@ -1409,7 +1409,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
     s.addText(r[2], { x: colX[2] + 0.08, y: ry, w: colWd[2] - 0.14, h: rh, fontFace: BF, fontSize: 11, color: C.muted, valign: "middle", align: "center", margin: 0 });
     ry += rh;
   });
-  s.addText("KOKKOK 차별점 — 선불 Wallet · kWh 단일 과금 · 유휴 유예 +3분 · 예약 보증금(노쇼 방지)", {
+  s.addText("KOKKOK 차별점 — wallet 충전식 결제(사용한도 후불) · kWh 단일 과금 · 유휴 유예 +3분 · 예약 보증금(노쇼 방지)", {
     x: tx, y: ry + 0.1, w: tw, h: 0.32, fontFace: BF, fontSize: 10.5, italic: true, color: C.amberDk, margin: 0,
   });
 
@@ -1419,7 +1419,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   s.addShape(pres.shapes.RECTANGLE, { x: rx, y: ty, w: 0.14, h: ph, fill: { color: C.teal } });
   s.addText("운영 규칙", { x: rx + 0.4, y: ty + 0.2, w: rw - 0.7, h: 0.4, fontFace: HF, fontSize: 15, bold: true, color: C.ink, margin: 0 });
   const rules = [
-    ["결제 · 정산", "사용한도 기반 후불제 → 잔액 0 도달 시 충전 자동 종료 (미수금 0)"],
+    ["결제 · 정산", "사용한도 기반 후불제 → 한도 내 사용 후 후불 정산 · 한도 도달 시 충전 자동 종료"],
     ["충전 시작 조건", "충전기 Available · 통신 정상 · 최소 잔액 · 1계정 1충전"],
     ["충전 종료", "완충(BMS) · 종료 버튼 · 5분 통신 단절 자동 종료 · 잔액 소진"],
     ["충전기 상태 (OCPP)", "Faulted · Offline 상태는 시작 버튼 자동 비활성화"],
@@ -1544,7 +1544,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   chrome(s, "Why We Win", "왜 우리가 이기나 — LOCA EV(지정 벤치마크) 대비 3대 우위");
   const cols = [
     ["앵커 수요", C.tealDk, ["KOKKOK Move 드라이버(현지 라이드헤일링 운영) = 고정·고빈도 충전 수요 → 가동률 리스크↓", "슈퍼앱(쇼핑·결제) 교차판매로 고객당 가치(LTV)↑", "LOCA가 택시앱으로 검증한 모델을 동일 보유"]],
-    ["요금·UX 우위", C.teal, ["4,000₭ < LOCA 4,300₭ · kWh 단일 과금(투명)", "선불 Wallet → 미수금 0 · 노쇼 보증금", "충전앱 공통 약점 ‘앱 불안정 27.6%’를 안정성으로 정면 차별화"]],
+    ["요금·UX 우위", C.teal, ["4,000₭ < LOCA 4,300₭ · kWh 단일 과금(투명)", "wallet 충전식 결제(사용한도 후불) → 미수금 방지 · 노쇼 보증금", "충전앱 공통 약점 ‘앱 불안정 27.6%’를 안정성으로 정면 차별화"]],
     ["표준·중립·현지", C.amberDk, ["OCPP 1.6J 표준 — 멀티 제조사 호환", "차량 브랜드 중립(특정 OEM 비종속)", "현지 운영 기반 → 인허가·부지·실행 속도"]],
   ];
   const gap = 0.3, cw = (W - 2 * M - 2 * gap) / 3, cy = 1.82, ch = 3.25;
