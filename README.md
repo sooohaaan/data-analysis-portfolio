@@ -406,7 +406,7 @@ return has_laos and has_ev and has_exp
 | policy (정책) | 113건 | PRD 정책 근거 |
 | company (기업동향) | 81건 | 경쟁사 동향 |
 
-> 📌 이후 `news_articles`는 **하드웨어 뉴스(1,327건)·시장조사용·라오스 SoV 타겟(+419건)·정책 랜드마크**까지 확장되어 총 약 2,900건 규모가 됩니다. → [전체 수집 데이터 현황](#-전체-수집-데이터-현황) · [라오스 뉴스 점유율 분석(SoV)](#-라오스-뉴스-점유율-분석-share-of-voice)
+> 📌 이후 `news_articles`는 **하드웨어 뉴스(1,327건)·시장조사용·라오스 SoV 타겟(+419건)·정책 랜드마크**까지 확장되어 **총 3,085건**(DB 실측)이 됩니다. → [전체 수집 데이터 현황](#-전체-수집-데이터-현황) · [라오스 뉴스 점유율 분석(SoV)](#-라오스-뉴스-점유율-분석-share-of-voice)
 
 ---
 
@@ -913,7 +913,7 @@ flowchart TD
 |--------|------|---------------|------|-----------|
 | `app_reviews` | **28,890건** | 언어감지✅ 감성✅ 키워드✅ | VOC 핵심 | ⭐⭐⭐ 감성 분석, 카테고리화, PRD·시장보고서 근거 |
 | `youtube_stt` | **2,625세그먼트** | 언어감지✅ | VOC 핵심 | ⭐⭐⭐ 실사용 맥락, 시나리오 복기 |
-| `news_articles` | **2,902건** | 언어감지✅ 감성✅ 키워드✅ | Market Intel + HW | ⭐⭐ 시장조사보고서 PEST·TAM·라오스 점유율 근거 |
+| `news_articles` | **3,085건** | 언어감지✅ 감성✅ 키워드✅ | Market Intel + HW | ⭐⭐ 시장조사보고서 PEST·TAM·라오스 점유율 근거 |
 | `superapp_reviews` | **3,370건** | 언어감지✅ 감성✅ 키워드✅ | 슈퍼앱 경쟁 분석 | ⭐⭐ Grab·Gojek·LOCA·KOKKOK Move 비교 |
 | `youtube_comments` | **527건** | 언어감지✅ 감성✅ 키워드✅ | VOC 보조 | ⭐⭐ 사용자 반응 |
 | `blog_posts` | **42건** | 언어감지✅ 감성✅ | 참고 | ⭐ 한국인 시각 |
@@ -921,7 +921,7 @@ flowchart TD
 | `sns_posts` | 0건 | - | 참고 | ⏸️ 보류(B안) — IG 여건 시 노트북 06으로 재시도 |
 | `reference_stats` | **54건** | 출처·신뢰도✅ | 시장 참조 | 라오스 공식 22 + 전력 7 + **LECS7 가구 11** + **연료·가구비용 5** + 경쟁사 단가 6 + IR 3 (LSB·ASEANstats·WB·WFP·기업IR) |
 
-> 📌 `news_articles` 2,902건 = VOC 뉴스 733건 + 하드웨어 뉴스 1,327건 + 시장조사용 423건 + 라오스 타겟 419건
+> 📌 `news_articles` **3,085건** (DB 실측) = source별 google_news 2,044 + naver_news 1,035 + web_direct 5 + gov_la_kpl 1 / 용도별 VOC 뉴스·하드웨어·시장조사·라오스 SoV 타겟·정책 랜드마크
 > 📌 `superapp_reviews` 3,370건 = Grab 1,479 + Gojek 1,066 + LOCA Taxi 447 + KOKKOK Move 378 — 시장조사보고서 경쟁사 분석 전용
 
 ---
