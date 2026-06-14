@@ -171,7 +171,7 @@ function divider(key, no, ko, en, sub) {
   // bottom meta row
   const meta = [
     ["분석 대상", "라오스·베트남 (태국 비교군)"],
-    ["수집 데이터", "39,700+ 건 · 4개 언어"],
+    ["수집 데이터", "38,600+ 건 · 4개 언어"],
     ["산출물", "PRD · 플로우 · 요금정책"],
     ["발표", "2026-06-19"],
   ];
@@ -202,7 +202,7 @@ function divider(key, no, ko, en, sub) {
   const chs = [
     ["01", "시장 분석", "Market Analysis · PEST · TAM-SAM-SOM · 경쟁 구도", C.tealDk, "0"],
     ["02", "문제 정의", "Problem · 데이터로 검증한 핵심 가설", C.teal, "1"],
-    ["03", "데이터 수집·분석", "Data & Analysis · VOC 39,700+건 · 감성 · 포지셔닝 · 페르소나", C.teal, "2"],
+    ["03", "데이터 수집·분석", "Data & Analysis · VOC 38,600+건 · 감성 · 포지셔닝 · 페르소나", C.teal, "2"],
     ["04", "제품 기획·설계", "Product Planning · PRD · 여정맵 · OCPP · 요금정책 · 사업성 · 전략", C.amber, "3"],
     ["05", "기대효과 & 회고", "Impact & Retrospective · KPI · 로드맵·Ask · 리스크 · 회고", C.amber, "4"],
     ["부록", "단계별 산출물 · 용어 사전", "Appendix · 산출물(OCPP·ERD·시퀀스·시나리오·스토리보드·프로토타입) · 용어 사전 — 발표 생략·열람용", C.muted, "A"],
@@ -589,7 +589,7 @@ divider("1", "02", "문제 정의", "Problem Definition", "데이터로 검증�
   ], { x: M + 0.45, y: 4.68, w: W - 2 * M - 0.9, h: 1.5, fontFace: HF, fontSize: 19, italic: true, lineSpacingMultiple: 1.2, valign: "top", margin: 0 });
 })();
 
-divider("2", "03", "데이터 수집·분석", "Data Collection & Analysis", "멀티채널 VOC 39,700+건의 정량 분석");
+divider("2", "03", "데이터 수집·분석", "Data Collection & Analysis", "멀티채널 VOC 38,600+건의 정량 분석");
 
 // ===================================================================
 // 5. 접근 방식 — 멀티채널 수집 아키텍처
@@ -625,7 +625,7 @@ divider("2", "03", "데이터 수집·분석", "Data Collection & Analysis", "�
 // ===================================================================
 (() => {
   const s = pres.addSlide();
-  chrome(s, "Collection", "수집 현황 — 39,700+ 건의 멀티채널 데이터");
+  chrome(s, "Collection", "수집 현황 — 38,600+ 건의 멀티채널 데이터");
   // table left
   const rows = [
     ["app_reviews", "28,890건", "VOC 핵심", C.teal],
@@ -1724,7 +1724,7 @@ divider("4", "05", "기대효과 & 회고", "Impact & Retrospective", "측정 �
   ], { x: M + 0.05, y: 2.05, w: 11.5, h: 1.8, fontFace: HF, fontSize: 44, bold: true, lineSpacingMultiple: 1.08, margin: 0 });
 
   const pts = [
-    "39,700+ 건의 멀티채널 VOC를 직접 수집·전처리·분석",
+    "38,600+ 건의 멀티채널 VOC를 직접 수집·전처리·분석",
     "‘앱오류=OCPP’ 가설을 도메인 분리 재분류로 검증·수정 — VOC 92%가 라이드헤일링이었다",
     "PRD · 플로우 · OCPP 연동 · 요금정책까지 실제 산출물로 연결",
   ];
