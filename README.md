@@ -14,6 +14,8 @@
 | **팀원** | 마수한(Data Engineer & PM), 김재희(Data Analyst & PM) |
 | **분석 대상** | 라오스·베트남 EV 충전 서비스 (태국 비교군 포함) |
 | **주요 분석 앱** | Green SM, LOCA EV, PTT blueplus+, PEA VOLTA, EleXA |
+| **모빌리티 슈퍼앱 비교군** | Grab · Gojek · LOCA Taxi · KOKKOK Move (슈퍼앱 EV 통합 전략 근거) |
+| **수집 규모** | 멀티채널 VOC 39,700+건 · 9개 테이블 · 4개 언어 (라·베·태·영/한) |
 | **데이터베이스** | PostgreSQL (Supabase Cloud — `laos-ev-voc-db`) |
 | **최종 발표일** | 2026-06-19 |
 
@@ -22,18 +24,19 @@
 ## 🗺️ 프로젝트 아키텍처
 
 ```
-멀티채널 VOC 수집                    Market Intelligence 수집
-├── 앱스토어 리뷰 (Google Play)       └── 뉴스 기사 (네이버·Google News)
+멀티채널 VOC 수집                          Market Intelligence 수집
+├── 앱스토어 리뷰 (Google Play)             └── 뉴스 기사 (네이버·Google News RSS)
+├── 슈퍼앱 리뷰 (Grab·Gojek·LOCA·KOKKOK)        · VOC/HW/시장·정책/라오스 SoV
 ├── 유튜브 (API v3 + 자막)
 ├── 네이버 블로그 (API)
 └── SNS (Meta Graph API — 보류·보조)
               │
               ▼
     PostgreSQL / Supabase Cloud
-    ┌─ VOC 테이블 6개 ──────────────┐
-    │  app_reviews / youtube_* /   │
-    │  sns_posts / blog_posts       │
-    └───────────────────────────────┘
+    ┌─ VOC 테이블 7개 ───────────────────┐
+    │  app_reviews / superapp_reviews / │
+    │  youtube_* / sns_posts / blog_posts│
+    └────────────────────────────────────┘
     ┌─ Market Intel 테이블 1개 ─────┐
     │  news_articles                │
     └───────────────────────────────┘
@@ -52,8 +55,10 @@
     Phase 4. 데이터 분석
     ├── 불만 카테고리 2계층 분류 (충전앱: 앱 불안정 27.6%·KYC 15.0%)
     ├── 감성 분포 (Negative 53.5%)
+    ├── 슈퍼앱 경쟁 분석 (Grab·Gojek·LOCA·KOKKOK Move)
+    ├── 라오스 뉴스 점유율(SoV) — VinFast·Xanh SM > LOCA > KOKKOK
     ├── 월별 트렌드 분석
-    └── 워드클라우드 / 앱별 비교
+    └── 워드클라우드 / 앱별·HW 비교 (차트 20개)
               │
               ▼
     Phase 5. 프로덕트 기획
@@ -69,13 +74,19 @@
 
 ---
 
-## 🗄️ DB 스키마 (8개 테이블)
+## 🗄️ DB 스키마 (9개 테이블)
 
 **VOC 데이터** (사용자 경험 — 감성 분석·키워드 분류 대상)
 ```sql
 app_reviews      (id, store, app_name, country, rating, content,
                   lang_detected, translated_content, sentiment_label,
+                  sentiment_score, keyword_category, keyword_domain)
+                  -- keyword_domain: 충전 | 라이드 | 앱공통 (2계층 재분류, notebook 09)
+superapp_reviews (id, store, app_name, app_category, country, rating, content,
+                  lang_detected, translated_content, sentiment_label,
                   sentiment_score, keyword_category)
+                  -- app_name: Grab | Gojek | LOCA Taxi | KOKKOK Move
+                  -- app_category: mobility_superapp | ev_charging | kokkok
 youtube_videos   (video_id PK, title, channel_name, country, upload_date, view_count, like_count)
 youtube_comments (id, video_id FK, author, content, lang_detected,
                   translated_content, sentiment_label, keyword_category)
@@ -99,6 +110,15 @@ news_articles    (id, source, publisher, title, content, url,
 --                       hardware_failure | hardware_infrastructure | hardware_market
 ```
 
+**참조 통계** (거시 통계·경쟁사 단가/IR — VOC 아님, 출처·신뢰도 표기 필수)
+```sql
+reference_stats  (id, category, entity, metric, value_num, value_text,
+                  unit, country, period, source, reliability, note)
+-- category: laos_official | competitor_pricing | competitor_ir
+-- reliability: official | igo | secondary
+-- 예: 라오스 등록차량·전력·LECS7 가구 / 태국3사·V-Green·LOCA 단가 / Grab·GoTo IR
+```
+
 > 📌 **테이블 분리 이유**: VOC는 "무엇이 불편한가?"를 파악하는 데이터,
 > 뉴스는 "시장·정책이 어떻게 움직이는가?"를 파악하는 데이터로 분석 목적이 다름.
 > 같은 테이블에 혼재하면 분석 쿼리가 복잡해지므로 처음부터 분리 설계.
@@ -114,7 +134,7 @@ news_articles    (id, source, publisher, title, content, url,
 | 작업 | 상태 | 비고 |
 |------|------|------|
 | Supabase Cloud PostgreSQL 인스턴스 생성 | ✅ | `laos-ev-voc-db` (Singapore 리전) |
-| ERD 설계 (erdcloud.com) | ✅ | 7개 테이블, FK 관계 설정 |
+| ERD 설계 (erdcloud.com) | ✅ | 최종 9개 테이블, FK 관계 설정 |
 | DDL 실행 (테이블 생성) | ✅ | `schema/create_tables.sql` |
 
 **⚠️ 초기 계획과 달라진 점**
@@ -145,6 +165,14 @@ ALTER TABLE news_articles  ADD COLUMN IF NOT EXISTS sentiment_score FLOAT;
 ```
 
 > 교훈: 처음 스키마 설계 시 전처리·분석 단계에서 필요한 컬럼을 미리 예상해 포함해야 합니다. `IF NOT EXISTS`를 사용하면 중복 실행에도 안전합니다.
+
+**③ superapp_reviews · reference_stats 테이블 추가 (7개 → 9개)**
+
+분석이 진행되며 두 테이블을 추가했습니다.
+
+- **`superapp_reviews`** — KOKKOK이 충전 앱이 아니라 **슈퍼앱(라이드헤일링+쇼핑+충전)** 으로 확장하므로, 역내 모빌리티 슈퍼앱(Grab·Gojek·LOCA Taxi·KOKKOK Move) 리뷰를 충전 앱(`app_reviews`)과 **분리** 수집·분석. (3,370건)
+- **`reference_stats`** — 거시 통계·경쟁사 단가/IR을 문서마다 흩어두지 않고 **단일 관리**(출처·신뢰도 표기 필수)하기 위해 추가. (54건)
+- **`app_reviews.keyword_domain`** 컬럼 추가 — VOC 2계층(라이드헤일링/충전/앱공통) 재분류 결과 저장. ([VOC 2계층 재분류](#-voc-2계층-재분류-2026-06))
 
 ---
 
@@ -378,6 +406,8 @@ return has_laos and has_ev and has_exp
 | policy (정책) | 113건 | PRD 정책 근거 |
 | company (기업동향) | 81건 | 경쟁사 동향 |
 
+> 📌 이후 `news_articles`는 **하드웨어 뉴스(1,327건)·시장조사용·라오스 SoV 타겟(+419건)·정책 랜드마크**까지 확장되어 총 약 2,900건 규모가 됩니다. → [전체 수집 데이터 현황](#-전체-수집-데이터-현황) · [라오스 뉴스 점유율 분석(SoV)](#-라오스-뉴스-점유율-분석-share-of-voice)
+
 ---
 
 #### 📘 SNS (Facebook / Instagram) — ⏸️ 보류 (B안 채택, 미수집)
@@ -414,6 +444,23 @@ return has_laos and has_ev and has_exp
 | `충전기결함` | 75건 | 기기 불량·고장 (**Negative 36%**) |
 
 **핵심 인사이트 (가설 → 검증 → 수정)**: "앱오류 다수가 OCPP 통신 표준 미준수·충전기 펌웨어 버그에 기인한다"는 것은 **초기 가설**이었습니다. 이후 도메인 분리 2계층 재분류(아래 [VOC 2계층 재분류](#-voc-2계층-재분류-2026-06) 참조)로 검증한 결과, **충전앱의 부정 리뷰 #1은 앱 안정성(앱 불안정 27.6%)과 온보딩(계정·인증·KYC 15.0%)이었으며, OCPP 통신 문제가 충전앱 VOC의 주요 원인이라는 인과는 데이터로 뒷받침되지 않았습니다.** 하드웨어 뉴스 수집은 이 가설을 검증하기 위한 시도였고, 검증 결과 충전앱 우선순위는 하드웨어가 아닌 앱·온보딩·결제 쪽임이 확인되었습니다.
+
+---
+
+#### 🚗 슈퍼앱 리뷰 수집 — 3,370건 (Grab·Gojek·LOCA Taxi·KOKKOK Move) ✅ (계획에 없던 추가 항목)
+
+**⚠️ 최초 계획에 없던 항목 — 추가 이유**
+
+KOKKOK은 단순 충전 앱이 아니라 **모빌리티 슈퍼앱**(라이드헤일링 + 쇼핑 + 충전)으로 확장 중입니다. 충전 앱(`app_reviews`)만으로는 "슈퍼앱이 EV를 어떻게 통합하는가"를 분석할 수 없어, 역내 슈퍼앱 4종을 별도 테이블(`superapp_reviews`)로 수집했습니다.
+
+| 앱 | 유형 | 수집량 | 분석 역할 |
+|----|------|--------|---------|
+| Grab | 역내 1위 모빌리티 슈퍼앱 | 1,479건 | EV 통합 벤치마크 (BYD·GAC 7만 대 ASEAN 진출, 라오스 미진출) |
+| Gojek | 인니 슈퍼앱 | 1,066건 | 슈퍼앱 비교군 |
+| LOCA Taxi | 라오스 1위 모빌리티 | 447건 | 라오스 사업모델 (EV 언급 16.1%) |
+| KOKKOK Move | 자사 라이드헤일링 | 378건 | 확장 출발점 (배차 실패 44.9%·Positive 최저) |
+
+> 📌 **충전 앱과 분리한 이유**: 슈퍼앱 리뷰는 "배차·드라이버" 중심이라 충전 VOC(`app_reviews`)와 섞으면 도메인이 혼재됨. → `app_category`(mobility_superapp / ev_charging / kokkok)로 구분. 재현: [`notebooks/05_superapp_scraper.ipynb`](notebooks/05_superapp_scraper.ipynb)
 
 ---
 
@@ -638,7 +685,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | 워드클라우드 | 사용자 불만 언어 | 기술 이슈 전문 용어 | 혼재 시 특성 희석 |
 | **연계 분석** | — | — | 도메인 분리로 가설 검증 — 충전앱 #1은 앱 안정성(OCPP 인과는 약함) |
 
-#### 생성된 분석 차트 (`outputs/` 폴더) — 총 17개 (앱 9 + 하드웨어 7 + 연계 1)
+#### 생성된 분석 차트 (`outputs/` 폴더) — 총 20개 (앱 9 + 하드웨어 7 + 연계 1 + 2계층·경쟁구도 3)
 
 **앱 레이어 분석 (9개)**
 
@@ -671,6 +718,14 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 | 파일 | 내용 | 상태 |
 |------|------|------|
 | `17_app_hw_linkage.png` | 앱오류 ↔ 하드웨어 원인 매핑 차트 | ✅ |
+
+**2계층 재분류 · 경쟁 구도 (3개)**
+
+| 파일 | 내용 | 상태 |
+|------|------|------|
+| `18_complaint_2layer.png` | VOC 2계층(라이드헤일링/충전앱) 재분류 | ✅ |
+| `19_laos_share_of_voice.png` | 라오스 뉴스 브랜드 점유율(SoV) | ✅ |
+| `20_laos_news_trend.png` | 라오스 EV·모빌리티 뉴스량 추이 (2022→2026) | ✅ |
 
 ---
 
@@ -836,10 +891,10 @@ flowchart TD
 
 | Phase | 내용 | 상태 | 비고 |
 |-------|------|------|------|
-| Phase 1 | 인프라 세팅 & DB 스키마 | ✅ 완료 | Supabase 8개 테이블 (reference_stats 추가) |
-| Phase 2 | 데이터 수집 파이프라인 | 🔄 대부분 완료 | SNS만 예정 (하드웨어 뉴스 추가 완료) |
-| Phase 3 | 다국어 전처리 | ✅ 완료 | VOC + 하드웨어 뉴스 전체 적용 |
-| Phase 4 | 데이터 분석 | ✅ 완료 | 차트 17개 (앱 9 + 하드웨어 7 + 연계 1) |
+| Phase 1 | 인프라 세팅 & DB 스키마 | ✅ 완료 | Supabase 9개 테이블 (superapp_reviews·reference_stats 추가) |
+| Phase 2 | 데이터 수집 파이프라인 | 🔄 대부분 완료 | SNS만 보류 (슈퍼앱·하드웨어·라오스 SoV 뉴스 추가 완료) |
+| Phase 3 | 다국어 전처리 | ✅ 완료 | VOC + 슈퍼앱 + 뉴스 전체 적용 |
+| Phase 4 | 데이터 분석 | ✅ 완료 | 차트 20개 (앱 9 + HW 7 + 연계 1 + 2계층·SoV 3) |
 | Phase 5 | PRD + 시장조사보고서 + Flowchart | ✅ 완료 | 아래 상세 참조 |
 | - | Tableau 시각화 | 🔄 진행중 | 포지셔닝맵·경쟁분석 완료, 트렌드 예정 |
 | - | Figma 프로토타입 | 🔄 진행중 | - |
@@ -963,7 +1018,9 @@ Tableau (대시보드 — 예정)
 | Green SM·V-Green | 별도 앱 | **동일 앱 `MUL` 처리** | `com.gsm.customer` 동일 ID 확인 / [Phase 2 상세](#-앱스토어-리뷰-수집--총-28890건) |
 | Google Play 수집 | `count=500` 1회 | **언어별 5회 반복** | 언어·국가 조합당 2~3천 건 제한 / [Phase 2 상세](#-앱스토어-리뷰-수집--총-28890건) |
 | Supabase 연결 | Seoul pooler | **Singapore Session Pooler** | 리전 불일치 접속 실패 / [Phase 3 상세](#-초기-계획과-달라진-점--번역-전략-전면-수정) |
-| 뉴스 수집 | 없음 | **733건 추가** | VOC·Market Intel 분리 필요 / [Phase 2 상세](#-뉴스-기사-수집--733건--계획에-없던-추가-항목) |
+| 뉴스 수집 | 없음 | **733건 추가** (이후 SoV·정책까지 확장) | VOC·Market Intel 분리 필요 / [Phase 2 상세](#-뉴스-기사-수집--733건--계획에-없던-추가-항목) |
+| 슈퍼앱 리뷰 | 없음 | **3,370건 추가** (`superapp_reviews`) | 슈퍼앱 EV 통합 경쟁 분석 / [Phase 2 상세](#-슈퍼앱-리뷰-수집--3370건-grabgojeklocataxikokkok-move--계획에-없던-추가-항목) |
+| 참조 통계 | 없음 | **54건 추가** (`reference_stats`) | 거시·단가/IR 단일 관리 / [Phase 1 상세](#✅-phase-1-인프라-세팅-및-db-스키마-설계--완료) |
 | 유튜브 수집 | 키워드 검색만 | **하이브리드** | 검색만으로는 무관련 영상 포함 / [Phase 2 상세](#-유튜브-수집--영상-21개--댓글-527건--자막-2625세그먼트) |
 | youtube-transcript-api | 클래스 메서드 | **인스턴스 메서드** | 라이브러리 버전 업 API 변경 / [Phase 2 상세](#-유튜브-수집--영상-21개--댓글-527건--자막-2625세그먼트) |
 | 네이버 블로그 필터 | OR 조건 | **3중 AND 조건** | OR은 무관련 글 대량 통과 / [Phase 2 상세](#-네이버-블로그-수집--42건) |
@@ -1023,7 +1080,7 @@ Tableau (대시보드 — 예정)
 
 ### ⑤ 영향 없음을 확인한 부분
 
-- **`data_analysis_report.md`(리뷰 정량 분석)** · **17개 차트** · **노트북** — 단가가 입력이 아닌 **감성·별점·리뷰수** 기반이라 **재분석 불필요**(전수 grep로 단가 언급 0건 확인).
+- **`data_analysis_report.md`(리뷰 정량 분석)** · **20개 차트** · **노트북** — 단가가 입력이 아닌 **감성·별점·리뷰수** 기반이라 **재분석 불필요**(전수 grep로 단가 언급 0건 확인).
 - **`laos_..._analysis.md`** "200,000₭≈330฿"는 단가가 아닌 **바우처 최소 구매액** 환산값 → 영향 없음.
 
 > 💡 **교훈**: 임시 추정치를 분석에 쓸 땐 **출처·검증 여부를 표기**하고, 단가처럼 여러 문서로 퍼지는 값은 **단일 소스(공식)로 관리**해야 한다. 추정치를 검증 데이터처럼 다루면 파생 분석 전체가 오염된다.
