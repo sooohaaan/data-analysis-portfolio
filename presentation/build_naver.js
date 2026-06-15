@@ -1694,6 +1694,64 @@ divider("4", "05", "기대효과 & 회고", "Impact & Retrospective", "측정 �
 })();
 
 // ===================================================================
+// 20.7 방법론 — CRISP-DM 순환
+// ===================================================================
+(() => {
+  const s = pres.addSlide();
+  chrome(s, "Retrospective · Method", "방법론 — CRISP-DM 순환으로 분석했다");
+  s.addText("데이터 분석 표준 방법론 CRISP-DM으로 수행 — 핵심은 평가에서 데이터 이해로 되돌아간 ‘재분류’ 루프입니다.", {
+    x: M, y: 1.66, w: W - 2 * M, h: 0.32, fontFace: BF, fontSize: 12.5, color: C.muted, valign: "middle", margin: 0,
+  });
+
+  const steps = [
+    ["비즈니스 이해", "Business Understanding", "Phase 0 · 계획"],
+    ["데이터 이해", "Data Understanding", "Phase 1~2 · 인프라·수집"],
+    ["데이터 준비", "Data Preparation", "Phase 3 · 전처리"],
+    ["모델링", "Modeling", "Phase 4 · 분석·분류"],
+    ["평가", "Evaluation", "가설 검증·교차검증"],
+    ["배포", "Deployment", "Phase 5 · 기획 연계"],
+  ];
+  const n = steps.length, gap = 0.2, cy = 2.2, ch = 1.72;
+  const bw = (W - 2 * M - (n - 1) * gap) / n;
+  const cxOf = (i) => M + i * (bw + gap) + bw / 2;
+  const loopIdx = [1, 4]; // 데이터 이해 ↔ 평가
+  steps.forEach(([ko, en, ph], i) => {
+    const x = M + i * (bw + gap);
+    const isLoop = loopIdx.includes(i);
+    card(s, x, cy, bw, ch, C.white);
+    if (isLoop) s.addShape(pres.shapes.RECTANGLE, { x, y: cy, w: bw, h: ch, fill: { color: C.white }, line: { color: C.tealDk, width: 2 } });
+    s.addShape(pres.shapes.RECTANGLE, { x, y: cy, w: bw, h: 0.5, fill: { color: isLoop ? C.tealDk : C.teal } });
+    s.addText(`${i + 1}`, { x: x + 0.1, y: cy + 0.06, w: 0.4, h: 0.38, fontFace: HF, fontSize: 13, bold: true, color: C.white, valign: "middle", margin: 0 });
+    s.addText(ko, { x: x + 0.42, y: cy + 0.06, w: bw - 0.5, h: 0.38, fontFace: HF, fontSize: 12, bold: true, color: C.white, valign: "middle", margin: 0 });
+    s.addText(en, { x: x + 0.14, y: cy + 0.6, w: bw - 0.28, h: 0.5, fontFace: BF, fontSize: 8.5, color: C.muted, valign: "top", lineSpacingMultiple: 1.0, margin: 0 });
+    s.addText(ph, { x: x + 0.14, y: cy + ch - 0.5, w: bw - 0.28, h: 0.42, fontFace: BF, fontSize: 9.5, bold: true, color: C.tealDk, valign: "bottom", lineSpacingMultiple: 1.0, margin: 0 });
+    if (i < n - 1) s.addShape(pres.shapes.LINE, { x: x + bw + 0.02, y: cy + ch / 2, w: gap - 0.04, h: 0, line: { color: C.teal, width: 1.5, endArrowType: "triangle" } });
+  });
+
+  // loop-back arrow: 평가(4) → 데이터 이해(1)
+  const loopY = cy + ch + 0.55, c1 = cxOf(1), c4 = cxOf(4);
+  s.addShape(pres.shapes.LINE, { x: c1, y: cy + ch, w: 0, h: loopY - (cy + ch), line: { color: C.tealDk, width: 1.5, dashType: "dash" } });
+  s.addShape(pres.shapes.LINE, { x: c4, y: cy + ch, w: 0, h: loopY - (cy + ch), line: { color: C.tealDk, width: 1.5, dashType: "dash" } });
+  s.addShape(pres.shapes.LINE, { x: c1, y: loopY, w: c4 - c1, h: 0, line: { color: C.tealDk, width: 1.5, dashType: "dash", beginArrowType: "triangle" } });
+  s.addText("가설 기각 → 데이터 이해로 회귀 · VOC 2계층 재분류 (‘앱오류=OCPP’ 기각 → 앱 불안정 27.6% 규명)", {
+    x: c1, y: loopY + 0.04, w: c4 - c1, h: 0.34, fontFace: BF, fontSize: 11, bold: true, color: C.tealDk, align: "center", valign: "middle", margin: 0,
+  });
+
+  // SDLC positioning band
+  const by = 5.32;
+  card(s, M, by, W - 2 * M, 1.0, C.teal, false);
+  s.addShape(pres.shapes.RECTANGLE, { x: M, y: by, w: 0.16, h: 1.0, fill: { color: C.white } });
+  s.addText([
+    { text: "두 방법론의 역할  ", options: { bold: true, color: C.white } },
+    { text: "이 프로젝트는 ", options: { color: C.white } },
+    { text: "CRISP-DM으로 수행", options: { bold: true, color: C.white } },
+    { text: "했고, 그 산출물은 서비스 ", options: { color: C.white } },
+    { text: "SDLC의 계획 → 분석 → 설계", options: { bold: true, color: C.white } },
+    { text: " 단계에 해당합니다 (개발은 범위 외).", options: { color: C.white } },
+  ], { x: M + 0.45, y: by, w: W - 2 * M - 0.9, h: 1.0, fontFace: BF, fontSize: 13, valign: "middle", lineSpacingMultiple: 1.12, margin: 0 });
+})();
+
+// ===================================================================
 // 21. 회고 — 계획 대비 변경
 // ===================================================================
 (() => {

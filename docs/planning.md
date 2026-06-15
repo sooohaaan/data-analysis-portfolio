@@ -81,4 +81,22 @@ WBS 시트의 대분류·중분류 기준 요약입니다. (전체 태스크·�
 [Phase 1~5] 인프라·스키마 → 수집 → 전처리 → 분석 → 기획·설계
 ```
 
+---
+
+## 6. 방법론 매핑 — CRISP-DM × SDLC
+
+이 계획(Phase 0~5)은 데이터 분석 표준 방법론 **CRISP-DM**(*Cross-Industry Standard Process for Data Mining*)으로 수행됐고, 그 산출물은 서비스 **SDLC**의 상류(계획→분석→설계) 단계에 해당합니다.
+
+| 프로젝트 Phase | CRISP-DM | SDLC(서비스 관점) |
+|---|---|---|
+| Phase 0 계획 | 비즈니스 이해 | 계획 |
+| Phase 1~2 인프라·수집 | 데이터 이해 | (분석 인프라) |
+| Phase 3 전처리 | 데이터 준비 | 분석 |
+| Phase 4 분석·분류 | 모델링·평가 | 분석 |
+| Phase 5 기획 연계 | 배포 | 분석(PRD)·설계 |
+
+> 🔁 CRISP-DM은 순환 모델이며, **VOC 2계층 재분류**가 *평가 → 데이터 이해 회귀* 루프에 해당합니다("앱오류=OCPP" 가설 기각 → 앱 불안정 27.6% 규명). 상세 → [README 방법론](../README.md#-방법론--crisp-dm수행--sdlc포지셔닝).
+
+---
+
 *연계 산출물*: [데이터 요구사항 정의(DRD)](data_requirements.md) · [전체 진행·회고(README)](../README.md) · 원본 [WBS(.xlsx)](WBS_핀테크%20서비스%20기획%204회차_코코넛사일로.xlsx) · [로드맵(.docx)](PostgreSQL%20기반%20데이터%20수집·분석%20프로젝트%20로드맵.docx)
