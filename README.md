@@ -133,6 +133,7 @@ reference_stats  (id, category, entity, metric, value_num, value_text,
 
 | 작업 | 상태 | 비고 |
 |------|------|------|
+| **데이터 요구사항 정의(DRD)** | ✅ | [`docs/data_requirements.md`](docs/data_requirements.md) — 분석질문↔데이터 매핑·대상 엔티티·표본/품질 기준·리스크 (수집 전 정의, WBS·ERD 통합 정본) |
 | Supabase Cloud PostgreSQL 인스턴스 생성 | ✅ | `laos-ev-voc-db` (Singapore 리전) |
 | ERD 설계 (erdcloud.com) | ✅ | 최종 9개 테이블, FK 관계 설정 |
 | DDL 실행 (테이블 생성) | ✅ | `schema/create_tables.sql` |
