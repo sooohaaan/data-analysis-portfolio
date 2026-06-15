@@ -131,13 +131,13 @@ reference_stats  (id, category, entity, metric, value_num, value_text,
 
 ### ✅ Phase 0. 계획 — 완료
 
-데이터 수집·분석에 들어가기 전, **목표·범위·일정·작업 분해**를 먼저 정의했습니다. (SDLC의 *계획(Planning)* 단계)
+데이터 수집·분석에 들어가기 전, **목표·범위·일정·작업 분해**를 먼저 정의했습니다. (SDLC의 *계획(Planning)* 단계) → **정본 통합본: [`docs/planning.md`](docs/planning.md)** (로드맵·WBS 통합 · 원안 → 실제 변경 포함)
 
 | 작업 | 상태 | 산출물 |
 |------|------|--------|
-| 프로젝트 목표·범위·팀 역할 정의 | ✅ | README 프로젝트 개요 |
-| 작업 분해(WBS) | ✅ | `docs/WBS_핀테크 서비스 기획 4회차_코코넛사일로.xlsx` |
-| 전체 단계 로드맵 | ✅ | `docs/PostgreSQL 기반 데이터 수집·분석 프로젝트 로드맵.docx` |
+| 프로젝트 목표·범위·팀 역할 정의 | ✅ | [`docs/planning.md`](docs/planning.md) §1 |
+| 작업 분해(WBS) | ✅ | `WBS_…xlsx` → [`planning.md`](docs/planning.md) §3 |
+| 전체 단계 로드맵 | ✅ | `…로드맵.docx` → [`planning.md`](docs/planning.md) §2 |
 
 > 📌 계획에서 정의한 분석 목표는 다음 단계인 **데이터 요구사항 정의(DRD)** 로 구체화됩니다 → [`docs/data_requirements.md`](docs/data_requirements.md) (Phase 1에서 ERD·스키마 설계로 이어짐).
 
