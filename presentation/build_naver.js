@@ -1008,7 +1008,7 @@ divider("3", "04", "제품 기획·설계", "Product Planning & Design", "인사
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: x0, y: 1.82, w: covW, h: 0.56, rectRadius: 0.1, fill: { color: C.teal } });
   s.addText([
     { text: "✔  우리가 완성한 범위", options: { bold: true, color: C.white } },
-    { text: "    분석 → 기획 → 설계  (개발 즉시 착수 가능)", options: { color: "EAFBF1" } },
+    { text: "    계획 → 분석 → 기획 → 설계  (개발 즉시 착수 가능)", options: { color: "EAFBF1" } },
   ], { x: x0 + 0.3, y: 1.82, w: covW - 0.5, h: 0.56, fontFace: BF, fontSize: 13, valign: "middle", margin: 0 });
   // next-stage tag over dev column
   const devx = x0 + 2 * (cw + gap);

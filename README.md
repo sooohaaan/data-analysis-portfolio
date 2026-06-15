@@ -125,7 +125,21 @@ reference_stats  (id, category, entity, metric, value_num, value_text,
 
 ---
 
-## 🔄 5단계 실무 프로세스 — 진행 현황
+## 🔄 프로젝트 진행 프로세스 (계획 + 5 Phase) — 진행 현황
+
+---
+
+### ✅ Phase 0. 계획 — 완료
+
+데이터 수집·분석에 들어가기 전, **목표·범위·일정·작업 분해**를 먼저 정의했습니다. (SDLC의 *계획(Planning)* 단계)
+
+| 작업 | 상태 | 산출물 |
+|------|------|--------|
+| 프로젝트 목표·범위·팀 역할 정의 | ✅ | README 프로젝트 개요 |
+| 작업 분해(WBS) | ✅ | `docs/WBS_핀테크 서비스 기획 4회차_코코넛사일로.xlsx` |
+| 전체 단계 로드맵 | ✅ | `docs/PostgreSQL 기반 데이터 수집·분석 프로젝트 로드맵.docx` |
+
+> 📌 계획에서 정의한 분석 목표는 다음 단계인 **데이터 요구사항 정의(DRD)** 로 구체화됩니다 → [`docs/data_requirements.md`](docs/data_requirements.md) (Phase 1에서 ERD·스키마 설계로 이어짐).
 
 ---
 
@@ -892,6 +906,7 @@ flowchart TD
 
 | Phase | 내용 | 상태 | 비고 |
 |-------|------|------|------|
+| Phase 0 | 계획 (목표·범위·WBS·로드맵) | ✅ 완료 | WBS·로드맵·프로젝트 개요 + DRD로 구체화 |
 | Phase 1 | 인프라 세팅 & DB 스키마 | ✅ 완료 | Supabase 9개 테이블 (superapp_reviews·reference_stats 추가) |
 | Phase 2 | 데이터 수집 파이프라인 | 🔄 대부분 완료 | SNS만 보류 (슈퍼앱·하드웨어·라오스 SoV 뉴스 추가 완료) |
 | Phase 3 | 다국어 전처리 | ✅ 완료 | VOC + 슈퍼앱 + 뉴스 전체 적용 |
