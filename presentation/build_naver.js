@@ -587,6 +587,65 @@ divider("1", "02", "문제 정의", "Problem Definition", "데이터로 검증�
 divider("2", "03", "데이터 수집·분석", "Data Collection & Analysis", "멀티채널 VOC 38,600+건의 정량 분석");
 
 // ===================================================================
+// 4.9 데이터 요구사항 정의(DRD) — 수집 전에 정의
+// ===================================================================
+(() => {
+  const s = pres.addSlide();
+  chrome(s, "Approach · DRD", "데이터 요구사항 정의(DRD) — 수집 전에 무엇을·왜·얼마나");
+
+  // left: 분석 질문 ↔ 필요 데이터 매핑 (table)
+  const tx = M, ty = 1.85, tw = 7.7;
+  const c0 = 3.35, c1 = tw - c0;
+  const colX = [tx, tx + c0], colWd = [c0, c1];
+  const heads = ["분석 질문", "필요 데이터 (테이블)"];
+  const rows = [
+    ["충전 앱의 #1 불만은?", "충전 앱 리뷰 + 감성·키워드  ·  app_reviews"],
+    ["SW(앱) vs HW(충전기) 문제?", "충전기·OCPP 뉴스  ·  news_articles"],
+    ["슈퍼앱의 EV 통합 전략은?", "슈퍼앱 리뷰  ·  superapp_reviews"],
+    ["라오스 시장·정책·경쟁은?", "시장·정책 뉴스 + SoV  ·  news_articles"],
+    ["실사용 맥락·여정은?", "유튜브 자막·댓글  ·  youtube_*"],
+    ["거시·요금 정량 근거는?", "공식 통계·단가/IR  ·  reference_stats"],
+  ];
+  s.addShape(pres.shapes.RECTANGLE, { x: tx, y: ty, w: tw, h: 0.46, fill: { color: C.teal } });
+  heads.forEach((h, i) => s.addText(h, { x: colX[i] + 0.14, y: ty, w: colWd[i] - 0.2, h: 0.46, fontFace: HF, fontSize: 11.5, bold: true, color: C.white, valign: "middle", margin: 0 }));
+  let ry = ty + 0.46; const rh = 0.6;
+  rows.forEach((r, i) => {
+    s.addShape(pres.shapes.RECTANGLE, { x: tx, y: ry, w: tw, h: rh, fill: { color: i % 2 ? "EAF1EF" : C.white }, line: { color: C.line, width: 0.75 } });
+    s.addText([{ text: "Q" + (i + 1) + "  ", options: { bold: true, color: C.teal } }, { text: r[0], options: { color: C.ink } }], { x: colX[0] + 0.14, y: ry, w: colWd[0] - 0.2, h: rh, fontFace: BF, fontSize: 11, bold: true, valign: "middle", margin: 0 });
+    s.addText(r[1], { x: colX[1] + 0.12, y: ry, w: colWd[1] - 0.2, h: rh, fontFace: BF, fontSize: 10.5, color: C.muted, valign: "middle", margin: 0 });
+    ry += rh;
+  });
+
+  // right: 수집 기준 (품질·신뢰도) card
+  const rx = tx + tw + 0.32, rw = W - M - rx, ch = 0.46 + 6 * rh;
+  card(s, rx, ty, rw, ch, C.white);
+  s.addShape(pres.shapes.RECTANGLE, { x: rx, y: ty, w: 0.14, h: ch, fill: { color: C.teal } });
+  s.addText("수집 기준 — 품질·신뢰도", { x: rx + 0.34, y: ty + 0.2, w: rw - 0.6, h: 0.4, fontFace: HF, fontSize: 14.5, bold: true, color: C.ink, margin: 0 });
+  const crit = [
+    ["최소 표본", "분석 단위(앱)당 부정 리뷰 ≥ 약 300건 — 미달 시 비교군 대체"],
+    ["출처 신뢰도", "official > igo > secondary · 시장조사업체 추정치 배제"],
+    ["대상 엔티티·식별자", "앱 ID로 동일성·중복 사전 식별 (Green SM = V-Green)"],
+    ["전처리 완전성", "언어 → 감성 → 키워드 (충전 도메인은 2계층)"],
+  ];
+  let cy = ty + 0.82;
+  crit.forEach(([h, d]) => {
+    s.addShape(pres.shapes.OVAL, { x: rx + 0.34, y: cy + 0.05, w: 0.15, h: 0.15, fill: { color: C.teal } });
+    s.addText([{ text: h + "\n", options: { bold: true, color: C.ink, fontSize: 12 } }, { text: d, options: { color: C.muted, fontSize: 10.5 } }], { x: rx + 0.62, y: cy - 0.04, w: rw - 0.92, h: 0.85, fontFace: BF, lineSpacingMultiple: 1.08, valign: "top", margin: 0 });
+    cy += 0.84;
+  });
+
+  // bottom: green callout — 왜 먼저 정의했나 (사전 리스크 식별)
+  const by = ty + ch + 0.18;
+  card(s, M, by, W - 2 * M, 0.82, C.teal, false);
+  s.addShape(pres.shapes.RECTANGLE, { x: M, y: by, w: 0.16, h: 0.82, fill: { color: C.white } });
+  s.addText([
+    { text: "왜 먼저 정의했나  ", options: { bold: true, color: C.white } },
+    { text: "요구사항을 선(先)정의해 LOCA 리뷰 7건·Green SM=V-Green 동일 앱·VOC↔뉴스 목적 분리 리스크를 수집 전에 식별. ", options: { color: C.white } },
+    { text: "(탐색 중 생긴 슈퍼앱·HW 가설은 사후 추가 — 정상적 탐색 특성)", options: { color: "EAFBF1" } },
+  ], { x: M + 0.45, y: by, w: W - 2 * M - 0.9, h: 0.82, fontFace: BF, fontSize: 12, valign: "middle", lineSpacingMultiple: 1.12, margin: 0 });
+})();
+
+// ===================================================================
 // 5. 접근 방식 — 멀티채널 수집 아키텍처
 // ===================================================================
 (() => {
@@ -595,7 +654,7 @@ divider("2", "03", "데이터 수집·분석", "Data Collection & Analysis", "�
   // pipeline columns
   const cols = [
     ["수집 SOURCE", C.teal, ["앱스토어 리뷰 (Google Play)", "유튜브 영상·댓글·자막(STT)", "네이버 블로그 / 뉴스", "Google News RSS", "충전기 하드웨어 뉴스"]],
-    ["저장 STORE", C.tealDk, ["PostgreSQL / Supabase Cloud", "VOC 테이블 6개", "Market Intel 테이블 1개", "Session Pooler (Singapore)", "총 7개 테이블 · FK 설계"]],
+    ["저장 STORE", C.tealDk, ["PostgreSQL / Supabase Cloud", "VOC 테이블 7개", "Market Intel + 참조통계 2개", "Session Pooler (Singapore)", "총 9개 테이블 · FK 설계"]],
     ["전처리 PROCESS", C.amber, ["언어 감지 (langdetect)", "감성 분석 (XLM-RoBERTa)", "번역 없이 100개 언어 직접", "키워드 카테고리 분류", "선택적 번역 (필요 시만)"]],
     ["분석·기획 OUTPUT", C.amberDk, ["감성·불만 카테고리 정량화", "포지셔닝 맵 · 경쟁 분석", "PRD 11개 기능 명세", "시장조사 · 요금정책", "Flowchart · Tableau"]],
   ];
