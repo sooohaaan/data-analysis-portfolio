@@ -71,6 +71,20 @@
     });
   });
 
+  /* ---- Logo → page 1 (cover) · hamburger → contents ---- */
+  document.querySelectorAll(".nav__logo").forEach((el) => {
+    el.style.cursor = "pointer";
+    el.addEventListener("click", (e) => { e.stopPropagation(); show(0); });
+  });
+  document.querySelectorAll(".nav__icons").forEach((ic) => {
+    const svgs = ic.querySelectorAll("svg");
+    const burger = svgs[svgs.length - 1];
+    if (burger) {
+      burger.style.cursor = "pointer";
+      burger.addEventListener("click", (e) => { e.stopPropagation(); show(1); });
+    }
+  });
+
   /* ---- Tab components (환경/사회/지배구조 등) ---- */
   document.querySelectorAll(".tabs").forEach((group) => {
     group.addEventListener("click", (e) => {

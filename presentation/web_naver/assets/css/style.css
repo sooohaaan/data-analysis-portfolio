@@ -553,6 +553,30 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .tbl--xs { font-size: 11px; }
 .tbl--xs th, .tbl--xs td { padding: 6px 6px; }
 
+/* =====================  APPENDIX GALLERY  ================== */
+.appendix-note { font-size: 11px; color: var(--ink-2); background: var(--fill); border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; line-height: 1.6; }
+.appendix-note b { color: var(--ink); }
+.muted { color: var(--ink-3); font-weight: 600; }
+.gallery { display: grid; gap: 10px; }
+.gimg { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--paper); height: 168px; display: grid; place-items: center; }
+.gimg img { width: 100%; height: 100%; object-fit: contain; }
+.gcap { font-size: 9.5px; color: var(--ink-2); line-height: 1.4; margin-top: 5px; }
+.gcap b { color: var(--brand-strong); }
+
+/* contents 목록 — 순번 마커 제거 (페이지번호만 노출) */
+ol.txt { list-style: none; padding-left: 0; }
+
+/* =====================  OVERVIEW (NAVER p.6)  ============== */
+.tbl td.box { background: var(--brand-mist); color: var(--brand-strong); font-weight: 800; border-radius: 4px; }
+.tbl th.box { color: var(--brand-strong); }
+
+/* =====================  DIVIDER (NAVER p.45)  ============== */
+.divider--p45 { background: linear-gradient(180deg, var(--brand-mist) 0%, #ffffff 22%, #ffffff 64%, var(--brand-soft) 100%); }
+.dv45 { text-align: center; }
+.dv45__eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .16em; color: var(--brand-strong); margin-bottom: 16px; }
+.dv45__title { font-size: 62px; font-weight: 800; letter-spacing: -.02em; line-height: 1.06; }
+.dv45__list { margin-top: 28px; font-size: 14px; font-weight: 700; color: var(--ink-2); line-height: 2.0; }
+
 /* =====================  PROGRESS / HELP  ==================== */
 #progress {
   position: fixed; left: 0; bottom: 0; height: 3px; background: var(--brand);
