@@ -1,0 +1,93 @@
+/* =============================================================
+   KOKKOK Report Template — Deck engine
+   - 16:9 슬라이드를 뷰포트에 맞춰 스케일
+   - 키보드(←/→/Space/Home/End), 클릭, 네비 탭 점프
+   - 진행 바 + 페이지/섹션 동기화
+   ============================================================= */
+(function () {
+  const deck   = document.getElementById("deck");
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const progress = document.getElementById("progress");
+  let idx = 0;
+
+  /* ---- Fit 1280x720 stage into viewport ---- */
+  function fit() {
+    const sw = 1280, sh = 720;
+    const scale = Math.min(window.innerWidth / sw, window.innerHeight / sh);
+    deck.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  }
+  window.addEventListener("resize", fit);
+  fit();
+
+  /* ---- Show a slide ---- */
+  function show(n) {
+    idx = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === idx));
+    const pct = slides.length > 1 ? (idx / (slides.length - 1)) * 100 : 100;
+    if (progress) progress.style.width = pct + "%";
+    syncNav();
+    location.hash = "s" + (idx + 1);
+  }
+
+  /* ---- Sync top-nav active tab with current slide's section ---- */
+  function syncNav() {
+    const section = slides[idx].dataset.section;
+    document.querySelectorAll(".nav").forEach((nav) => {
+      nav.querySelectorAll(".nav__tab").forEach((t) => {
+        t.classList.toggle("is-active", t.dataset.section === section);
+      });
+    });
+  }
+
+  function next() { show(idx + 1); }
+  function prev() { show(idx - 1); }
+
+  /* ---- Keyboard ---- */
+  document.addEventListener("keydown", (e) => {
+    switch (e.key) {
+      case "ArrowRight":
+      case "PageDown":
+      case " ":         e.preventDefault(); next(); break;
+      case "ArrowLeft":
+      case "PageUp":     prev(); break;
+      case "Home":       show(0); break;
+      case "End":        show(slides.length - 1); break;
+    }
+  });
+
+  /* ---- Click halves to navigate ---- */
+  document.getElementById("stage").addEventListener("click", (e) => {
+    if (e.target.closest(".nav, .tag-link, .tabs, a")) return;
+    if (e.clientX > window.innerWidth * 0.5) next(); else prev();
+  });
+
+  /* ---- Nav tab jump: go to first slide of that section ---- */
+  document.querySelectorAll(".nav__tab").forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const sec = tab.dataset.section;
+      const target = slides.findIndex((s) => s.dataset.section === sec);
+      if (target >= 0) show(target);
+    });
+  });
+
+  /* ---- Tab components (환경/사회/지배구조 등) ---- */
+  document.querySelectorAll(".tabs").forEach((group) => {
+    group.addEventListener("click", (e) => {
+      const tab = e.target.closest(".tab");
+      if (!tab) return;
+      e.stopPropagation();
+      const panelId = tab.dataset.panel;
+      group.querySelectorAll(".tab").forEach((t) => t.classList.remove("is-active"));
+      tab.classList.add("is-active");
+      const scope = group.closest(".slide");
+      scope.querySelectorAll("[data-panelbody]").forEach((p) => {
+        p.style.display = p.dataset.panelbody === panelId ? "" : "none";
+      });
+    });
+  });
+
+  /* ---- deep link ---- */
+  const m = location.hash.match(/^#s(\d+)$/);
+  show(m ? parseInt(m[1], 10) - 1 : 0);
+})();
