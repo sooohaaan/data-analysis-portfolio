@@ -28,7 +28,7 @@
       <h2 class="h-page">CONTENTS</h2>
       <div class="grid cols-3" style="gap:24px 40px">
         <div>
-          <div class="h-col">시장 분석</div>
+          <div class="h-col"><span class="ch-badge">01</span>시장 분석</div>
           <ol class="txt" style="line-height:2.2">
             <li><b class="green">02</b>&nbsp;&nbsp;거시환경 분석 (PEST)</li>
             <li><b class="green">03</b>&nbsp;&nbsp;시장 규모 (TAM·SAM·SOM)</li>
@@ -38,13 +38,13 @@
           </ol>
         </div>
         <div>
-          <div class="h-col">문제 정의</div>
+          <div class="h-col"><span class="ch-badge">02</span>문제 정의</div>
           <ol class="txt" style="line-height:2.2">
             <li><b class="green">09</b>&nbsp;&nbsp;핵심 가설 — 골든타임</li>
           </ol>
         </div>
         <div>
-          <div class="h-col">데이터 수집·분석</div>
+          <div class="h-col"><span class="ch-badge">03</span>데이터 수집·분석</div>
           <ol class="txt" style="line-height:2.2">
             <li><b class="green">10</b>&nbsp;&nbsp;데이터 요구사항(DRD)·아키텍처</li>
             <li><b class="green">12</b>&nbsp;&nbsp;수집 현황 · 다국어 전처리</li>
@@ -54,7 +54,7 @@
           </ol>
         </div>
         <div>
-          <div class="h-col">제품 기획·설계</div>
+          <div class="h-col"><span class="ch-badge">04</span>제품 기획·설계</div>
           <ol class="txt" style="line-height:2.2">
             <li><b class="green">21</b>&nbsp;&nbsp;산출물 · 데이터→기능</li>
             <li><b class="green">24</b>&nbsp;&nbsp;제품 포지셔닝 · PRD</li>
@@ -64,7 +64,7 @@
           </ol>
         </div>
         <div>
-          <div class="h-col">기대효과 &amp; 회고</div>
+          <div class="h-col"><span class="ch-badge">05</span>기대효과 &amp; 회고</div>
           <ol class="txt" style="line-height:2.2">
             <li><b class="green">34</b>&nbsp;&nbsp;기대효과 KPI</li>
             <li><b class="green">35</b>&nbsp;&nbsp;로드맵 &amp; Ask</li>
@@ -74,7 +74,7 @@
           </ol>
         </div>
         <div>
-          <div class="h-col">부록</div>
+          <div class="h-col"><span class="ch-badge" style="background:var(--ink-3)">A</span>부록</div>
           <ol class="txt" style="line-height:2.2">
             <li><b class="green">39</b>&nbsp;&nbsp;설계 산출물 (OCPP~시퀀스)</li>
             <li><b class="green">49</b>&nbsp;&nbsp;정책 산출물</li>
@@ -154,14 +154,21 @@
       <div class="h-eyebrow">MARKET · MACRO</div>
       <h2 class="h-page" style="margin-top:2px">거시 환경 분석 (PEST) — 라오스 EV, 지금이 진입 적기</h2>
       <div class="grid cols-4 pest" style="gap:16px">
-        <div class="card"><div class="pest__h"><div class="pest__badge">P</div><div><b>정치·정책</b><br><span>Political</span></div></div>
-          <ul><li>내연기관차 수입 잠정 중단 (2026.6~12월)</li><li>EV 소비세 면제·0% 수입관세·등록세 30%↓</li><li>정부 목표 2030년 EV 30%·충전소 500개</li><li>MOIC·MEM 주도(.gov.la 공표) → 강한 친EV</li></ul></div>
-        <div class="card"><div class="pest__h"><div class="pest__badge">E</div><div><b>경제</b><br><span>Economic</span></div></div>
-          <ul><li>휘발유 23,834₭/L vs 충전 4,000₭/kWh</li><li>전기 ~647₭/kWh·전력 잉여 → 충전 마진 우위</li><li>가구 월소비 중위 122.6만₭ → 가격 민감</li><li>2026 연료위기(디젤 급등) = 전환 가속</li></ul></div>
-        <div class="card"><div class="pest__h"><div class="pest__badge">S</div><div><b>사회</b><br><span>Social</span></div></div>
-          <ul><li>스마트폰 ~85% · 인터넷 66%</li><li>빈곤율 15%↓ · 15~39세 43.2% 젊은 층</li><li>외국인 여행자 Negative 65.8%</li><li>언어·결제 장벽 = 개선 기회</li></ul></div>
-        <div class="card"><div class="pest__h"><div class="pest__badge">T</div><div><b>기술</b><br><span>Technology</span></div></div>
-          <ul><li>전기 보급률 96.5% · 전력 잉여(수출&gt;&gt;수입)</li><li>충전소 41개뿐 → 인프라 공백=기회</li><li>OCPP 1.6J 표준 · 슈퍼앱 통합 성숙</li><li>LOCA 충전소 40 → 100개소</li></ul></div>
+        <div class="card" style="border-top:3px solid #2f6df0"><div class="pest__h"><div class="pest__badge" style="background:#2f6df0">P</div><div><b>정치·정책</b><br><span>Political</span></div></div>
+          <ul><li>내연기관차 수입 잠정 중단 (2026.6~12월)</li><li>EV 소비세 면제·0% 수입관세·등록세 30%↓</li><li>정부 목표 2030년 EV 30%·충전소 500개</li><li class="green" style="font-weight:700;border-top-color:var(--brand-soft)">MOIC·MEM 주도 → 강한 친EV 정책</li></ul></div>
+        <div class="card" style="border-top:3px solid var(--brand)"><div class="pest__h"><div class="pest__badge">E</div><div><b>경제</b><br><span>Economic</span></div></div>
+          <ul><li>휘발유 23,834₭/L vs 충전 4,000₭/kWh</li><li>전기 ~647₭/kWh·전력 잉여 → 충전 마진 우위</li><li>가구 월소비 중위 122.6만₭ → 가격 민감</li><li class="green" style="font-weight:700;border-top-color:var(--brand-soft)">2026 연료위기(디젤 급등) = 전환 가속</li></ul></div>
+        <div class="card" style="border-top:3px solid #8B7CF0"><div class="pest__h"><div class="pest__badge" style="background:#8B7CF0">S</div><div><b>사회</b><br><span>Social</span></div></div>
+          <ul><li>스마트폰 ~85% · 인터넷 66%</li><li>빈곤율 15%↓ · 15~39세 43.2% 젊은 층</li><li>외국인 여행자 Negative 65.8%</li><li class="green" style="font-weight:700;border-top-color:var(--brand-soft)">언어·결제 장벽 = 개선 기회</li></ul></div>
+        <div class="card" style="border-top:3px solid #0e9594"><div class="pest__h"><div class="pest__badge" style="background:#0e9594">T</div><div><b>기술</b><br><span>Technology</span></div></div>
+          <ul><li>전기 보급률 96.5% · 전력 잉여(수출&gt;&gt;수입)</li><li>OCPP 1.6J 표준 · 슈퍼앱 통합 성숙</li><li>LOCA 충전소 40 → 100개소</li><li class="green" style="font-weight:700;border-top-color:var(--brand-soft)">충전소 41개뿐 → 인프라 공백 = 기회</li></ul></div>
+      </div>
+      <div class="opp-strip">
+        <span class="opp-strip__k">진입 기회 신호 4</span>
+        <span class="opp-chip" style="--c:#2f6df0"><b>P</b> 강한 친EV 정책 <em>(MOIC·MEM 주도)</em></span>
+        <span class="opp-chip" style="--c:var(--brand)"><b>E</b> 2026 연료위기 = <em>전환 가속</em></span>
+        <span class="opp-chip" style="--c:#8B7CF0"><b>S</b> 언어·결제 장벽 = <em>개선 기회</em></span>
+        <span class="opp-chip" style="--c:#0e9594"><b>T</b> 충전소 41개뿐 = <em>인프라 공백</em></span>
       </div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">2</span></div>
@@ -176,9 +183,7 @@
       <div class="grid cols-6040">
         <div>
           <div class="h-col">ASEAN-6 → 라오스로 좁혀 본 실현 가능 시장</div>
-          <div class="card" style="margin-bottom:10px"><div class="step__no">TAM · ASEAN-6 EV 생태계</div><div class="bold mt8" style="font-size:17px">$100B~$120B <span class="cap">(2035, EY-Parthenon)</span></div></div>
-          <div class="card" style="margin-bottom:10px;margin-left:24px"><div class="step__no">SAM · 동남아 EV 충전 서비스</div><div class="bold mt8">EV 신차 점유율 9% · 판매 +50% <span class="cap">(IEA 2025)</span></div></div>
-          <div class="card card--fill" style="margin-left:48px;border:1px solid var(--brand-soft);background:var(--brand-mist)"><div class="step__no">SOM · 라오스 충전 · 슈퍼앱</div><div class="bold mt8 green">라오스 EV 40% 커버 <span class="cap" style="color:var(--ink-3)">(3년, LOCA 벤치마크)</span></div></div>
+          <div id="chart-funnel" style="width:100%;height:330px"></div>
         </div>
         <div>
           <div class="h-col">왜 지금인가 — 진입 논거</div>
@@ -201,23 +206,35 @@
     <div class="body">
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
       <h2 class="h-page" style="margin-top:2px">분석 대상 기업 — 데이터를 수집한 9개 서비스</h2>
-      <div class="card" style="padding:14px 18px">
-      <table class="tbl tbl--xs">
-        <thead><tr><th>기업 / 서비스</th><th style="text-align:left">국가</th><th style="text-align:left">유형</th><th style="text-align:left">수집 데이터</th><th style="text-align:left">본 분석에서의 역할</th></tr></thead>
-        <tbody>
-          <tr><td>LOCA EV</td><td style="text-align:left">라오스</td><td style="text-align:left">EV 충전</td><td style="text-align:left">앱리뷰 7</td><td style="text-align:left">현지 충전 벤치마크 (경영진 지정)</td></tr>
-          <tr><td>LOCA Taxi</td><td style="text-align:left">라오스</td><td style="text-align:left">라이드헤일링</td><td style="text-align:left">슈퍼앱 447</td><td style="text-align:left">라오스 모빌리티 1위 (사업모델)</td></tr>
-          <tr><td>KOKKOK Move</td><td style="text-align:left">라오스</td><td style="text-align:left">라이드헤일링·자사</td><td style="text-align:left">슈퍼앱 378</td><td style="text-align:left">우리 서비스 기반 (확장 출발점)</td></tr>
-          <tr><td>PTT blueplus+</td><td style="text-align:left">태국</td><td style="text-align:left">EV 충전</td><td style="text-align:left">앱 1,518</td><td style="text-align:left">충전 UX 벤치마크 (최고 3.11점)</td></tr>
-          <tr><td>PEA VOLTA</td><td style="text-align:left">태국</td><td style="text-align:left">EV 충전</td><td style="text-align:left">앱 499</td><td style="text-align:left">충전 비교군</td></tr>
-          <tr><td>EleXA</td><td style="text-align:left">태국</td><td style="text-align:left">EV 충전</td><td style="text-align:left">앱 263</td><td style="text-align:left">충전 비교군</td></tr>
-          <tr><td>Green SM (Xanh SM)</td><td style="text-align:left">베트남</td><td style="text-align:left">EV 라이드헤일링</td><td style="text-align:left">앱 26,603</td><td style="text-align:left">VOC 본체 · 역내 위협(라오스 진입)</td></tr>
-          <tr><td>Grab</td><td style="text-align:left">역내 8국 (라오스 X)</td><td style="text-align:left">라이드헤일링 슈퍼앱</td><td style="text-align:left">슈퍼앱 1,479</td><td style="text-align:left">역내 슈퍼앱 벤치마크</td></tr>
-          <tr><td>Gojek</td><td style="text-align:left">인니 등 역내</td><td style="text-align:left">라이드헤일링 슈퍼앱</td><td style="text-align:left">슈퍼앱 1,066</td><td style="text-align:left">슈퍼앱 비교군</td></tr>
-        </tbody>
-      </table>
+      <div style="display:flex;justify-content:flex-end;gap:18px;font-size:11px;font-weight:700;margin-top:-6px">
+        <span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--brand);margin-right:5px;vertical-align:middle"></i>라오스 현지 3</span>
+        <span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--accent-blue);margin-right:5px;vertical-align:middle"></i>태국 충전 3</span>
+        <span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--accent-purple);margin-right:5px;vertical-align:middle"></i>베트남·역내 슈퍼앱 3</span>
       </div>
-      <div class="note mt16"><b>수집 설계</b> — 라오스 현지 3(타깃 시장) · 태국 충전 3(UX 벤치마크) · 베트남/역내 슈퍼앱 3(EV 모빌리티·위협). 충전 UX는 태국에서, 사업모델·현지 경쟁은 라오스에서, 슈퍼앱 동학은 역내에서 학습.</div>
+      <div class="constel">
+        <svg class="clines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M50,50 L50,10"   stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L73.8,19.4" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L86.4,43.1" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L82,70"   stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L62.7,87.6" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L37.3,87.6" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L18,70"   stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L13.6,43.1" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,50 L26.2,19.4" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="ccore">분석 대상<br>9개 서비스</div>
+        <div class="cnode" style="left:50%;top:10%;--cc:var(--brand)"><b>LOCA EV</b><span>라오스 · 충전 7 · 경영진 벤치마크</span></div>
+        <div class="cnode" style="left:73.8%;top:19.4%;--cc:var(--brand)"><b>LOCA Taxi</b><span>라오스 · 슈퍼앱 447 · 모빌 1위</span></div>
+        <div class="cnode" style="left:86.4%;top:43.1%;--cc:var(--brand)"><b>◆ KOKKOK Move</b><span>자사 · 슈퍼앱 378 · 확장 출발점</span></div>
+        <div class="cnode" style="left:82%;top:70%;--cc:var(--accent-blue)"><b>PTT blueplus+</b><span>태국 · 앱 1,518 · UX 벤치마크</span></div>
+        <div class="cnode" style="left:62.7%;top:87.6%;--cc:var(--accent-blue)"><b>PEA VOLTA</b><span>태국 · 앱 499 · 비교군</span></div>
+        <div class="cnode" style="left:37.3%;top:87.6%;--cc:var(--accent-blue)"><b>EleXA</b><span>태국 · 앱 263 · 비교군</span></div>
+        <div class="cnode" style="left:18%;top:70%;--cc:var(--accent-purple)"><b>Green SM</b><span>베트남 · 앱 26,603 · VOC 본체</span></div>
+        <div class="cnode" style="left:13.6%;top:43.1%;--cc:var(--accent-purple)"><b>Grab</b><span>역내 · 슈퍼앱 1,479 · 벤치마크</span></div>
+        <div class="cnode" style="left:26.2%;top:19.4%;--cc:var(--accent-purple)"><b>Gojek</b><span>역내 · 슈퍼앱 1,066 · 비교군</span></div>
+      </div>
+      <div class="note" style="font-size:10.5px"><b>수집 설계</b> — 충전 UX는 태국(PTT·PEA·EleXA)에서, 사업모델·현지 경쟁은 라오스(LOCA·KOKKOK)에서, 슈퍼앱 동학은 역내(Green SM·Grab·Gojek)에서 학습.</div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">4</span></div>
   </section>
@@ -229,14 +246,14 @@
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
       <h2 class="h-page" style="margin-top:2px">경쟁사 분석 ① — 동남아 EV 충전 앱 (직접 경쟁)</h2>
       <div class="card" style="padding:14px 18px">
-      <table class="tbl tbl--xs">
-        <thead><tr><th>앱</th><th style="text-align:left">국가</th><th>별점</th><th>Negative</th><th>리뷰수(인지도)</th><th style="text-align:left">강점 · 약점</th></tr></thead>
+      <table class="tbl tbl--xs tbl--cmp">
+        <thead><tr><th>앱</th><th>국가</th><th>별점</th><th>Negative</th><th>리뷰수(인지도)</th><th>강점 · 약점</th></tr></thead>
         <tbody>
-          <tr><td>LOCA EV ●라오스</td><td style="text-align:left">라오스</td><td>5.0⭐</td><td>14.3%</td><td>7건</td><td style="text-align:left">✓ 현지 1위·LOCA 택시 연동 / ✗ 리뷰 거의 없음</td></tr>
-          <tr><td>PTT blueplus+ ★벤치마크</td><td style="text-align:left">태국</td><td class="hi">3.11⭐</td><td>47.6%</td><td>1,518건</td><td style="text-align:left">✓ 앱+카드 이중결제·주유소 연계 / ✗ 태국 외 미확장</td></tr>
-          <tr><td>Green SM ●라오스</td><td style="text-align:left">라오스·베트남</td><td>2.56⭐</td><td>53.5%</td><td>26,603건</td><td style="text-align:left">✓ 리뷰 수 1위·인지도 최고 / ✗ UX·결제 오류 빈발</td></tr>
-          <tr><td>PEA VOLTA</td><td style="text-align:left">태국</td><td>2.28⭐</td><td>67.9%</td><td>499건</td><td style="text-align:left">✓ 태국 정부(PEA) 운영 / ✗ 동남아 최하위 평점</td></tr>
-          <tr><td>EleXA</td><td style="text-align:left">태국</td><td>2.41⭐</td><td>62.4%</td><td>263건</td><td style="text-align:left">✓ EGAT 국영 전기공사 / ✗ 앱오류·UI 심각</td></tr>
+          <tr><td>LOCA EV ●라오스</td><td style="text-align:left">라오스</td><td style="text-align:left"><span class="mb">5.0<span class="mb-track"><span class="mb-fill" style="width:100%;background:var(--brand)"></span></span></span></td><td style="text-align:left"><span class="mb">14.3%<span class="mb-track"><span class="mb-fill" style="width:14%;background:#d9756b"></span></span></span></td><td>7건</td><td style="text-align:left">✓ 현지 1위·LOCA 택시 연동 / ✗ 리뷰 거의 없음</td></tr>
+          <tr><td>PTT blueplus+ ★벤치마크</td><td style="text-align:left">태국</td><td style="text-align:left"><span class="mb hi">3.11<span class="mb-track"><span class="mb-fill" style="width:62%;background:var(--brand)"></span></span></span></td><td style="text-align:left"><span class="mb">47.6%<span class="mb-track"><span class="mb-fill" style="width:48%;background:#d9756b"></span></span></span></td><td>1,518건</td><td style="text-align:left">✓ 앱+카드 이중결제·주유소 연계 / ✗ 태국 외 미확장</td></tr>
+          <tr><td>Green SM ●라오스</td><td style="text-align:left">라오스·베트남</td><td style="text-align:left"><span class="mb">2.56<span class="mb-track"><span class="mb-fill" style="width:51%;background:var(--brand)"></span></span></span></td><td style="text-align:left"><span class="mb">53.5%<span class="mb-track"><span class="mb-fill" style="width:54%;background:#d9756b"></span></span></span></td><td>26,603건</td><td style="text-align:left">✓ 리뷰 수 1위·인지도 최고 / ✗ UX·결제 오류 빈발</td></tr>
+          <tr><td>PEA VOLTA</td><td style="text-align:left">태국</td><td style="text-align:left"><span class="mb">2.28<span class="mb-track"><span class="mb-fill" style="width:46%;background:var(--brand)"></span></span></span></td><td style="text-align:left"><span class="mb">67.9%<span class="mb-track"><span class="mb-fill" style="width:68%;background:#d9756b"></span></span></span></td><td>499건</td><td style="text-align:left">✓ 태국 정부(PEA) 운영 / ✗ 동남아 최하위 평점</td></tr>
+          <tr><td>EleXA</td><td style="text-align:left">태국</td><td style="text-align:left"><span class="mb">2.41<span class="mb-track"><span class="mb-fill" style="width:48%;background:var(--brand)"></span></span></span></td><td style="text-align:left"><span class="mb">62.4%<span class="mb-track"><span class="mb-fill" style="width:62%;background:#d9756b"></span></span></span></td><td>263건</td><td style="text-align:left">✓ EGAT 국영 전기공사 / ✗ 앱오류·UI 심각</td></tr>
         </tbody>
       </table>
       </div>
@@ -253,13 +270,13 @@
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
       <h2 class="h-page" style="margin-top:2px">경쟁사 분석 ② — 모빌리티 슈퍼앱 (간접 경쟁)</h2>
       <div class="card" style="padding:14px 18px">
-      <table class="tbl tbl--xs">
-        <thead><tr><th>앱</th><th>별점</th><th>Negative</th><th>Positive</th><th>리뷰수</th><th>EV 언급</th><th style="text-align:left">시사점</th></tr></thead>
+      <table class="tbl tbl--xs tbl--cmp">
+        <thead><tr><th>앱</th><th>별점</th><th>Negative</th><th>Positive</th><th>리뷰수</th><th>EV 언급</th><th>시사점</th></tr></thead>
         <tbody>
-          <tr><td>LOCA Taxi ★벤치마크</td><td class="hi">3.43⭐</td><td>37.1%</td><td>40.9%</td><td>447건</td><td>72건</td><td style="text-align:left">EV가 이미 핵심 서비스 (언급 16.1%)</td></tr>
-          <tr><td>Grab</td><td>3.11⭐</td><td>45.0%</td><td>36.8%</td><td>1,479건</td><td>75건</td><td style="text-align:left">BYD·GAC 7만 대 EV 진출 (라오스 미포함)</td></tr>
-          <tr><td>Gojek</td><td>3.20⭐</td><td>51.0%</td><td>31.7%</td><td>1,066건</td><td>30건</td><td style="text-align:left">EV 공식 전략 미확인</td></tr>
-          <tr><td>KOKKOK Move ◆우리</td><td>2.41⭐</td><td>44.7%</td><td>16.7%</td><td>378건</td><td>7건</td><td style="text-align:left">Positive 최저 · 배차 실패 44.9%</td></tr>
+          <tr><td>LOCA Taxi ★벤치마크</td><td style="text-align:left"><span class="mb hi">3.43<span class="mb-track"><span class="mb-fill" style="width:69%;background:var(--brand)"></span></span></span></td><td>37.1%</td><td style="text-align:left"><span class="mb">40.9%<span class="mb-track"><span class="mb-fill" style="width:41%;background:var(--brand)"></span></span></span></td><td>447건</td><td>72건</td><td style="text-align:left">EV가 이미 핵심 서비스 (언급 16.1%)</td></tr>
+          <tr><td>Grab</td><td style="text-align:left"><span class="mb">3.11<span class="mb-track"><span class="mb-fill" style="width:62%;background:var(--brand)"></span></span></span></td><td>45.0%</td><td style="text-align:left"><span class="mb">36.8%<span class="mb-track"><span class="mb-fill" style="width:37%;background:var(--brand)"></span></span></span></td><td>1,479건</td><td>75건</td><td style="text-align:left">BYD·GAC 7만 대 EV 진출 (라오스 미포함)</td></tr>
+          <tr><td>Gojek</td><td style="text-align:left"><span class="mb">3.20<span class="mb-track"><span class="mb-fill" style="width:64%;background:var(--brand)"></span></span></span></td><td>51.0%</td><td style="text-align:left"><span class="mb">31.7%<span class="mb-track"><span class="mb-fill" style="width:32%;background:var(--brand)"></span></span></span></td><td>1,066건</td><td>30건</td><td style="text-align:left">EV 공식 전략 미확인</td></tr>
+          <tr><td>KOKKOK Move ◆우리</td><td style="text-align:left"><span class="mb">2.41<span class="mb-track"><span class="mb-fill" style="width:48%;background:var(--brand)"></span></span></span></td><td>44.7%</td><td style="text-align:left"><span class="mb">16.7%<span class="mb-track"><span class="mb-fill" style="width:17%;background:#d9756b"></span></span></span></td><td>378건</td><td>7건</td><td style="text-align:left">Positive 최저 · 배차 실패 44.9%</td></tr>
         </tbody>
       </table>
       </div>
@@ -279,7 +296,7 @@
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
       <h2 class="h-page" style="margin-top:2px">경쟁사 분석 ③ — 라오스 현지 뉴스 점유율로 찾은 진짜 경쟁자</h2>
       <div class="grid" style="grid-template-columns:1.25fr .9fr;gap:36px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/19_laos_share_of_voice_nv.png" alt="라오스 뉴스 점유율"></div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-sov" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">핵심 메시지</div>
           <div class="msg">임원진 벤치마크 LOCA는 데이터로 검증됐다. 단, <span class="green">VinFast·Xanh SM이 뉴스 점유율 1위</span>로 진입 중 — 놓쳤던 경쟁자다.</div>
@@ -356,12 +373,12 @@
           <table class="tbl tbl--xs">
             <thead><tr><th>분석 질문</th><th style="text-align:left">필요 데이터 (테이블)</th></tr></thead>
             <tbody>
-              <tr><td>Q1 충전 앱의 #1 불만은?</td><td style="text-align:left">충전 앱 리뷰 + 감성·키워드 · app_reviews</td></tr>
-              <tr><td>Q2 SW(앱) vs HW(충전기) 문제?</td><td style="text-align:left">충전기·OCPP 뉴스 · news_articles</td></tr>
-              <tr><td>Q3 슈퍼앱의 EV 통합 전략은?</td><td style="text-align:left">슈퍼앱 리뷰 · superapp_reviews</td></tr>
-              <tr><td>Q4 라오스 시장·정책·경쟁은?</td><td style="text-align:left">시장·정책 뉴스 + SoV · news_articles</td></tr>
-              <tr><td>Q5 실사용 맥락·여정은?</td><td style="text-align:left">유튜브 자막·댓글 · youtube_*</td></tr>
-              <tr><td>Q6 거시·요금 정량 근거는?</td><td style="text-align:left">공식 통계·단가/IR · reference_stats</td></tr>
+              <tr><td><span class="qbadge">Q1</span>충전 앱의 #1 불만은?</td><td style="text-align:left">충전 앱 리뷰 + 감성·키워드 · app_reviews</td></tr>
+              <tr><td><span class="qbadge">Q2</span>SW(앱) vs HW(충전기) 문제?</td><td style="text-align:left">충전기·OCPP 뉴스 · news_articles</td></tr>
+              <tr><td><span class="qbadge">Q3</span>슈퍼앱의 EV 통합 전략은?</td><td style="text-align:left">슈퍼앱 리뷰 · superapp_reviews</td></tr>
+              <tr><td><span class="qbadge">Q4</span>라오스 시장·정책·경쟁은?</td><td style="text-align:left">시장·정책 뉴스 + SoV · news_articles</td></tr>
+              <tr><td><span class="qbadge">Q5</span>실사용 맥락·여정은?</td><td style="text-align:left">유튜브 자막·댓글 · youtube_*</td></tr>
+              <tr><td><span class="qbadge">Q6</span>거시·요금 정량 근거는?</td><td style="text-align:left">공식 통계·단가/IR · reference_stats</td></tr>
             </tbody>
           </table>
           </div>
@@ -388,13 +405,13 @@
       <div class="h-eyebrow">APPROACH</div>
       <h2 class="h-page" style="margin-top:2px">데이터 아키텍처 — 멀티채널 수집에서 기획까지</h2>
       <div class="flow">
-        <div class="flow__step card"><div class="flow__tag">수집 SOURCE</div><ul class="evlist mt8" style="font-size:11px"><li>앱스토어 리뷰 (Google Play)</li><li>유튜브 영상·댓글·자막(STT)</li><li>네이버 블로그 / 뉴스</li><li>Google News RSS</li><li>충전기 하드웨어 뉴스</li></ul></div>
-        <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__tag">저장 STORE</div><ul class="evlist mt8" style="font-size:11px"><li>PostgreSQL / Supabase Cloud</li><li>VOC 테이블 7개</li><li>Market Intel + 참조통계 2개</li><li>Session Pooler (Singapore)</li><li>총 9개 테이블 · FK 설계</li></ul></div>
-        <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__tag">전처리 PROCESS</div><ul class="evlist mt8" style="font-size:11px"><li>언어 감지 (langdetect)</li><li>감성 분석 (XLM-RoBERTa)</li><li>번역 없이 100개 언어 직접</li><li>키워드 카테고리 분류</li><li>선택적 번역 (필요 시만)</li></ul></div>
-        <div class="flow__arrow">→</div>
-        <div class="flow__step card card--fill"><div class="flow__tag">분석·기획 OUTPUT</div><ul class="evlist mt8" style="font-size:11px"><li>감성·불만 카테고리 정량화</li><li>포지셔닝 맵 · 경쟁 분석</li><li>PRD 11개 기능 명세</li><li>시장조사 · 요금정책</li><li>Flowchart · Tableau</li></ul></div>
+        <div class="flow__step card"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 14v5a2 2 0 002 2h14a2 2 0 002-2v-5"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><div class="flow__tag">① 수집 SOURCE</div><ul class="evlist mt8" style="font-size:11px"><li>앱스토어 리뷰 (Google Play)</li><li>유튜브 영상·댓글·자막(STT)</li><li>네이버 블로그 / 뉴스</li><li>Google News RSS</li><li>충전기 하드웨어 뉴스</li></ul></div>
+        <div class="flow__arrow"><span class="pipe-no">1</span></div>
+        <div class="flow__step card"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg><div class="flow__tag">② 저장 STORE</div><ul class="evlist mt8" style="font-size:11px"><li>PostgreSQL / Supabase Cloud</li><li>VOC 테이블 7개</li><li>Market Intel + 참조통계 2개</li><li>Session Pooler (Singapore)</li><li>총 9개 테이블 · FK 설계</li></ul></div>
+        <div class="flow__arrow"><span class="pipe-no">2</span></div>
+        <div class="flow__step card"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 4h18l-7 8v6l-4 2v-8z"/></svg><div class="flow__tag">③ 전처리 PROCESS</div><ul class="evlist mt8" style="font-size:11px"><li>언어 감지 (langdetect)</li><li>감성 분석 (XLM-RoBERTa)</li><li>번역 없이 100개 언어 직접</li><li>키워드 카테고리 분류</li><li>선택적 번역 (필요 시만)</li></ul></div>
+        <div class="flow__arrow"><span class="pipe-no">3</span></div>
+        <div class="flow__step card" style="background:var(--brand-mist);border-color:var(--brand-soft)"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><line x1="5" y1="21" x2="5" y2="11"/><line x1="12" y1="21" x2="12" y2="4"/><line x1="19" y1="21" x2="19" y2="14"/><line x1="3" y1="21" x2="21" y2="21"/></svg><div class="flow__tag">④ 분석·기획 OUTPUT</div><ul class="evlist mt8" style="font-size:11px"><li>감성·불만 카테고리 정량화</li><li>포지셔닝 맵 · 경쟁 분석</li><li>PRD 11개 기능 명세</li><li>시장조사 · 요금정책</li><li>Flowchart · Tableau</li></ul></div>
       </div>
       <div class="note mt24"><b>설계 원칙</b> — VOC(‘무엇이 불편한가’)와 Market Intel(‘시장이 어떻게 움직이는가’)은 목적이 달라 테이블부터 분리 설계했습니다.</div>
     </div>
@@ -407,30 +424,40 @@
     <div class="body">
       <div class="h-eyebrow">COLLECTION</div>
       <h2 class="h-page" style="margin-top:2px">수집 현황 — 38,600+ 건의 멀티채널 데이터</h2>
-      <div class="grid cols-2" style="gap:30px">
-        <div>
-          <div class="h-col">수집 데이터 테이블</div>
-          <table class="tbl tbl--xs">
-            <tbody>
-              <tr><td>app_reviews</td><td class="hi">28,890건</td><td style="text-align:left">VOC 핵심</td></tr>
-              <tr><td>superapp_reviews</td><td>3,370건</td><td style="text-align:left">슈퍼앱 경쟁분석</td></tr>
-              <tr><td>youtube_stt</td><td>2,625세그</td><td style="text-align:left">실사용 맥락</td></tr>
-              <tr><td>news_articles</td><td>2,483건</td><td style="text-align:left">시장·HW 인텔</td></tr>
-              <tr><td>youtube_comments</td><td>527건</td><td style="text-align:left">사용자 반응</td></tr>
-              <tr><td>blog_posts</td><td>42건</td><td style="text-align:left">한국인 시각</td></tr>
-            </tbody>
-          </table>
+      <div class="grid cols-2" style="gap:14px;grid-auto-rows:202px">
+        <div class="card">
+          <div class="card__title" style="text-align:left">채널별 수집 비중</div>
+          <div style="display:flex;align-items:center;gap:22px;margin-top:12px">
+            <div id="chart-donut" style="width:128px;height:128px;flex:0 0 auto"></div>
+            <div class="legend" style="gap:9px;font-size:11px">
+              <div><i style="background:var(--brand)"></i>앱 리뷰 <b>75%</b> · 28,890</div>
+              <div><i style="background:var(--brand-bright)"></i>슈퍼앱 <b>9%</b> · 3,370</div>
+              <div><i style="background:var(--accent-blue)"></i>뉴스 <b>8%</b> · 3,085</div>
+              <div><i style="background:var(--accent-purple)"></i>유튜브 <b>8%</b> · 3,152</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="h-col">수집 단계에서 부딪힌 현실</div>
-          <ul class="evlist">
-            <li><b>LOCA EV 리뷰 단 7건</b> — 라오스는 리뷰 문화 부재 → 태국 선도 3개 앱을 비교군으로 추가</li>
-            <li><b>Green SM = V-Green 동일 앱</b> — 앱 ID(com.gsm.customer) 일치 확인 → country='MUL' 통합 처리</li>
-            <li><b>Google Play 2,000건 제한</b> — 언어·국가 5개 조합으로 분할 수집 → Green SM만 26,603건 확보</li>
-            <li><b>뉴스·하드웨어 추가 설계</b> — 충전앱 ‘앱 불안정’ 원인 가설 검증 위해 HW 뉴스 1,327건 추가</li>
-          </ul>
+        <div class="card" style="display:grid;place-items:center">
+          <div class="card__title">수집 규모</div>
+          <svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-12"/></svg>
+          <div class="bigcircle" style="margin-top:4px"><div><b style="font-size:21px">3<small style="font-size:12px">만</small>8,600<small style="font-size:12px">＋</small></b><br><span style="font-size:9.5px">9개 테이블 · 4개 언어</span></div></div>
+        </div>
+        <div class="card">
+          <div class="card__title" style="text-align:left">충전앱 리뷰 — 앱별 수집량</div>
+          <div style="display:flex;align-items:center;gap:18px;margin-top:8px">
+            <div id="chart-collect-apps" style="flex:1;height:138px"></div>
+            <div style="text-align:center"><div class="megastat" style="font-size:32px">28,890</div><div class="cap">합계 (건)</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__title" style="text-align:left">라오스 EV 뉴스량 추이 <span class="cap" style="font-weight:400">(2022→2026)</span></div>
+          <div style="display:flex;align-items:center;gap:18px;margin-top:14px">
+            <div id="chart-collect-news" style="flex:1;height:84px"></div>
+            <div style="text-align:center"><span class="megastat green" style="font-size:34px">13×</span><div class="stat__delta">↑ 급증</div></div>
+          </div>
         </div>
       </div>
+      <div class="note mt16" style="font-size:10.5px"><b>수집 현실</b> — LOCA EV 7건(리뷰 문화 부재 → 태국 3개 비교군 추가) · Green SM = V-Green 동일 앱(country=MUL) · Google Play 2,000건 제한 → 언어·국가 5조합 분할(Green SM 26,603) · 충전앱 원인 검증 위해 HW 뉴스 1,327건 추가</div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">12</span></div>
   </section>
@@ -470,7 +497,7 @@
       <div class="h-eyebrow">INSIGHT · 01</div>
       <h2 class="h-page" style="margin-top:2px">분석 ① 채널별 감성 분포 — Pain Point 1순위: 서비스 앱 사용성</h2>
       <div class="grid" style="grid-template-columns:1.25fr .9fr;gap:36px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/02_sentiment_by_app_nv.png" alt="채널별 감성 분포"></div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-sentiment" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">핵심 메시지</div>
           <div class="msg">사용자 불만은 ‘앱스토어 리뷰’에 집중된다. <span class="green">앱 UX가 가장 시급한 개선 지점</span>이다.</div>
@@ -489,7 +516,7 @@
       <div class="h-eyebrow">INSIGHT · 02</div>
       <h2 class="h-page" style="margin-top:2px">분석 ② 불만 구조 — 도메인을 나누니 진짜 문제가 보였다</h2>
       <div class="grid" style="grid-template-columns:1.25fr .9fr;gap:36px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/18_complaint_2layer_nv.png" alt="불만 구조 2계층"></div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-twolayer" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">핵심 메시지</div>
           <div class="msg">VOC의 92%는 충전이 아니라 라이드헤일링이었다. 도메인을 분리하자 충전앱의 진짜 1위 <span class="green">‘앱 불안정’</span>이 드러났다.</div>
@@ -508,7 +535,7 @@
       <div class="h-eyebrow">INSIGHT · 03</div>
       <h2 class="h-page" style="margin-top:2px">분석 ③ 경쟁 포지셔닝 — 비어 있는 ‘오른쪽 아래’</h2>
       <div class="grid" style="grid-template-columns:1.25fr .9fr;gap:36px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/10_app_positioning_map_nv.png" alt="경쟁 포지셔닝 맵"></div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-positioning" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">핵심 메시지</div>
           <div class="msg">지금 시장엔 ‘잘 만든 충전앱’이 없다. <span class="green">PTT(3.11점)만 넘어도 KOKKOK이 1위</span>가 될 빈 자리다.</div>
@@ -527,7 +554,7 @@
       <div class="h-eyebrow">INSIGHT · 04</div>
       <h2 class="h-page" style="margin-top:2px">분석 ④ 충전앱 레이어 — 우리가 풀 문제</h2>
       <div class="grid" style="grid-template-columns:1.25fr .9fr;gap:36px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/11_app_competitive_analysis_nv.png" alt="충전앱 경쟁 분석"></div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-appaxes" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">핵심 메시지</div>
           <div class="msg">충전앱(PTT·PEA·EleXA·LOCA)의 공통 약점은 명확하다. <span class="green">앱 안정성 + 온보딩(KYC) + 지갑결제</span>, 세 축이다.</div>
@@ -545,15 +572,20 @@
     <div class="body">
       <div class="h-eyebrow">KEY INSIGHT</div>
       <h2 class="h-page" style="margin-top:2px">핵심 인사이트 — 가설을 데이터로 뒤집다</h2>
-      <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:36px">
-        <div class="imgframe" style="height:360px"><img class="imgfill" src="assets/img/17_app_hw_linkage_nv.png" alt="앱-HW 연계 분석"></div>
-        <div>
-          <div class="h-col">핵심 메시지</div>
-          <div class="msg">초기 가설은 ‘앱오류=OCPP 통신 문제’였다. 도메인 분리로 다시 보니, 충전앱 #1은 <span class="green">앱 안정성·온보딩</span>이었다.</div>
-          <div class="evhead">근거</div>
-          <ul class="evlist"><li>충전앱 부정 #1 — 앱 불안정 27.6% · 계정·인증·KYC 15.0% · 결제 11.0%.</li><li>OCPP·호환 뉴스 169건은 기술 표준 ‘요건’ — VOC상 직접 원인 근거는 약함.</li><li>→ PRD P0를 ‘세션 안정성·간편 온보딩·지갑결제’로 재정렬.</li></ul>
+      <div class="compare" style="margin-top:14px">
+        <div class="cmp cmp--off">
+          <span class="cmp__tag cmp__tag--off">초기 가설</span>
+          <div class="cmp__head">앱오류 = <span class="strike">OCPP 통신 문제</span></div>
+          <div class="cmp__body">충전 불만의 원인을 HW·표준 이슈로 추정.<br>(OCPP·호환 뉴스 169건을 근거로 가정)</div>
+        </div>
+        <div class="compare__arrow">→<small>도메인 분리<br>재분류로 검증</small></div>
+        <div class="cmp cmp--on">
+          <span class="cmp__tag cmp__tag--on">데이터가 뒤집음</span>
+          <div class="cmp__head">충전앱 #1 = <span class="green">앱 불안정 27.6%</span></div>
+          <div class="cmp__body">계정·KYC 15.0% · 결제·지갑 11.0% 順.<br>OCPP는 ‘요건’일 뿐 VOC상 직접 원인 근거 약함.</div>
         </div>
       </div>
+      <div class="callout mt24"><div class="callout__k">SO WHAT</div><div class="callout__t" style="font-size:15px">가설을 기각하고 PRD P0를 <span class="green">‘세션 안정성 · 간편 온보딩 · 지갑결제’</span>로 재정렬 — 엉뚱한 곳(OCPP)을 고치지 않았다.</div></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">18</span></div>
   </section>
@@ -565,7 +597,7 @@
       <div class="h-eyebrow">INSIGHT · HW</div>
       <h2 class="h-page" style="margin-top:2px">하드웨어 이슈 맵 — 빈도 높고 심각한 문제 식별</h2>
       <div class="grid" style="grid-template-columns:1.25fr .9fr;gap:36px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/14_hw_positioning_map_nv.png" alt="하드웨어 이슈 맵"></div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-hwmap" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">핵심 메시지</div>
           <div class="msg">하드웨어 우선순위는 둘이다. 가장 많이 언급된 <span class="green">OCPP 호환</span>, 가장 심각한 <span class="green">충전기 결함</span>.</div>
@@ -584,20 +616,23 @@
       <div class="h-eyebrow">DATA · PERSONA</div>
       <h2 class="h-page" style="margin-top:2px">고객 페르소나 — 데이터로 정의한 핵심 타겟</h2>
       <div class="grid cols-3" style="gap:16px">
-        <div class="card"><div class="persona__seg">핵심 타겟 · EV 라이드헤일링 드라이버</div><div class="bold mt8" style="font-size:14px">쏨퐁 · 34세 · 비엔티안</div><div class="persona__quote">“충전 한 번 실패하면 그날 수입이 날아가요.”</div>
+        <div class="card"><div style="display:flex;align-items:center;gap:11px"><div class="pavatar">쏨</div><div><div class="persona__seg">핵심 타겟 · 드라이버</div><div class="bold" style="font-size:14px">쏨퐁 · 34세 · 비엔티안</div></div></div>
+          <div class="persona__quote">“충전 한 번 실패하면 그날 수입이 날아가요.”</div>
           <div class="cap bold">특성</div><p class="txt">라이드헤일링 생계 운전자 · 하루 2~3회 충전(낮) · LOCA Taxi EV 언급 16.1%</p>
-          <div class="cap bold mt8">목표</div><p class="txt">빠른 충전 시작 · 안정적 결제 · 충전소 위치 즉시 확인</p>
-          <div class="cap bold mt8">좌절</div><p class="txt">충전 실패(앱 불안정)로 영업 손실 · 결제 오류 반복 · 배차·충전 대기</p>
+          <div class="cap bold mt8" style="color:var(--brand-strong)">목표</div><p class="txt">빠른 충전 시작 · 안정적 결제 · 충전소 위치 즉시 확인</p>
+          <div class="cap bold mt8" style="color:#c0392b">좌절</div><p class="txt">충전 실패(앱 불안정)로 영업 손실 · 결제 오류 반복 · 배차·충전 대기</p>
           <p class="cap mt8">규모 전기택시 드라이버 고빈도 충전 · 근거 LOCA Taxi 447건+유튜브 자막</p></div>
-        <div class="card"><div class="persona__seg">성장 타겟 · 외국인 여행자</div><div class="bold mt8" style="font-size:14px">Emma · 28세 · 호주 배낭여행객</div><div class="persona__quote">“해외 카드가 안 돼서 결제를 못 했어요.”</div>
+        <div class="card"><div style="display:flex;align-items:center;gap:11px"><div class="pavatar">E</div><div><div class="persona__seg">성장 타겟 · 외국인 여행자</div><div class="bold" style="font-size:14px">Emma · 28세 · 호주 배낭여행객</div></div></div>
+          <div class="persona__quote">“해외 카드가 안 돼서 결제를 못 했어요.”</div>
           <div class="cap bold">특성</div><p class="txt">2주 체류·렌트 EV/스쿠터 · 영어 사용·해외 카드 · 영어 리뷰 Neg 65.8%</p>
-          <div class="cap bold mt8">목표</div><p class="txt">국제 카드 결제 · 영어 UI 지원 · 앱 없이 QR 1회 결제</p>
-          <div class="cap bold mt8">좌절</div><p class="txt">해외 카드 미지원 · 영어 UI 부재 · 결제 매번 실패</p>
+          <div class="cap bold mt8" style="color:var(--brand-strong)">목표</div><p class="txt">국제 카드 결제 · 영어 UI 지원 · 앱 없이 QR 1회 결제</p>
+          <div class="cap bold mt8" style="color:#c0392b">좌절</div><p class="txt">해외 카드 미지원 · 영어 UI 부재 · 결제 매번 실패</p>
           <p class="cap mt8">규모 연 관광객 중 EV·스쿠터 렌트층 · 근거 영어 리뷰 1,992건</p></div>
-        <div class="card"><div class="persona__seg">초기·충성 타겟 · EV 차량 오너</div><div class="bold mt8" style="font-size:14px">분미 · 29세 · 비엔티안 직장인</div><div class="persona__quote">“가까운 충전소가 어디 있는지를 모르겠어요.”</div>
+        <div class="card"><div style="display:flex;align-items:center;gap:11px"><div class="pavatar">분</div><div><div class="persona__seg">초기·충성 타겟 · EV 오너</div><div class="bold" style="font-size:14px">분미 · 29세 · 비엔티안 직장인</div></div></div>
+          <div class="persona__quote">“가까운 충전소가 어디 있는지를 모르겠어요.”</div>
           <div class="cap bold">특성</div><p class="txt">비엔티안 거주 자차 충전 · 라오스 EV 4,437대(+111%) · 15~39세 43.2% 얼리어답터</p>
-          <div class="cap bold mt8">목표</div><p class="txt">가까운 충전소 탐색 · 충전 완료 알림 · 충전기 예약</p>
-          <div class="cap bold mt8">좌절</div><p class="txt">충전소 위치 정보 부족 · 충전 속도 불만 · 예약 기능 부재</p>
+          <div class="cap bold mt8" style="color:var(--brand-strong)">목표</div><p class="txt">가까운 충전소 탐색 · 충전 완료 알림 · 충전기 예약</p>
+          <div class="cap bold mt8" style="color:#c0392b">좌절</div><p class="txt">충전소 위치 정보 부족 · 충전 속도 불만 · 예약 기능 부재</p>
           <p class="cap mt8">규모 누적 EV 4,437대(2024.10) · 근거 충전소위치 불만+LSB 연령구조</p></div>
       </div>
     </div>
@@ -619,11 +654,11 @@
       <h2 class="h-page" style="margin-top:2px">우리가 만든 것 — 기획에서 설계까지, 개발 직전 단계</h2>
       <div class="callout" style="margin-bottom:18px"><div class="callout__t" style="font-size:15px">✔ 우리가 완성한 범위 — <span class="green">계획 → 분석 → 기획 → 설계</span> (개발 즉시 착수 가능)</div></div>
       <div class="flow">
-        <div class="flow__step card"><div class="flow__no">①</div><div class="flow__t">기획</div><div class="flow__d">Discovery · 무엇을·왜<br>시나리오 · 스토리보드 · 프로토타이핑</div></div>
+        <div class="flow__step card"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-4 10.5c.8.8 1.5 1.5 1.5 2.5h5c0-1 .7-1.7 1.5-2.5A6 6 0 0012 3z"/></svg><div class="flow__no">①</div><div class="flow__t">기획</div><div class="flow__d">Discovery · 무엇을·왜<br>시나리오 · 스토리보드 · 프로토타이핑</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">②</div><div class="flow__t">설계</div><div class="flow__d">Design · 어떻게 동작·구조<br>OCPP 명세 · ERD · DB 설계 · 시퀀스</div></div>
+        <div class="flow__step card"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><div class="flow__no">②</div><div class="flow__t">설계</div><div class="flow__d">Design · 어떻게 동작·구조<br>OCPP 명세 · ERD · DB 설계 · 시퀀스</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card" style="opacity:.55"><div class="flow__no" style="background:var(--fill);color:var(--ink-3)">③</div><div class="flow__t">개발</div><div class="flow__d">Development · 실제 구현<br>코드·API · DB 구축 · OCPP 실연동 · 배포</div><div class="cap center mt8">본 프로젝트 범위 외</div></div>
+        <div class="flow__step card" style="opacity:.55"><svg class="kicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="color:var(--ink-3)"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><div class="flow__no" style="background:var(--fill);color:var(--ink-3)">③</div><div class="flow__t">개발</div><div class="flow__d">Development · 실제 구현<br>코드·API · DB 구축 · OCPP 실연동 · 배포</div><div class="cap center mt8">본 프로젝트 범위 외</div></div>
       </div>
       <div class="note mt24"><b>핵심</b> — 데이터 분석에서 멈추지 않고, 개발이 즉시 착수 가능한 설계 산출물까지 완성했습니다. (산출물 상세 → 부록)</div>
     </div>
@@ -637,9 +672,9 @@
       <div class="h-eyebrow">PRODUCT · ARTIFACTS</div>
       <h2 class="h-page" style="margin-top:2px">기획·설계 — 산출물 3개 묶음으로 구체화</h2>
       <div class="grid cols-3" style="gap:16px">
-        <div class="card"><span class="chip chip--green">설계</span><div class="bold mt8" style="font-size:15px">통신 · 로직 설계</div><ol class="evlist mt16"><li>OCPP 1.6-J 데이터 명세서</li><li>시퀀스 다이어그램</li><li>알고리즘 Flow Chart</li></ol><p class="cap mt16">목적 — 앱 ↔ 충전기 통신과 충전 동작 로직을 정의</p></div>
-        <div class="card"><span class="chip chip--green">설계</span><div class="bold mt8" style="font-size:15px">데이터 설계</div><ol class="evlist mt16"><li>ERD (엔티티·관계 모델링)</li><li>DB 구조 설계 (DDL)</li></ol><p class="cap mt16">목적 — 서비스·VOC 데이터 구조를 실행 가능한 스키마로</p></div>
-        <div class="card"><span class="chip">기획</span><div class="bold mt8" style="font-size:15px">UX · 화면 기획</div><ol class="evlist mt16"><li>사용자 시나리오</li><li>스토리보드 (화면설계서)</li><li>프로토타이핑</li></ol><p class="cap mt16">목적 — 사용자 흐름과 화면을 검증 가능한 형태로</p></div>
+        <div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><span class="chip chip--green">설계</span><svg class="kicon" style="margin:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 007 0l2-2a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-2 2a5 5 0 007 7l1-1"/></svg></div><div class="bold mt8" style="font-size:15px">통신 · 로직 설계</div><ol class="evlist mt16"><li>OCPP 1.6-J 데이터 명세서</li><li>시퀀스 다이어그램</li><li>알고리즘 Flow Chart</li></ol><p class="cap mt16">목적 — 앱 ↔ 충전기 통신과 충전 동작 로직을 정의</p></div>
+        <div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><span class="chip chip--green">설계</span><svg class="kicon" style="margin:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div><div class="bold mt8" style="font-size:15px">데이터 설계</div><ol class="evlist mt16"><li>ERD (엔티티·관계 모델링)</li><li>DB 구조 설계 (DDL)</li></ol><p class="cap mt16">목적 — 서비스·VOC 데이터 구조를 실행 가능한 스키마로</p></div>
+        <div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><span class="chip">기획</span><svg class="kicon" style="margin:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div class="bold mt8" style="font-size:15px">UX · 화면 기획</div><ol class="evlist mt16"><li>사용자 시나리오</li><li>스토리보드 (화면설계서)</li><li>프로토타이핑</li></ol><p class="cap mt16">목적 — 사용자 흐름과 화면을 검증 가능한 형태로</p></div>
       </div>
       <div class="note mt24"><b>진행 순서</b> — 통신·로직 → 데이터 → UX·화면 순으로 설계·기획했고, 각 산출물 실물은 부록에서 확인할 수 있습니다.</div>
     </div>
@@ -652,19 +687,35 @@
     <div class="body">
       <div class="h-eyebrow">BRIDGE</div>
       <h2 class="h-page" style="margin-top:2px">데이터에서 기능으로 — 모든 기능에 근거를 붙이다</h2>
-      <div class="card" style="padding:14px 18px">
-      <table class="tbl tbl--xs">
-        <thead><tr><th>데이터 근거 (Pain Point)</th><th style="text-align:left">규모</th><th style="text-align:left">→ 도출한 기능</th><th>우선순위</th></tr></thead>
-        <tbody>
-          <tr><td>앱 불안정 27.6%</td><td style="text-align:left">충전앱 1위</td><td style="text-align:left">충전 세션·앱 안정성 (자동 복구)</td><td class="hi">P0</td></tr>
-          <tr><td>계정·인증·KYC 15.0%</td><td style="text-align:left">충전앱 2위</td><td style="text-align:left">간편 온보딩 · 외국인 친화</td><td class="hi">P0</td></tr>
-          <tr><td>결제·지갑 11.0%</td><td style="text-align:left">충전앱 3위</td><td style="text-align:left">지갑·결제 안정 · 결제 확인 화면</td><td>P1</td></tr>
-          <tr><td>외국인·다국어</td><td style="text-align:left">영어 Neg 65.8%</td><td style="text-align:left">다국어 UI · 국제 결제</td><td>P1</td></tr>
-          <tr><td>충전소·위치 2.4%</td><td style="text-align:left">충전앱</td><td style="text-align:left">실시간 충전소 지도 · 세션 표시</td><td>P2</td></tr>
-        </tbody>
-      </table>
+      <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:var(--ink-3);margin:6px 2px">
+        <span>데이터 근거 (Pain Point · 충전앱 부정 1,227건)</span><span>→ 도출한 기능 (우선순위)</span>
       </div>
-      <div class="callout mt24"><div class="callout__t" style="font-size:15px">‘느낌’이 아니라 <span class="green">건수로</span> — 모든 기능 카드 뒤에 정량 데이터가 붙어 있습니다.</div></div>
+      <div class="bridge">
+        <div class="bcol">
+          <div class="brow"><span class="blab">앱 불안정</span><div class="bbar-track"><div class="bbar-fill" style="width:100%;background:var(--brand)"></div></div><span class="bval">27.6%</span></div>
+          <div class="brow"><span class="blab">계정·KYC</span><div class="bbar-track"><div class="bbar-fill" style="width:54%;background:var(--brand)"></div></div><span class="bval">15.0%</span></div>
+          <div class="brow"><span class="blab">결제·지갑</span><div class="bbar-track"><div class="bbar-fill" style="width:40%;background:var(--brand-bright)"></div></div><span class="bval">11.0%</span></div>
+          <div class="brow"><span class="blab">외국인</span><div class="bbar-track"><div class="bbar-fill" style="width:80%;background:var(--brand-bright)"></div></div><span class="bval">65.8%</span></div>
+          <div class="brow"><span class="blab">충전소·위치</span><div class="bbar-track"><div class="bbar-fill" style="width:9%;background:#b9bcc0"></div></div><span class="bval">2.4%</span></div>
+        </div>
+        <div style="height:262px">
+          <svg class="blines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,8.8 L100,8.8" stroke="var(--brand)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+            <path d="M0,29.4 L100,29.4" stroke="var(--brand)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+            <path d="M0,50 L100,50" stroke="var(--brand-bright)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+            <path d="M0,70.6 L100,70.6" stroke="var(--brand-bright)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+            <path d="M0,91.2 L100,91.2" stroke="#b9bcc0" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+        <div class="bcol">
+          <div class="bfeat" style="--c:var(--brand)"><span>충전 세션·앱 안정성 <span class="cap">(자동 복구)</span></span><span class="pr">P0</span></div>
+          <div class="bfeat" style="--c:var(--brand)"><span>간편 온보딩 · 외국인 친화</span><span class="pr">P0</span></div>
+          <div class="bfeat" style="--c:var(--brand-strong)"><span>지갑·결제 안정 · 결제 확인</span><span class="pr">P1</span></div>
+          <div class="bfeat" style="--c:var(--brand-strong)"><span>다국어 UI · 국제 결제</span><span class="pr">P1</span></div>
+          <div class="bfeat" style="--c:var(--ink-3)"><span>실시간 충전소 지도 · 세션 표시</span><span class="pr">P2</span></div>
+        </div>
+      </div>
+      <div class="callout mt16"><div class="callout__t" style="font-size:14px">‘느낌’이 아니라 <span class="green">건수로</span> — 모든 기능은 충전앱 부정 VOC의 정량 근거에서 직접 도출됐다.</div></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">23</span></div>
   </section>
@@ -676,16 +727,7 @@
       <div class="h-eyebrow">PRODUCT · STRATEGY</div>
       <h2 class="h-page" style="margin-top:2px">제품 포지셔닝 — 가격 × 품질·기능으로 본 목표 좌표</h2>
       <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:36px">
-        <div class="quad" style="height:380px">
-          <div class="axis-y">▲ 품질·기능 높음</div><div class="axis-x">가격 비쌈 ▶</div>
-          <div class="quad__q" style="left:10px;bottom:10px">◀ 저렴</div>
-          <div class="quad__dot star" style="left:26%;top:24%"><i></i><b>★ KOKKOK EV</b></div>
-          <div class="quad__dot" style="left:42%;top:40%"><i></i><b>LOCA EV</b></div>
-          <div class="quad__dot" style="left:72%;top:30%"><i></i><b>PTT blueplus+</b></div>
-          <div class="quad__dot" style="left:50%;top:70%"><i></i><b>Green SM</b></div>
-          <div class="quad__dot" style="left:32%;top:74%"><i></i><b>EleXA</b></div>
-          <div class="quad__dot" style="left:70%;top:80%"><i></i><b>PEA VOLTA</b></div>
-        </div>
+        <div class="imgframe" style="height:380px;padding:10px"><div id="chart-prodpos" style="width:100%;height:100%"></div></div>
         <div>
           <div class="h-col">저가 · 고기능 — ‘싸고 잘 되는’ 빈 사분면을 선점</div>
           <ul class="evlist">
@@ -710,21 +752,21 @@
       <table class="tbl tbl--xs">
         <thead><tr><th style="width:7%">레이어</th><th style="text-align:left;width:20%">기능명</th><th style="text-align:left;width:33%">설명</th><th style="text-align:left;width:30%">사용자 가치</th><th style="width:10%">MoSCoW</th></tr></thead>
         <tbody>
-          <tr><td>앱</td><td style="text-align:left">충전 세션 자동 복구</td><td style="text-align:left">앱·네트워크 오류 시 세션 서버 저장·자동 복구</td><td style="text-align:left">충전 중 끊겨도 처음부터 다시 안 함</td><td class="hi">Must</td></tr>
-          <tr><td>앱</td><td style="text-align:left">QR 재시도 + 수동 입력</td><td style="text-align:left">QR 실패 시 자동 재시도 후 6자리 수동 입력</td><td style="text-align:left">QR 안 돼도 충전 시작 가능</td><td class="hi">Must</td></tr>
-          <tr><td>앱</td><td style="text-align:left">RFID 오프라인 결제</td><td style="text-align:left">통신 불안정 시 RFID 카드 태깅 결제</td><td style="text-align:left">네트워크 끊겨도 결제·충전</td><td>Should</td></tr>
-          <tr><td>앱</td><td style="text-align:left">결제 확인 화면</td><td style="text-align:left">결제 완료 → 충전 시작 상태 명시</td><td style="text-align:left">‘결제됐는데 충전 안 됨’ 불안 해소</td><td>Should</td></tr>
-          <tr><td>앱</td><td style="text-align:left">실시간 충전소 지도</td><td style="text-align:left">가용 충전기 실시간 표시</td><td style="text-align:left">헛걸음 없이 빈 충전기 탐색</td><td>Could</td></tr>
-          <tr><td>앱</td><td style="text-align:left">충전 완료 알림</td><td style="text-align:left">완료 5분 전 푸시 알림</td><td style="text-align:left">점유 페널티·대기 회피</td><td>Could</td></tr>
-          <tr><td>HW</td><td style="text-align:left">OCPP 2.0.1 준수 검증</td><td style="text-align:left">제조사 OCPP 규격 준수 사전 검증</td><td style="text-align:left">앱↔기기 통신 실패 근본 차단</td><td class="hi">Must</td></tr>
-          <tr><td>HW</td><td style="text-align:left">충전기 상태 모니터링</td><td style="text-align:left">충전기 상태·고장 실시간 감지</td><td style="text-align:left">고장 충전기 헛시도 방지</td><td class="hi">Must</td></tr>
-          <tr><td>HW</td><td style="text-align:left">Handshake 오류 로그</td><td style="text-align:left">앱-기기 통신 인증 오류 수집</td><td style="text-align:left">장애 원인 신속 파악</td><td>Should</td></tr>
-          <tr><td>HW</td><td style="text-align:left">충전기 펌웨어 OTA</td><td style="text-align:left">원격 펌웨어 업데이트</td><td style="text-align:left">현장 방문 없이 결함 대응</td><td>Should</td></tr>
-          <tr><td>HW</td><td style="text-align:left">충전기 고장 신고</td><td style="text-align:left">앱 내 고장 신고 기능</td><td style="text-align:left">문제 충전기 빠른 처리</td><td>Could</td></tr>
+          <tr><td>앱</td><td style="text-align:left">충전 세션 자동 복구</td><td style="text-align:left">앱·네트워크 오류 시 세션 서버 저장·자동 복구</td><td style="text-align:left">충전 중 끊겨도 처음부터 다시 안 함</td><td><span class="mos mos--m">Must</span></td></tr>
+          <tr><td>앱</td><td style="text-align:left">QR 재시도 + 수동 입력</td><td style="text-align:left">QR 실패 시 자동 재시도 후 6자리 수동 입력</td><td style="text-align:left">QR 안 돼도 충전 시작 가능</td><td><span class="mos mos--m">Must</span></td></tr>
+          <tr><td>앱</td><td style="text-align:left">RFID 오프라인 결제</td><td style="text-align:left">통신 불안정 시 RFID 카드 태깅 결제</td><td style="text-align:left">네트워크 끊겨도 결제·충전</td><td><span class="mos mos--s">Should</span></td></tr>
+          <tr><td>앱</td><td style="text-align:left">결제 확인 화면</td><td style="text-align:left">결제 완료 → 충전 시작 상태 명시</td><td style="text-align:left">‘결제됐는데 충전 안 됨’ 불안 해소</td><td><span class="mos mos--s">Should</span></td></tr>
+          <tr><td>앱</td><td style="text-align:left">실시간 충전소 지도</td><td style="text-align:left">가용 충전기 실시간 표시</td><td style="text-align:left">헛걸음 없이 빈 충전기 탐색</td><td><span class="mos mos--c">Could</span></td></tr>
+          <tr><td>앱</td><td style="text-align:left">충전 완료 알림</td><td style="text-align:left">완료 5분 전 푸시 알림</td><td style="text-align:left">점유 페널티·대기 회피</td><td><span class="mos mos--c">Could</span></td></tr>
+          <tr><td>HW</td><td style="text-align:left">OCPP 2.0.1 준수 검증</td><td style="text-align:left">제조사 OCPP 규격 준수 사전 검증</td><td style="text-align:left">앱↔기기 통신 실패 근본 차단</td><td><span class="mos mos--m">Must</span></td></tr>
+          <tr><td>HW</td><td style="text-align:left">충전기 상태 모니터링</td><td style="text-align:left">충전기 상태·고장 실시간 감지</td><td style="text-align:left">고장 충전기 헛시도 방지</td><td><span class="mos mos--m">Must</span></td></tr>
+          <tr><td>HW</td><td style="text-align:left">Handshake 오류 로그</td><td style="text-align:left">앱-기기 통신 인증 오류 수집</td><td style="text-align:left">장애 원인 신속 파악</td><td><span class="mos mos--s">Should</span></td></tr>
+          <tr><td>HW</td><td style="text-align:left">충전기 펌웨어 OTA</td><td style="text-align:left">원격 펌웨어 업데이트</td><td style="text-align:left">현장 방문 없이 결함 대응</td><td><span class="mos mos--s">Should</span></td></tr>
+          <tr><td>HW</td><td style="text-align:left">충전기 고장 신고</td><td style="text-align:left">앱 내 고장 신고 기능</td><td style="text-align:left">문제 충전기 빠른 처리</td><td><span class="mos mos--c">Could</span></td></tr>
         </tbody>
       </table>
       </div>
-      <div class="note mt8" style="display:flex;justify-content:space-between"><span><b>목표 KPI</b> — 평균 별점 2.56 → 3.8점 · 저별점 58% → 25%</span><span class="cap">MoSCoW: Must(P0)·Should(P1)·Could(P2)</span></div>
+      <div class="note mt8" style="display:flex;justify-content:space-between;align-items:center"><span><b>목표 KPI</b> — 평균 별점 2.56 → 3.8점 · 저별점 58% → 25%</span><span style="display:flex;align-items:center;gap:8px"><span class="mosbar"><i style="width:36%;background:var(--brand)"></i><i style="width:37%;background:#2f6df0"></i><i style="width:27%;background:var(--fill-2)"></i></span><span class="cap">Must 4(P0) · Should 4(P1) · Could 3(P2)</span></span></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">25</span></div>
   </section>
@@ -735,14 +777,18 @@
     <div class="body">
       <div class="h-eyebrow">PRODUCT · JOURNEY</div>
       <h2 class="h-page" style="margin-top:2px">사용자 여정 지도 — 감정선과 터치포인트, 그리고 개선</h2>
-      <div class="grid cols-5" style="gap:12px">
-        <div class="card"><div class="flow__no">1</div><div class="flow__t">탐색·발견</div><p class="cap center mt8">터치포인트 · 앱 지도</p><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">Pain 충전소 위치·가용 정보 부족</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F5] 실시간 충전소 지도</span></div>
-        <div class="card"><div class="flow__no">2</div><div class="flow__t">QR 스캔</div><p class="cap center mt8">터치포인트 · 충전기 QR</p><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">Pain QR 인식 실패·앱 멈춤 (27.6%)</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F2] 자동 재시도+수동</span></div>
-        <div class="card"><div class="flow__no">3</div><div class="flow__t">결제</div><p class="cap center mt8">터치포인트 · 결제 화면</p><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">Pain 결제 후 충전 안 됨 (11.0%)</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F4] RFID·[F5] 확인</span></div>
-        <div class="card"><div class="flow__no">4</div><div class="flow__t">충전 진행</div><p class="cap center mt8">터치포인트 · 충전 상태</p><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">Pain 세션 끊김 → 재시작</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F1] 세션 자동 복구</span></div>
-        <div class="card"><div class="flow__no">5</div><div class="flow__t">완료·정산</div><p class="cap center mt8">터치포인트 · 완료 알림</p><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">Pain 점유 페널티·헛걸음</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F11] 완료 알림</span></div>
+      <div class="jlegend" style="margin:6px 0 4px"><span><i style="border-color:var(--ink-3);border-top-style:dashed"></i>As-Is (현재)</span><span><i style="border-color:var(--brand)"></i>To-Be (개선)</span><span class="cap" style="margin-left:auto;font-weight:400">▲ 만족 / ▼ 불만 — QR·결제·충전 구간에서 감정 급락</span></div>
+      <div class="jcurve">
+        <div id="chart-journey" style="position:absolute;inset:0;width:100%;height:100%"></div>
       </div>
-      <div class="note mt24"><b>핵심</b> — 감정선이 꺼지는 지점(QR·결제·충전)마다 PRD 기능이 정확히 개입 — 골짜기를 메워 As-Is → To-Be 곡선을 끌어올립니다.</div>
+      <div class="grid cols-5" style="gap:10px;margin-top:8px">
+        <div style="text-align:center"><div class="flow__t">1 · 탐색·발견</div><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">충전소 위치·가용 정보 부족</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F5] 실시간 지도</span></div>
+        <div style="text-align:center"><div class="flow__t">2 · QR 스캔</div><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">QR 실패·앱 멈춤 (27.6%)</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F2] 재시도+수동</span></div>
+        <div style="text-align:center"><div class="flow__t">3 · 결제</div><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">결제 후 충전 안 됨 (11.0%)</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F4]·[F5] 확인</span></div>
+        <div style="text-align:center"><div class="flow__t">4 · 충전 진행</div><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">세션 끊김 → 재시작</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F1] 세션 자동 복구</span></div>
+        <div style="text-align:center"><div class="flow__t">5 · 완료·정산</div><div class="note mt8" style="font-size:10px;background:#fbf3f3;color:#c0392b">점유 페널티·헛걸음</div><span class="chip chip--green mt8" style="display:block;text-align:center">[F11] 완료 알림</span></div>
+      </div>
+      <div class="note mt16"><b>핵심</b> — 감정선이 꺼지는 지점(QR·결제·충전)마다 PRD 기능이 정확히 개입 → 골짜기를 메워 To-Be 곡선을 끌어올린다.</div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">26</span></div>
   </section>
@@ -754,18 +800,19 @@
       <div class="h-eyebrow">PRODUCT · FLOW</div>
       <h2 class="h-page" style="margin-top:2px">제품 기획 ② 충전 서비스 핵심 Flow</h2>
       <div class="flow">
-        <div class="flow__step card"><div class="flow__no">1</div><div class="flow__tag">F2</div><div class="flow__t">지도 탐색</div><div class="flow__d">실시간 가용 상태</div></div>
+        <div class="flow__step card"><div class="flow__no">1</div><div class="flow__t">지도 탐색</div><div class="flow__pain">위치·가용 정보 부족</div><div class="flow__fix"><em>F2</em> 실시간 가용 지도</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">2</div><div class="flow__tag">F2</div><div class="flow__t">QR 스캔</div><div class="flow__d">실패 시 자동 재시도<br>→ 수동 ID 입력</div></div>
+        <div class="flow__step card"><div class="flow__no">2</div><div class="flow__t">QR 스캔</div><div class="flow__pain">QR 실패·앱 멈춤 <b>27.6%</b></div><div class="flow__fix"><em>F2</em> 자동 재시도+수동 입력</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">3</div><div class="flow__tag">F4·F5</div><div class="flow__t">결제</div><div class="flow__d">wallet 충전식 / RFID<br>결제 확인 화면</div></div>
+        <div class="flow__step card"><div class="flow__no">3</div><div class="flow__t">결제</div><div class="flow__pain">결제 후 충전 안 됨 <b>11.0%</b></div><div class="flow__fix"><em>F4·F5</em> wallet/RFID·결제 확인</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">4</div><div class="flow__tag">F3</div><div class="flow__t">OCPP Handshake</div><div class="flow__d">앱↔충전기 통신 인증<br>오류 로그 수집</div></div>
+        <div class="flow__step card"><div class="flow__no">4</div><div class="flow__t">OCPP Handshake</div><div class="flow__pain">통신 인증 오류</div><div class="flow__fix"><em>F3</em> 오류 로그 수집</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">5</div><div class="flow__tag">F1</div><div class="flow__t">충전 진행</div><div class="flow__d">세션 서버 저장<br>heartbeat 30초</div></div>
+        <div class="flow__step card"><div class="flow__no">5</div><div class="flow__t">충전 진행</div><div class="flow__pain">세션 끊김 → 재시작</div><div class="flow__fix"><em>F1</em> 세션 자동 복구</div></div>
         <div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">6</div><div class="flow__tag">F11</div><div class="flow__t">완료·정산</div><div class="flow__d">5분 전 알림<br>유예 10분·유휴 과금</div></div>
+        <div class="flow__step card"><div class="flow__no">6</div><div class="flow__t">완료·정산</div><div class="flow__pain">점유 페널티·헛걸음</div><div class="flow__fix"><em>F11</em> 완료 알림·유예</div></div>
       </div>
+      <div class="jlegend" style="margin-top:10px;justify-content:center"><span style="color:#c0392b"><i style="border-top-color:#c0392b"></i>데이터로 확인된 실패 지점</span><span class="green"><i style="border-top-color:var(--brand)"></i>PRD 기능으로 해결</span></div>
       <div class="note mt24"><b>오류는 예외가 아니라 기본값</b> — QR 실패·OCPP 오류·세션 끊김 등 데이터에서 확인된 실패 지점마다 복구 분기를 플로우에 내장했습니다.</div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">27</span></div>
@@ -892,16 +939,7 @@
         </div>
         <div>
           <div class="h-col">회수 민감도 — 변수는 가동률</div>
-          <div class="card" style="padding:14px 18px">
-          <table class="tbl tbl--xs">
-            <thead><tr><th>가동률 (일 충전)</th><th>연 총마진</th><th>단순 회수</th></tr></thead>
-            <tbody>
-              <tr><td>보수 · 40 kWh</td><td>49M ₭</td><td>~8년</td></tr>
-              <tr><td>기준 · 80 kWh</td><td>98M ₭</td><td>~4년</td></tr>
-              <tr><td>낙관 · 150 kWh</td><td class="hi">184M ₭</td><td class="hi">~2.2년</td></tr>
-            </tbody>
-          </table>
-          </div>
+          <div class="imgframe" style="height:236px;padding:8px"><div id="chart-payback" style="width:100%;height:100%"></div></div>
           <p class="cap mt8">가정: 급속충전기 1기 CAPEX ~4억₭(≈$18k) · 세션 ~10kWh · 마진 3,350₭(운영비 별도)</p>
         </div>
       </div>
@@ -916,6 +954,13 @@
     <div class="body">
       <div class="h-eyebrow">BENCHMARK</div>
       <h2 class="h-page" style="margin-top:2px">벤치마크·경쟁사 선정 — 데이터 분석 vs 경영진 (범위별)</h2>
+      <div class="scope-nest">
+        <div class="scope-nest__col">
+          <div class="scope-nest__o">역내 통합 <span class="tagx">— 데이터 렌즈 · PTT blueplus+ · VinFast·Xanh SM 추가</span></div>
+          <div class="scope-nest__i">⊃ 라오스 국한 — 경영진 렌즈 · LOCA EV ✓ 일치</div>
+        </div>
+        <div class="scope-nest__arrow">대상이 틀린 게 아니라<br>범위(scope)가 다름<br>→ <span class="green">상호보완</span></div>
+      </div>
       <table class="matrix">
         <thead><tr><th style="width:18%">범위</th><th style="width:32%">데이터가 가리키는 대상</th><th style="width:16%">경영진 구상</th><th style="width:34%">핵심 장 · 단점</th></tr></thead>
         <tbody>
@@ -935,10 +980,20 @@
     <div class="body">
       <div class="h-eyebrow">WHY WE WIN</div>
       <h2 class="h-page" style="margin-top:2px">왜 우리가 이기나 — LOCA EV(지정 벤치마크) 대비 3대 우위</h2>
-      <div class="grid cols-3" style="gap:16px">
-        <div class="card"><div class="step__no">1 · 앵커 수요</div><ul class="evlist mt8"><li>KOKKOK Move 드라이버 = 고정·고빈도 충전 수요 → 가동률 리스크↓</li><li>슈퍼앱(쇼핑·결제) 교차판매로 고객당 가치(LTV)↑</li><li>LOCA가 택시앱으로 검증한 모델을 동일 보유</li></ul></div>
-        <div class="card"><div class="step__no">2 · 요금·UX 우위</div><ul class="evlist mt8"><li>4,000₭ &lt; LOCA 4,300₭ · kWh 단일 과금(투명)</li><li>wallet 충전식 결제(사용한도 후불) → 미수금 방지·노쇼 보증금</li><li>충전앱 공통 약점 ‘앱 불안정 27.6%’를 안정성으로 정면 차별화</li></ul></div>
-        <div class="card"><div class="step__no">3 · 표준·중립·현지</div><ul class="evlist mt8"><li>OCPP 1.6J 표준 — 멀티 제조사 호환</li><li>차량 브랜드 중립(특정 OEM 비종속)</li><li>현지 운영 기반 → 인허가·부지·실행 속도</li></ul></div>
+      <div class="grid cols-3" style="gap:16px;margin-top:6px">
+        <div class="card"><div style="display:flex;align-items:center;gap:8px"><span class="qbadge">1</span><b style="font-size:14px">앵커 수요</b></div>
+          <div class="megastat green" style="font-size:22px;margin-top:12px">KOKKOK Move 드라이버</div>
+          <p class="txt mt8">고정·고빈도 충전 → <b>가동률 리스크↓</b> · 슈퍼앱 교차판매로 LTV↑</p>
+          <div class="flow__fix" style="margin-top:10px;text-align:left">vs LOCA — 택시앱 드라이버와 <b>동일 레버 보유</b> (검증된 모델)</div></div>
+        <div class="card"><div style="display:flex;align-items:center;gap:8px"><span class="qbadge">2</span><b style="font-size:14px">요금·UX 우위</b></div>
+          <div class="hbars" style="gap:7px;margin-top:14px">
+            <div class="hbar is-hi"><span class="hbar__lbl" style="width:54px;text-align:left">KOKKOK</span><div class="hbar__track"><div class="hbar__fill" style="width:93%"></div></div><span class="hbar__val">4,000₭</span></div>
+            <div class="hbar"><span class="hbar__lbl" style="width:54px;text-align:left">LOCA</span><div class="hbar__track"><div class="hbar__fill" style="width:100%;background:var(--ink-3)"></div></div><span class="hbar__val">4,300₭</span></div>
+          </div>
+          <p class="txt mt8"><b>7% 저렴</b> · kWh 단일 과금 · wallet 충전식 · ‘앱 불안정 27.6%’ 정면 차별화</p></div>
+        <div class="card"><div style="display:flex;align-items:center;gap:8px"><span class="qbadge">3</span><b style="font-size:14px">표준·중립·현지</b></div>
+          <div class="megastat green" style="font-size:22px;margin-top:12px">OCPP 1.6J 멀티 호환</div>
+          <p class="txt mt8">차량 브랜드 <b>중립</b>(OEM 비종속) · <b>현지 운영</b> 기반(인허가·부지·실행 속도)</p></div>
       </div>
       <div class="callout mt24"><div class="callout__k">데이터가 추가로 포착한 위협</div><div class="callout__t" style="font-size:14px">VinFast·Xanh SM (뉴스 점유율 1위, Vingroup) — 차량+라이드헤일링+자본을 결합해 라오스 진입 중. 대응: <span class="green">드라이버 앵커 수요·브랜드 중립·현지 실행 속도로 선점</span>.</div></div>
     </div>
@@ -958,12 +1013,7 @@
     <div class="body">
       <div class="h-eyebrow">IMPACT</div>
       <h2 class="h-page" style="margin-top:2px">기대 효과 — 데이터로 세운 목표</h2>
-      <div class="grid cols-4" style="gap:16px">
-        <div class="card karrow"><div class="karrow__from">현재 2.56</div><div style="font-size:18px;color:var(--ink-3)">↓</div><div class="karrow__to">3.8점</div><div class="karrow__lbl">평균 별점</div><div class="karrow__d">PTT 벤치마크 추월</div></div>
-        <div class="card karrow"><div class="karrow__from">현재 58%</div><div style="font-size:18px;color:var(--ink-3)">↓</div><div class="karrow__to">25%</div><div class="karrow__lbl">1~2점 저별점</div><div class="karrow__d">앱 안정성 개선</div></div>
-        <div class="card karrow"><div class="karrow__from">현재 27.6%</div><div style="font-size:18px;color:var(--ink-3)">↓</div><div class="karrow__to">14%</div><div class="karrow__lbl">충전앱 앱 불안정</div><div class="karrow__d">세션 안정성(½)</div></div>
-        <div class="card karrow"><div class="karrow__from">현재 15.0%</div><div style="font-size:18px;color:var(--ink-3)">↓</div><div class="karrow__to">7%</div><div class="karrow__lbl">계정·KYC 온보딩</div><div class="karrow__d">이탈 절반 목표</div></div>
-      </div>
+      <div class="imgframe" style="height:312px;padding:12px 18px"><div id="chart-kpi" style="width:100%;height:100%"></div></div>
       <div class="note mt24"><b>측정 가능한 목표</b> — 모든 KPI는 수집한 28,890건 리뷰의 현재 baseline에서 출발합니다. 출시 후 동일 파이프라인으로 재측정해 개선 효과를 검증할 수 있습니다.</div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">34</span></div>
@@ -975,12 +1025,7 @@
     <div class="body">
       <div class="h-eyebrow">ROADMAP &amp; ASK</div>
       <h2 class="h-page" style="margin-top:2px">실행 로드맵 &amp; 제안 — 단계별 투자·의사결정 게이트</h2>
-      <div class="grid cols-4" style="gap:12px">
-        <div class="phase"><div class="phase__k">Phase 0 · 0~3개월 · 파일럿</div><div class="phase__t">비엔티안 파일럿</div><p class="txt">KOKKOK Move 드라이버 대상 급속 N기 · 앱 안정성·KYC·결제 MVP</p><div class="phase__gate">게이트: 가동률·크래시프리·온보딩 완료율</div></div>
-        <div class="phase"><div class="phase__k">Phase 1 · 3~9개월 · 거점 확장</div><div class="phase__t">비엔티안 네트워크</div><p class="txt">네트워크 확대 + 슈퍼앱 통합 · 일반 EV 오너 유입</p><div class="phase__gate">게이트: 충전기당 회수 궤도·재방문율</div></div>
-        <div class="phase"><div class="phase__k">Phase 2 · 9~18개월 · 2거점</div><div class="phase__t">사반나켓 진출</div><p class="txt">양대 거점 · 외국인 결제·다국어</p><div class="phase__gate">게이트: 단가 흑자 전환</div></div>
-        <div class="phase"><div class="phase__k">Phase 3 · 18~36개월 · 규모화</div><div class="phase__t">네트워크 규모화·로밍</div><p class="txt">충전 데이터 기반 신사업</p><div class="phase__gate">게이트: 네트워크 BEP</div></div>
-      </div>
+      <div class="imgframe" style="height:300px;padding:10px 16px"><div id="chart-roadmap" style="width:100%;height:100%"></div></div>
       <div class="callout mt24"><div class="callout__k">제안 (Ask)</div><div class="callout__t" style="font-size:14px">Phase 0 파일럿 승인 — 급속충전기 N기 CAPEX + 전담팀(기획·앱·HW협업) + N개월. 리스크는 파일럿으로 제한하고, 가동률·앱 지표·회수 궤도가 게이트를 통과할 때만 다음 단계 자본을 투입(단계적 go/no-go). ※ 규모는 가정·제안치.</div></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">35</span></div>
@@ -993,15 +1038,25 @@
       <div class="h-eyebrow">RETROSPECTIVE · METHOD</div>
       <h2 class="h-page" style="margin-top:2px">방법론 — CRISP-DM 순환으로 분석했다</h2>
       <p class="lead" style="max-width:980px;font-size:12.5px">데이터 분석 표준 방법론 CRISP-DM으로 수행 — 핵심은 평가에서 데이터 이해로 되돌아간 ‘재분류’ 루프입니다.</p>
-      <div class="flow mt16">
-        <div class="flow__step card"><div class="flow__no">1</div><div class="flow__t">비즈니스 이해</div><div class="flow__d">Business Understanding<br>Phase 0 · 계획</div></div><div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">2</div><div class="flow__t">데이터 이해</div><div class="flow__d">Data Understanding<br>Phase 1~2 · 인프라·수집</div></div><div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">3</div><div class="flow__t">데이터 준비</div><div class="flow__d">Data Preparation<br>Phase 3 · 전처리</div></div><div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">4</div><div class="flow__t">모델링</div><div class="flow__d">Modeling<br>Phase 4 · 분석·분류</div></div><div class="flow__arrow">→</div>
-        <div class="flow__step card"><div class="flow__no">5</div><div class="flow__t">평가</div><div class="flow__d">Evaluation<br>가설 검증·교차검증</div></div><div class="flow__arrow">→</div>
-        <div class="flow__step card card--fill"><div class="flow__no">6</div><div class="flow__t">배포</div><div class="flow__d">Deployment<br>Phase 5 · 기획 연계</div></div>
+      <div class="crisp">
+        <svg class="clines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M50,9 L84,30" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M84,30 L84,70" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M84,70 L50,91" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,91 L16,70" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M16,70 L16,30" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M16,30 L50,9" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M16,70 Q50,50 84,30" stroke="var(--brand)" stroke-width="1.8" stroke-dasharray="3 2" fill="none" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="cmid"><b>CRISP-DM</b><br><span class="cap">데이터 분석 표준</span><br><span class="loop-badge">↺ 평가 → 데이터 이해 재분류</span><br><span class="loop-result">기타 <b>50%→16.6%</b> · 충전앱 #1 <b>앱 불안정 27.6%</b> 규명</span></div>
+        <div class="cstep" style="left:50%;top:9%"><div class="n">1</div><b>비즈니스 이해</b><span>Phase 0 · 계획</span></div>
+        <div class="cstep" style="left:84%;top:30%"><div class="n">2</div><b>데이터 이해</b><span>Phase 1~2 · 수집</span></div>
+        <div class="cstep" style="left:84%;top:70%"><div class="n">3</div><b>데이터 준비</b><span>Phase 3 · 전처리</span></div>
+        <div class="cstep" style="left:50%;top:91%"><div class="n">4</div><b>모델링</b><span>Phase 4 · 분석·분류</span></div>
+        <div class="cstep is-eval" style="left:16%;top:70%"><div class="n">5</div><b>평가</b><span>가설 검증 → <b style="color:var(--brand-strong)">기각</b></span></div>
+        <div class="cstep" style="left:16%;top:30%"><div class="n">6</div><b>배포</b><span>Phase 5 · 기획 연계</span></div>
       </div>
-      <div class="callout mt16"><div class="callout__t" style="font-size:13px">가설 기각 → 데이터 이해로 회귀 · VOC 2계층 재분류 (‘앱오류=OCPP’ 기각 → 앱 불안정 27.6% 규명)</div></div>
+      <div class="callout"><div class="callout__t" style="font-size:13px">핵심 루프 — ‘앱오류=OCPP’ 가설을 <b>평가에서 기각</b>하고 <span class="green">데이터 이해로 회귀(VOC 2계층 재분류)</span> → 충전앱 #1 ‘앱 불안정 27.6%’ 규명. 폭포수로는 표현되지 않는 반복.</div></div>
       <div class="note mt8"><b>두 방법론의 역할</b> — 이 프로젝트는 CRISP-DM으로 수행했고, 그 산출물은 서비스 SDLC의 계획 → 분석 → 설계 단계에 해당합니다 (개발은 범위 외).</div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">36</span></div>
@@ -1076,16 +1131,8 @@
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
       <h2 class="h-page" style="margin-top:2px">OCPP 1.6-J 데이터 명세서</h2>
-      <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:30px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/del_ocpp.jpg" alt="OCPP 명세서"></div>
-        <div>
-          <div class="h-col">무엇인가</div>
-          <p class="txt">충전기 ↔ 중앙서버(CSMS) 간 OCPP 1.6-J 통신 메시지·데이터 필드·제약·JSON 스키마·상태값을 정의한 통신 규격 명세서.</p>
-          <div class="h-col" style="margin-top:20px">역할 · 근거</div>
-          <p class="txt">분석에서 최다로 드러난 OCPP·호환문제(169건)를 표준 준수로 해소하기 위한 개발 기준 문서.</p>
-          <p class="cap mt8">원본: OCPP 1.6 edition 2 / errata-sheet 기반 · BootNotification·StatusNotification 등 메시지별 정의 (총 17p)</p>
-        </div>
-      </div>
+      <p class="appendix-note"><b>무엇</b> 충전기↔중앙서버(CSMS) 간 OCPP 1.6-J 통신 메시지·필드·JSON 스키마·상태값을 정의한 통신 규격 명세서 · <b>근거</b> 최다 이슈 OCPP·호환문제(169건)를 표준 준수로 해소하는 개발 기준 — OCPP 1.6 ed.2/errata 기반 (총 17p)</p>
+      <div class="imgframe" style="height:404px"><img class="imgfill" src="assets/img/del_ocpp.jpg" alt="OCPP 명세서"></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">39</span></div>
   </section>
@@ -1096,16 +1143,8 @@
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
       <h2 class="h-page" style="margin-top:2px">하드웨어 스펙 비교</h2>
-      <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:30px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/deliverables/hwspec-01.png" alt="제조사별 하드웨어·OCPP 연동 스펙 비교"></div>
-        <div>
-          <div class="h-col">무엇인가</div>
-          <p class="txt">EV 충전기 제조사별(NANCOME · COSTEL) 하드웨어 사양과 OCPP 연동 스펙을 항목별로 대조한 비교표.</p>
-          <div class="h-col" style="margin-top:20px">역할 · 근거</div>
-          <p class="txt">OCPP·호환문제(169건)를 표준 준수로 해소하기 위해 제조사별 실제 스펙을 직접 검증 — 본문 ‘OCPP 1.6J 3사 검증’의 상세 근거.</p>
-          <p class="cap mt8">검증 항목: OCPP 버전 · 보안 프로토콜 · 오프라인 인증 · 목표 kWh 종료 · 펌웨어 OTA</p>
-        </div>
-      </div>
+      <p class="appendix-note"><b>무엇</b> EV 충전기 제조사별(NANCOME·COSTEL) 하드웨어 사양·OCPP 연동 스펙을 항목별로 대조한 비교표 · <b>근거</b> OCPP·호환문제(169건) 표준 준수 검증 — 본문 ‘OCPP 1.6J 3사 검증’ 상세 근거 (OCPP 버전·보안·오프라인 인증·종료·OTA)</p>
+      <div class="imgframe" style="height:404px"><img class="imgfill" src="assets/deliverables/hwspec-01.png" alt="제조사별 하드웨어·OCPP 연동 스펙 비교"></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">40</span></div>
   </section>
@@ -1116,15 +1155,8 @@
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
       <h2 class="h-page" style="margin-top:2px">ERD</h2>
-      <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:30px">
-        <div class="imgframe" style="height:380px"><img class="imgfill" src="assets/img/del_erd.png" alt="ERD"></div>
-        <div>
-          <div class="h-col">무엇인가</div>
-          <p class="txt">VOC·시장 데이터와 서비스 데이터를 담는 엔티티와 관계를 모델링한 다이어그램 (chargers · charging_sessions · transactions 등).</p>
-          <div class="h-col" style="margin-top:20px">역할 · 근거</div>
-          <p class="txt">테이블 구조와 FK 관계를 정의 — 분석 파이프라인과 서비스 DB의 청사진.</p>
-        </div>
-      </div>
+      <p class="appendix-note"><b>무엇</b> VOC·시장 데이터와 서비스 데이터를 담는 엔티티·관계를 모델링한 다이어그램 (chargers·charging_sessions·transactions 등) · <b>근거</b> 테이블 구조·FK 관계를 정의 — 분석 파이프라인과 서비스 DB의 청사진</p>
+      <div class="imgframe" style="height:404px"><img class="imgfill" src="assets/img/del_erd.png" alt="ERD"></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">41</span></div>
   </section>
@@ -1257,15 +1289,8 @@
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 기획 산출물</div>
       <h2 class="h-page" style="margin-top:2px">프로토타이핑</h2>
-      <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:30px">
-        <div class="imgframe" style="height:380px"><span class="cap">화면 캡처 영역 — 파일 전달 후 삽입<br>assets/deliverables/del_prototype.png</span></div>
-        <div>
-          <div class="h-col">무엇인가</div>
-          <p class="txt">Figma 기반 인터랙티브 프로토타입으로 핵심 충전 플로우를 실제 조작 가능하게 구현.</p>
-          <div class="h-col" style="margin-top:20px">역할 · 근거</div>
-          <p class="txt">기획 단계에서 사용자 흐름을 검증 — 개발 전 리스크를 조기에 발견.</p>
-        </div>
-      </div>
+      <p class="appendix-note"><b>무엇</b> Figma 기반 인터랙티브 프로토타입으로 핵심 충전 플로우를 실제 조작 가능하게 구현 · <b>근거</b> 개발 전 사용자 흐름을 검증 — 리스크 조기 발견</p>
+      <div class="imgframe" style="height:404px"><span class="cap">화면 캡처 영역 — 파일 전달 후 삽입<br>assets/deliverables/del_prototype.png</span></div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 4회차</span><span class="foot__page">48</span></div>
   </section>
@@ -1314,6 +1339,7 @@
     <div class="body">
       <div class="h-eyebrow">APPENDIX · GLOSSARY</div>
       <h2 class="h-page" style="margin-top:2px">용어 사전 ① — 시장분석 · 데이터 수집 · 전처리 · 분석</h2>
+      <p class="appendix-note"><b>무엇</b> 시장분석·데이터 수집·전처리·분석 단계에서 사용한 핵심 용어 정의 · <b>근거</b> 분석 재현성과 용어 일관성 확보</p>
       <div class="grid cols-2" style="gap:18px 36px">
         <div class="card" style="padding:14px 18px">
           <div class="h-col">시장분석</div>
@@ -1363,6 +1389,7 @@
     <div class="body">
       <div class="h-eyebrow">APPENDIX · GLOSSARY</div>
       <h2 class="h-page" style="margin-top:2px">용어 사전 ② — 시각화 · 기획 · 설계</h2>
+      <p class="appendix-note"><b>무엇</b> 시각화·기획·설계 단계에서 사용한 핵심 용어 정의 · <b>근거</b> 산출물 해석과 협업 커뮤니케이션 일관성 확보</p>
       <div class="grid cols-3" style="gap:18px 30px">
         <div class="card" style="padding:14px 18px">
           <div class="h-col">시각화</div>
@@ -1431,6 +1458,8 @@
 </div>
 <div id="progress"></div>
 <div class="help">← → 또는 클릭으로 이동 · Home/End</div>
+<script src="assets/js/d3.v7.min.js"></script>
+<script src="assets/js/charts.js"></script>
 <script src="assets/js/deck.js"></script>
 </body>
 </html>

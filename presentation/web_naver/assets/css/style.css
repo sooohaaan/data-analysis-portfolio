@@ -360,6 +360,9 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .tbl thead th.hi { color: var(--brand-strong); }
 .tbl tbody tr { border-bottom: 1px solid var(--line); }
 .tbl td.hi { color: var(--brand-strong); font-weight: 700; }
+/* 경쟁사 비교표: 미니바·수치 열의 헤더-셀 정렬을 좌측으로 통일 */
+.tbl--cmp th, .tbl--cmp td { text-align: left; }
+.tbl--cmp th { white-space: nowrap; }
 
 /* bordered "matrix" table (Goal & Progress) */
 .matrix { width: 100%; border-collapse: separate; border-spacing: 4px; font-size: 10.5px; }
@@ -488,8 +491,8 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .evhead { font-size: 12px; font-weight: 800; color: var(--ink); letter-spacing: .04em; margin: 16px 0 8px; }
 .evlist li { font-size: 12.5px; line-height: 1.55; color: var(--ink-2); padding-left: 16px; position: relative; margin-bottom: 9px; }
 .evlist li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
-.imgfill { width: 100%; height: 100%; object-fit: contain; }
-.imgframe { border: 1px solid var(--line); border-radius: 8px; background: var(--paper); display: grid; place-items: center; overflow: hidden; padding: 10px; }
+.imgfill { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.imgframe { border: 1px solid var(--line); border-radius: 8px; background: var(--paper); display: grid; place-items: center; grid-template: minmax(0,1fr) / minmax(0,1fr); overflow: hidden; padding: 10px; }
 
 /* =====================  PEST QUADRANT  ===================== */
 .pest__badge {
@@ -499,6 +502,15 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .pest__h { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .pest__h b { font-size: 14px; } .pest__h span { font-size: 11px; color: var(--ink-3); }
 .pest li { font-size: 11px; line-height: 1.5; color: var(--ink-2); padding: 7px 0; border-top: 1px solid var(--line); }
+/* PEST 4대 기회 신호 요약 띠 */
+.opp-strip { display: flex; align-items: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.opp-strip__k { font-size: 11px; font-weight: 800; color: var(--ink-3); letter-spacing: .04em; white-space: nowrap; }
+.opp-chip { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600;
+  color: var(--ink-2); background: var(--paper); border: 1px solid var(--line);
+  border-left: 3px solid var(--c); border-radius: 6px; padding: 7px 12px; }
+.opp-chip b { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px;
+  background: var(--c); color: #fff; font-size: 10px; font-weight: 800; }
+.opp-chip em { font-style: normal; font-weight: 800; color: var(--brand-strong); }
 
 /* =====================  FLOW STEPS  ======================== */
 .flow { display: flex; align-items: stretch; gap: 0; }
@@ -508,6 +520,30 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .flow__tag { font-size: 10px; font-weight: 700; color: var(--brand-strong); text-align: center; }
 .flow__t { font-size: 12.5px; font-weight: 700; text-align: center; margin-top: 4px; }
 .flow__d { font-size: 10.5px; color: var(--ink-3); text-align: center; line-height: 1.5; margin-top: 6px; }
+/* Flow 문제→해결 오버레이 (#s33) */
+.flow__pain { font-size: 9.5px; color: #c0392b; background: #fbf3f3; border-radius: 6px; padding: 5px 7px; margin-top: 8px; text-align: center; line-height: 1.45; }
+.flow__pain b { font-weight: 800; }
+.flow__fix { font-size: 9.5px; color: var(--brand-strong); background: var(--brand-mist); border-radius: 6px; padding: 5px 7px; margin-top: 5px; text-align: center; font-weight: 700; line-height: 1.45; }
+.flow__fix em { font-style: normal; font-weight: 800; margin-right: 3px; }
+.flow__lane { font-size: 9px; font-weight: 800; letter-spacing: .03em; text-align: center; margin-bottom: 4px; }
+.flow__lane--p { color: #c0392b; } .flow__lane--f { color: var(--brand-strong); }
+/* CRISP 재분류 결과 배지 (#s43) */
+.loop-result { display: inline-block; margin-top: 7px; font-size: 10px; font-weight: 700; color: var(--ink-2); background: #fff; border: 1px solid var(--brand); border-radius: 7px; padding: 5px 9px; }
+.loop-result b { color: var(--brand-strong); }
+/* 범위 중첩 다이어그램 (#s38) */
+.scope-nest { display: flex; align-items: center; gap: 14px; border: 2px solid var(--line); border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; }
+.scope-nest__col { flex: 1; }
+.scope-nest__o { font-size: 11px; font-weight: 800; color: var(--ink-2); }
+.scope-nest__o .tagx { font-weight: 600; color: var(--ink-3); font-size: 10px; }
+.scope-nest__i { display: inline-block; border: 1.5px solid var(--brand); border-radius: 8px; padding: 6px 11px; margin-top: 7px; background: var(--brand-mist); font-size: 11px; font-weight: 800; color: var(--brand-strong); }
+.scope-nest__arrow { font-size: 11px; font-weight: 800; color: var(--ink-3); text-align: center; line-height: 1.4; flex: 0 0 96px; }
+/* MoSCoW 우선순위 pill (#s31) */
+.mos { display: inline-block; min-width: 46px; padding: 3px 9px; border-radius: 11px; font-size: 10px; font-weight: 800; text-align: center; }
+.mos--m { background: var(--brand); color: #fff; }
+.mos--s { background: #e3effe; color: #2f6df0; }
+.mos--c { background: var(--fill-2); color: var(--ink-3); }
+.mosbar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; width: 180px; }
+.mosbar i { display: block; height: 100%; }
 
 /* =====================  QUADRANT MAP  ====================== */
 .quad { position: relative; border: 1px solid var(--line); border-radius: 8px; background:
@@ -558,8 +594,8 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .appendix-note b { color: var(--ink); }
 .muted { color: var(--ink-3); font-weight: 600; }
 .gallery { display: grid; gap: 10px; }
-.gimg { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--paper); height: 168px; display: grid; place-items: center; }
-.gimg img { width: 100%; height: 100%; object-fit: contain; }
+.gimg { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--paper); height: 168px; display: grid; place-items: center; grid-template: minmax(0,1fr) / minmax(0,1fr); }
+.gimg img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .gcap { font-size: 9.5px; color: var(--ink-2); line-height: 1.4; margin-top: 5px; }
 .gcap b { color: var(--brand-strong); }
 
@@ -581,6 +617,118 @@ ol.txt { list-style: none; padding-left: 0; }
 .dv45__eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .16em; color: var(--brand-strong); margin-bottom: 16px; }
 .dv45__title { font-size: 62px; font-weight: 800; letter-spacing: -.02em; line-height: 1.06; }
 .dv45__list { margin-top: 28px; font-size: 14px; font-weight: 700; color: var(--ink-2); line-height: 2.0; }
+
+/* =====================  NAVER p24/p89/p19 차용 요소  ======== */
+/* 번호 뱃지 파이프라인 (p89) */
+.pipe-no { width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff;
+  font-weight: 800; font-size: 12px; display: grid; place-items: center; box-shadow: 0 0 0 4px var(--brand-mist); }
+
+/* 도넛 + 중앙 % + 연결선 (p24) */
+.donutbox { position: relative; width: 132px; height: 132px; flex: 0 0 auto; }
+.donutbox .ctr { position: absolute; inset: 0; display: grid; place-items: center; }
+.donutbox .ctr b { font-size: 26px; font-weight: 800; color: var(--brand-strong); line-height: 1; }
+.linkrow { display: flex; align-items: center; gap: 14px; }
+.linkrow .ln { flex: 1; height: 1px; background: var(--brand); min-width: 24px; }
+
+/* 컬러 원형 빅스탯 (p24) */
+.bigcircle { width: 112px; height: 112px; border-radius: 50%; background: var(--brand-bright);
+  display: grid; place-items: center; text-align: center; }
+.bigcircle b { font-size: 34px; font-weight: 800; color: var(--ink); line-height: 1; }
+.bigcircle span { font-size: 12px; font-weight: 700; color: var(--ink-2); }
+
+/* 중앙 허브 생태계도 (p19/p87) */
+.hubwrap { position: relative; height: 360px;
+  background: linear-gradient(135deg, var(--brand-mist) 0%, #ffffff 55%, var(--brand-mist) 100%);
+  border: 1px solid var(--brand-soft); border-radius: 14px; }
+.hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hub-core { position: absolute; left: 21%; top: 50%; transform: translate(-50%,-50%);
+  width: 150px; height: 150px; border-radius: 50%; background: #fff; border: 2px solid var(--brand);
+  display: grid; place-items: center; text-align: center; font-weight: 800; font-size: 17px; color: var(--ink); z-index: 2; }
+.hub-node { position: absolute; transform: translate(-50%,-50%); width: 300px;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; z-index: 2; }
+.hub-node .nt { font-size: 13.5px; font-weight: 800; color: var(--brand-strong); }
+.hub-node .nd { font-size: 11px; color: var(--ink-2); line-height: 1.55; margin-top: 4px; }
+
+/* 방사형 컨스텔레이션 (p22) */
+.constel { position: relative; height: 442px; }
+.constel .clines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ccore { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 132px; height: 132px;
+  border-radius: 50%; background: #fff; border: 2px solid var(--brand); display: grid; place-items: center;
+  text-align: center; font-weight: 800; font-size: 14px; line-height: 1.3; z-index: 2; }
+.cnode { position: absolute; transform: translate(-50%,-50%); width: 142px; text-align: center; background: #fff;
+  border: 1px solid var(--line); border-top: 3px solid var(--cc, var(--brand)); border-radius: 8px; padding: 8px 6px; z-index: 2; }
+.cnode b { font-size: 12px; font-weight: 800; display: block; line-height: 1.2; }
+.cnode span { font-size: 10px; color: var(--ink-3); }
+
+/* 링 도넛 외부 라벨 (p21) */
+.ringbox { position: relative; width: 120px; height: 120px; flex: 0 0 auto; }
+.ringbox .ctr { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.ringbox .ctr b { font-size: 22px; font-weight: 800; color: var(--brand-strong); line-height: 1; }
+.ringbox .ctr small { font-size: 9px; color: var(--ink-3); display: block; }
+
+/* 아이콘 KPI (p24/27) */
+.kicon { width: 26px; height: 26px; margin: 0 auto 8px; color: var(--brand-strong); display: block; }
+
+/* p18 가설 반전 — compare 화살표 라벨 */
+.compare__arrow small { display: block; font-size: 10px; color: var(--ink-3); margin-top: 4px; line-height: 1.3; }
+
+/* p36 CRISP-DM 순환 루프 */
+.crisp { position: relative; height: 372px; }
+.crisp .clines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cstep { position: absolute; transform: translate(-50%,-50%); width: 132px; text-align: center; background: #fff;
+  border: 1px solid var(--line); border-radius: 10px; padding: 9px 8px; z-index: 2; }
+.cstep .n { width: 20px; height: 20px; border-radius: 50%; background: var(--brand-mist); color: var(--brand-strong);
+  font-weight: 800; font-size: 11px; display: grid; place-items: center; margin: 0 auto 4px; }
+.cstep b { font-size: 12px; display: block; line-height: 1.2; }
+.cstep span { font-size: 9.5px; color: var(--ink-3); }
+.cstep.is-eval { border: 2px solid var(--brand); }
+.cmid { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); text-align: center; z-index: 1; }
+.cmid b { font-size: 15px; font-weight: 800; }
+.loop-badge { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 800; color: var(--brand-strong);
+  background: var(--brand-mist); border: 1px solid var(--brand-soft); border-radius: 20px; padding: 5px 13px; }
+
+/* p26 감정 여정 곡선 */
+.jcurve { position: relative; height: 232px; }
+.jcurve > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.jlegend { display: flex; gap: 20px; font-size: 11px; font-weight: 700; }
+.jlegend i { display: inline-block; width: 20px; height: 0; border-top: 3px solid; margin-right: 6px; vertical-align: middle; }
+
+/* p23 BRIDGE 연결 */
+.bridge { display: grid; grid-template-columns: 1fr 74px 1.05fr; align-items: center; }
+.bcol { display: flex; flex-direction: column; gap: 8px; }
+.brow { height: 46px; display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.brow .blab { width: 96px; font-weight: 700; }
+.bbar-track { flex: 1; height: 12px; background: var(--fill-2); border-radius: 6px; overflow: hidden; }
+.bbar-fill { height: 100%; border-radius: 6px; }
+.brow .bval { width: 46px; text-align: right; font-weight: 800; }
+.bfeat { height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  border: 1px solid var(--line); border-left: 4px solid var(--c, var(--brand)); border-radius: 8px; padding: 0 12px; font-size: 12px; }
+.bfeat .pr { font-size: 10px; font-weight: 800; color: var(--c, var(--brand)); }
+.blines { width: 100%; height: 100%; display: block; }
+
+/* 목차 챕터 번호 배지 */
+.ch-badge { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--brand); color: #fff; font-size: 11px; font-weight: 800; margin-right: 8px; vertical-align: middle; }
+/* TAM-SAM-SOM 중첩 깔때기 */
+.fn { border-radius: 12px; text-align: center; }
+.fn-tam { background: var(--fill); padding: 15px 16px 16px; }
+.fn-sam { background: var(--fill-2); margin-top: 10px; padding: 14px 16px; }
+.fn-som { background: var(--brand-mist); border: 1.5px solid var(--brand-soft); margin-top: 10px; padding: 13px 16px; }
+.fn .fl { font-size: 11px; font-weight: 800; color: var(--ink-3); display: block; }
+.fn b { font-size: 15px; display: block; margin-top: 3px; }
+.fn-som b { color: var(--brand-strong); }
+
+/* 인라인 미니바 (경쟁사 표) */
+.mb { display: inline-flex; align-items: center; gap: 7px; }
+.mb-track { width: 46px; height: 6px; background: var(--fill-2); border-radius: 3px; overflow: hidden; flex: 0 0 auto; }
+.mb-fill { height: 100%; border-radius: 3px; display: block; }
+
+/* DRD 질문 배지 */
+.qbadge { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--brand-mist); color: var(--brand-strong); font-size: 10px; font-weight: 800; margin-right: 8px; vertical-align: middle; }
+
+/* 페르소나 아바타 */
+.pavatar { width: 46px; height: 46px; border-radius: 50%; background: var(--brand-mist); color: var(--brand-strong);
+  display: grid; place-items: center; font-weight: 800; font-size: 18px; flex: 0 0 auto; }
 
 /* =====================  PROGRESS / HELP  ==================== */
 #progress {
