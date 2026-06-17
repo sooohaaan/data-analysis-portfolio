@@ -135,6 +135,27 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
   height: 2px;
   background: var(--brand);
 }
+/* 활성 챕터 탭의 페이지 인디케이터 (underbar 아래 · 챕터 title 수만큼 도트) */
+.tab__ind {
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  margin-top: 7px;
+  display: flex;
+  gap: 4px;
+}
+.tab__ind i {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--line-2);
+  display: block;
+  transition: width .2s, background .2s;
+}
+.tab__ind i.on {
+  width: 14px;
+  border-radius: 3px;
+  background: var(--brand);
+}
 .nav__sub {
   display: flex;
   gap: 22px;
@@ -600,6 +621,9 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .gimg img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .gcap { font-size: 9.5px; color: var(--ink-2); line-height: 1.4; margin-top: 5px; }
 .gcap b { color: var(--brand-strong); }
+/* 12장 한 슬라이드용 조밀 갤러리 (정책 산출물) */
+.gallery--dense .gimg { height: 132px; }
+.gallery--dense .gcap { font-size: 9px; line-height: 1.35; }
 
 /* contents 목록 — 순번 마커 제거 (페이지번호만 노출) */
 ol.txt { list-style: none; padding-left: 0; }

@@ -10,6 +10,15 @@
   const progress = document.getElementById("progress");
   let idx = 0;
 
+  /* ---- Chapter title counts (from each divider's content list) ---- */
+  const chapterCounts = {};
+  slides.forEach((s) => {
+    if (s.classList.contains("divider")) {
+      const n = s.querySelectorAll(".dv45__list li").length;
+      if (s.dataset.section && n) chapterCounts[s.dataset.section] = n;
+    }
+  });
+
   /* ---- Fit 1280x720 stage into viewport ---- */
   function fit() {
     const sw = 1280, sh = 720;
@@ -29,12 +38,35 @@
     location.hash = "s" + (idx + 1);
   }
 
-  /* ---- Sync top-nav active tab with current slide's section ---- */
+  /* ---- Sync top-nav active tab + page indicator with current slide ---- */
   function syncNav() {
     const section = slides[idx].dataset.section;
+    const N = chapterCounts[section] || 0;
+    // 현재 챕터의 콘텐츠 슬라이드(간지·표지 제외) 중 현재 위치 → 도트 인덱스
+    const secContent = slides.filter((s) =>
+      s.dataset.section === section &&
+      !s.classList.contains("divider") && !s.classList.contains("cover"));
+    const pos = secContent.indexOf(slides[idx]);
+    let dotIndex = -1;
+    if (N && pos >= 0 && secContent.length)
+      dotIndex = Math.min(N - 1, Math.floor((pos / secContent.length) * N));
+
     document.querySelectorAll(".nav").forEach((nav) => {
       nav.querySelectorAll(".nav__tab").forEach((t) => {
-        t.classList.toggle("is-active", t.dataset.section === section);
+        const on = t.dataset.section === section;
+        t.classList.toggle("is-active", on);
+        const old = t.querySelector(".tab__ind");
+        if (old) old.remove();
+        if (on && N) {
+          const ind = document.createElement("span");
+          ind.className = "tab__ind";
+          for (let k = 0; k < N; k++) {
+            const dot = document.createElement("i");
+            if (k === dotIndex) dot.className = "on";
+            ind.appendChild(dot);
+          }
+          t.appendChild(ind);
+        }
       });
     });
   }
