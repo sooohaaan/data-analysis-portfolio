@@ -19,6 +19,8 @@
   /* Secondary accents (category coding) ------------------------- */
   --accent-purple:  #8B7CF0;
   --accent-blue:    #4D9BFF;
+  --danger:         #E5484D;   /* 부정·위험·실패 (통일 토큰)        */
+  --danger-bg:      #FDEBEC;   /* danger 옅은 배경                 */
 
   /* Neutrals ---------------------------------------------------- */
   --ink:            #111111;   /* near-black headings/text          */
@@ -457,13 +459,13 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .cmp {
   border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; background: var(--paper);
 }
-.cmp--off { background: #fbf3f3; border-color: #f0d9d9; }
+.cmp--off { background: var(--danger-bg); border-color: #f0d9d9; }
 .cmp--on  { background: var(--brand-mist); border-color: var(--brand-soft); }
 .cmp__tag {
   display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .04em;
   padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;
 }
-.cmp__tag--off { background: #f3dede; color: #c0392b; }
+.cmp__tag--off { background: #f3dede; color: var(--danger); }
 .cmp__tag--on  { background: var(--brand-soft); color: var(--brand-strong); }
 .cmp__head { font-size: 16px; font-weight: 800; line-height: 1.45; }
 .cmp__body { font-size: 12px; color: var(--ink-2); line-height: 1.8; margin-top: 10px; }
@@ -521,12 +523,12 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .flow__t { font-size: 12.5px; font-weight: 700; text-align: center; margin-top: 4px; }
 .flow__d { font-size: 10.5px; color: var(--ink-3); text-align: center; line-height: 1.5; margin-top: 6px; }
 /* Flow 문제→해결 오버레이 (#s33) */
-.flow__pain { font-size: 9.5px; color: #c0392b; background: #fbf3f3; border-radius: 6px; padding: 5px 7px; margin-top: 8px; text-align: center; line-height: 1.45; }
+.flow__pain { font-size: 9.5px; color: var(--danger); background: var(--danger-bg); border-radius: 6px; padding: 5px 7px; margin-top: 8px; text-align: center; line-height: 1.45; }
 .flow__pain b { font-weight: 800; }
 .flow__fix { font-size: 9.5px; color: var(--brand-strong); background: var(--brand-mist); border-radius: 6px; padding: 5px 7px; margin-top: 5px; text-align: center; font-weight: 700; line-height: 1.45; }
 .flow__fix em { font-style: normal; font-weight: 800; margin-right: 3px; }
 .flow__lane { font-size: 9px; font-weight: 800; letter-spacing: .03em; text-align: center; margin-bottom: 4px; }
-.flow__lane--p { color: #c0392b; } .flow__lane--f { color: var(--brand-strong); }
+.flow__lane--p { color: var(--danger); } .flow__lane--f { color: var(--brand-strong); }
 /* CRISP 재분류 결과 배지 (#s43) */
 .loop-result { display: inline-block; margin-top: 7px; font-size: 10px; font-weight: 700; color: var(--ink-2); background: #fff; border: 1px solid var(--brand); border-radius: 7px; padding: 5px 9px; }
 .loop-result b { color: var(--brand-strong); }
@@ -540,7 +542,7 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 /* MoSCoW 우선순위 pill (#s31) */
 .mos { display: inline-block; min-width: 46px; padding: 3px 9px; border-radius: 11px; font-size: 10px; font-weight: 800; text-align: center; }
 .mos--m { background: var(--brand); color: #fff; }
-.mos--s { background: #e3effe; color: #2f6df0; }
+.mos--s { background: #e3effe; color: var(--accent-blue); }
 .mos--c { background: var(--fill-2); color: var(--ink-3); }
 .mosbar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; width: 180px; }
 .mosbar i { display: block; height: 100%; }

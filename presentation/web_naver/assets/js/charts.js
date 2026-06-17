@@ -293,7 +293,7 @@
         .attr("fill", d.c === C.red ? C.red : (d.c === C.strong ? C.strong : C.ink2));
       lbl.append("tspan").attr("x", lx).text(key ? d.name + " · " + key : d.name);
       lbl.append("tspan").attr("x", lx).attr("dy", "1.2em")
-        .attr("font-size", 8.5).attr("font-weight", 600).attr("fill", C.ink3)
+        .attr("font-size", 9.5).attr("font-weight", 600).attr("fill", C.ink3)
         .text(d.freq + "건 · Neg " + d.neg + "%");
     });
   }
@@ -374,7 +374,7 @@
       .attr("stroke", C.gray).attr("stroke-width", 1);
     svg.append("text").attr("x", m.l + 2).attr("y", y(0) - 4).attr("font-size", 10).attr("fill", C.ink3).text("중립");
     svg.append("text").attr("x", m.l - 2).attr("y", y(40)).attr("font-size", 11).attr("font-weight", 700).attr("fill", C.ink3).text("▲ 만족");
-    svg.append("text").attr("x", m.l - 2).attr("y", y(-34)).attr("font-size", 11).attr("font-weight", 700).attr("fill", "#c0392b").text("▼ 불만");
+    svg.append("text").attr("x", m.l - 2).attr("y", y(-34)).attr("font-size", 11).attr("font-weight", 700).attr("fill", C.red).text("▼ 불만");
 
     var line = d3.line().x(function (d, i) { return x(stages[i]); }).y(function (d) { return y(d); }).curve(d3.curveMonotoneX);
     // As-Is
@@ -596,7 +596,7 @@
       svg.append("path").attr("transform", "translate(" + x1 + "," + (cy + bh / 2) + ")")
         .attr("d", d3.symbol(d3.symbolDiamond, 80)()).attr("fill", "#fff").attr("stroke", d.c).attr("stroke-width", 2);
       svg.append("text").attr("x", x1 + 12).attr("y", cy + bh / 2).attr("dy", "0.35em")
-        .attr("font-size", 9).attr("font-weight", 700).attr("fill", C.ink3).text("▸ 게이트: " + d.gate);
+        .attr("font-size", 9.5).attr("font-weight", 700).attr("fill", C.ink3).text("▸ 게이트: " + d.gate);
     });
   }
 
