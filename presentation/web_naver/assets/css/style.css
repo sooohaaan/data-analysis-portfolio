@@ -621,6 +621,8 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .gimg img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .gcap { font-size: 9.5px; color: var(--ink-2); line-height: 1.4; margin-top: 5px; }
 .gcap b { color: var(--brand-strong); }
+/* 큰 셀 갤러리 (소수·상세 문서용 — OCPP 리서치) */
+.gallery--lg .gimg { height: 198px; }
 /* 12장 한 슬라이드용 조밀 갤러리 (정책 산출물) */
 .gallery--dense .gimg { height: 132px; }
 .gallery--dense .gcap { font-size: 9px; line-height: 1.35; }
