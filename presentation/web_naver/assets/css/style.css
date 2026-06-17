@@ -156,6 +156,10 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
   border-radius: 3px;
   background: var(--brand);
 }
+/* 항목이 많은 챕터(부록 등): 도트 축소로 활성 탭 폭 안에 수용 */
+.tab__ind--sm { gap: 3px; }
+.tab__ind--sm i { width: 4px; height: 4px; }
+.tab__ind--sm i.on { width: 10px; }
 .nav__sub {
   display: flex;
   gap: 22px;

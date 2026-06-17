@@ -59,7 +59,7 @@
         if (old) old.remove();
         if (on && N) {
           const ind = document.createElement("span");
-          ind.className = "tab__ind";
+          ind.className = N > 8 ? "tab__ind tab__ind--sm" : "tab__ind";
           for (let k = 0; k < N; k++) {
             const dot = document.createElement("i");
             if (k === dotIndex) dot.className = "on";
