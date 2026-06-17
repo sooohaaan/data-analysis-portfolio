@@ -24,7 +24,7 @@
   --ink:            #111111;   /* near-black headings/text          */
   --ink-2:          #3a3a3a;   /* body text                         */
   --ink-3:          #767676;   /* secondary / captions              */
-  --line:           #e6e6e6;   /* hairline borders                  */
+  --line:           #dbdbdb;   /* hairline borders                  */
   --line-2:         #d2d2d2;   /* stronger border                   */
   --fill:           #f4f5f6;   /* light card / track fill           */
   --fill-2:         #ebedee;   /* gray bar fill                     */
@@ -565,6 +565,9 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 
 /* contents 목록 — 순번 마커 제거 (페이지번호만 노출) */
 ol.txt { list-style: none; padding-left: 0; }
+
+/* 카드 안의 표 제목(h-col)은 밑줄 제거 */
+.card > .h-col { border-bottom: none; padding-bottom: 0; }
 
 /* =====================  OVERVIEW (NAVER p.6)  ============== */
 /* 라벨(첫 컬럼)이 두 줄로 접히지 않도록 — 폭 자동 확장 */
