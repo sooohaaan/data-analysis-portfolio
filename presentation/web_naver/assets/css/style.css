@@ -178,6 +178,12 @@ a.toc-link { text-decoration: none; color: inherit; display: inline; }
   color: var(--ink);
 }
 .nav__icons svg { width: 17px; height: 17px; }
+/* 헤더 버튼 앵커화(PDF 내부 링크 생성) — 링크 기본 밑줄/색 제거, 시각은 기존 유지 */
+.nav a { text-decoration: none; cursor: pointer; }
+a.nav__logo { color: var(--ink); }
+a.nav__tab { color: var(--ink-3); }
+a.nav__tab.is-active { color: var(--ink); }
+.nav__icons a { color: var(--ink); display: inline-flex; align-items: center; }
 
 /* =========================  FOOTER  =========================== */
 .foot {
