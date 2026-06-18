@@ -377,19 +377,28 @@
     svg.append("text").attr("x", m.l - 2).attr("y", y(-34)).attr("font-size", 11).attr("font-weight", 700).attr("fill", C.red).text("▼ 불만");
 
     var line = d3.line().x(function (d, i) { return x(stages[i]); }).y(function (d) { return y(d); }).curve(d3.curveMonotoneX);
-    // As-Is
-    svg.append("path").attr("d", line(asIs)).attr("fill", "none")
-      .attr("stroke", C.ink3).attr("stroke-width", 2).attr("stroke-dasharray", "5 3");
+    // 감정 수준 → 색 (빨강 부정 · 주황 · 노랑 중립 · 연두 · 초록 긍정)
+    var emoColor = d3.scaleLinear().domain([-30, -12, 2, 18, 40])
+      .range(["#E5484D", "#F5883B", "#F5C84B", "#8FD96A", "#16B364"]).clamp(true);
+    // As-Is 감정선: 높낮이에 따라 색이 변하는 그라데이션 스트로크
+    var x0 = x(stages[0]), xN = x(stages[stages.length - 1]);
+    var grad = svg.append("defs").append("linearGradient").attr("id", "jgrad")
+      .attr("gradientUnits", "userSpaceOnUse").attr("x1", x0).attr("y1", 0).attr("x2", xN).attr("y2", 0);
     asIs.forEach(function (v, i) {
-      svg.append("circle").attr("cx", x(stages[i])).attr("cy", y(v)).attr("r", 4)
-        .attr("fill", "#fff").attr("stroke", C.ink3).attr("stroke-width", 2);
+      grad.append("stop").attr("offset", ((x(stages[i]) - x0) / (xN - x0) * 100) + "%").attr("stop-color", emoColor(v));
     });
-    // To-Be
-    svg.append("path").attr("d", line(toBe)).attr("fill", "none")
-      .attr("stroke", C.brand).attr("stroke-width", 2.8).attr("stroke-linejoin", "round");
+    svg.append("path").attr("d", line(asIs)).attr("fill", "none").attr("stroke", "url(#jgrad)")
+      .attr("stroke-width", 3.4).attr("stroke-linejoin", "round").attr("stroke-linecap", "round");
+    asIs.forEach(function (v, i) {
+      svg.append("circle").attr("cx", x(stages[i])).attr("cy", y(v)).attr("r", 5.5)
+        .attr("fill", emoColor(v)).attr("stroke", "#fff").attr("stroke-width", 2);
+    });
+    // To-Be(개선 목표): 비교용 초록 점선
+    svg.append("path").attr("d", line(toBe)).attr("fill", "none").attr("stroke", C.brand)
+      .attr("stroke-width", 2.2).attr("stroke-dasharray", "5 4").attr("stroke-linejoin", "round").attr("stroke-opacity", 0.85);
     toBe.forEach(function (v, i) {
-      svg.append("circle").attr("cx", x(stages[i])).attr("cy", y(v)).attr("r", 4.5)
-        .attr("fill", C.brand).attr("stroke", "#fff").attr("stroke-width", 1.5);
+      svg.append("circle").attr("cx", x(stages[i])).attr("cy", y(v)).attr("r", 3.6)
+        .attr("fill", "#fff").attr("stroke", C.brand).attr("stroke-width", 2);
     });
     // 단계 라벨
     stages.forEach(function (s) {
