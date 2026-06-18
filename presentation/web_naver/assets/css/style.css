@@ -149,24 +149,18 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
   border-radius: 50%;
   background: var(--line-2);
   display: block;
+  cursor: pointer;
   transition: width .2s, background .2s;
 }
+.tab__ind i:hover { background: var(--brand-strong); }
 .tab__ind i.on {
   width: 14px;
   border-radius: 3px;
   background: var(--brand);
 }
 /* 도트 크기는 챕터별 항목 수와 무관하게 단일 — 많으면 인디케이터가 양옆으로 넓어짐 */
-/* 항목이 많은 챕터(>8): 도트 과확장 대신 텍스트 카운터 */
-.tab__count {
-  position: absolute;
-  top: 100%; left: 50%;
-  transform: translateX(-50%);
-  margin-top: 6px;
-  font-size: 9.5px; font-weight: 800;
-  color: var(--brand-strong);
-  letter-spacing: 0; white-space: nowrap;
-}
+/* 도트 클릭 영역 살짝 확대(작은 점 클릭성 보강) */
+.tab__ind { padding: 4px 0; }
 /* 목차(CONTENTS) 클릭 가능한 항목 */
 .toc-link { cursor: pointer; transition: color .15s; }
 a.toc-link { text-decoration: none; color: inherit; display: inline; }
