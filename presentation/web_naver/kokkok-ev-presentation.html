@@ -655,25 +655,31 @@
     <div class="body">
       <div class="h-eyebrow">DATA · PERSONA</div>
       <h2 class="h-page" style="margin-top:2px">고객 페르소나 — 데이터로 정의한 핵심 타겟</h2>
-      <div class="grid cols-3" style="gap:16px">
-        <div class="card"><div style="display:flex;align-items:center;gap:11px"><div class="pavatar">쏨</div><div><div class="persona__seg">핵심 타겟 · 드라이버</div><div class="bold" style="font-size:14px">쏨퐁 · 34세 · 비엔티안</div></div></div>
-          <div class="persona__quote">“충전 한 번 실패하면 그날 수입이 날아가요.”</div>
-          <div class="cap bold">특성</div><p class="txt">라이드헤일링 생계 운전자 · 하루 2~3회 충전(낮) · LOCA Taxi EV 언급 16.1%</p>
-          <div class="cap bold mt8" style="color:var(--brand-strong)">목표</div><p class="txt">빠른 충전 시작 · 안정적 결제 · 충전소 위치 즉시 확인</p>
-          <div class="cap bold mt8" style="color:var(--danger)">좌절</div><p class="txt">충전 실패(앱 불안정)로 영업 손실 · 결제 오류 반복 · 배차·충전 대기</p>
-          <p class="cap mt8">규모 전기택시 드라이버 고빈도 충전 · 근거 LOCA Taxi 447건+유튜브 자막</p></div>
-        <div class="card"><div style="display:flex;align-items:center;gap:11px"><div class="pavatar">E</div><div><div class="persona__seg">성장 타겟 · 외국인 여행자</div><div class="bold" style="font-size:14px">Emma · 28세 · 호주 배낭여행객</div></div></div>
-          <div class="persona__quote">“해외 카드가 안 돼서 결제를 못 했어요.”</div>
-          <div class="cap bold">특성</div><p class="txt">2주 체류·렌트 EV/스쿠터 · 영어 사용·해외 카드 · 영어 리뷰 Neg 65.8%</p>
-          <div class="cap bold mt8" style="color:var(--brand-strong)">목표</div><p class="txt">국제 카드 결제 · 영어 UI 지원 · 앱 없이 QR 1회 결제</p>
-          <div class="cap bold mt8" style="color:var(--danger)">좌절</div><p class="txt">해외 카드 미지원 · 영어 UI 부재 · 결제 매번 실패</p>
-          <p class="cap mt8">규모 연 관광객 중 EV·스쿠터 렌트층 · 근거 영어 리뷰 1,992건</p></div>
-        <div class="card"><div style="display:flex;align-items:center;gap:11px"><div class="pavatar">분</div><div><div class="persona__seg">초기·충성 타겟 · EV 오너</div><div class="bold" style="font-size:14px">분미 · 29세 · 비엔티안 직장인</div></div></div>
-          <div class="persona__quote">“가까운 충전소가 어디 있는지를 모르겠어요.”</div>
-          <div class="cap bold">특성</div><p class="txt">비엔티안 거주 자차 충전 · 라오스 EV 4,437대(+111%) · 15~39세 43.2% 얼리어답터</p>
-          <div class="cap bold mt8" style="color:var(--brand-strong)">목표</div><p class="txt">가까운 충전소 탐색 · 충전 완료 알림 · 충전기 예약</p>
-          <div class="cap bold mt8" style="color:var(--danger)">좌절</div><p class="txt">충전소 위치 정보 부족 · 충전 속도 불만 · 예약 기능 부재</p>
-          <p class="cap mt8">규모 누적 EV 4,437대(2024.10) · 근거 충전소위치 불만+LSB 연령구조</p></div>
+      <div class="grid cols-3" style="gap:36px;margin-top:20px">
+        <div class="persona2">
+          <div class="persona2__name">쏨퐁</div>
+          <div class="persona2__role">전기택시 드라이버 · 34세 · 비엔티안</div>
+          <div class="persona2__avatar">쏨</div>
+          <div class="persona2__card"><p class="persona2__quote">“충전 한 번 실패하면<br>그날 수입이 날아가요.”</p></div>
+          <div class="persona2__cat">핵심 타겟 · 생계 드라이버</div>
+          <p class="persona2__desc">하루 2~3회 충전하는 라이드헤일링 생계 운전자(LOCA Taxi 언급 16.1%). 충전 실패·결제 오류가 곧 영업 손실 — 빠른 충전 시작과 안정적 결제가 절실하다.</p>
+        </div>
+        <div class="persona2">
+          <div class="persona2__name">Emma</div>
+          <div class="persona2__role">호주 배낭여행객 · 28세</div>
+          <div class="persona2__avatar">E</div>
+          <div class="persona2__card"><p class="persona2__quote">“해외 카드가 안 돼서<br>결제를 못 했어요.”</p></div>
+          <div class="persona2__cat">성장 타겟 · 외국인 여행자</div>
+          <p class="persona2__desc">2주 체류하며 EV·스쿠터를 렌트하는 여행자(영어 리뷰 부정 65.8%). 해외 카드 미지원·영어 UI 부재로 결제 실패 — 국제 카드·영어 지원·앱 없는 QR 결제가 필요하다.</p>
+        </div>
+        <div class="persona2">
+          <div class="persona2__name">분미</div>
+          <div class="persona2__role">비엔티안 직장인 · 29세</div>
+          <div class="persona2__avatar">분</div>
+          <div class="persona2__card"><p class="persona2__quote">“가까운 충전소가 어디<br>있는지 모르겠어요.”</p></div>
+          <div class="persona2__cat">초기·충성 타겟 · EV 오너</div>
+          <p class="persona2__desc">자차로 충전하는 얼리어답터(라오스 EV +111%, 15~39세 43%). 충전소 위치 정보 부족·예약 기능 부재가 불만 — 탐색·완료 알림·예약이 필요하다.</p>
+        </div>
       </div>
     </div>
     <div class="foot"><span class="foot__brand">COCONUT SILO · KOKKOK EV 서비스 기획</span><span class="foot__page">20</span></div>
