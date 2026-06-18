@@ -213,6 +213,10 @@ a.nav__tab { transition: color .15s; }
 .foot__brand { color: var(--ink-2); }
 .foot__page  { font-weight: 700; font-size: 13px; }
 .foot__tot   { font-weight: 400; font-size: 11px; color: var(--ink-3); }
+/* 슬라이드 하단 용어 주석 (footer 바로 위) */
+.termnote { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 42px;
+  font-size: 9.5px; line-height: 1.5; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 5px; z-index: 4; }
+.termnote b { color: var(--ink-2); font-weight: 800; }
 
 /* =========================  BODY AREA  ======================== */
 .body {
