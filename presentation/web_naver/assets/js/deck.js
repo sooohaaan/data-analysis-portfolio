@@ -25,8 +25,8 @@
     if (old) old.remove();
     if (!N) return;
     const ind = document.createElement("span");
-    // 항목 수에 따라 도트 크기 단계화(많을수록 작게 → 탭 폭 내 수용)
-    ind.className = "tab__ind" + (N >= 11 ? " tab__ind--xs" : N >= 7 ? " tab__ind--sm" : "");
+    // 도트 크기는 항목 수와 무관하게 단일(많으면 인디케이터가 양옆으로 넓어짐)
+    ind.className = "tab__ind";
     for (let k = 0; k < N; k++) {
       const dot = document.createElement("i");
       if (k === dotIndex) dot.className = "on";
@@ -131,6 +131,7 @@
   document.querySelectorAll("[data-goto]").forEach((el) => {
     el.style.cursor = "pointer";
     el.addEventListener("click", (e) => {
+      e.preventDefault();   // 앵커(href=#sN)의 기본 점프 방지 — JS로 슬라이드 전환
       e.stopPropagation();
       const n = parseInt(el.dataset.goto, 10);
       if (!isNaN(n)) show(n);
