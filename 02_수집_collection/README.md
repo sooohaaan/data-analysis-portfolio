@@ -24,6 +24,7 @@
 
 - [`lsb_data_acquisition_plan.md`](lsb_data_acquisition_plan.md) — 라오스 공식통계(LSB) 수집 계획 정본
 - [`outputs/laos_vehicle_stats.csv`](outputs/laos_vehicle_stats.csv) — 라오스 차량 통계 원천 데이터
+- [`exports/`](exports/README.md) — **Supabase DB 9개 테이블 CSV 스냅샷** (약 38,600행). 생성: [`../src/export_db.py`](../src/export_db.py)
 
 ## 수집 중 해결한 주요 문제 (상세는 [메인 README](../README.md))
 
