@@ -751,6 +751,16 @@ ol.txt { list-style: none; padding-left: 0; }
 
 /* p36 CRISP-DM 순환 루프 */
 .crisp { position: relative; height: 372px; }
+/* 방법론(s43) SDLC 포지셔닝 트랙 */
+.sdlc { margin-top: 10px; }
+.sdlc__lead { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 8px; }
+.sdlc__row { display: flex; align-items: stretch; gap: 8px; }
+.sdlc__step { flex: 1; background: var(--brand-mist); border: 1px solid var(--brand-soft); border-radius: 8px; padding: 9px 12px; text-align: center; }
+.sdlc__step b { display: block; font-size: 13px; font-weight: 800; color: var(--brand-strong); }
+.sdlc__step span { font-size: 10px; color: var(--ink-3); }
+.sdlc__step--out { background: var(--fill); border-color: var(--line); opacity: .7; }
+.sdlc__step--out b { color: var(--ink-3); }
+.sdlc__arr { align-self: center; color: var(--ink-3); font-weight: 800; }
 .crisp .clines { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cstep { position: absolute; transform: translate(-50%,-50%); width: 132px; text-align: center; background: #fff;
   border: 1px solid var(--line); border-radius: 10px; padding: 9px 8px; z-index: 2; }

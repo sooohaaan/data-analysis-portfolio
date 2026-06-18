@@ -1116,7 +1116,7 @@
       <div class="h-eyebrow">RETROSPECTIVE · METHOD</div>
       <h2 class="h-page" style="margin-top:2px">방법론 — CRISP-DM(수행) × SDLC(포지셔닝)</h2>
       <p class="lead" style="max-width:980px;font-size:12.5px">데이터 분석 표준 방법론 CRISP-DM으로 수행 — 핵심은 평가에서 데이터 이해로 되돌아간 ‘재분류’ 루프입니다.</p>
-      <div class="crisp">
+      <div class="crisp" style="height:262px">
         <svg class="clines" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d="M50,15 L84,30" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
           <path d="M84,30 L84,70" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
@@ -1135,7 +1135,18 @@
         <div class="cstep" style="left:16%;top:30%"><div class="n">6</div><b>배포</b><span>Phase 5 · 기획 연계</span></div>
       </div>
       <div class="callout"><div class="callout__t" style="font-size:13px">핵심 루프 — ‘앱오류=OCPP’ 가설을 <b>평가에서 기각</b>하고 <span class="green">데이터 이해로 회귀(VOC 2계층 재분류)</span> → 충전앱 #1 ‘앱 불안정 27.6%’ 규명. 폭포수로는 표현되지 않는 반복.</div></div>
-      <div class="note mt8"><b>두 방법론의 역할</b> — 이 프로젝트는 CRISP-DM으로 수행했고, 그 산출물은 서비스 SDLC의 계획 → 분석 → 설계 단계에 해당합니다 (개발은 범위 외).</div>
+      <div class="sdlc">
+        <div class="sdlc__lead"><svg class="ic ic--t"><use href="#ic-flag"/></svg><b>SDLC 포지셔닝</b> — CRISP-DM(수행)의 산출물이 놓이는 서비스 개발 단계 <span class="cap" style="font-weight:400">(개발은 범위 외)</span></div>
+        <div class="sdlc__row">
+          <div class="sdlc__step"><b>계획</b><span>Phase 0 · 비즈니스 이해</span></div>
+          <span class="sdlc__arr">→</span>
+          <div class="sdlc__step"><b>분석</b><span>Phase 1~4 · 데이터 이해~모델링</span></div>
+          <span class="sdlc__arr">→</span>
+          <div class="sdlc__step"><b>설계</b><span>Phase 5 · 기획·설계 연계</span></div>
+          <span class="sdlc__arr">→</span>
+          <div class="sdlc__step sdlc__step--out"><b>개발</b><span>범위 외</span></div>
+        </div>
+      </div>
     </div>
     <div class="foot"><span class="foot__brand">COCONUT SILO · KOKKOK EV 서비스 기획</span><span class="foot__page">36<span class="foot__tot"> / 53</span></span></div>
   </section>
