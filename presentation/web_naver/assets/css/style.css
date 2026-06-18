@@ -786,7 +786,17 @@ ol.txt { list-style: none; padding-left: 0; }
     width: 1280px !important; height: auto !important;
     background: #fff !important;   /* 그라데이션 슬라이드의 투명부가 검정으로 합성되는 것 방지 */
   }
-  .slide.cover, .slide.divider { background-color: #fff !important; }
+  /* 그라데이션 표지/간지 → 인쇄 시 '불투명' 배경으로 강제.
+     원본의 rgba(...,0) 투명 스톱은 Chrome 인쇄에서 투명 그룹을 만들어
+     일부 뷰어가 검정으로 합성함 → 투명 없는 단일 그라데이션으로 대체. */
+  .slide.cover {
+    background: radial-gradient(120% 90% at 88% 12%,
+      var(--brand-bright) 0%, #ffffff 46%) !important;
+  }
+  .slide.divider {
+    background: linear-gradient(180deg,
+      var(--brand-mist) 0%, #ffffff 26%, #ffffff 70%, var(--brand-soft) 100%) !important;
+  }
   .slide {
     position: relative !important; inset: auto !important;
     display: flex !important;
