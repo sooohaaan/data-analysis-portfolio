@@ -618,6 +618,20 @@ a.nav__tab.is-active { color: var(--ink); }
 /* persona */
 .persona__quote { font-size: 13px; font-weight: 700; color: var(--ink); font-style: italic; line-height: 1.5; margin: 10px 0 14px; }
 .persona__seg { font-size: 11px; font-weight: 800; color: var(--brand-strong); }
+/* 페르소나 카드 v2 — 이름/역할 → 아바타(카드 상단 걸침) → 인용 카드 → 라벨+설명 */
+.persona2 { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.persona2__name { font-size: 14px; color: var(--ink-3); font-weight: 500; }
+.persona2__role { font-size: 15px; color: var(--ink-2); font-weight: 700; margin-top: 2px; }
+.persona2__avatar { width: 168px; height: 168px; border-radius: 50%; margin-top: 10px;
+  overflow: hidden; background: var(--brand-soft);
+  position: relative; z-index: 2; box-shadow: 0 0 0 7px var(--paper); }
+.persona2__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.persona2__card { width: 100%; margin-top: -84px; padding: 104px 22px 26px;
+  background: var(--paper); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  min-height: 210px; display: flex; align-items: flex-end; justify-content: center; box-sizing: border-box; }
+.persona2__quote { font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1.34; letter-spacing: -.01em; margin: 0; }
+.persona2__cat { align-self: stretch; text-align: left; color: var(--brand-strong); font-weight: 800; font-size: 15px; margin: 20px 0 7px; }
+.persona2__desc { align-self: stretch; text-align: left; color: var(--ink-3); font-size: 13px; line-height: 1.62; margin: 0; }
 
 /* phase cards (roadmap) */
 .phase { border: 1px solid var(--line); border-radius: 8px; padding: 16px; }

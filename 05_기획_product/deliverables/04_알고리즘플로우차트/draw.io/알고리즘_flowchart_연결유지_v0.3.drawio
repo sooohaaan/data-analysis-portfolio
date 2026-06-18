@@ -1,0 +1,462 @@
+<mxfile host="Electron">
+  <diagram id="iwECm__LW2bGAwbdm8pN" name="페이지-1">
+    <mxGraphModel dx="3856" dy="2952" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2880" pageHeight="1040" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="it-dZWp1ABEPcsq9nGAw-5" parent="1" style="whiteSpace=wrap;html=1;fillColor=#E6E6E6;dashed=1;strokeColor=#4D4D4D;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;rotation=0;" value="" vertex="1">
+          <mxGeometry height="480" width="840" x="2000" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="it-dZWp1ABEPcsq9nGAw-4" parent="1" style="whiteSpace=wrap;html=1;fillColor=#E6E6E6;dashed=1;strokeColor=#4D4D4D;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;rotation=0;" value="" vertex="1">
+          <mxGeometry height="800" width="880" x="960" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="it-dZWp1ABEPcsq9nGAw-3" parent="1" style="whiteSpace=wrap;html=1;fillColor=#E6E6E6;dashed=1;strokeColor=#4D4D4D;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;rotation=0;" value="" vertex="1">
+          <mxGeometry height="400" width="840" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8651A;strokeColor=#E8651A;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=#ffffff;" value="시작" vertex="1">
+          <mxGeometry height="48" width="150" x="385" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ph1b" parent="1" style="text;html=1;strokeColor=#4D4D4D;fillColor=#CCCCCC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" value="Phase 1: 연결 초기화 및 유지 간격(Interval) 설정" vertex="1">
+          <mxGeometry height="26" width="320" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_ws_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="WebSocket 연결 요청 (Handshake)" vertex="1">
+          <mxGeometry height="36" width="240" x="340" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="n_ws_ok" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="WebSocket 연결 수락?&#xa;(HTTP 101)" vertex="1">
+          <mxGeometry height="36" width="240" x="340" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="n_ws_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="연결 실패&#xa;(재시도 또는 오류 처리)" vertex="1">
+          <mxGeometry height="36" width="200" x="640" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="n_boot_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="BootNotification.req 전송" vertex="1">
+          <mxGeometry height="36" width="240" x="340" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="n_boot_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="BootNotification.conf&#xa;status = ?" vertex="1">
+          <mxGeometry height="36" width="240" x="340" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="n_boot_pending" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="interval 후 재전송" vertex="1">
+          <mxGeometry height="40" width="200" x="80" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="n_boot_rej" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Rejected:&#xa;운영 불가, 종료" vertex="1">
+          <mxGeometry height="36" width="200" x="640" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="n_interval" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="heartbeatInterval 수신&lt;br&gt;Heartbeat 타이머 시작" vertex="1">
+          <mxGeometry height="36" width="240" x="340" y="357" as="geometry" />
+        </mxCell>
+        <mxCell id="ph2b" parent="1" style="text;html=1;strokeColor=#4D4D4D;fillColor=#CCCCCC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" value="Phase 2: 충전 이벤트 발생 (이벤트 기반 연결 유지)" vertex="1">
+          <mxGeometry height="26" width="320" x="960" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_event_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="충전 관련 OCPP 메시지&#xa;전송 이벤트 발생?" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n_no_event_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;fontStyle=2;" value="이벤트 없음 → Phase 3으로" vertex="1">
+          <mxGeometry height="20" width="110" x="1110" y="129" as="geometry" />
+        </mxCell>
+        <mxCell id="n_timer_reset1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="충전 관련 메시지 전송 시&#xa;Heartbeat 타이머 → 0으로 리셋" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="n_status_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="StatusNotification.req 전송 (상태 변경)" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="n_status_conf_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="StatusNotification.conf&#xa;수신?" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n_status_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="타임아웃: 재전송&#xa;(최대 N회)" vertex="1">
+          <mxGeometry height="40" width="150" x="1640" y="279" as="geometry" />
+        </mxCell>
+        <mxCell id="n_timer_reset2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="Heartbeat 타이머 리셋" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="n_starttx_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="StartTransaction.req 전송 (충전 시작)" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="n_starttx_conf_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="StartTransaction.conf&#xa;수신 (transactionId)?" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="n_starttx_fail" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="TransactionMessageAttempts&#xa;초과?" vertex="1">
+          <mxGeometry height="64" width="200" x="1630" y="413" as="geometry" />
+        </mxCell>
+        <mxCell id="n_starttx_retry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="TransactionMessageRetryInterval 대기 후&#xa;StartTransaction.req 재전송" vertex="1">
+          <mxGeometry height="44" width="215" x="1615" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="n_starttx_neg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="transactionId = -1 설정&#xa;(서버 미부여 상태로 충전 계속)" vertex="1">
+          <mxGeometry height="44" width="200" x="1630" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="n_timer_reset3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="Heartbeat 타이머 리셋" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="n_meter_loop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="충전 중 주기적 MeterValues.req 전송&#xa;(충전 진행 중 반복)" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="n_meter_conf_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="MeterValues.conf&#xa;수신?" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="n_meter_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="타임아웃: 재전송&#xa;(최대 N회)" vertex="1">
+          <mxGeometry height="40" width="150" x="1650" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="n_stop_event_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="충전 종료 이벤트 발생?" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="658" as="geometry" />
+        </mxCell>
+        <mxCell id="n_continue_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=2;" value="계속 충전 중" vertex="1">
+          <mxGeometry height="20" width="90" x="1150" y="666" as="geometry" />
+        </mxCell>
+        <mxCell id="n_stoptx_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=9;fontColor=default;" value="StopTransaction.req 전송 (충전 종료)" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="718" as="geometry" />
+        </mxCell>
+        <mxCell id="n_stoptx_conf_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="StopTransaction.conf&#xa;수신?" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="n_stoptx_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="타임아웃: 재전송&#xa;(최대 N회)" vertex="1">
+          <mxGeometry height="40" width="150" x="1650" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="n_timer_reset4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="Heartbeat 타이머 리셋" vertex="1">
+          <mxGeometry height="36" width="240" x="1330" y="837" as="geometry" />
+        </mxCell>
+        <mxCell id="ph3b" parent="1" style="text;html=1;strokeColor=#4D4D4D;fillColor=#CCCCCC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" value="Phase 3: 유휴 상태 (이벤트가 없을 때의 연결 유지 방어)" vertex="1">
+          <mxGeometry height="26" width="320" x="2000" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_hb_timer_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;" value="Heartbeat 타이머 만료?&#xa;(300초 동안 OCPP 메시지 없음)" vertex="1">
+          <mxGeometry height="36" width="240" x="2260" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n_hb_wait" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#888;fontSize=10;" value="타이머 계속 대기" vertex="1">
+          <mxGeometry height="40" width="80" x="2080" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n_hb_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="Heartbeat.req 전송&#xa;(또는 WebSocket Ping 프레임 전송)" vertex="1">
+          <mxGeometry height="36" width="240" x="2260" y="212" as="geometry" />
+        </mxCell>
+        <mxCell id="n_hb_conf_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="Heartbeat.conf 수신?&#xa;(또는 WebSocket Pong 응답)" vertex="1">
+          <mxGeometry height="36" width="240" x="2260" y="264" as="geometry" />
+        </mxCell>
+        <mxCell id="n_hb_ok" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="서버 응답 확인:&#xa;연결 정상 / 시간 동기화 (currentTime) / 타이머 리셋" vertex="1">
+          <mxGeometry height="36" width="240" x="2260" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="n_conn_alive_q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=9;rounded=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="WebSocket 연결 유지 중?" vertex="1">
+          <mxGeometry height="36" width="240" x="2260" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="n_disconn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="연결 종료 또는&#xa;서비스 종료 요청" vertex="1">
+          <mxGeometry height="36" width="240" x="2570" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="n_loop_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontStyle=2;" value="계속 유지: Phase 2 / Phase 3 루프 반복" vertex="1">
+          <mxGeometry height="18" width="160" x="2030" y="439" as="geometry" />
+        </mxCell>
+        <mxCell id="n_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8651A;strokeColor=#E8651A;fontSize=15;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=#ffffff;fontStyle=1;" value="종료" vertex="1">
+          <mxGeometry height="48" width="150" x="2305" y="482" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n_start" style="edgeStyle=orthogonalEdgeStyle;" target="n_ws_req">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n_ws_req" style="edgeStyle=orthogonalEdgeStyle;" target="n_ws_ok">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3y" edge="1" parent="1" source="n_ws_ok" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_boot_req" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3n" edge="1" parent="1" source="n_ws_ok" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n_ws_fail" value="No">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3n_retry" edge="1" parent="1" source="n_ws_fail" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;" target="n_ws_req">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="n_boot_req" style="edgeStyle=orthogonalEdgeStyle;" target="n_boot_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5acc" edge="1" parent="1" source="n_boot_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_interval" value="Accepted">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5pen" edge="1" parent="1" source="n_boot_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontSize=9;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="n_boot_pending" value="Pending">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="318" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5pen_back" edge="1" parent="1" source="n_boot_pending" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d6b656;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n_boot_req">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="318" />
+              <mxPoint x="70" y="266" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5rej" edge="1" parent="1" source="n_boot_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n_boot_rej" value="Rejected">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="n_interval" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n_event_q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="480" />
+              <mxPoint x="920" y="480" />
+              <mxPoint x="920" y="40" />
+              <mxPoint x="1450" y="40" />
+            </Array>
+            <mxPoint x="470" y="600" as="sourcePoint" />
+            <mxPoint x="510" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7y" edge="1" parent="1" source="n_event_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_timer_reset1" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7n" edge="1" parent="1" source="n_event_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#888;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="n_no_event_note" value="No">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1330" y="140" />
+              <mxPoint x="1150" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7n_ph3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#888;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n_hb_timer_q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="140" />
+              <mxPoint x="1080" y="140" />
+              <mxPoint x="1080" y="960" />
+              <mxPoint x="1920" y="960" />
+              <mxPoint x="1920" y="60" />
+              <mxPoint x="2380" y="60" />
+            </Array>
+            <mxPoint x="1110" y="138" as="sourcePoint" />
+            <mxPoint x="1460" y="1290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="n_timer_reset1" style="edgeStyle=orthogonalEdgeStyle;" target="n_status_req">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="n_status_req" style="edgeStyle=orthogonalEdgeStyle;" target="n_status_conf_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9y" edge="1" parent="1" source="n_status_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_timer_reset2" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9n" edge="1" parent="1" source="n_status_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n_status_fail" value="No (타임아웃)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1640" y="298" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9n_retry" edge="1" parent="1" source="n_status_fail" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n_status_req">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1820" y="299" />
+              <mxPoint x="1820" y="248" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="n_timer_reset2" style="edgeStyle=orthogonalEdgeStyle;" target="n_starttx_req">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="n_starttx_req" style="edgeStyle=orthogonalEdgeStyle;" target="n_starttx_conf_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11y" edge="1" parent="1" source="n_starttx_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_timer_reset3" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11n" edge="1" parent="1" source="n_starttx_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n_starttx_fail" value="No (타임아웃)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_starttx_no" edge="1" parent="1" source="n_starttx_fail" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontSize=9;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="n_starttx_retry" value="No (미초과)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_starttx_retry_loop" edge="1" parent="1" source="n_starttx_retry" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n_starttx_req" value="재전송">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1595" y="358" />
+              <mxPoint x="1595" y="408" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_starttx_yes" edge="1" parent="1" source="n_starttx_fail" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#FF6600;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n_starttx_neg" value="Yes (초과)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11n_cont" edge="1" parent="1" source="n_starttx_neg" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#FF6600;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n_timer_reset3" value="계속">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="n_timer_reset3" style="edgeStyle=orthogonalEdgeStyle;" target="n_meter_loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="n_meter_loop" style="edgeStyle=orthogonalEdgeStyle;" target="n_meter_conf_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13y" edge="1" parent="1" source="n_meter_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_stop_event_q" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13n" edge="1" parent="1" source="n_meter_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=0.977;exitY=0.499;exitDx=0;exitDy=0;exitPerimeter=0;" target="n_meter_fail" value="No (타임아웃)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13n_retry" edge="1" parent="1" source="n_meter_fail" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n_meter_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1820" y="620" />
+              <mxPoint x="1820" y="578" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14y" edge="1" parent="1" source="n_stop_event_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_stoptx_req" value="Yes (종료)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14n" edge="1" parent="1" source="n_stop_event_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#888;dashed=1;fontSize=9;exitX=0.025;exitY=0.493;exitDx=0;exitDy=0;exitPerimeter=0;" target="n_continue_note" value="No (계속 충전)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="1450" y="544" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14n_loop" edge="1" parent="1" source="n_continue_note" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#888;" target="n_meter_loop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="676" />
+              <mxPoint x="1120" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="n_stoptx_req" style="edgeStyle=orthogonalEdgeStyle;" target="n_stoptx_conf_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15y" edge="1" parent="1" source="n_stoptx_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_timer_reset4" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15n" edge="1" parent="1" source="n_stoptx_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=0.978;exitY=0.495;exitDx=0;exitDy=0;exitPerimeter=0;" target="n_stoptx_fail" value="No (타임아웃)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1620" y="798" />
+              <mxPoint x="1620" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15n_retry" edge="1" parent="1" source="n_stoptx_fail" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;" target="n_stoptx_req">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1820" y="800" />
+              <mxPoint x="1820" y="736" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="n_timer_reset4" style="edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0.016;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n_hb_timer_q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1450" y="920" />
+              <mxPoint x="1880" y="920" />
+              <mxPoint x="1880" y="40" />
+              <mxPoint x="2380" y="40" />
+            </Array>
+            <mxPoint x="1500" y="1210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17n" edge="1" parent="1" source="n_hb_timer_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#888;fontSize=9;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n_hb_wait" value="No (미만료)">
+          <mxGeometry relative="1" x="-0.0007" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+            <mxPoint x="2160" y="153" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17n_loop" edge="1" parent="1" source="n_hb_wait" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#888;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="n_hb_timer_q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2060" y="140" />
+              <mxPoint x="2060" y="110" />
+              <mxPoint x="2260" y="110" />
+            </Array>
+            <mxPoint x="2080" y="154" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17y" edge="1" parent="1" source="n_hb_timer_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_hb_req" value="Yes (만료)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="n_hb_req" style="edgeStyle=orthogonalEdgeStyle;" target="n_hb_conf_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18y" edge="1" parent="1" source="n_hb_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;" target="n_hb_ok" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18n" edge="1" parent="1" source="n_hb_conf_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=0.971;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" target="of2HWBpHl0js3KtxwZhF-2" value="No (응답 없음)">
+          <mxGeometry relative="1" x="0.0022" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2530" y="282" />
+              <mxPoint x="2530" y="283" />
+              <mxPoint x="2570" y="283" />
+            </Array>
+            <mxPoint x="2500" y="278.9999999999999" as="sourcePoint" />
+            <mxPoint x="2570" y="283" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="n_hb_ok" style="edgeStyle=orthogonalEdgeStyle;" target="n_conn_alive_q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20y" edge="1" parent="1" source="n_conn_alive_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="n_loop_note" value="Yes (유지)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20n" edge="1" parent="1" source="n_conn_alive_q" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n_disconn" value="No (종료)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2570" y="448" />
+            </Array>
+            <mxPoint x="2406.666666666668" y="542" as="sourcePoint" />
+            <mxPoint x="2670" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20n_end" edge="1" parent="1" source="n_disconn" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" target="n_end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2830" y="448" />
+              <mxPoint x="2830" y="506" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_loop_back" edge="1" parent="1" source="n_loop_note" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n_event_q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1960" y="448" />
+              <mxPoint x="1960" y="1000" />
+              <mxPoint x="1040" y="1000" />
+              <mxPoint x="1040" y="140" />
+              <mxPoint x="1330" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0OTaPM_xWP0WKD9AyzaV-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#E8651A;strokeWidth=2;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="350" width="260" x="40" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="0OTaPM_xWP0WKD9AyzaV-2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#E8651A;" value="범  례" vertex="1">
+          <mxGeometry height="30" width="120" x="110" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="0OTaPM_xWP0WKD9AyzaV-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=12;" value="처리 (행동 / 통신)" vertex="1">
+          <mxGeometry height="44" width="240" x="50" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="0OTaPM_xWP0WKD9AyzaV-4" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#EAD5F5;strokeColor=#8B2FC9;fontColor=#3D0070;fontSize=12;" value="입출력" vertex="1">
+          <mxGeometry height="44" width="240" x="50" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="0OTaPM_xWP0WKD9AyzaV-5" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAD5B8;strokeColor=#E8651A;fontSize=12;" value="판단 / 분기" vertex="1">
+          <mxGeometry height="70" width="180" x="80" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="0OTaPM_xWP0WKD9AyzaV-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F28C72;strokeColor=#D94F2B;fontSize=12;" value="오류 / 실패" vertex="1">
+          <mxGeometry height="40" width="240" x="50" y="808" as="geometry" />
+        </mxCell>
+        <mxCell id="of2HWBpHl0js3KtxwZhF-1" parent="1" style="whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;rounded=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;전환 / 연계&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;(별도 정의 프로세스 호출 / 전환)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="240" x="50" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="of2HWBpHl0js3KtxwZhF-2" parent="1" style="whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;rounded=1;" value="연결 끊김 확정&lt;br&gt;▶ [연결 끊김 후 재접속] 프로세스 실행&lt;br&gt;(별도 정의 알고리즘 참조)" vertex="1">
+          <mxGeometry height="40" width="240" x="2570" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="n_reconnect_ref" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="[연결 끊김 후 재접속]&#xa;순서도 시작점" vertex="1">
+          <mxGeometry height="48" width="150" x="2615" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="e_reconnect_ref" edge="1" parent="1" source="of2HWBpHl0js3KtxwZhF-2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n_reconnect_ref" value="전환">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
