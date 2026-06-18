@@ -2890,7 +2890,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
   function twolayer() {
     var el = document.getElementById("chart-twolayer");
     if (!el || el.__done) return; el.__done = true;
-    var W = 560, H = 372, m = { t: 6, r: 52, b: 40, l: 132 };
+    var W = 560, H = 372, mL = 132, mR = 52;
     var groups = [
       { title: "라이드헤일링 앱 · Green SM", sub: "부정 14,234건 (92%) — 우리 도메인 아님",
         color: C.gray, rows: [["배차·호출실패", 21.4], ["드라이버", 12.0], ["목적지·경로", 6.1]] },
@@ -2898,37 +2898,41 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
         color: C.brand, rows: [["앱 불안정·작동불가", 27.6], ["계정·인증·KYC", 15.0], ["결제·환불·지갑", 11.0], ["충전소·위치", 2.4], ["외국인·다국어", 1.5]] }
     ];
     var svg = newSvg(el, W, H);
-    frame(svg, m, W, H);
-    var x = d3.scaleLinear().domain([0, 30]).range([m.l, W - m.r]);
-    var xa = d3.axisBottom(x).tickValues([0, 10, 20, 30]).tickSize(-(H - m.t - m.b)).tickFormat(function (d) { return d + "%"; });
-    svg.append("g").attr("transform", "translate(0," + (H - m.b) + ")").call(xa).call(styleAxis);
-    var nRows = 8, headH = 24, top = 6, gapG = 12, botPad = 40;
-    var avail = H - top - groups.length * headH - groups.length * gapG - botPad;
-    var rh = avail / nRows;
+    var x = d3.scaleLinear().domain([0, 30]).range([mL, W - mR]);
+    var xticks = [0, 10, 20, 30];
+    var top = 4, titleH = 26, rowH = 32, axisLabelH = 16, gGap = 12;
     var yc = top;
     groups.forEach(function (gp, gi) {
+      var isBrand = gp.color === C.brand;
+      // 제목·부제 (박스 위)
       svg.append("text").attr("x", 4).attr("y", yc + 11).attr("font-size", 11.5)
-        .attr("font-weight", 800).attr("fill", gp.color === C.brand ? C.strong : C.ink2).text(gp.title);
+        .attr("font-weight", 800).attr("fill", isBrand ? C.strong : C.ink2).text(gp.title);
       svg.append("text").attr("x", 4).attr("y", yc + 23).attr("font-size", 9).attr("fill", C.ink3).text(gp.sub);
-      yc += headH;
+      yc += titleH;
+      var boxTop = yc, boxH = gp.rows.length * rowH, boxBot = boxTop + boxH;
+      // 점선 세로 grid + X축(% 라벨) — 박스별 개별
+      var xa = d3.axisBottom(x).tickValues(xticks).tickSize(-boxH).tickFormat(function (d) { return d + "%"; });
+      svg.append("g").attr("transform", "translate(0," + boxBot + ")").call(xa).call(styleAxis);
+      // 외곽 라운드 박스 (좌변=Y축)
+      svg.append("rect").attr("x", mL).attr("y", boxTop).attr("width", (W - mR) - mL).attr("height", boxH)
+        .attr("rx", 10).attr("fill", "none").attr("stroke", C.gray2).attr("stroke-width", 1);
+      // 막대
       gp.rows.forEach(function (r, ri) {
-        var bh = rh * 0.62, cy = yc + (rh - bh) / 2;
-        svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
-          .attr("width", Math.max(2, x(r[1]) - m.l)).attr("rx", 3)
-          .attr("fill", gp.color).attr("fill-opacity", (gi === 1 && ri === 0) ? 1 : (gp.color === C.brand ? 0.85 : 0.55));
-        svg.append("text").attr("x", m.l - 8).attr("y", cy + bh / 2).attr("dy", "0.35em")
-          .attr("text-anchor", "end").attr("font-size", 10)
-          .attr("font-weight", (gi === 1 && ri === 0) ? 800 : 600)
-          .attr("fill", (gi === 1 && ri === 0) ? C.strong : C.ink).text(r[0]);
+        var bh = rowH * 0.56, cy = boxTop + ri * rowH + (rowH - bh) / 2, hot = (gi === 1 && ri === 0);
+        svg.append("rect").attr("x", mL).attr("y", cy).attr("height", bh)
+          .attr("width", Math.max(2, x(r[1]) - mL)).attr("rx", 3)
+          .attr("fill", gp.color).attr("fill-opacity", hot ? 1 : (isBrand ? 0.85 : 0.55));
+        svg.append("text").attr("x", mL - 8).attr("y", cy + bh / 2).attr("dy", "0.35em")
+          .attr("text-anchor", "end").attr("font-size", 10).attr("font-weight", hot ? 800 : 600)
+          .attr("fill", hot ? C.strong : C.ink).text(r[0]);
         svg.append("text").attr("x", x(r[1]) + 6).attr("y", cy + bh / 2).attr("dy", "0.35em")
           .attr("font-size", 10.5).attr("font-weight", 800)
-          .attr("fill", gp.color === C.brand ? C.strong : C.ink3).text(r[1] + "%");
-        yc += rh;
+          .attr("fill", isBrand ? C.strong : C.ink3).text(r[1] + "%");
       });
-      yc += gapG;
+      yc = boxBot + axisLabelH + gGap;
     });
-    // 충전앱 진짜 1위 강조
-    svg.append("text").attr("x", W - m.r).attr("y", top + 11).attr("text-anchor", "end")
+    // 충전앱 진짜 1위 강조 (우상단)
+    svg.append("text").attr("x", W - mR).attr("y", 10).attr("text-anchor", "end")
       .attr("font-size", 9.5).attr("font-weight", 700).attr("fill", C.ink3)
       .text("도메인 분리 → 충전앱 진짜 1위 '앱 불안정' 식별");
   }
