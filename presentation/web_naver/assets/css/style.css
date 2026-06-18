@@ -10,11 +10,12 @@
 /* ===========================  TOKENS  =========================== */
 :root {
   /* Brand palette ----------------------------------------------- */
-  --brand:          #03C75A;   /* primary brand green (NAVER green) */
-  --brand-strong:   #02A94B;   /* darker green for text/links       */
-  --brand-bright:   #6FE6A0;   /* mint highlight (chart bars)       */
+  --brand:          #00A75D;   /* Main Green_01 — primary brand green */
+  --brand-strong:   #017A45;   /* AA용 짙은 초록 (흰글씨 4.6:1·초록텍스트 5.4:1) */
+  --brand-bright:   #43CA70;   /* Main Green_02 — light green (fills, dark text) */
   --brand-soft:     #C9F4DA;   /* pale green wash                   */
   --brand-mist:     #EAFBF1;   /* lightest green tint               */
+  --brand-teal:     #11A89E;   /* Main Green_03 — teal 보조 강조      */
 
   /* Secondary accents (category coding) ------------------------- */
   --accent-purple:  #8B7CF0;
@@ -550,7 +551,7 @@ a.nav__tab { transition: color .15s; }
 
 /* =====================  PEST QUADRANT  ===================== */
 .pest__badge {
-  width: 30px; height: 30px; border-radius: 50%; background: var(--brand);
+  width: 30px; height: 30px; border-radius: 50%; background: var(--brand-strong);
   color: #fff; font-weight: 800; font-size: 15px; display: grid; place-items: center;
 }
 .pest__h { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
@@ -593,7 +594,7 @@ a.nav__tab { transition: color .15s; }
 .scope-nest__arrow { font-size: 11px; font-weight: 800; color: var(--ink-3); text-align: center; line-height: 1.4; flex: 0 0 96px; }
 /* MoSCoW 우선순위 pill (#s31) */
 .mos { display: inline-block; min-width: 46px; padding: 3px 9px; border-radius: 11px; font-size: 10px; font-weight: 800; text-align: center; }
-.mos--m { background: var(--brand); color: #fff; }
+.mos--m { background: var(--brand-strong); color: #fff; }
 .mos--s { background: #e3effe; color: var(--accent-blue); }
 .mos--c { background: var(--fill-2); color: var(--ink-3); }
 .mosbar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; width: 180px; }
@@ -696,7 +697,7 @@ ol.txt { list-style: none; padding-left: 0; }
 
 /* =====================  NAVER p24/p89/p19 차용 요소  ======== */
 /* 번호 뱃지 파이프라인 (p89) */
-.pipe-no { width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff;
+.pipe-no { width: 24px; height: 24px; border-radius: 50%; background: var(--brand-strong); color: #fff;
   font-weight: 800; font-size: 12px; display: grid; place-items: center; box-shadow: 0 0 0 4px var(--brand-mist); }
 
 /* 도넛 + 중앙 % + 연결선 (p24) */
@@ -784,7 +785,7 @@ ol.txt { list-style: none; padding-left: 0; }
 
 /* 목차 챕터 번호 배지 */
 .ch-badge { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
-  background: var(--brand); color: #fff; font-size: 11px; font-weight: 800; margin-right: 8px; vertical-align: middle; }
+  background: var(--brand-strong); color: #fff; font-size: 11px; font-weight: 800; margin-right: 8px; vertical-align: middle; }
 /* TAM-SAM-SOM 중첩 깔때기 */
 .fn { border-radius: 12px; text-align: center; }
 .fn-tam { background: var(--fill); padding: 15px 16px 16px; }

@@ -7,7 +7,7 @@
    ============================================================= */
 (function () {
   if (typeof d3 === "undefined") return;
-  var C = { brand:"#03C75A", strong:"#02A94B", bright:"#6FE6A0", line:"#dbdbdb",
+  var C = { brand:"#00A75D", strong:"#017A45", bright:"#43CA70", teal:"#11A89E", line:"#dbdbdb",
             ink:"#111111", ink2:"#3a3a3a", ink3:"#767676", mist:"#EAFBF1",
             gray:"#b9bcc0", gray2:"#d4d7da", blue:"#4D9BFF", purple:"#8B7CF0",
             red:"#E5484D", redbg:"#FDEBEC" };
