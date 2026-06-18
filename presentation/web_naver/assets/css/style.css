@@ -751,6 +751,33 @@ ol.txt { list-style: none; padding-left: 0; }
 
 /* p36 CRISP-DM 순환 루프 */
 .crisp { position: relative; height: 372px; }
+/* Visual-flow 3단 도출 (키워드 카드 → 원형 노드 → 결과 카드) */
+.vflow { display: grid; gap: 16px; margin-top: 14px; align-items: start; }
+.vflow--1 { grid-template-columns: minmax(0, 480px); justify-content: center; }
+.vflow--3 { grid-template-columns: repeat(3, 1fr); }
+.vflow--4 { grid-template-columns: repeat(4, 1fr); }
+.vflow--5 { grid-template-columns: repeat(5, 1fr); }
+.vcol { display: flex; flex-direction: column; align-items: center; }
+.vtop { width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,.05); padding: 13px 12px; text-align: center; }
+.vtop .k { font-size: 14px; font-weight: 800; color: var(--ink); }
+.vtop .k .cap { font-weight: 500; }
+.vtop .hr { height: 1px; background: var(--line); width: 56%; margin: 8px auto; }
+.vtop .s { font-size: 12.5px; font-weight: 700; color: var(--brand-strong); }
+.vtop ul { text-align: left; margin-top: 9px; }
+.vtop li { font-size: 10.5px; color: var(--ink-2); line-height: 1.5; padding-left: 9px; position: relative; margin-top: 2px; }
+.vtop li::before { content: "\00b7"; position: absolute; left: 1px; color: var(--brand); font-weight: 800; }
+.vconn { width: 0; border-left: 2px dashed var(--brand-bright); height: 16px; }
+.vnode { width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; text-align: center; font-size: 11px; font-weight: 800; line-height: 1.12; }
+.vbtm { width: 100%; background: var(--brand); color: #fff; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,167,93,.22); padding: 14px 12px; text-align: center; }
+.vbtm.is-out { background: var(--fill); color: var(--ink-3); box-shadow: none; border: 1px dashed var(--line-2); }
+.vbtm .big { font-size: 19px; font-weight: 800; line-height: 1.2; }
+.vbtm .desc { font-size: 11.5px; opacity: .92; margin-top: 2px; }
+.vbtm .hr { height: 1px; background: rgba(255,255,255,.45); width: 56%; margin: 8px auto; }
+.vbtm.is-out .hr { background: var(--line-2); }
+.vbtm .sub { font-size: 12.5px; font-weight: 800; }
+.vbtm .small { font-size: 10px; opacity: .92; margin-top: 3px; line-height: 1.45; }
+.vpr { display: inline-block; margin-top: 7px; font-size: 10px; font-weight: 800; background: rgba(255,255,255,.22); border-radius: 6px; padding: 2px 9px; }
+
 /* 방법론(s43) SDLC 포지셔닝 트랙 */
 .sdlc { margin-top: 14px; }
 .sdlc__lead { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 8px; }
