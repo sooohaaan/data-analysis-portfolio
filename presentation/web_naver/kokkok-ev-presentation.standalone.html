@@ -758,23 +758,6 @@ ol.txt { list-style: none; padding-left: 0; }
 
 /* p36 CRISP-DM 순환 루프 */
 .crisp { position: relative; height: 372px; }
-/* 방법론(s43) 투 트랙 (SDLC × CRISP-DM, 범위 정직 표기) */
-.ttrack { margin-top: 12px; }
-.ttrack__row { display: flex; align-items: stretch; gap: 12px; }
-.ttrack__label { flex: 0 0 144px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 8px 14px; border-radius: 10px; background: var(--brand-mist); border: 1px solid var(--brand-soft); }
-.ttrack__label .ic { width: 20px; height: 20px; color: var(--brand); margin-bottom: 3px; }
-.ttrack__label b { font-size: 14px; font-weight: 800; color: var(--ink); }
-.ttrack__label span { font-size: 10px; color: var(--ink-3); }
-.ttrack__label--dm { background: var(--fill); border-color: var(--line-2); }
-.ttrack__steps { flex: 1; display: flex; align-items: stretch; gap: 8px; }
-.ttrack__steps .tstep { flex: 1; border: 1px solid var(--line-2); border-radius: 8px; padding: 8px 10px; text-align: center; background: #fff; display: flex; flex-direction: column; justify-content: center; }
-.tstep .t { display: block; font-size: 12.5px; font-weight: 800; color: var(--ink); }
-.tstep span { font-size: 9.5px; color: var(--ink-3); }
-.tstep--out { background: var(--fill); border-style: dashed; opacity: .62; }
-.tstep--out .t { color: var(--ink-3); }
-.tarr { align-self: center; flex: 0 0 auto; color: var(--ink-3); font-weight: 800; }
-.ttrack__link { text-align: center; font-size: 11px; font-weight: 700; color: var(--brand-strong); margin: 8px 0; }
-
 /* 방법론(s43) SDLC 포지셔닝 트랙 */
 .sdlc { margin-top: 10px; }
 .sdlc__lead { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 8px; }
@@ -2007,31 +1990,39 @@ ol.txt { list-style: none; padding-left: 0; }
     <div class="body">
       <div class="h-eyebrow">RETROSPECTIVE · METHOD</div>
       <h2 class="h-page" style="margin-top:2px">방법론 — CRISP-DM(수행) × SDLC(포지셔닝)</h2>
-      <p class="lead" style="max-width:1010px;font-size:12px">서비스 개발(SDLC)과 데이터 분석(CRISP-DM)을 함께 본 투 트랙 — <b>이 프로젝트는 CRISP-DM으로 수행</b>하고, 그 산출물을 SDLC의 <b class="green">계획 · 분석 · 설계</b> 단계에 반영했습니다 <span class="cap" style="font-weight:400">(개발·배포·운영은 범위 외)</span>.</p>
-      <div class="ttrack">
-        <div class="ttrack__row">
-          <div class="ttrack__label"><svg class="ic"><use href="#ic-product"/></svg><b>SDLC</b><span>서비스 개발</span></div>
-          <div class="ttrack__steps">
-            <div class="tstep"><span class="t">계획</span><span>요구사항·범위 합의</span></div><span class="tarr">→</span>
-            <div class="tstep"><span class="t">분석</span><span>VOC 분석 반영</span></div><span class="tarr">→</span>
-            <div class="tstep"><span class="t">설계</span><span>PRD·플로우·ERD·DB</span></div><span class="tarr">→</span>
-            <div class="tstep tstep--out"><span class="t">개발·통합·배포·운영</span><span>범위 외 · 향후</span></div>
-          </div>
-        </div>
-        <div class="ttrack__link">↕&nbsp; CRISP-DM 분석 산출물이 SDLC 계획·분석·설계에 반영 (수행 × 포지셔닝) &nbsp;↕</div>
-        <div class="ttrack__row">
-          <div class="ttrack__label ttrack__label--dm"><svg class="ic"><use href="#ic-data"/></svg><b>CRISP-DM</b><span>반복형 데이터 분석</span></div>
-          <div class="ttrack__steps">
-            <div class="tstep"><span class="t">비즈니스·데이터 이해</span><span>Phase 0~2</span></div><span class="tarr">→</span>
-            <div class="tstep"><span class="t">준비·모델링·평가 ↺</span><span>Phase 3~4 · 재분류 루프</span></div><span class="tarr">→</span>
-            <div class="tstep"><span class="t">평가·패키징</span><span>Phase 5 · 기획 연계</span></div><span class="tarr">→</span>
-            <div class="tstep tstep--out"><span class="t">모델 배포·MLOps·모니터링</span><span>범위 외 · 향후</span></div>
-          </div>
+      <p class="lead" style="max-width:980px;font-size:12.5px">데이터 분석 표준 방법론 CRISP-DM으로 수행 — 핵심은 평가에서 데이터 이해로 되돌아간 ‘재분류’ 루프입니다.</p>
+      <div class="crisp" style="height:262px">
+        <svg class="clines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M50,15 L84,30" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M84,30 L84,70" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M84,70 L50,85" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M50,85 L16,70" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M16,70 L16,30" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M16,30 L50,15" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <path d="M16,70 Q50,50 84,30" stroke="var(--brand)" stroke-width="1.8" stroke-dasharray="3 2" fill="none" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="cmid"><b>CRISP-DM</b><br><span class="cap">데이터 분석 표준</span><br><span class="loop-badge">↺ 평가 → 데이터 이해 재분류</span><br><span class="loop-result">기타 <b>50%→16.6%</b> · 충전앱 #1 <b>앱 불안정 27.6%</b> 규명</span></div>
+        <div class="cstep" style="left:50%;top:15%"><div class="n">1</div><b>비즈니스 이해</b><span>Phase 0 · 계획</span></div>
+        <div class="cstep" style="left:84%;top:30%"><div class="n">2</div><b>데이터 이해</b><span>Phase 1~2 · 수집</span></div>
+        <div class="cstep" style="left:84%;top:70%"><div class="n">3</div><b>데이터 준비</b><span>Phase 3 · 전처리</span></div>
+        <div class="cstep" style="left:50%;top:85%"><div class="n">4</div><b>모델링</b><span>Phase 4 · 분석·분류</span></div>
+        <div class="cstep is-eval" style="left:16%;top:70%"><div class="n">5</div><b>평가</b><span>가설 검증 → <b style="color:var(--brand-strong)">기각</b></span></div>
+        <div class="cstep" style="left:16%;top:30%"><div class="n">6</div><b>배포</b><span>Phase 5 · 기획 연계</span></div>
+      </div>
+      <div class="callout"><div class="callout__t" style="font-size:13px">핵심 루프 — ‘앱오류=OCPP’ 가설을 <b>평가에서 기각</b>하고 <span class="green">데이터 이해로 회귀(VOC 2계층 재분류)</span> → 충전앱 #1 ‘앱 불안정 27.6%’ 규명. 폭포수로는 표현되지 않는 반복.</div></div>
+      <div class="sdlc">
+        <div class="sdlc__lead"><svg class="ic ic--t"><use href="#ic-flag"/></svg><b>SDLC 포지셔닝</b> — CRISP-DM(수행)의 산출물이 놓이는 서비스 개발 단계 <span class="cap" style="font-weight:400">(개발은 범위 외)</span></div>
+        <div class="sdlc__row">
+          <div class="sdlc__step"><b>계획</b><span>Phase 0 · 비즈니스 이해</span></div>
+          <span class="sdlc__arr">→</span>
+          <div class="sdlc__step"><b>분석</b><span>Phase 1~4 · 데이터 이해~모델링</span></div>
+          <span class="sdlc__arr">→</span>
+          <div class="sdlc__step"><b>설계</b><span>Phase 5 · 기획·설계 연계</span></div>
+          <span class="sdlc__arr">→</span>
+          <div class="sdlc__step sdlc__step--out"><b>개발</b><span>범위 외</span></div>
         </div>
       </div>
-      <div class="callout mt16"><div class="callout__t" style="font-size:13px">핵심 루프 — ‘앱오류=OCPP’ 가설을 <b>평가에서 기각</b>하고 <span class="green">데이터 이해로 회귀(VOC 2계층 재분류)</span> → 충전앱 #1 ‘앱 불안정 27.6%’ 규명. 폭포수로는 표현되지 않는 반복.</div></div>
-      <div class="note mt8" style="font-size:10.5px"><b>범위 표기</b> — 진한 박스 = 실제 수행(계획·분석·설계) · 점선·흐림 = 범위 외(개발·배포·MLOps·모니터링).</div>
-    
+    </div>
     <div class="foot"><span class="foot__brand">COCONUT SILO · KOKKOK EV 서비스 기획</span><span class="foot__page">36<span class="foot__tot"> / 53</span></span></div>
   </section>
 

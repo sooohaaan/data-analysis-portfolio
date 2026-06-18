@@ -751,23 +751,6 @@ ol.txt { list-style: none; padding-left: 0; }
 
 /* p36 CRISP-DM 순환 루프 */
 .crisp { position: relative; height: 372px; }
-/* 방법론(s43) 투 트랙 (SDLC × CRISP-DM, 범위 정직 표기) */
-.ttrack { margin-top: 12px; }
-.ttrack__row { display: flex; align-items: stretch; gap: 12px; }
-.ttrack__label { flex: 0 0 144px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 8px 14px; border-radius: 10px; background: var(--brand-mist); border: 1px solid var(--brand-soft); }
-.ttrack__label .ic { width: 20px; height: 20px; color: var(--brand); margin-bottom: 3px; }
-.ttrack__label b { font-size: 14px; font-weight: 800; color: var(--ink); }
-.ttrack__label span { font-size: 10px; color: var(--ink-3); }
-.ttrack__label--dm { background: var(--fill); border-color: var(--line-2); }
-.ttrack__steps { flex: 1; display: flex; align-items: stretch; gap: 8px; }
-.ttrack__steps .tstep { flex: 1; border: 1px solid var(--line-2); border-radius: 8px; padding: 8px 10px; text-align: center; background: #fff; display: flex; flex-direction: column; justify-content: center; }
-.tstep .t { display: block; font-size: 12.5px; font-weight: 800; color: var(--ink); }
-.tstep span { font-size: 9.5px; color: var(--ink-3); }
-.tstep--out { background: var(--fill); border-style: dashed; opacity: .62; }
-.tstep--out .t { color: var(--ink-3); }
-.tarr { align-self: center; flex: 0 0 auto; color: var(--ink-3); font-weight: 800; }
-.ttrack__link { text-align: center; font-size: 11px; font-weight: 700; color: var(--brand-strong); margin: 8px 0; }
-
 /* 방법론(s43) SDLC 포지셔닝 트랙 */
 .sdlc { margin-top: 10px; }
 .sdlc__lead { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 8px; }
