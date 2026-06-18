@@ -7,7 +7,7 @@
    ============================================================= */
 (function () {
   if (typeof d3 === "undefined") return;
-  var C = { brand:"#00A75D", strong:"#017A45", bright:"#43CA70", teal:"#11A89E", line:"#dbdbdb",
+  var C = { brand:"#00A75D", strong:"#017A45", bright:"#43CA70", teal:"#11A89E", ivory:"#FBF9F2", line:"#dbdbdb",
             ink:"#111111", ink2:"#3a3a3a", ink3:"#767676", mist:"#EAFBF1",
             gray:"#b9bcc0", gray2:"#d4d7da", blue:"#4D9BFF", purple:"#8B7CF0",
             red:"#E5484D", redbg:"#FDEBEC" };
@@ -29,7 +29,7 @@
   function frame(svg, m, W, H) {
     svg.append("rect").attr("x", m.l).attr("y", m.t)
       .attr("width", W - m.l - m.r).attr("height", H - m.t - m.b)
-      .attr("fill", "none").attr("stroke", C.gray2).attr("stroke-width", 1).attr("rx", 2);
+      .attr("fill", C.ivory).attr("stroke", C.gray2).attr("stroke-width", 1).attr("rx", 2);
   }
   /* 점선 세로 grid (값 축이 가로인 차트용) */
   function gridX(svg, x, m, W, H, ticks) {
@@ -208,6 +208,8 @@
       svg.append("text").attr("x", 4).attr("y", yc + 23).attr("font-size", 9).attr("fill", C.ink3).text(gp.sub);
       yc += titleH;
       var boxTop = yc, boxH = gp.rows.length * rowH, boxBot = boxTop + boxH;
+      // 아이보리 배경(뒤) — 그리드/막대보다 먼저
+      svg.append("rect").attr("x", mL).attr("y", boxTop).attr("width", (W - mR) - mL).attr("height", boxH).attr("rx", 10).attr("fill", C.ivory);
       // 점선 세로 grid + X축(% 라벨) — 박스별 개별
       var xa = d3.axisBottom(x).tickValues(xticks).tickSize(-boxH).tickFormat(function (d) { return d + "%"; });
       svg.append("g").attr("transform", "translate(0," + boxBot + ")").call(xa).call(styleAxis);
