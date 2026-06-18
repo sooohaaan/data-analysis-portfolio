@@ -304,27 +304,33 @@
     if (!el || el.__done) return; el.__done = true;
     var W = 480, H = 300, cx = W / 2;
     var segs = [
-      { name: "TAM · ASEAN-6 EV 생태계", val: "$100B–120B", cap: "2035 · EY-Parthenon",
-        tw: 462, bw: 372, fill: C.mist,   tcol: C.ink,  vcol: C.strong, ccol: C.ink3 },
-      { name: "SAM · 동남아 EV 충전 서비스", val: "EV 신차 9% · 판매 +50%", cap: "IEA 2025",
-        tw: 352, bw: 262, fill: C.bright, tcol: C.ink,  vcol: C.ink,    ccol: C.ink2 },
-      { name: "SOM · 라오스 충전 · 슈퍼앱", val: "라오스 EV 40% 커버", cap: "3년 · LOCA",
-        tw: 242, bw: 150, fill: C.strong, tcol: "#fff", vcol: "#fff",   ccol: "#DFF7E9" }
+      { acr: "TAM", name: "ASEAN-6 EV 생태계", val: "$100B–120B (약 130~160조 원)", cap: "2035 · EY-Parthenon",
+        tw: 470, bw: 356, fill: C.mist,   tcol: C.ink,  vcol: C.strong, ccol: C.ink3 },
+      { acr: "SAM", name: "동남아 EV 충전 서비스", val: "EV 신차 9% · 판매 +50%", cap: "IEA 2025",
+        tw: 344, bw: 232, fill: C.bright, tcol: C.ink,  vcol: C.ink,    ccol: C.ink2 },
+      { acr: "SOM", name: "라오스 충전 · 슈퍼앱", val: "라오스 EV 40% 커버", cap: "3년 · LOCA",
+        tw: 220, bw: 110, fill: C.strong, tcol: "#fff", vcol: "#fff",   ccol: "#DFF7E9" }
     ];
     var svg = newSvg(el, W, H);
-    var top = 6, segH = 84, gap = 11;
+    var top = 4, segH = 88, gap = 9;
     segs.forEach(function (s, i) {
-      var yT = top + i * (segH + gap), yB = yT + segH, midY = yT + segH / 2;
+      var yT = top + i * (segH + gap), yB = yT + segH;
       svg.append("polygon").attr("points",
         (cx - s.tw / 2) + "," + yT + " " + (cx + s.tw / 2) + "," + yT + " " +
         (cx + s.bw / 2) + "," + yB + " " + (cx - s.bw / 2) + "," + yB)
         .attr("fill", s.fill);
-      svg.append("text").attr("x", cx).attr("y", midY - 12).attr("text-anchor", "middle")
-        .attr("font-size", 13).attr("font-weight", 800).attr("fill", s.tcol).text(s.name);
-      svg.append("text").attr("x", cx).attr("y", midY + 7).attr("text-anchor", "middle")
-        .attr("font-size", 13).attr("font-weight", 800).attr("fill", s.vcol).text(s.val);
-      svg.append("text").attr("x", cx).attr("y", midY + 22).attr("text-anchor", "middle")
-        .attr("font-size", 9.5).attr("font-weight", 600).attr("fill", s.ccol).text(s.cap);
+      // 1행: TAM/SAM/SOM 약어(크게) — 내용과 분리
+      svg.append("text").attr("x", cx).attr("y", yT + 25).attr("text-anchor", "middle")
+        .attr("font-size", 20).attr("font-weight", 800).attr("letter-spacing", "0.5").attr("fill", s.tcol).text(s.acr);
+      // 2행: 시장 정의
+      svg.append("text").attr("x", cx).attr("y", yT + 44).attr("text-anchor", "middle")
+        .attr("font-size", 11.5).attr("font-weight", 700).attr("fill", s.tcol).text(s.name);
+      // 3행: 규모 값
+      svg.append("text").attr("x", cx).attr("y", yT + 62).attr("text-anchor", "middle")
+        .attr("font-size", 12.5).attr("font-weight", 800).attr("fill", s.vcol).text(s.val);
+      // 4행: 출처
+      svg.append("text").attr("x", cx).attr("y", yT + 78).attr("text-anchor", "middle")
+        .attr("font-size", 9).attr("font-weight", 600).attr("fill", s.ccol).text(s.cap);
     });
     // 좁혀가는 방향 화살표
     svg.append("text").attr("x", cx).attr("y", H - 2).attr("text-anchor", "middle")
