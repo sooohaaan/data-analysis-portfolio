@@ -138,9 +138,11 @@
     });
   });
 
-  /* ---- Nav tab jump: go to first slide of that section ---- */
+  /* ---- Nav tab jump: go to first slide of that section ----
+     (앵커 <a href="#sN">로 PDF 내부 링크도 생성 · 웹은 JS로 전환) */
   document.querySelectorAll(".nav__tab").forEach((tab) => {
     tab.addEventListener("click", (e) => {
+      e.preventDefault();   // 앵커 기본 점프 방지
       e.stopPropagation();
       const sec = tab.dataset.section;
       const target = slides.findIndex((s) => s.dataset.section === sec);
@@ -148,18 +150,15 @@
     });
   });
 
-  /* ---- Logo → page 1 (cover) · hamburger → contents ---- */
-  document.querySelectorAll(".nav__logo").forEach((el) => {
-    el.style.cursor = "pointer";
-    el.addEventListener("click", (e) => { e.stopPropagation(); show(0); });
-  });
-  document.querySelectorAll(".nav__icons").forEach((ic) => {
-    const svgs = ic.querySelectorAll("svg");
-    const burger = svgs[svgs.length - 1];
-    if (burger) {
-      burger.style.cursor = "pointer";
-      burger.addEventListener("click", (e) => { e.stopPropagation(); show(1); });
-    }
+  /* ---- 새로고침 버튼 → 페이지 리로드(딥링크로 현재 슬라이드 유지) ----
+     ※ 로고(data-goto=0)·메뉴(data-goto=1)는 위 [data-goto] 핸들러가 처리.
+     ※ PDF에선 JS 없이도 각 앵커 href(#s1·#s2·섹션)로 내부 링크가 동작. */
+  document.querySelectorAll(".nav__refresh").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      location.reload();
+    });
   });
 
   /* ---- Tab components (환경/사회/지배구조 등) ---- */

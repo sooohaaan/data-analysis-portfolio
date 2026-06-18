@@ -1,7 +1,7 @@
 # 🇱🇦 라오스 EV·모빌리티 시장 — 뉴스 점유율(Share of Voice) 분석
 
 > **작성일**: 2026-06-13 | **목적**: 라오스 **현지** 정량 근거 보강 — ① 임원진 벤치마크(LOCA EV)를 데이터로 독립 검증 ② 실제 경쟁사 발굴 ③ KOKKOK Move 현지 인지도 파악
-> **재현**: [`notebooks/10_laos_news_collection.ipynb`](../notebooks/10_laos_news_collection.ipynb) · 차트 [`19_laos_share_of_voice.png`](19_laos_share_of_voice.png)·[`20_laos_news_trend.png`](20_laos_news_trend.png)
+> **재현**: [`notebooks/10_laos_news_collection.ipynb`](../../02_수집_collection/notebooks/10_laos_news_collection.ipynb) · 차트 [`19_laos_share_of_voice.png`](../../04_시각화_visualization/charts/19_laos_share_of_voice.png)·[`20_laos_news_trend.png`](../../04_시각화_visualization/charts/20_laos_news_trend.png)
 
 ---
 
@@ -26,7 +26,7 @@
 
 ### 1. 브랜드 점유율 — VinFast·Xanh SM > LOCA ≫ KOKKOK Move
 
-![share of voice](19_laos_share_of_voice.png)
+![share of voice](../../04_시각화_visualization/charts/19_laos_share_of_voice.png)
 
 | 브랜드 | 뉴스 언급 | 성격 |
 |--------|----------|------|
@@ -39,7 +39,7 @@
 
 ### 2. 라오스 EV 뉴스량 — 5년간 13배 급증
 
-![trend](20_laos_news_trend.png)
+![trend](../../04_시각화_visualization/charts/20_laos_news_trend.png)
 
 2022년 10건 → 2026년 132건. EV 전환 모멘텀이 **보도량으로도 확인**됨(내연기관 수입 중단·EV 세제 정책과 정합).
 

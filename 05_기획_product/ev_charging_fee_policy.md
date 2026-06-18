@@ -43,7 +43,7 @@
 
 > 🔄 **2026-06 공식 자료로 교정**: 기존 표는 유튜브 자막에서 추정한 "9 Baht/kWh"를 사용했으나,
 > 각 사 공식 단가 수집 결과 **PTT는 4.5~7.5฿(TOU)로 9฿는 과대 추정**이었음. 아래는 공식 단가로 교체.
-> 상세: [`competitor_pricing_and_market_share.md`](competitor_pricing_and_market_share.md)
+> 상세: [`competitor_pricing_and_market_share.md`](../03_분석_analysis/reports/competitor_pricing_and_market_share.md)
 
 | 서비스 | 국가 | 요금 방식 | 공식 단가 | ≈ THB·USD | 신뢰도 |
 |--------|------|---------|----------|-----------|--------|
@@ -243,7 +243,7 @@ KOKKOK    = 4,000 ₭/kWh (≈ $0.19)  — LOCA 대비 약 7% 저렴
 | 전력 원가 (약 30%) | × 0.7 | 순이익 약 70% |
 
 > 🔄 **2026-06 재계산**: 기존은 PTT 9฿(유튜브 추정) 기준이었으나, 최종 정책 단가 **4,000₭/kWh**(공식 단가대 내)로 재산정. 기존 대비 약 30% 낮은 보수적 추정.
-> 출처 근거: LOCA EV "1년 내 투자금 회수" (LOCA 공식 발표) · 경쟁사 공식 단가 [`competitor_pricing_and_market_share.md`](competitor_pricing_and_market_share.md)
+> 출처 근거: LOCA EV "1년 내 투자금 회수" (LOCA 공식 발표) · 경쟁사 공식 단가 [`competitor_pricing_and_market_share.md`](../03_분석_analysis/reports/competitor_pricing_and_market_share.md)
 
 ---
 

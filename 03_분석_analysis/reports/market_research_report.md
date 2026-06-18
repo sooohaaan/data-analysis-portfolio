@@ -381,7 +381,7 @@ LOCA Taxi 앱 리뷰에서 EV·충전 언급 16.1%(72/447) — 이미 EV가 핵�
 ### 3-5. 라오스 현지 경쟁 구도 — 뉴스 점유율 (Share of Voice) 🆕
 
 > 📊 **본 보고서 직접 분석** — Google News RSS(en) + Naver(ko) 라오스 모빌리티·EV 타겟 수집 **419건 신규** → EV·모빌리티 관련 **393건** 분석 (2026-06). 브랜드 언급 41건 기준.
-> 📄 상세·재현: [`laos_market_share_of_voice.md`](laos_market_share_of_voice.md) · 차트 [`19_laos_share_of_voice.png`](19_laos_share_of_voice.png)(브랜드 점유율)·[`20_laos_news_trend.png`](20_laos_news_trend.png)(연도별 추이) · 노트북 `notebooks/10_laos_news_collection.ipynb`
+> 📄 상세·재현: [`laos_market_share_of_voice.md`](laos_market_share_of_voice.md) · 차트 [`19_laos_share_of_voice.png`](../../04_시각화_visualization/charts/19_laos_share_of_voice.png)(브랜드 점유율)·[`20_laos_news_trend.png`](../../04_시각화_visualization/charts/20_laos_news_trend.png)(연도별 추이) · 노트북 `notebooks/10_laos_news_collection.ipynb`
 
 | 브랜드 | 뉴스 언급 | 성격 |
 |--------|---------|------|
@@ -743,38 +743,38 @@ EV 드라이버 20명 파일럿 → 데이터 수집 → 인센티브 최적화
 
 **📎 관련 파일 및 시각 자료**
 - 데이터 분석 결과서: [`outputs/data_analysis_report.md`](data_analysis_report.md)
-- PRD (기능 명세서): [`outputs/PRD_kokkok_ev.md`](PRD_kokkok_ev.md)
-- 충전 서비스 Flow: [`outputs/charging_service_flowchart.drawio`](charging_service_flowchart.drawio)
+- PRD (기능 명세서): [`outputs/PRD_kokkok_ev.md`](../../05_기획_product/PRD_kokkok_ev.md)
+- 충전 서비스 Flow: [`outputs/charging_service_flowchart.drawio`](../../05_기획_product/charging_service_flowchart.drawio)
 
 **분석 차트 (앱 레이어)**
 
 | 파일 | 내용 |
 |------|------|
-| [`01_complaint_categories.png`](01_complaint_categories.png) | 불만 카테고리 분포 (재분류 전 단일 레이어 — 참고용) |
-| [`18_complaint_2layer.png`](18_complaint_2layer.png) | **2계층 불만 분포** — 충전앱 vs 라이드헤일링 도메인 분리 (2026-06-13 재분류) |
-| [`02_sentiment_by_app.png`](02_sentiment_by_app.png) | 앱별 감성 분포 — PEA VOLTA 최하위(67.9%) |
-| [`03_monthly_trend.png`](03_monthly_trend.png) | 월별 리뷰 트렌드 (2023~2026) |
-| [`04_wordcloud_negative_en.png`](04_wordcloud_negative_en.png) | 영어 Negative 워드클라우드 |
-| [`05_rating_distribution.png`](05_rating_distribution.png) | 전체 별점 분포 |
-| [`10_app_positioning_map.png`](10_app_positioning_map.png) | **앱 포지셔닝 맵** — PTT vs Green SM vs Kokkok |
-| [`11_app_competitive_analysis.png`](11_app_competitive_analysis.png) | **앱별 불만 카테고리 경쟁 분석** |
-| [`12_wordcloud_vi.png`](12_wordcloud_vi.png) | 베트남어 Negative 워드클라우드 |
-| [`13_wordcloud_th.png`](13_wordcloud_th.png) | 태국어 Negative 워드클라우드 |
+| [`01_complaint_categories.png`](../../04_시각화_visualization/charts/01_complaint_categories.png) | 불만 카테고리 분포 (재분류 전 단일 레이어 — 참고용) |
+| [`18_complaint_2layer.png`](../../04_시각화_visualization/charts/18_complaint_2layer.png) | **2계층 불만 분포** — 충전앱 vs 라이드헤일링 도메인 분리 (2026-06-13 재분류) |
+| [`02_sentiment_by_app.png`](../../04_시각화_visualization/charts/02_sentiment_by_app.png) | 앱별 감성 분포 — PEA VOLTA 최하위(67.9%) |
+| [`03_monthly_trend.png`](../../04_시각화_visualization/charts/03_monthly_trend.png) | 월별 리뷰 트렌드 (2023~2026) |
+| [`04_wordcloud_negative_en.png`](../../04_시각화_visualization/charts/04_wordcloud_negative_en.png) | 영어 Negative 워드클라우드 |
+| [`05_rating_distribution.png`](../../04_시각화_visualization/charts/05_rating_distribution.png) | 전체 별점 분포 |
+| [`10_app_positioning_map.png`](../../04_시각화_visualization/charts/10_app_positioning_map.png) | **앱 포지셔닝 맵** — PTT vs Green SM vs Kokkok |
+| [`11_app_competitive_analysis.png`](../../04_시각화_visualization/charts/11_app_competitive_analysis.png) | **앱별 불만 카테고리 경쟁 분석** |
+| [`12_wordcloud_vi.png`](../../04_시각화_visualization/charts/12_wordcloud_vi.png) | 베트남어 Negative 워드클라우드 |
+| [`13_wordcloud_th.png`](../../04_시각화_visualization/charts/13_wordcloud_th.png) | 태국어 Negative 워드클라우드 |
 
 **분석 차트 (하드웨어 레이어)**
 
 | 파일 | 내용 |
 |------|------|
-| [`06_hw_sentiment_by_category.png`](06_hw_sentiment_by_category.png) | HW 카테고리별 감성 |
-| [`07_hw_keyword_categories.png`](07_hw_keyword_categories.png) | HW 키워드 분포 — OCPP 169건 최다 |
-| [`08_hw_sentiment_by_country.png`](08_hw_sentiment_by_country.png) | 국가별 HW 이슈 |
-| [`09_hw_failure_wordcloud.png`](09_hw_failure_wordcloud.png) | 충전기 결함 워드클라우드 |
-| [`14_hw_positioning_map.png`](14_hw_positioning_map.png) | **HW 포지셔닝 맵** — 충전기결함 Negative 32% |
-| [`15_hw_competitive_analysis.png`](15_hw_competitive_analysis.png) | 국가별 HW 이슈 경쟁 분석 |
-| [`16_hw_wordcloud_multilang.png`](16_hw_wordcloud_multilang.png) | 다국어 HW 이슈 워드클라우드 |
+| [`06_hw_sentiment_by_category.png`](../../04_시각화_visualization/charts/06_hw_sentiment_by_category.png) | HW 카테고리별 감성 |
+| [`07_hw_keyword_categories.png`](../../04_시각화_visualization/charts/07_hw_keyword_categories.png) | HW 키워드 분포 — OCPP 169건 최다 |
+| [`08_hw_sentiment_by_country.png`](../../04_시각화_visualization/charts/08_hw_sentiment_by_country.png) | 국가별 HW 이슈 |
+| [`09_hw_failure_wordcloud.png`](../../04_시각화_visualization/charts/09_hw_failure_wordcloud.png) | 충전기 결함 워드클라우드 |
+| [`14_hw_positioning_map.png`](../../04_시각화_visualization/charts/14_hw_positioning_map.png) | **HW 포지셔닝 맵** — 충전기결함 Negative 32% |
+| [`15_hw_competitive_analysis.png`](../../04_시각화_visualization/charts/15_hw_competitive_analysis.png) | 국가별 HW 이슈 경쟁 분석 |
+| [`16_hw_wordcloud_multilang.png`](../../04_시각화_visualization/charts/16_hw_wordcloud_multilang.png) | 다국어 HW 이슈 워드클라우드 |
 
 **연계 분석**
 
 | 파일 | 내용 |
 |------|------|
-| [`17_app_hw_linkage.png`](17_app_hw_linkage.png) | **앱 ↔ 하드웨어 원인 연계** (재분류 전 — 충전 전용 VOC 0.7%로 OCPP 인과 과대 귀속 주의) |
+| [`17_app_hw_linkage.png`](../../04_시각화_visualization/charts/17_app_hw_linkage.png) | **앱 ↔ 하드웨어 원인 연계** (재분류 전 — 충전 전용 VOC 0.7%로 OCPP 인과 과대 귀속 주의) |
