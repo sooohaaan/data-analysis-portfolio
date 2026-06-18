@@ -5,7 +5,7 @@
 > **작성자**: 마수한 (Data Engineer · Service Planning)
 > **분석 기간**: 2026-05-31 ~ 2026-06-05
 
-> 🔄 **2026-06-13 도메인 분리 재분류 반영** — VOC를 (1)라이드헤일링 (2)충전 (3)앱공통 도메인으로 분리하고 다국어(vi/th/en/ko) 세분화. §2-3 불만 카테고리 표를 2계층 분포로 교체, §4·§5 인과 주장 보정, §7 한계 항목 추가. (산출물: `src/review_classifier.py`, `notebooks/09_review_reclassification.ipynb`, `outputs/18_complaint_2layer.png`)
+> 🔄 **2026-06-13 도메인 분리 재분류 반영** — VOC를 (1)라이드헤일링 (2)충전 (3)앱공통 도메인으로 분리하고 다국어(vi/th/en/ko) 세분화. §2-3 불만 카테고리 표를 2계층 분포로 교체, §4·§5 인과 주장 보정, §7 한계 항목 추가. (산출물: `src/review_classifier.py`, `03_분석_analysis/notebooks/09_review_reclassification.ipynb`, `04_시각화_visualization/charts/18_complaint_2layer.png`)
 
 ---
 
@@ -303,4 +303,4 @@ OCPP 2.0.1은 충전기↔백엔드 연동의 **기술 표준 요건**으로 별
 
 *분석 도구: Python (pandas, XLM-RoBERTa, Matplotlib, WordCloud)*
 *데이터베이스: PostgreSQL / Supabase Cloud (laos-ev-voc-db)*
-*분석 차트: outputs/ 폴더 18개 파일 참조 (🔄 18_complaint_2layer.png 추가)*
+*분석 차트: `04_시각화_visualization/charts/` 폴더 20개 파일 참조 (🔄 18_complaint_2layer.png 포함)*

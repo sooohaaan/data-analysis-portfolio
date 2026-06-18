@@ -1,7 +1,22 @@
 # 🎤 presentation — KOKKOK EV 발표자료
 
-데이터 분석(`../outputs`, `../notebooks`)과 기획·설계 산출물(`../docs`)을 하나의 20분 발표로 엮은 자료입니다.
+데이터 분석([`../03_분석_analysis`](../03_분석_analysis/) · [`../04_시각화_visualization`](../04_시각화_visualization/))과 기획·설계 산출물([`../05_기획_product`](../05_기획_product/))을 하나의 20분 발표로 엮은 자료입니다.
 **"데이터로 근거를 만든 PM"** 을 주제로, 거시 시장 분석 → 미시 사용자 분석 → 제품 기획·설계까지의 흐름을 담았습니다.
+
+## 📂 템플릿·버전 구조
+
+발표자료는 **출력 형식(pptx)** 과 **HTML 웹덱 2개 템플릿**으로 구성됩니다. 빌드 결합도(빌드 스크립트가 `assets/`를 입력으로 읽고, 웹덱이 상대경로로 자산 참조)가 있어 폴더는 형식·템플릿 단위로 **그대로 유지**합니다.
+
+| 구분 | 위치 | 테마 / 버전 | 상태 |
+|------|------|-------------|------|
+| **PPTX 산출물** | `KOKKOK_EV_발표자료.pptx` · `.pdf` | 기본 | 최종본 |
+| **PPTX(네이버 테마)** | `KOKKOK_EV_NAVER테마.pptx` | NAVER 테마 | `build_naver.js` 생성 |
+| **HTML 덱 ① 현대 테마** | [`web_hyundai/`](web_hyundai/) | Hyundai 스타일 | 초기 버전 |
+| **HTML 덱 ② 네이버 테마** | [`web_naver/`](web_naver/) | NAVER 통합보고서 스타일 | **최신 정본** (62슬라이드 · D3 15종) |
+| **빌드 도구** | `build.js` · `build_naver.js` · `recolor_naver.py` | — | pptxgenjs 기반 |
+| **공유 자산** | `assets/` | — | 차트([`../04_시각화_visualization/charts`](../04_시각화_visualization/charts/) 복사본) + `deliverables/` |
+
+> 각 HTML 템플릿은 자체 `assets/`·`css/`·`index.html`을 가진 독립 덱입니다. 두 템플릿은 같은 내용의 디자인 변형이며, 제출·발표 기준은 **`web_naver`(최신 정본)** 입니다.
 
 ## 산출물
 
@@ -10,7 +25,7 @@
 | `KOKKOK_EV_발표자료.pptx` | 최종 발표자료 (45장) — PowerPoint / Google Slides |
 | `KOKKOK_EV_발표자료.pdf` | PDF 미리보기 |
 | `build.js` | 발표자료 생성 스크립트 (pptxgenjs) |
-| `assets/` | 분석 차트(`outputs` 복사본) + 산출물 이미지(`deliverables/`) |
+| `assets/` | 분석 차트(`../04_시각화_visualization/charts` 복사본) + 산출물 이미지(`deliverables/`) |
 
 ## 구조 (45장)
 
