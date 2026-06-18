@@ -1,0 +1,55 @@
+id,category,entity,metric,value_num,value_text,unit,country,period,source,reliability,note,created_at
+1,laos_official,등록차량_총,registered_vehicles,3160000,,대,LAO,2024,ASEANstats(LSB),igo,총 등록 도로차량,2026-06-12 15:29:13.50119+00
+2,laos_official,등록차량_이륜차,registered_motorcycles,2448254,,대,LAO,2024,ASEANstats(LSB),igo,전체의 77.5%,2026-06-12 15:29:13.50119+00
+3,laos_official,EV,ev_penetration_rate,0.14,,%,LAO,2024,계산(Customs/LSB),secondary,"4,437 ÷ 316만",2026-06-12 15:29:13.50119+00
+4,laos_official,EV,ev_imports_cumulative,4437,,대,LAO,2024-10,Lao Customs(Laotian Times),secondary,,2026-06-12 15:29:13.50119+00
+5,laos_official,ICT,mobile_penetration,85,,%,LAO,2024,DataReportal(ITU/GSMA),secondary,,2026-06-12 15:29:13.50119+00
+6,laos_official,ICT,internet_penetration,66.2,,%,LAO,2024,DataReportal(ITU),secondary,,2026-06-12 15:29:13.50119+00
+9,laos_official,경제,gdp_per_capita,2124,,USD,LAO,2024,World Bank,igo,,2026-06-12 15:29:13.50119+00
+10,laos_official,경제,gdp_growth,4,~4,%,LAO,2024,World Bank,igo,,2026-06-12 15:29:13.50119+00
+11,competitor_pricing,LOCA EV,price_per_kwh,4300,,KIP/kWh,LAO,2024,LOCA(정책안 비교),secondary,시간+kWh,2026-06-12 15:29:13.50119+00
+12,competitor_pricing,KOKKOK(제안),price_per_kwh,4000,,KIP/kWh,LAO,2026,본 프로젝트 정책안,proposal,kWh 단일,2026-06-12 15:29:13.50119+00
+13,competitor_pricing,PTT blueplus+,price_per_kwh,,4.5~7.5,THB/kWh,THA,2025,PTT 공식(TOU),official,피크/오프피크,2026-06-12 15:29:13.50119+00
+14,competitor_pricing,PEA VOLTA,price_per_kwh,,5.3~8.8,THB/kWh,THA,2026,PEA 공식,official,속도·시간 차등,2026-06-12 15:29:13.50119+00
+15,competitor_pricing,EleX by EGAT,price_per_kwh,7.5,,THB/kWh,THA,2025,EGAT 공식,official,정액,2026-06-12 15:29:13.50119+00
+16,competitor_pricing,V-Green,price_per_kwh,3858,,VND/kWh,VNM,2024,VinFast 공식,official,~2027 무료 프로모션,2026-06-12 15:29:13.50119+00
+17,competitor_ir,Grab,on_demand_gmv,6.08,,USD billion,MUL,Q4 2025,SEC 6-K,official,+21% YoY,2026-06-12 15:29:13.50119+00
+18,competitor_ir,Grab,mtu,50.5,,million,MUL,Q4 2025,SEC 6-K,official,,2026-06-12 15:29:13.50119+00
+19,competitor_ir,GoTo,on_demand_gtv,15.7,,IDR trillion,MUL,Q1 2025,IDX IR,official,모빌리티 5.9T,2026-06-12 15:29:13.50119+00
+7,laos_official,인구,population_total,7647000,,명,LAO,2024,LSB LAOSIS(도별인구) 2024,official,"Th.Persons 7,647 (LSB 직접) / World Bank 추계 7.95M",2026-06-12 15:29:13.50119+00
+20,laos_official,인구,population_vientiane,1029000,,명,LAO,2024,LSB LAOSIS(도별인구),official,"비엔티안 수도 1,029천 명 = 전국의 13.5%",2026-06-12 17:21:43.332745+00
+21,laos_official,인구,households_total,1372440,,가구,LAO,2024,LSB LAOSIS,official,전국 가구 수,2026-06-12 17:21:43.332745+00
+22,laos_energy,전기,electrification_rate,96.5,,%,LAO,2023,World Bank,igo,가구 전기 보급률,2026-06-12 17:35:03.919925+00
+23,laos_energy,전력,installed_capacity,11600,,MW,LAO,2024,MEM(Lao),secondary,수력 81개 등 94개 발전소,2026-06-12 17:35:03.919925+00
+24,laos_energy,전력,hydropower_share,77,,%,LAO,2023,IEA/저탄소,secondary,발전 믹스 중 수력,2026-06-12 17:35:03.919925+00
+25,laos_energy,전력,electricity_export,40.8,,TWh,LAO,2025,업계(power-tech 등),secondary,수입은 0.6 TWh,2026-06-12 17:35:03.919925+00
+26,laos_energy,전력,electricity_import,0.6,,TWh,LAO,2025,업계,secondary,,2026-06-12 17:35:03.919925+00
+27,laos_energy,전력,export_revenue,2.6,,USD billion,LAO,2024,업계/정부,secondary,전력 수출 수익,2026-06-12 17:35:03.919925+00
+28,laos_energy,전기,residential_tariff,647,,KIP/kWh,LAO,2024,EDL(Laotian Times),secondary,"주택 평균 ~3US¢, 정부 보조",2026-06-12 17:35:03.919925+00
+29,laos_official,Savannakhet,population_province,1133000,,명,LAO,2024,LSB LAOSIS,official,최대 도 인구(SOM 2차 거점),2026-06-12 17:35:03.919925+00
+30,laos_official,Champasack,population_province,791000,,명,LAO,2024,LSB LAOSIS,official,남부 거점(팍세),2026-06-12 17:35:03.919925+00
+31,laos_official,Luangprabang,population_province,481000,,명,LAO,2024,LSB LAOSIS,official,관광 거점,2026-06-12 17:35:03.919925+00
+32,laos_official,EV,e_motorcycle_sales_2023,2039,,대,LAO,2023,jclao/US-ASEAN,secondary,전기 이륜차 판매(2023),2026-06-12 17:35:03.919925+00
+33,laos_official,EV,ev_sales_2023,4631,,대,LAO,2023,jclao/US-ASEAN,secondary,"EV 판매=자동차2,592+이륜차2,039 (Customs 누적수입 4,437과 기준 다름)",2026-06-12 17:35:03.919925+00
+34,laos_official,EV,charging_stations,41,,개소,LAO,2023,업계,secondary,"전국(대부분 비엔티안). 태국 2,222·베트남 15만 포트 대비 극소",2026-06-12 17:35:03.919925+00
+35,laos_official,Vientiane Capital,households_province,187675,,가구,LAO,2024,LSB LAOSIS(도별가구),official,전국 가구의 13.7%,2026-06-12 17:57:30.207016+00
+36,laos_official,Savannakhet,households_province,186447,,가구,LAO,2024,LSB LAOSIS(도별가구),official,비엔티안과 거의 동률(양대 가구시장),2026-06-12 17:57:30.207016+00
+37,laos_official,Champasack,households_province,140231,,가구,LAO,2024,LSB LAOSIS(도별가구),official,남부 거점,2026-06-12 17:57:30.207016+00
+38,laos_official,인구,age_15_39_share,43.2,,%,LAO,2024,LSB LAOSIS(성·연령),official,EV 얼리어답터·드라이버·스마트폰 핵심층,2026-06-12 17:57:30.207016+00
+39,laos_official,인구,age_0_14_share,29.9,,%,LAO,2024,LSB LAOSIS(성·연령),official,유소년 — 젊은 인구구조,2026-06-12 17:57:30.207016+00
+40,laos_lecs7,전국,poverty_rate,15.0,,%,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,빈곤율(2018/19 18.3→15.0). 도시 8.9·농촌 18.0,2026-06-13 07:45:41.938383+00
+41,laos_lecs7,도시,poverty_rate,8.9,,%,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,도시 빈곤율 상승(7.0→8.9),2026-06-13 07:45:41.938383+00
+42,laos_lecs7,농촌,poverty_rate,18.0,,%,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,농촌 빈곤율 하락(23.8→18.0),2026-06-13 07:45:41.938383+00
+43,laos_lecs7,전국,gini_index,34.7,,index,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,불평등 하락(38.8→34.7),2026-06-13 07:45:41.938383+00
+44,laos_lecs7,전국,poverty_line,24245.0,,LAK/day,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,1일 빈곤선 ≈ USD 1.1,2026-06-13 07:45:41.938383+00
+45,laos_lecs7,전국,multidim_poverty,17.9,,%,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,다차원 빈곤(22.0→17.9),2026-06-13 07:45:41.938383+00
+46,laos_lecs7,분위1(최하),monthly_consumption_pc,618450.0,,LAK/월/인,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,1인당 월 명목소비,2026-06-13 07:45:41.938383+00
+47,laos_lecs7,분위2,monthly_consumption_pc,931690.0,,LAK/월/인,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,1인당 월 명목소비,2026-06-13 07:45:41.938383+00
+48,laos_lecs7,분위3(중위),monthly_consumption_pc,1225892.0,,LAK/월/인,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,1인당 월 명목소비,2026-06-13 07:45:41.938383+00
+49,laos_lecs7,분위4,monthly_consumption_pc,1656515.0,,LAK/월/인,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,1인당 월 명목소비,2026-06-13 07:45:41.938383+00
+50,laos_lecs7,분위5(최상),monthly_consumption_pc,3357275.0,,LAK/월/인,LAO,2024/25,LSB LECS7 Poverty Brief 2024/25 (nipn.lsb.gov.la),lsb,1인당 월 명목소비 — EV·충전 초기 타깃층,2026-06-13 07:45:41.938383+00
+51,laos_fuel_cost,가솔린,fuel_price,23834.0,,LAK/L,LAO,2025-06,WFP Lao PDR Market Monitor 2025-06 (NIPN/LSB 호스팅; 연료=MoIC),igo,+2.7% MoM·-3.5% YoY (MoIC),2026-06-13 08:03:17.623337+00
+52,laos_fuel_cost,디젤,fuel_price,19562.0,,LAK/L,LAO,2025-06,WFP Lao PDR Market Monitor 2025-06 (NIPN/LSB 호스팅; 연료=MoIC),igo,+3.8% MoM·-7.2% YoY (MoIC),2026-06-13 08:03:17.623337+00
+53,laos_fuel_cost,가구,min_expenditure_basket,4980000.0,,LAK/월,LAO,2025-06,WFP Lao PDR Market Monitor 2025-06 (NIPN/LSB 호스팅; 연료=MoIC),igo,평균 가구 최소생계바스켓 ≈USD 233 (연료 포함),2026-06-13 08:03:17.623337+00
+54,laos_fuel_cost,전국,cpi,251.4,,index,LAO,2025-06,WFP Lao PDR Market Monitor 2025-06 (NIPN/LSB 호스팅; 연료=MoIC),igo,인플레 7.2% YoY,2026-06-13 08:03:17.623337+00
+55,laos_fuel_cost,전국,fx_lak_usd,21670.0,,LAK/USD,LAO,2025-07,WFP Lao PDR Market Monitor 2025-06 (NIPN/LSB 호스팅; 연료=MoIC),igo,환산 기준,2026-06-13 08:03:17.623337+00
