@@ -1076,7 +1076,7 @@ ol.txt { list-style: none; padding-left: 0; }
     <nav class="nav"><a class="nav__logo" href="#s1" data-goto="0">COCONUT SILO<span class="dot">.</span></a><div class="nav__tabs"><a class="nav__tab" data-section="MARKET" href="#s4">시장 분석</a><a class="nav__tab" data-section="PROBLEM" href="#s12">문제 정의</a><a class="nav__tab" data-section="DATA" href="#s14">데이터·분석</a><a class="nav__tab" data-section="PRODUCT" href="#s26">기획·설계</a><a class="nav__tab" data-section="IMPACT" href="#s40">기대효과</a><a class="nav__tab" data-section="APPENDIX" href="#s47">부록</a></div><div class="nav__icons"><a class="nav__refresh" href="#s1" title="새로고침" aria-label="새로고침"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg></a><a class="nav__menu" href="#s2" data-goto="1" title="목차" aria-label="목차"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · MACRO</div>
-      <h2 class="h-page" style="margin-top:2px">시장 규모 (TAM–SAM–SOM) — 검증된 공식 자료만으로</h2>
+      <h2 class="h-page" style="margin-top:2px">시장 규모 (TAM–SAM–SOM)</h2>
       <div class="grid cols-6040">
         <div>
           <div class="h-col">ASEAN-6 → 라오스로 좁혀 본 실현 가능 시장</div>
@@ -2727,6 +2727,19 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
       .attr("preserveAspectRatio", "xMidYMid meet")
       .style("display", "block");
   }
+  /* 그래프 박스 테두리 (좌측=Y축·하단=X축 프레임 겸함) */
+  function frame(svg, m, W, H) {
+    svg.append("rect").attr("x", m.l).attr("y", m.t)
+      .attr("width", W - m.l - m.r).attr("height", H - m.t - m.b)
+      .attr("fill", "none").attr("stroke", C.gray2).attr("stroke-width", 1).attr("rx", 2);
+  }
+  /* 점선 세로 grid (값 축이 가로인 차트용) */
+  function gridX(svg, x, m, W, H, ticks) {
+    ticks.forEach(function (t) {
+      svg.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", m.t).attr("y2", H - m.b)
+        .attr("stroke", C.line).attr("stroke-dasharray", "2 3");
+    });
+  }
 
   /* ---- p16 경쟁 포지셔닝 산점도 (별점 × 부정률 · 버블=리뷰수) ---- */
   function positioning() {
@@ -2748,6 +2761,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     var rOf = function (v) { return 9 + Math.sqrt(v) / Math.sqrt(26603) * 22; };
 
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
 
     svg.append("rect").attr("x", x(3.8)).attr("y", y(35))
       .attr("width", (W - m.r) - x(3.8)).attr("height", (H - m.b) - y(35))
@@ -2803,10 +2817,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
       { label: "Grab",             v: 0,  c: C.gray,   tag: "라오스 미진출" }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     svg.append("text").attr("x", m.l).attr("y", 11).attr("font-size", 11)
       .attr("font-weight", 700).attr("fill", C.ink3)
       .text("라오스 EV·모빌리티 뉴스 393건 · 브랜드 언급 41건");
     var x = d3.scaleLinear().domain([0, 24]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 6, 12, 18, 24]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.label; }))
       .range([m.t + 8, H - m.b]).padding(0.34);
     rows.forEach(function (d) {
@@ -2839,6 +2855,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     ];
     var avg = 53.5;
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scaleLinear().domain([0, 75]).range([m.l, W - m.r]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.label; }))
       .range([m.t, H - m.b]).padding(0.32);
@@ -2881,7 +2898,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
         color: C.brand, rows: [["앱 불안정·작동불가", 27.6], ["계정·인증·KYC", 15.0], ["결제·환불·지갑", 11.0], ["충전소·위치", 2.4], ["외국인·다국어", 1.5]] }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scaleLinear().domain([0, 30]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 10, 20, 30]);
     var nRows = 8, headH = 24, top = 6, gapG = 12, botPad = 40;
     var avail = H - top - groups.length * headH - groups.length * gapG - botPad;
     var rh = avail / nRows;
@@ -2926,11 +2945,13 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
       { label: "외국인·다국어",       v: 1.5 }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     svg.append("text").attr("x", m.l).attr("y", 14).attr("font-size", 11).attr("font-weight", 700)
       .attr("fill", C.ink3).text("충전앱 부정 1,227건 · 카테고리별 비중");
     svg.append("text").attr("x", m.l).attr("y", 30).attr("font-size", 12).attr("font-weight", 800)
       .attr("fill", C.strong).text("상위 3축 = 53.6% → PRD P0~P1 직접 근거");
     var x = d3.scaleLinear().domain([0, 30]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 10, 20, 30]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.label; }))
       .range([m.t, H - m.b]).padding(0.34);
     rows.forEach(function (d) {
@@ -2968,6 +2989,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
       { name: "제조사동향",    freq: 94,  neg: 1.1,  c: C.gray }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scaleLinear().domain([55, 185]).range([m.l, W - m.r]);
     var y = d3.scaleLinear().domain([-5, 36]).range([H - m.b, m.t]);
     var rOf = function (v) { return 8 + Math.sqrt(v) / Math.sqrt(169) * 13; };
@@ -3070,26 +3092,22 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     var asIs = [12, -18, -24, -30, -2];
     var toBe = [26, 16, 20, 22, 36];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scalePoint().domain(stages).range([m.l, W - m.r]).padding(0.5);
     var y = d3.scaleLinear().domain([-40, 45]).range([H - m.b, m.t]);
 
-    // ── 배경 그리드 + 축 (전문적 그래프 룩) ──
+    // ── 배경 점선 그리드 (박스 테두리=frame이 X/Y축 담당) ──
     var yTicks = [40, 20, 0, -20, -40];
-    // 가로 그리드 실선 (중립=0은 강조)
+    // 가로 점선 그리드 (중립=0은 약간 강조)
     yTicks.forEach(function (t) {
       svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", y(t)).attr("y2", y(t))
-        .attr("stroke", t === 0 ? C.gray : C.line).attr("stroke-width", t === 0 ? 1.2 : 1);
+        .attr("stroke", t === 0 ? C.gray : C.line).attr("stroke-dasharray", t === 0 ? "4 3" : "2 3");
     });
-    // 세로 그리드 실선 (단계별)
+    // 세로 점선 그리드 (단계별)
     stages.forEach(function (s) {
       svg.append("line").attr("x1", x(s)).attr("x2", x(s)).attr("y1", m.t).attr("y2", H - m.b)
-        .attr("stroke", C.line).attr("stroke-width", 1);
+        .attr("stroke", C.line).attr("stroke-dasharray", "2 3");
     });
-    // Y축(좌) · X축(하단 baseline)
-    svg.append("line").attr("x1", m.l).attr("x2", m.l).attr("y1", m.t).attr("y2", H - m.b)
-      .attr("stroke", C.ink3).attr("stroke-width", 1.4);
-    svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", H - m.b).attr("y2", H - m.b)
-      .attr("stroke", C.ink3).attr("stroke-width", 1.4);
     // Y축 라벨 (감정 수준)
     svg.append("text").attr("x", m.l - 8).attr("y", y(40) + 4).attr("text-anchor", "end").attr("font-size", 10).attr("font-weight", 700).attr("fill", C.strong).text("만족");
     svg.append("text").attr("x", m.l - 8).attr("y", y(0) + 4).attr("text-anchor", "end").attr("font-size", 10).attr("fill", C.ink3).text("중립");
@@ -3139,6 +3157,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     var x = d3.scaleLinear().domain([0, 100]).range([m.l, W - m.r]);
     var y = d3.scaleLinear().domain([0, 100]).range([H - m.b, m.t]);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     // 목표 사분면(저가·고기능 = 좌상단) 음영
     svg.append("rect").attr("x", x(0)).attr("y", y(100))
       .attr("width", x(50) - x(0)).attr("height", y(50) - y(100)).attr("fill", C.mist);
@@ -3185,6 +3204,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     var x = d3.scaleBand().domain(data.map(function (d) { return d.lab; })).range([m.l, W - m.r]).padding(0.4);
     var y = d3.scaleLinear().domain([0, 200]).range([H - m.b, m.t]);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var ya = d3.axisLeft(y).tickValues([0, 50, 100, 150, 200]).tickSize(-(W - m.l - m.r)).tickFormat(function (d) { return d + "M"; });
     svg.append("g").attr("transform", "translate(" + m.l + ",0)").call(ya).call(styleAxis);
     svg.append("text").attr("x", m.l - 2).attr("y", m.t - 10).attr("font-size", 10).attr("font-weight", 700)
@@ -3219,6 +3239,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
       { label: "계정·KYC 온보딩", from: 15, to: 7, dom: [0, 18], unit: "%" }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var yb = d3.scaleBand().domain(rows.map(function (d) { return d.label; })).range([m.t, H - m.b]).padding(0.5);
     rows.forEach(function (d) {
       var cy = yb(d.label) + yb.bandwidth() / 2;
@@ -3255,8 +3276,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
       { l: "PEA", v: 499 }, { l: "EleXA", v: 263 }, { l: "LOCA EV", v: 7 }
     ];
     var x = d3.scaleLinear().domain([0, 26603]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 8000, 16000, 24000]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.l; })).range([m.t, H - m.b]).padding(0.34);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     rows.forEach(function (d) {
       var cy = y(d.l), bh = y.bandwidth();
       svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
@@ -3277,8 +3300,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     var W = 420, H = 96, m = { t: 8, r: 48, b: 8, l: 44 };
     var rows = [{ l: "2022", v: 10 }, { l: "2026", v: 132, hi: true }];
     var x = d3.scaleLinear().domain([0, 132]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 40, 80, 120]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.l; })).range([m.t, H - m.b]).padding(0.4);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     rows.forEach(function (d) {
       var cy = y(d.l), bh = y.bandwidth();
       svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
@@ -3305,6 +3330,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${n.do
     var x = d3.scaleLinear().domain([0, 36]).range([m.l, W - m.r]);
     var yb = d3.scaleBand().domain(ph.map(function (d) { return d.k; })).range([m.t, H - m.b]).padding(0.45);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     // 월 축
     var xa = d3.axisBottom(x).tickValues([0, 3, 9, 18, 36]).tickSize(-(H - m.t - m.b)).tickFormat(function (d) { return d + "M"; });
     svg.append("g").attr("transform", "translate(0," + (H - m.b) + ")").call(xa).call(styleAxis);
