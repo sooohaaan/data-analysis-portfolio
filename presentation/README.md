@@ -46,3 +46,27 @@ DB 구조 설계·시나리오·스토리보드·프로토타입은 파일 추�
 (`build.js`의 `DELIV()` 함수가 `del_<name>.png|jpg` 를 자동 탐지)
 
 > 📌 수정은 `build.js`에서 하고 다시 빌드합니다. PowerPoint에서 직접 편집한 내용은 재빌드 시 덮어써집니다.
+
+---
+
+## web_naver — HTML 발표 덱 + PDF (버전 동기화)
+
+`web_naver/`는 NAVER 통합보고서 스타일로 제작한 **HTML 발표 덱**(62슬라이드, D3 시각화 15종)입니다. HTML이 정본(single source of truth)이며, **PDF는 HTML에서 생성**해 동일하게 버전 관리합니다.
+
+| 파일 | 내용 |
+|------|------|
+| `web_naver/kokkok-ev-presentation.html` | **HTML 덱(정본)** — 발표/편집용 |
+| `web_naver/kokkok-ev-presentation.pdf` | HTML에서 생성한 PDF (배포·인쇄용) |
+| `web_naver/build-pdf.sh` | HTML → PDF 빌드 스크립트 |
+
+**버전 동기화 원칙** — HTML을 수정하면 **반드시 PDF를 재생성해 함께 커밋**합니다.
+
+```bash
+cd presentation/web_naver
+./build-pdf.sh          # ?print=1 모드로 헤드리스 Chrome 인쇄 → 이미지 다운샘플 압축
+git add kokkok-ev-presentation.html kokkok-ev-presentation.pdf
+git commit              # HTML·PDF 동일 커밋
+```
+
+- 빌드 의존성: Google Chrome(헤드리스 인쇄) · ghostscript(`brew install ghostscript`, 이미지 압축·생략 가능)
+- PDF는 모든 슬라이드를 1280×720 한 페이지씩 출력(`@media print`), 각 슬라이드 nav는 자기 챕터로 고정(`?print=1`)

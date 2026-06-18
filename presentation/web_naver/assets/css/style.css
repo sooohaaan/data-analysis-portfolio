@@ -772,3 +772,29 @@ ol.txt { list-style: none; padding-left: 0; }
   font-size: 11px; color: #cfd2d6; background: rgba(0,0,0,.4);
   padding: 6px 12px; border-radius: 20px; backdrop-filter: blur(4px);
 }
+
+/* ============================================================
+   PRINT / PDF — 모든 슬라이드를 1280×720 한 페이지씩 출력
+   ============================================================ */
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #fff; width: 1280px; }
+  #stage { position: static !important; overflow: visible !important; background: #fff !important; }
+  #deck {
+    position: static !important; transform: none !important;
+    left: auto !important; top: auto !important;
+    width: 1280px !important; height: auto !important;
+    background: #fff !important;   /* 그라데이션 슬라이드의 투명부가 검정으로 합성되는 것 방지 */
+  }
+  .slide.cover, .slide.divider { background-color: #fff !important; }
+  .slide {
+    position: relative !important; inset: auto !important;
+    display: flex !important;
+    width: 1280px !important; height: 720px !important;
+    overflow: hidden;
+    break-after: page; page-break-after: always;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
+  .help, #progress { display: none !important; }
+}

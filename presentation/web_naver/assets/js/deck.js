@@ -19,6 +19,50 @@
     }
   });
 
+  /* ---- 한 탭(nav)에 챕터 페이지 인디케이터 도트 렌더 ---- */
+  function renderInd(tab, N, dotIndex) {
+    const old = tab.querySelector(".tab__ind");
+    if (old) old.remove();
+    if (!N) return;
+    const ind = document.createElement("span");
+    ind.className = N > 8 ? "tab__ind tab__ind--sm" : "tab__ind";
+    for (let k = 0; k < N; k++) {
+      const dot = document.createElement("i");
+      if (k === dotIndex) dot.className = "on";
+      ind.appendChild(dot);
+    }
+    tab.appendChild(ind);
+  }
+
+  /* ---- 슬라이드의 챕터 내 위치 → 도트 인덱스 ---- */
+  function dotIndexOf(slide, section) {
+    const N = chapterCounts[section] || 0;
+    const secContent = slides.filter((s) =>
+      s.dataset.section === section &&
+      !s.classList.contains("divider") && !s.classList.contains("cover"));
+    const pos = secContent.indexOf(slide);
+    if (N && pos >= 0 && secContent.length)
+      return Math.min(N - 1, Math.floor((pos / secContent.length) * N));
+    return -1;
+  }
+
+  /* ---- PRINT 모드(?print): 각 슬라이드 nav를 '자기 챕터'로 고정 → PDF용 ---- */
+  if (/[?&#]print/.test(location.href)) {
+    document.documentElement.classList.add("print-mode");
+    slides.forEach((sl) => {
+      const sec = sl.dataset.section;
+      const di = dotIndexOf(sl, sec);
+      const nav = sl.querySelector(".nav");
+      if (!nav) return;
+      nav.querySelectorAll(".nav__tab").forEach((t) => {
+        const on = t.dataset.section === sec;
+        t.classList.toggle("is-active", on);
+        if (on) renderInd(t, chapterCounts[sec] || 0, di);
+      });
+    });
+    return; // 화면 내비/스케일 바인딩 생략 (인쇄 레이아웃은 CSS가 담당)
+  }
+
   /* ---- Fit 1280x720 stage into viewport ---- */
   function fit() {
     const sw = 1280, sh = 720;
