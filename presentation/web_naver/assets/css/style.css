@@ -156,13 +156,7 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
   border-radius: 3px;
   background: var(--brand);
 }
-/* 항목이 많은 챕터(부록 등): 도트 축소로 활성 탭 폭 안에 수용 */
-.tab__ind--sm { gap: 3px; }
-.tab__ind--sm i { width: 4px; height: 4px; }
-.tab__ind--sm i.on { width: 10px; }
-.tab__ind--xs { gap: 2px; }
-.tab__ind--xs i { width: 3px; height: 3px; }
-.tab__ind--xs i.on { width: 8px; border-radius: 2px; }
+/* 도트 크기는 챕터별 항목 수와 무관하게 단일 — 많으면 인디케이터가 양옆으로 넓어짐 */
 /* 목차(CONTENTS) 클릭 가능한 항목 */
 .toc-link { cursor: pointer; transition: color .15s; }
 a.toc-link { text-decoration: none; color: inherit; display: inline; }
