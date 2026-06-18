@@ -12,6 +12,7 @@
 | [`ev_charging_fee_policy.md`](ev_charging_fee_policy.md) | EV 충전 요금 정책 설계 (경쟁사 단가 분석 기반) |
 | [`charging_service_flowchart.drawio`](charging_service_flowchart.drawio) | 충전 서비스 플로우차트 (편집본) |
 | `charging_service_flowchart` | 플로우차트 소스 |
+| [`deliverables/`](deliverables/README.md) | **기획·설계 산출물 정본** — 앱플로우·DB설계·시퀀스·알고리즘·OCPP·정책 (편집 원본 + PDF + 이미지) |
 
 ## 근거가 된 분석
 
