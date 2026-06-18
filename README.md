@@ -88,6 +88,32 @@
 
 ---
 
+## 📁 폴더 구조
+
+작업 흐름(수집 → 분석 → 시각화)을 그대로 따라가도록 **과제 단계별**로 구성했습니다. 각 폴더의 `README.md`에 해당 단계의 목적·산출물·검토 포인트를 정리했습니다.
+
+```
+data-analysis-portfolio/
+├── 01_계획_planning/        무엇을·왜·어떻게 — 목표·DRD·WBS
+├── 02_수집_collection/      어떻게 수집했나 — 스크래퍼 노트북 9종 + 원천데이터
+│   ├── notebooks/           앱·유튜브·블로그·하드웨어뉴스·슈퍼앱·통계·뉴스 수집
+│   └── outputs/             laos_vehicle_stats.csv
+├── 03_분석_analysis/        어떻게 분석했나 — 전처리·분류 노트북 + 리포트
+│   ├── notebooks/           09_review_reclassification
+│   └── reports/             분석 리포트 6종 (앱·시장·경쟁·통계·SoV)
+├── 04_시각화_visualization/ 어떻게 시각화했나 — 차트 20종 + Tableau
+│   ├── charts/              01~20.png
+│   └── tableau/             *.twb · 추출 쿼리
+├── 05_기획_product/         분석→서비스 — PRD·요금정책·플로우차트
+├── presentation/            최종 발표자료
+├── src/ · schema/           공용 코드 · DB 스키마
+└── docs/                    외부 참조 자료
+```
+
+> 각 폴더 진입점: [`01_계획`](01_계획_planning/README.md) · [`02_수집`](02_수집_collection/README.md) · [`03_분석`](03_분석_analysis/README.md) · [`04_시각화`](04_시각화_visualization/README.md) · [`05_기획`](05_기획_product/README.md)
+
+---
+
 ## 🗄️ DB 스키마 (9개 테이블)
 
 **VOC 데이터** (사용자 경험 — 감성 분석·키워드 분류 대상)
@@ -169,15 +195,15 @@ reference_stats  (id, category, entity, metric, value_num, value_text,
 
 ### ✅ Phase 0. 계획 — 완료
 
-데이터 수집·분석에 들어가기 전, **목표·범위·일정·작업 분해**를 먼저 정의했습니다. (SDLC의 *계획(Planning)* 단계) → **정본 통합본: [`docs/planning.md`](docs/planning.md)** (로드맵·WBS 통합 · 원안 → 실제 변경 포함)
+데이터 수집·분석에 들어가기 전, **목표·범위·일정·작업 분해**를 먼저 정의했습니다. (SDLC의 *계획(Planning)* 단계) → **정본 통합본: [`01_계획_planning/planning.md`](01_계획_planning/planning.md)** (로드맵·WBS 통합 · 원안 → 실제 변경 포함)
 
 | 작업 | 상태 | 산출물 |
 |------|------|--------|
-| 프로젝트 목표·범위·팀 역할 정의 | ✅ | [`docs/planning.md`](docs/planning.md) §1 |
-| 작업 분해(WBS) | ✅ | `WBS_…xlsx` → [`planning.md`](docs/planning.md) §3 |
-| 전체 단계 로드맵 | ✅ | `…로드맵.docx` → [`planning.md`](docs/planning.md) §2 |
+| 프로젝트 목표·범위·팀 역할 정의 | ✅ | [`01_계획_planning/planning.md`](01_계획_planning/planning.md) §1 |
+| 작업 분해(WBS) | ✅ | `WBS_…xlsx` → [`planning.md`](01_계획_planning/planning.md) §3 |
+| 전체 단계 로드맵 | ✅ | `…로드맵.docx` → [`planning.md`](01_계획_planning/planning.md) §2 |
 
-> 📌 계획에서 정의한 분석 목표는 다음 단계인 **데이터 요구사항 정의(DRD)** 로 구체화됩니다 → [`docs/data_requirements.md`](docs/data_requirements.md) (Phase 1에서 ERD·스키마 설계로 이어짐).
+> 📌 계획에서 정의한 분석 목표는 다음 단계인 **데이터 요구사항 정의(DRD)** 로 구체화됩니다 → [`01_계획_planning/data_requirements.md`](01_계획_planning/data_requirements.md) (Phase 1에서 ERD·스키마 설계로 이어짐).
 
 ---
 
@@ -185,7 +211,7 @@ reference_stats  (id, category, entity, metric, value_num, value_text,
 
 | 작업 | 상태 | 비고 |
 |------|------|------|
-| **데이터 요구사항 정의(DRD)** | ✅ | [`docs/data_requirements.md`](docs/data_requirements.md) — 분석질문↔데이터 매핑·대상 엔티티·표본/품질 기준·리스크 (수집 전 정의, WBS·ERD 통합 정본) |
+| **데이터 요구사항 정의(DRD)** | ✅ | [`01_계획_planning/data_requirements.md`](01_계획_planning/data_requirements.md) — 분석질문↔데이터 매핑·대상 엔티티·표본/품질 기준·리스크 (수집 전 정의, WBS·ERD 통합 정본) |
 | Supabase Cloud PostgreSQL 인스턴스 생성 | ✅ | `laos-ev-voc-db` (Singapore 리전) |
 | ERD 설계 (erdcloud.com) | ✅ | 최종 9개 테이블, FK 관계 설정 |
 | DDL 실행 (테이블 생성) | ✅ | `schema/create_tables.sql` |
@@ -467,7 +493,7 @@ return has_laos and has_ev and has_exp
 
 - **결정(2026-06)**: **B안 채택 — IG 수집 보류**, 앱리뷰·유튜브·뉴스·슈퍼앱(38,600+건) 중심으로 분석 완결.
 - **사유**: Instagram Graph API는 ① 익명/키워드 검색 불가(해시태그 검색만) ② **캡션·집계만, 댓글 본문·작성자 불가** ③ 라오스 EV 해시태그 **절대량 희소** ④ 실행 전제(IG 비즈니스 계정+FB 페이지 연결+앱 제품 설정+사용자 장기 토큰)의 **투입 대비 산출이 낮음**. → IG는 처음부터 보조 수단이라 보류해도 분석 품질에 영향 없음.
-- **재시도 준비**: `notebooks/06_instagram_hashtag_scraper.ipynb`(IG 해시태그 수집) 완성 상태로 보존. **향후 IG 비즈니스 계정·사용자 토큰 여건이 갖춰지면** `.env`에 사용자 토큰·`IG_USER_ID` 설정 후 즉시 실행 가능.
+- **재시도 준비**: `02_수집_collection/notebooks/06_instagram_hashtag_scraper.ipynb`(IG 해시태그 수집) 완성 상태로 보존. **향후 IG 비즈니스 계정·사용자 토큰 여건이 갖춰지면** `.env`에 사용자 토큰·`IG_USER_ID` 설정 후 즉시 실행 가능.
 
 ---
 
@@ -513,7 +539,7 @@ KOKKOK은 단순 충전 앱이 아니라 **모빌리티 슈퍼앱**(라이드헤
 | LOCA Taxi | 라오스 1위 모빌리티 | 447건 | 라오스 사업모델 (EV 언급 16.1%) |
 | KOKKOK Move | 자사 라이드헤일링 | 378건 | 확장 출발점 (배차 실패 44.9%·Positive 최저) |
 
-> 📌 **충전 앱과 분리한 이유**: 슈퍼앱 리뷰는 "배차·드라이버" 중심이라 충전 VOC(`app_reviews`)와 섞으면 도메인이 혼재됨. → `app_category`(mobility_superapp / ev_charging / kokkok)로 구분. 재현: [`notebooks/05_superapp_scraper.ipynb`](notebooks/05_superapp_scraper.ipynb)
+> 📌 **충전 앱과 분리한 이유**: 슈퍼앱 리뷰는 "배차·드라이버" 중심이라 충전 VOC(`app_reviews`)와 섞으면 도메인이 혼재됨. → `app_category`(mobility_superapp / ev_charging / kokkok)로 구분. 재현: [`02_수집_collection/notebooks/05_superapp_scraper.ipynb`](02_수집_collection/notebooks/05_superapp_scraper.ipynb)
 
 ---
 
@@ -703,7 +729,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 
 #### 불만 카테고리 2계층 분석 (Negative 15,461건)
 
-> 📊 차트: [`outputs/18_complaint_2layer.png`](outputs/18_complaint_2layer.png) (2계층) · [`outputs/11_app_competitive_analysis.png`](outputs/11_app_competitive_analysis.png) (충전앱 앱별)
+> 📊 차트: [`04_시각화_visualization/charts/18_complaint_2layer.png`](04_시각화_visualization/charts/18_complaint_2layer.png) (2계층) · [`04_시각화_visualization/charts/11_app_competitive_analysis.png`](04_시각화_visualization/charts/11_app_competitive_analysis.png) (충전앱 앱별)
 > 배경: app_reviews 28,890건의 92%가 베트남 EV 라이드헤일링 앱 **Green SM(Xanh SM)**. 기존 충전 7개 카테고리로는 부정 리뷰의 50%가 '기타'로 빠져, **(1)라이드헤일링 (2)충전 (3)앱공통** 도메인 분리 + 다국어(vi/th/en/ko) 세분화로 재분류 → **기타 50.0% → 16.6%**. (상세: [VOC 2계층 재분류](#-voc-2계층-재분류-2026-06))
 
 **도메인별 분포 (부정 15,461건)**
@@ -797,7 +823,7 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 
 > **KOKKOK 맥락**: KOKKOK Move=라오스 현지 운영 EV 라이드헤일링 / KOKKOK 슈퍼앱(모빌리티+쇼핑+충전) 확장 / 우리 팀=충전 파트.
 >
-> **산출물**: 분류기 [`src/review_classifier.py`](src/review_classifier.py) · 노트북 [`notebooks/09_review_reclassification.ipynb`](notebooks/09_review_reclassification.ipynb) · 차트 [`outputs/18_complaint_2layer.png`](outputs/18_complaint_2layer.png)(2계층) · [`outputs/11_app_competitive_analysis.png`](outputs/11_app_competitive_analysis.png)(충전앱 앱별).
+> **산출물**: 분류기 [`src/review_classifier.py`](src/review_classifier.py) · 노트북 [`03_분석_analysis/notebooks/09_review_reclassification.ipynb`](03_분석_analysis/notebooks/09_review_reclassification.ipynb) · 차트 [`04_시각화_visualization/charts/18_complaint_2layer.png`](04_시각화_visualization/charts/18_complaint_2layer.png)(2계층) · [`04_시각화_visualization/charts/11_app_competitive_analysis.png`](04_시각화_visualization/charts/11_app_competitive_analysis.png)(충전앱 앱별).
 
 ---
 
@@ -807,14 +833,14 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 
 | 문서 | 파일 | 주요 내용 |
 |------|------|---------|
-| **PRD** | `outputs/PRD_kokkok_ev.md` | 앱 6개 + HW 5개 = 총 11개 기능 명세, KPI |
-| **시장조사보고서** | `outputs/market_research_report.md` | PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT·결론 |
-| **경쟁사 단가·점유율 (공식 보강)** | `outputs/competitor_pricing_and_market_share.md` | 태국 3사·V-Green·LOCA 공식 단가 + Grab·GoTo IR (공식 1차 자료 수집) |
-| **데이터 분석 결과서** | `outputs/data_analysis_report.md` | 앱·HW 통합 분석, 벤치마킹, 한계 명시 |
-| **라오스 EV 충전 현황 분석** | `outputs/laos_ev_charging_situation_analysis.md` | 라오스·인접국 충전 시장·정책·서비스 현황 (앱 리뷰+유튜브 자막+뉴스 직접 분석) |
-| **EV 충전 요금 정책안** | `outputs/ev_charging_fee_policy.md` | 데이터 기반 요금 체계 제안 (결제 Pain Point 해소·경쟁사 단가 비교) |
-| **충전 서비스 Flowchart** | `outputs/charging_service_flowchart.drawio` | PRD 11개 기능 반영, draw.io + GitHub 연동 |
-| **Tableau 워크북** | `outputs/kokkok_ev_analysis.twb` | 포지셔닝맵·경쟁분석 시각화 |
+| **PRD** | `05_기획_product/PRD_kokkok_ev.md` | 앱 6개 + HW 5개 = 총 11개 기능 명세, KPI |
+| **시장조사보고서** | `03_분석_analysis/reports/market_research_report.md` | PEST·TAM-SAM-SOM·경쟁사·타겟유저·SWOT·결론 |
+| **경쟁사 단가·점유율 (공식 보강)** | `03_분석_analysis/reports/competitor_pricing_and_market_share.md` | 태국 3사·V-Green·LOCA 공식 단가 + Grab·GoTo IR (공식 1차 자료 수집) |
+| **데이터 분석 결과서** | `03_분석_analysis/reports/data_analysis_report.md` | 앱·HW 통합 분석, 벤치마킹, 한계 명시 |
+| **라오스 EV 충전 현황 분석** | `03_분석_analysis/reports/laos_ev_charging_situation_analysis.md` | 라오스·인접국 충전 시장·정책·서비스 현황 (앱 리뷰+유튜브 자막+뉴스 직접 분석) |
+| **EV 충전 요금 정책안** | `05_기획_product/ev_charging_fee_policy.md` | 데이터 기반 요금 체계 제안 (결제 Pain Point 해소·경쟁사 단가 비교) |
+| **충전 서비스 Flowchart** | `05_기획_product/charging_service_flowchart.drawio` | PRD 11개 기능 반영, draw.io + GitHub 연동 |
+| **Tableau 워크북** | `04_시각화_visualization/tableau/kokkok_ev_analysis.twb` | 포지셔닝맵·경쟁분석 시각화 |
 
 ---
 
@@ -855,11 +881,11 @@ for i in range(0, len(ids), 200):    # 200건씩 자름
 
 ---
 
-데이터 분석 결과를 바탕으로 PRD(`outputs/PRD_kokkok_ev.md`)를 작성했습니다.
+데이터 분석 결과를 바탕으로 PRD(`05_기획_product/PRD_kokkok_ev.md`)를 작성했습니다.
 
 #### 🔄 충전 서비스 주요 Flow (Flowchart)
 
-> 📁 **draw.io 원본**: [`outputs/charging_service_flowchart.drawio`](outputs/charging_service_flowchart.drawio)
+> 📁 **draw.io 원본**: [`05_기획_product/charging_service_flowchart.drawio`](05_기획_product/charging_service_flowchart.drawio)
 > → draw.io에서 열어 편집 가능 (GitHub 연동으로 자동 저장)
 
 ```mermaid
@@ -983,7 +1009,7 @@ flowchart TD
 ## 🇱🇦 라오스 공식 통계 보강 (LSB / IGO)
 
 라오스 현지 정량 근거를 보강하기 위해 **라오스 통계청(LSB)·ASEANstats·World Bank·ITU** 공식 자료를 수집·분석했습니다.
-→ 수집 계획: [`docs/lsb_data_acquisition_plan.md`](docs/lsb_data_acquisition_plan.md) · 분석: [`outputs/laos_official_stats_analysis.md`](outputs/laos_official_stats_analysis.md) · 재현: [`notebooks/07_laos_official_stats.ipynb`](notebooks/07_laos_official_stats.ipynb)(차량)·[`08_reference_stats_loader.ipynb`](notebooks/08_reference_stats_loader.ipynb)(참조통계 적재)
+→ 수집 계획: [`02_수집_collection/lsb_data_acquisition_plan.md`](02_수집_collection/lsb_data_acquisition_plan.md) · 분석: [`03_분석_analysis/reports/laos_official_stats_analysis.md`](03_분석_analysis/reports/laos_official_stats_analysis.md) · 재현: [`02_수집_collection/notebooks/07_laos_official_stats.ipynb`](02_수집_collection/notebooks/07_laos_official_stats.ipynb)(차량)·[`08_reference_stats_loader.ipynb`](02_수집_collection/notebooks/08_reference_stats_loader.ipynb)(참조통계 적재)
 
 | 자료(P1~P3) | 핵심 수치 | 활용 |
 |------------|----------|------|
@@ -1012,7 +1038,7 @@ flowchart TD
 ## 🇱🇦 라오스 뉴스 점유율 분석 (Share of Voice)
 
 라오스 현지 경쟁 구도를 정량화하기 위해 **Google News RSS(en) + Naver(ko)** 로 라오스 모빌리티·EV 타겟 뉴스 **419건 신규** 수집 → EV·모빌리티 관련 **393건** 분석.
-→ 분석: [`outputs/laos_market_share_of_voice.md`](outputs/laos_market_share_of_voice.md) · 재현: [`notebooks/10_laos_news_collection.ipynb`](notebooks/10_laos_news_collection.ipynb) · 차트 [`outputs/19_laos_share_of_voice.png`](outputs/19_laos_share_of_voice.png)·[`outputs/20_laos_news_trend.png`](outputs/20_laos_news_trend.png)
+→ 분석: [`03_분석_analysis/reports/laos_market_share_of_voice.md`](03_분석_analysis/reports/laos_market_share_of_voice.md) · 재현: [`02_수집_collection/notebooks/10_laos_news_collection.ipynb`](02_수집_collection/notebooks/10_laos_news_collection.ipynb) · 차트 [`04_시각화_visualization/charts/19_laos_share_of_voice.png`](04_시각화_visualization/charts/19_laos_share_of_voice.png)·[`04_시각화_visualization/charts/20_laos_news_trend.png`](04_시각화_visualization/charts/20_laos_news_trend.png)
 
 - **브랜드 뉴스 점유율**(언급 41건): **VinFast·Xanh SM 21 > LOCA 17 > KOKKOK Move 3 > Grab 0**. 뉴스량 2022(10)→2026(132) 약 13배 급증.
 - **시사점**: 벤치마크 2축(LOCA + Xanh SM)으로 확장 · Grab 미진출로 경쟁군 축소 · KOKKOK Move 인지도 약세.
@@ -1025,7 +1051,7 @@ flowchart TD
 - **정부 공식 도메인** `kpl.gov.la`(국영 통신사) EV 촉진 공표 적재(`source='gov_la_kpl'`) — 산업통상부(MOIC) 주관.
 - 수집: 라오스 타겟 뉴스 **+419건** + 정책 타겟 뉴스(글로벌 노이즈 99건은 `country='OTH'` 재태깅) + 랜드마크 3건·정부 1건 직접 적재. → 정책 순풍이 "골든타임" 가설을 뒷받침.
 
-> ⚠️ **LAOSIS 온라인 DB 재확인(브라우저 자동화)**: 가구 **교통·연료 지출 분류표는 LAOSIS에 없음**(Major Indicators 7개 카테고리·DB 검색 모두 0건, CPI 물가지수만 존재) → LECS 지출 세부는 **PDF 보고서 전용**. 그래서 **LECS7 빈곤브리프(분위별 소비)·WFP 연료가격**으로 충당. ([수집 계획](docs/lsb_data_acquisition_plan.md) §4)
+> ⚠️ **LAOSIS 온라인 DB 재확인(브라우저 자동화)**: 가구 **교통·연료 지출 분류표는 LAOSIS에 없음**(Major Indicators 7개 카테고리·DB 검색 모두 0건, CPI 물가지수만 존재) → LECS 지출 세부는 **PDF 보고서 전용**. 그래서 **LECS7 빈곤브리프(분위별 소비)·WFP 연료가격**으로 충당. ([수집 계획](02_수집_collection/lsb_data_acquisition_plan.md) §4)
 
 ---
 
@@ -1138,7 +1164,7 @@ Tableau (대시보드 — 예정)
 - **`laos_..._analysis.md`** "200,000₭≈330฿"는 단가가 아닌 **바우처 최소 구매액** 환산값 → 영향 없음.
 
 > 💡 **교훈**: 임시 추정치를 분석에 쓸 땐 **출처·검증 여부를 표기**하고, 단가처럼 여러 문서로 퍼지는 값은 **단일 소스(공식)로 관리**해야 한다. 추정치를 검증 데이터처럼 다루면 파생 분석 전체가 오염된다.
-> 📄 공식 단가·IR 상세: [`outputs/competitor_pricing_and_market_share.md`](outputs/competitor_pricing_and_market_share.md)
+> 📄 공식 단가·IR 상세: [`03_분석_analysis/reports/competitor_pricing_and_market_share.md`](03_분석_analysis/reports/competitor_pricing_and_market_share.md)
 
 ---
 

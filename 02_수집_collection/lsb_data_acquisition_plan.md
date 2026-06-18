@@ -33,7 +33,7 @@
 | 🟠 **P2** | 비엔티안 인구·**도별 가구**·**연령구조** | SOM 분모 · 얼리어답터 세그먼트 | ✅ 수집 완료 (도별 가구 B001·성연령 C002 브라우저 추출) |
 | 🟡 **P3** | GDP·1인당 소득 | PEST Economic 출처 정식화 | ✅ 수집 완료 |
 
-> 수집·분석 결과: [`outputs/laos_official_stats_analysis.md`](../outputs/laos_official_stats_analysis.md) · 재현 수집: [`notebooks/07_laos_official_stats.ipynb`](../notebooks/07_laos_official_stats.ipynb)
+> 수집·분석 결과: [`outputs/laos_official_stats_analysis.md`](../03_분석_analysis/reports/laos_official_stats_analysis.md) · 재현 수집: [`notebooks/07_laos_official_stats.ipynb`](notebooks/07_laos_official_stats.ipynb)
 
 ---
 

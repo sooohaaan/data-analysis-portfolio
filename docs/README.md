@@ -1,12 +1,18 @@
-# 📂 docs — 프로젝트 문서 산출물
+# 📂 docs — 외부 참조 자료
 
-코드·분석 결과물 외의 기획/관리 문서를 모아둔 폴더입니다.
+프로젝트 산출물은 과제 단계별 폴더(`01_계획` ~ `05_기획`)로 이동했습니다. 이 폴더에는 **외부 참조용 자료만** 남아 있습니다.
 
-| 파일 | 내용 |
+| 위치 | 내용 |
 |------|------|
-| `PostgreSQL 기반 데이터 수집·분석 프로젝트 로드맵.docx` | 프로젝트 전체 로드맵 (변경이력 포함) |
-| `WBS_핀테크 서비스 기획 4회차_코코넛사일로.xlsx` | 작업 분해 구조(WBS) — 일정·태스크 관리 |
-| `Tableau/coconutcilo.twb` | Tableau 워크북 — 분석 시각화 |
-| `Tableau/문서1.twb` | Tableau 작업 파일 |
+| `reference/` | 외부 참고용 third-party PDF (벤치마크 기획서 등) |
+| `03_External/` | 외부 협력사 자료 (COSTEL · NANCOME) |
 
-> 참고: 외부 참고용 third-party PDF 자료는 용량·저작권 사유로 저장소에 포함하지 않습니다.
+## 산출물 이동 안내
+
+| 옛 위치 | 새 위치 |
+|---------|---------|
+| `docs/planning.md`, `data_requirements.md`, 로드맵.docx, WBS.xlsx | [`01_계획_planning/`](../01_계획_planning/) |
+| `docs/lsb_data_acquisition_plan.md` | [`02_수집_collection/`](../02_수집_collection/) |
+| `docs/Tableau/*.twb` | [`04_시각화_visualization/tableau/`](../04_시각화_visualization/tableau/) |
+
+> 전체 구조는 [메인 README](../README.md#-폴더-구조)를 참고하세요.

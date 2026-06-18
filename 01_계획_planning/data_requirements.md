@@ -112,4 +112,4 @@
 
 ---
 
-*연계 산출물*: [ERD/DB 스키마](../schema/create_tables.sql) · [전체 수집 현황·회고](../README.md) · [LSB 공식통계 수집 계획](lsb_data_acquisition_plan.md) · [PRD 데이터 파이프라인](../outputs/PRD_kokkok_ev.md)
+*연계 산출물*: [ERD/DB 스키마](../schema/create_tables.sql) · [전체 수집 현황·회고](../README.md) · [LSB 공식통계 수집 계획](../02_수집_collection/lsb_data_acquisition_plan.md) · [PRD 데이터 파이프라인](../05_기획_product/PRD_kokkok_ev.md)
