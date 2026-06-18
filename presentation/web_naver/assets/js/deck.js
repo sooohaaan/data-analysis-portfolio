@@ -25,7 +25,8 @@
     if (old) old.remove();
     if (!N) return;
     const ind = document.createElement("span");
-    ind.className = N > 8 ? "tab__ind tab__ind--sm" : "tab__ind";
+    // 항목 수에 따라 도트 크기 단계화(많을수록 작게 → 탭 폭 내 수용)
+    ind.className = "tab__ind" + (N >= 11 ? " tab__ind--xs" : N >= 7 ? " tab__ind--sm" : "");
     for (let k = 0; k < N; k++) {
       const dot = document.createElement("i");
       if (k === dotIndex) dot.className = "on";
@@ -99,18 +100,7 @@
       nav.querySelectorAll(".nav__tab").forEach((t) => {
         const on = t.dataset.section === section;
         t.classList.toggle("is-active", on);
-        const old = t.querySelector(".tab__ind");
-        if (old) old.remove();
-        if (on && N) {
-          const ind = document.createElement("span");
-          ind.className = N > 8 ? "tab__ind tab__ind--sm" : "tab__ind";
-          for (let k = 0; k < N; k++) {
-            const dot = document.createElement("i");
-            if (k === dotIndex) dot.className = "on";
-            ind.appendChild(dot);
-          }
-          t.appendChild(ind);
-        }
+        renderInd(t, on ? N : 0, dotIndex);
       });
     });
   }
@@ -133,8 +123,18 @@
 
   /* ---- Click halves to navigate ---- */
   document.getElementById("stage").addEventListener("click", (e) => {
-    if (e.target.closest(".nav, .tag-link, .tabs, a")) return;
+    if (e.target.closest(".nav, .tag-link, .tabs, a, [data-goto]")) return;
     if (e.clientX > window.innerWidth * 0.5) next(); else prev();
+  });
+
+  /* ---- CONTENTS(목차) 항목 클릭 → 해당 슬라이드로 이동 ---- */
+  document.querySelectorAll("[data-goto]").forEach((el) => {
+    el.style.cursor = "pointer";
+    el.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const n = parseInt(el.dataset.goto, 10);
+      if (!isNaN(n)) show(n);
+    });
   });
 
   /* ---- Nav tab jump: go to first slide of that section ---- */

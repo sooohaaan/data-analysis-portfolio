@@ -160,6 +160,13 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .tab__ind--sm { gap: 3px; }
 .tab__ind--sm i { width: 4px; height: 4px; }
 .tab__ind--sm i.on { width: 10px; }
+.tab__ind--xs { gap: 2px; }
+.tab__ind--xs i { width: 3px; height: 3px; }
+.tab__ind--xs i.on { width: 8px; border-radius: 2px; }
+/* 목차(CONTENTS) 클릭 가능한 항목 */
+.toc-link { cursor: pointer; transition: color .15s; }
+.toc-link:hover { color: var(--brand-strong); }
+.toc-link:hover .green, .toc-link:hover b { color: var(--brand-strong); }
 .nav__sub {
   display: flex;
   gap: 22px;
