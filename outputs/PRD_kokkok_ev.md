@@ -367,7 +367,7 @@ Pain Point 정량화 → 기능 우선순위 결정
 
 ---
 
-*작성일: 2026-06-05 | 작성자: 마수한 (Data Engineer & PM)*
+*작성일: 2026-06-05 | 작성자: 마수한 (Data Engineer · Service Planning)*
 *데이터 수집 기간: 2026-05-31 ~ 2026-06-05*
 *참조 차트: outputs/ 폴더 20개 파일*
 *상세 분석: outputs/data_analysis_report.md*

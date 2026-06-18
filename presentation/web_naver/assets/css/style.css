@@ -160,6 +160,13 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .tab__ind--sm { gap: 3px; }
 .tab__ind--sm i { width: 4px; height: 4px; }
 .tab__ind--sm i.on { width: 10px; }
+.tab__ind--xs { gap: 2px; }
+.tab__ind--xs i { width: 3px; height: 3px; }
+.tab__ind--xs i.on { width: 8px; border-radius: 2px; }
+/* 목차(CONTENTS) 클릭 가능한 항목 */
+.toc-link { cursor: pointer; transition: color .15s; }
+.toc-link:hover { color: var(--brand-strong); }
+.toc-link:hover .green, .toc-link:hover b { color: var(--brand-strong); }
 .nav__sub {
   display: flex;
   gap: 22px;
@@ -649,6 +656,9 @@ ol.txt { list-style: none; padding-left: 0; }
 .dv45__eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .16em; color: var(--brand-strong); margin-bottom: 16px; }
 .dv45__title { font-size: 62px; font-weight: 800; letter-spacing: -.02em; line-height: 1.06; }
 .dv45__list { margin-top: 28px; font-size: 14px; font-weight: 700; color: var(--ink-2); line-height: 2.0; }
+/* 챕터 간지 하위 인덱스 → CONTENTS subtitle(.txt + 녹색 페이지번호) 스타일과 통일 */
+.dv45__list--toc { font-size: 12px; font-weight: 400; line-height: 1.85; text-align: left; margin: 22px auto 0; }
+.dv45__list--toc b.green { font-weight: 800; }
 
 /* =====================  NAVER p24/p89/p19 차용 요소  ======== */
 /* 번호 뱃지 파이프라인 (p89) */
@@ -771,4 +781,40 @@ ol.txt { list-style: none; padding-left: 0; }
   position: fixed; right: 16px; bottom: 14px; z-index: 50;
   font-size: 11px; color: #cfd2d6; background: rgba(0,0,0,.4);
   padding: 6px 12px; border-radius: 20px; backdrop-filter: blur(4px);
+}
+
+/* ============================================================
+   PRINT / PDF — 모든 슬라이드를 1280×720 한 페이지씩 출력
+   ============================================================ */
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #fff; width: 1280px; }
+  #stage { position: static !important; overflow: visible !important; background: #fff !important; }
+  #deck {
+    position: static !important; transform: none !important;
+    left: auto !important; top: auto !important;
+    width: 1280px !important; height: auto !important;
+    background: #fff !important;   /* 그라데이션 슬라이드의 투명부가 검정으로 합성되는 것 방지 */
+  }
+  /* 그라데이션 표지/간지 → 인쇄 시 '불투명' 배경으로 강제.
+     원본의 rgba(...,0) 투명 스톱은 Chrome 인쇄에서 투명 그룹을 만들어
+     일부 뷰어가 검정으로 합성함 → 투명 없는 단일 그라데이션으로 대체. */
+  .slide.cover {
+    background: radial-gradient(120% 90% at 88% 12%,
+      var(--brand-bright) 0%, #ffffff 46%) !important;
+  }
+  .slide.divider {
+    background: linear-gradient(180deg,
+      var(--brand-mist) 0%, #ffffff 26%, #ffffff 70%, var(--brand-soft) 100%) !important;
+  }
+  .slide {
+    position: relative !important; inset: auto !important;
+    display: flex !important;
+    width: 1280px !important; height: 720px !important;
+    overflow: hidden;
+    break-after: page; page-break-after: always;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
+  .help, #progress { display: none !important; }
 }
