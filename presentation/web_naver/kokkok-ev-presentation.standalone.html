@@ -759,7 +759,7 @@ ol.txt { list-style: none; padding-left: 0; }
 /* p36 CRISP-DM 순환 루프 */
 .crisp { position: relative; height: 372px; }
 /* 방법론(s43) SDLC 포지셔닝 트랙 */
-.sdlc { margin-top: 10px; }
+.sdlc { margin-top: 18px; }
 .sdlc__lead { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 8px; }
 .sdlc__row { display: flex; align-items: stretch; gap: 8px; }
 .sdlc__step { flex: 1; background: var(--brand-mist); border: 1px solid var(--brand-soft); border-radius: 8px; padding: 9px 12px; text-align: center; }
@@ -1990,8 +1990,8 @@ ol.txt { list-style: none; padding-left: 0; }
     <div class="body">
       <div class="h-eyebrow">RETROSPECTIVE · METHOD</div>
       <h2 class="h-page" style="margin-top:2px">방법론 — CRISP-DM(수행) × SDLC(포지셔닝)</h2>
-      <p class="lead" style="max-width:980px;font-size:12.5px">데이터 분석 표준 방법론 CRISP-DM으로 수행 — 핵심은 평가에서 데이터 이해로 되돌아간 ‘재분류’ 루프입니다.</p>
-      <div class="crisp" style="height:262px">
+      <p class="lead" style="max-width:1010px;font-size:12px;margin-bottom:16px">두 관점으로 본 방법론 — <b>위 ① 어떻게 분석했나</b>(CRISP-DM 순환)와 <b>아래 ② 서비스 개발 어디까지 했나</b>(SDLC 포지셔닝). 각 CRISP-DM 단계의 <b>Phase 번호</b>가 아래 SDLC 단계로 이어집니다 — 수행한 분석 산출물이 SDLC의 <span class="green">계획·분석·설계</span>에 대응(개발은 범위 외).</p>
+      <div class="crisp" style="height:290px;margin-bottom:4px">
         <svg class="clines" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d="M50,15 L84,30" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
           <path d="M84,30 L84,70" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>
@@ -2009,9 +2009,9 @@ ol.txt { list-style: none; padding-left: 0; }
         <div class="cstep is-eval" style="left:16%;top:70%"><div class="n">5</div><b>평가</b><span>가설 검증 → <b style="color:var(--brand-strong)">기각</b></span></div>
         <div class="cstep" style="left:16%;top:30%"><div class="n">6</div><b>배포</b><span>Phase 5 · 기획 연계</span></div>
       </div>
-      <div class="callout"><div class="callout__t" style="font-size:13px">핵심 루프 — ‘앱오류=OCPP’ 가설을 <b>평가에서 기각</b>하고 <span class="green">데이터 이해로 회귀(VOC 2계층 재분류)</span> → 충전앱 #1 ‘앱 불안정 27.6%’ 규명. 폭포수로는 표현되지 않는 반복.</div></div>
+      <div class="callout" style="margin:16px 0"><div class="callout__t" style="font-size:13px">핵심 루프 — ‘앱오류=OCPP’ 가설을 <b>평가에서 기각</b>하고 <span class="green">데이터 이해로 회귀(VOC 2계층 재분류)</span> → 충전앱 #1 ‘앱 불안정 27.6%’ 규명. 폭포수로는 표현되지 않는 반복.</div></div>
       <div class="sdlc">
-        <div class="sdlc__lead"><svg class="ic ic--t"><use href="#ic-flag"/></svg><b>SDLC 포지셔닝</b> — CRISP-DM(수행)의 산출물이 놓이는 서비스 개발 단계 <span class="cap" style="font-weight:400">(개발은 범위 외)</span></div>
+        <div class="sdlc__lead"><svg class="ic ic--t"><use href="#ic-flag"/></svg><b>② SDLC 포지셔닝</b> — 위 CRISP-DM(수행) 산출물이 서비스 개발(SDLC)의 어느 단계인지 <span class="cap" style="font-weight:400">(개발은 범위 외)</span></div>
         <div class="sdlc__row">
           <div class="sdlc__step"><b>계획</b><span>Phase 0 · 비즈니스 이해</span></div>
           <span class="sdlc__arr">→</span>
