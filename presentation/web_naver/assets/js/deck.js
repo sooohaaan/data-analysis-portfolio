@@ -19,32 +19,41 @@
     }
   });
 
-  /* ---- 한 탭(nav)에 챕터 페이지 인디케이터 도트 렌더 ---- */
-  function renderInd(tab, N, dotIndex) {
-    const old = tab.querySelector(".tab__ind");
+  /* ---- 챕터의 콘텐츠 슬라이드(간지·표지 제외) 배열 ---- */
+  function sectionContent(section) {
+    return slides.filter((s) =>
+      s.dataset.section === section &&
+      !s.classList.contains("divider") && !s.classList.contains("cover"));
+  }
+
+  /* ---- 한 탭(nav)에 챕터 페이지 인디케이터 도트 렌더 ----
+     도트 1개 = 챕터 내 콘텐츠 슬라이드 1장 · 클릭 시 해당 슬라이드로 이동 */
+  function renderInd(tab, section, dotIndex) {
+    const old = tab.querySelector(".tab__ind, .tab__count");
     if (old) old.remove();
+    const sec = sectionContent(section);
+    const N = sec.length;
     if (!N) return;
     const ind = document.createElement("span");
-    // 도트 크기는 항목 수와 무관하게 단일(많으면 인디케이터가 양옆으로 넓어짐)
     ind.className = "tab__ind";
     for (let k = 0; k < N; k++) {
       const dot = document.createElement("i");
       if (k === dotIndex) dot.className = "on";
+      dot.title = (k + 1) + " / " + N;
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();   // 상위 탭 앵커(href)·#stage 이동 방지
+        e.stopPropagation();
+        const target = slides.indexOf(sec[k]);
+        if (target >= 0) show(target);
+      });
       ind.appendChild(dot);
     }
     tab.appendChild(ind);
   }
 
-  /* ---- 슬라이드의 챕터 내 위치 → 도트 인덱스 ---- */
+  /* ---- 슬라이드의 챕터 내 위치 → 도트 인덱스 (1:1) ---- */
   function dotIndexOf(slide, section) {
-    const N = chapterCounts[section] || 0;
-    const secContent = slides.filter((s) =>
-      s.dataset.section === section &&
-      !s.classList.contains("divider") && !s.classList.contains("cover"));
-    const pos = secContent.indexOf(slide);
-    if (N && pos >= 0 && secContent.length)
-      return Math.min(N - 1, Math.floor((pos / secContent.length) * N));
-    return -1;
+    return sectionContent(section).indexOf(slide);
   }
 
   /* ---- PRINT 모드(?print): 각 슬라이드 nav를 '자기 챕터'로 고정 → PDF용 ---- */
@@ -58,7 +67,7 @@
       nav.querySelectorAll(".nav__tab").forEach((t) => {
         const on = t.dataset.section === sec;
         t.classList.toggle("is-active", on);
-        if (on) renderInd(t, chapterCounts[sec] || 0, di);
+        if (on) renderInd(t, sec, di);
       });
     });
     return; // 화면 내비/스케일 바인딩 생략 (인쇄 레이아웃은 CSS가 담당)
@@ -86,21 +95,14 @@
   /* ---- Sync top-nav active tab + page indicator with current slide ---- */
   function syncNav() {
     const section = slides[idx].dataset.section;
-    const N = chapterCounts[section] || 0;
-    // 현재 챕터의 콘텐츠 슬라이드(간지·표지 제외) 중 현재 위치 → 도트 인덱스
-    const secContent = slides.filter((s) =>
-      s.dataset.section === section &&
-      !s.classList.contains("divider") && !s.classList.contains("cover"));
-    const pos = secContent.indexOf(slides[idx]);
-    let dotIndex = -1;
-    if (N && pos >= 0 && secContent.length)
-      dotIndex = Math.min(N - 1, Math.floor((pos / secContent.length) * N));
+    const dotIndex = sectionContent(section).indexOf(slides[idx]); // 간지/표지면 -1
 
     document.querySelectorAll(".nav").forEach((nav) => {
       nav.querySelectorAll(".nav__tab").forEach((t) => {
         const on = t.dataset.section === section;
         t.classList.toggle("is-active", on);
-        renderInd(t, on ? N : 0, dotIndex);
+        if (on) { renderInd(t, section, dotIndex); }
+        else { const old = t.querySelector(".tab__ind, .tab__count"); if (old) old.remove(); }
       });
     });
   }

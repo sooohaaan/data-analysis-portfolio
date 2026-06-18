@@ -7,7 +7,7 @@
    ============================================================= */
 (function () {
   if (typeof d3 === "undefined") return;
-  var C = { brand:"#03C75A", strong:"#02A94B", bright:"#6FE6A0", line:"#dbdbdb",
+  var C = { brand:"#00A75D", strong:"#017A45", bright:"#43CA70", teal:"#11A89E", line:"#dbdbdb",
             ink:"#111111", ink2:"#3a3a3a", ink3:"#767676", mist:"#EAFBF1",
             gray:"#b9bcc0", gray2:"#d4d7da", blue:"#4D9BFF", purple:"#8B7CF0",
             red:"#E5484D", redbg:"#FDEBEC" };
@@ -24,6 +24,19 @@
       .attr("width", "100%").attr("height", "100%")
       .attr("preserveAspectRatio", "xMidYMid meet")
       .style("display", "block");
+  }
+  /* 그래프 박스 테두리 (좌측=Y축·하단=X축 프레임 겸함) */
+  function frame(svg, m, W, H) {
+    svg.append("rect").attr("x", m.l).attr("y", m.t)
+      .attr("width", W - m.l - m.r).attr("height", H - m.t - m.b)
+      .attr("fill", "none").attr("stroke", C.gray2).attr("stroke-width", 1).attr("rx", 2);
+  }
+  /* 점선 세로 grid (값 축이 가로인 차트용) */
+  function gridX(svg, x, m, W, H, ticks) {
+    ticks.forEach(function (t) {
+      svg.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", m.t).attr("y2", H - m.b)
+        .attr("stroke", C.line).attr("stroke-dasharray", "2 3");
+    });
   }
 
   /* ---- p16 경쟁 포지셔닝 산점도 (별점 × 부정률 · 버블=리뷰수) ---- */
@@ -46,6 +59,7 @@
     var rOf = function (v) { return 9 + Math.sqrt(v) / Math.sqrt(26603) * 22; };
 
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
 
     svg.append("rect").attr("x", x(3.8)).attr("y", y(35))
       .attr("width", (W - m.r) - x(3.8)).attr("height", (H - m.b) - y(35))
@@ -101,10 +115,12 @@
       { label: "Grab",             v: 0,  c: C.gray,   tag: "라오스 미진출" }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     svg.append("text").attr("x", m.l).attr("y", 11).attr("font-size", 11)
       .attr("font-weight", 700).attr("fill", C.ink3)
       .text("라오스 EV·모빌리티 뉴스 393건 · 브랜드 언급 41건");
     var x = d3.scaleLinear().domain([0, 24]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 6, 12, 18, 24]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.label; }))
       .range([m.t + 8, H - m.b]).padding(0.34);
     rows.forEach(function (d) {
@@ -137,6 +153,7 @@
     ];
     var avg = 53.5;
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scaleLinear().domain([0, 75]).range([m.l, W - m.r]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.label; }))
       .range([m.t, H - m.b]).padding(0.32);
@@ -171,7 +188,7 @@
   function twolayer() {
     var el = document.getElementById("chart-twolayer");
     if (!el || el.__done) return; el.__done = true;
-    var W = 560, H = 372, m = { l: 132, r: 52 };
+    var W = 560, H = 372, mL = 132, mR = 52;
     var groups = [
       { title: "라이드헤일링 앱 · Green SM", sub: "부정 14,234건 (92%) — 우리 도메인 아님",
         color: C.gray, rows: [["배차·호출실패", 21.4], ["드라이버", 12.0], ["목적지·경로", 6.1]] },
@@ -179,34 +196,41 @@
         color: C.brand, rows: [["앱 불안정·작동불가", 27.6], ["계정·인증·KYC", 15.0], ["결제·환불·지갑", 11.0], ["충전소·위치", 2.4], ["외국인·다국어", 1.5]] }
     ];
     var svg = newSvg(el, W, H);
-    var x = d3.scaleLinear().domain([0, 30]).range([m.l, W - m.r]);
-    var nRows = 8, headH = 24, top = 6, gapG = 12, botPad = 40;
-    var avail = H - top - groups.length * headH - groups.length * gapG - botPad;
-    var rh = avail / nRows;
+    var x = d3.scaleLinear().domain([0, 30]).range([mL, W - mR]);
+    var xticks = [0, 10, 20, 30];
+    var top = 4, titleH = 26, rowH = 32, axisLabelH = 16, gGap = 12;
     var yc = top;
     groups.forEach(function (gp, gi) {
+      var isBrand = gp.color === C.brand;
+      // 제목·부제 (박스 위)
       svg.append("text").attr("x", 4).attr("y", yc + 11).attr("font-size", 11.5)
-        .attr("font-weight", 800).attr("fill", gp.color === C.brand ? C.strong : C.ink2).text(gp.title);
+        .attr("font-weight", 800).attr("fill", isBrand ? C.strong : C.ink2).text(gp.title);
       svg.append("text").attr("x", 4).attr("y", yc + 23).attr("font-size", 9).attr("fill", C.ink3).text(gp.sub);
-      yc += headH;
+      yc += titleH;
+      var boxTop = yc, boxH = gp.rows.length * rowH, boxBot = boxTop + boxH;
+      // 점선 세로 grid + X축(% 라벨) — 박스별 개별
+      var xa = d3.axisBottom(x).tickValues(xticks).tickSize(-boxH).tickFormat(function (d) { return d + "%"; });
+      svg.append("g").attr("transform", "translate(0," + boxBot + ")").call(xa).call(styleAxis);
+      // 외곽 라운드 박스 (좌변=Y축)
+      svg.append("rect").attr("x", mL).attr("y", boxTop).attr("width", (W - mR) - mL).attr("height", boxH)
+        .attr("rx", 10).attr("fill", "none").attr("stroke", C.gray2).attr("stroke-width", 1);
+      // 막대
       gp.rows.forEach(function (r, ri) {
-        var bh = rh * 0.62, cy = yc + (rh - bh) / 2;
-        svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
-          .attr("width", Math.max(2, x(r[1]) - m.l)).attr("rx", 3)
-          .attr("fill", gp.color).attr("fill-opacity", (gi === 1 && ri === 0) ? 1 : (gp.color === C.brand ? 0.85 : 0.55));
-        svg.append("text").attr("x", m.l - 8).attr("y", cy + bh / 2).attr("dy", "0.35em")
-          .attr("text-anchor", "end").attr("font-size", 10)
-          .attr("font-weight", (gi === 1 && ri === 0) ? 800 : 600)
-          .attr("fill", (gi === 1 && ri === 0) ? C.strong : C.ink).text(r[0]);
+        var bh = rowH * 0.56, cy = boxTop + ri * rowH + (rowH - bh) / 2, hot = (gi === 1 && ri === 0);
+        svg.append("rect").attr("x", mL).attr("y", cy).attr("height", bh)
+          .attr("width", Math.max(2, x(r[1]) - mL)).attr("rx", 3)
+          .attr("fill", gp.color).attr("fill-opacity", hot ? 1 : (isBrand ? 0.85 : 0.55));
+        svg.append("text").attr("x", mL - 8).attr("y", cy + bh / 2).attr("dy", "0.35em")
+          .attr("text-anchor", "end").attr("font-size", 10).attr("font-weight", hot ? 800 : 600)
+          .attr("fill", hot ? C.strong : C.ink).text(r[0]);
         svg.append("text").attr("x", x(r[1]) + 6).attr("y", cy + bh / 2).attr("dy", "0.35em")
           .attr("font-size", 10.5).attr("font-weight", 800)
-          .attr("fill", gp.color === C.brand ? C.strong : C.ink3).text(r[1] + "%");
-        yc += rh;
+          .attr("fill", isBrand ? C.strong : C.ink3).text(r[1] + "%");
       });
-      yc += gapG;
+      yc = boxBot + axisLabelH + gGap;
     });
-    // 충전앱 진짜 1위 강조
-    svg.append("text").attr("x", W - m.r).attr("y", top + 11).attr("text-anchor", "end")
+    // 충전앱 진짜 1위 강조 (우상단)
+    svg.append("text").attr("x", W - mR).attr("y", 10).attr("text-anchor", "end")
       .attr("font-size", 9.5).attr("font-weight", 700).attr("fill", C.ink3)
       .text("도메인 분리 → 충전앱 진짜 1위 '앱 불안정' 식별");
   }
@@ -224,11 +248,13 @@
       { label: "외국인·다국어",       v: 1.5 }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     svg.append("text").attr("x", m.l).attr("y", 14).attr("font-size", 11).attr("font-weight", 700)
       .attr("fill", C.ink3).text("충전앱 부정 1,227건 · 카테고리별 비중");
     svg.append("text").attr("x", m.l).attr("y", 30).attr("font-size", 12).attr("font-weight", 800)
       .attr("fill", C.strong).text("상위 3축 = 53.6% → PRD P0~P1 직접 근거");
     var x = d3.scaleLinear().domain([0, 30]).range([m.l, W - m.r]);
+    gridX(svg, x, m, W, H, [0, 10, 20, 30]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.label; }))
       .range([m.t, H - m.b]).padding(0.34);
     rows.forEach(function (d) {
@@ -266,6 +292,7 @@
       { name: "제조사동향",    freq: 94,  neg: 1.1,  c: C.gray }
     ];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scaleLinear().domain([55, 185]).range([m.l, W - m.r]);
     var y = d3.scaleLinear().domain([-5, 36]).range([H - m.b, m.t]);
     var rOf = function (v) { return 8 + Math.sqrt(v) / Math.sqrt(169) * 13; };
@@ -304,27 +331,33 @@
     if (!el || el.__done) return; el.__done = true;
     var W = 480, H = 300, cx = W / 2;
     var segs = [
-      { name: "TAM · ASEAN-6 EV 생태계", val: "$100B–120B", cap: "2035 · EY-Parthenon",
-        tw: 462, bw: 372, fill: C.mist,   tcol: C.ink,  vcol: C.strong, ccol: C.ink3 },
-      { name: "SAM · 동남아 EV 충전 서비스", val: "EV 신차 9% · 판매 +50%", cap: "IEA 2025",
-        tw: 352, bw: 262, fill: C.bright, tcol: C.ink,  vcol: C.ink,    ccol: C.ink2 },
-      { name: "SOM · 라오스 충전 · 슈퍼앱", val: "라오스 EV 40% 커버", cap: "3년 · LOCA",
-        tw: 242, bw: 150, fill: C.strong, tcol: "#fff", vcol: "#fff",   ccol: "#DFF7E9" }
+      { acr: "TAM", name: "ASEAN-6 EV 생태계", val: "$100B–120B (약 130~160조 원)", cap: "2035 · EY-Parthenon",
+        tw: 470, bw: 356, fill: C.mist,   tcol: C.ink,  vcol: C.strong, ccol: C.ink3 },
+      { acr: "SAM", name: "동남아 EV 충전 서비스", val: "EV 신차 9% · 판매 +50%", cap: "IEA 2025",
+        tw: 344, bw: 232, fill: C.bright, tcol: C.ink,  vcol: C.ink,    ccol: C.ink2 },
+      { acr: "SOM", name: "라오스 충전 · 슈퍼앱", val: "라오스 EV 40% 커버", cap: "3년 · LOCA",
+        tw: 220, bw: 110, fill: C.strong, tcol: "#fff", vcol: "#fff",   ccol: "#DFF7E9" }
     ];
     var svg = newSvg(el, W, H);
-    var top = 6, segH = 84, gap = 11;
+    var top = 4, segH = 88, gap = 9;
     segs.forEach(function (s, i) {
-      var yT = top + i * (segH + gap), yB = yT + segH, midY = yT + segH / 2;
+      var yT = top + i * (segH + gap), yB = yT + segH;
       svg.append("polygon").attr("points",
         (cx - s.tw / 2) + "," + yT + " " + (cx + s.tw / 2) + "," + yT + " " +
         (cx + s.bw / 2) + "," + yB + " " + (cx - s.bw / 2) + "," + yB)
         .attr("fill", s.fill);
-      svg.append("text").attr("x", cx).attr("y", midY - 12).attr("text-anchor", "middle")
-        .attr("font-size", 13).attr("font-weight", 800).attr("fill", s.tcol).text(s.name);
-      svg.append("text").attr("x", cx).attr("y", midY + 7).attr("text-anchor", "middle")
-        .attr("font-size", 13).attr("font-weight", 800).attr("fill", s.vcol).text(s.val);
-      svg.append("text").attr("x", cx).attr("y", midY + 22).attr("text-anchor", "middle")
-        .attr("font-size", 9.5).attr("font-weight", 600).attr("fill", s.ccol).text(s.cap);
+      // 1행: TAM/SAM/SOM 약어(크게) — 내용과 분리
+      svg.append("text").attr("x", cx).attr("y", yT + 25).attr("text-anchor", "middle")
+        .attr("font-size", 20).attr("font-weight", 800).attr("letter-spacing", "0.5").attr("fill", s.tcol).text(s.acr);
+      // 2행: 시장 정의
+      svg.append("text").attr("x", cx).attr("y", yT + 44).attr("text-anchor", "middle")
+        .attr("font-size", 11.5).attr("font-weight", 700).attr("fill", s.tcol).text(s.name);
+      // 3행: 규모 값
+      svg.append("text").attr("x", cx).attr("y", yT + 62).attr("text-anchor", "middle")
+        .attr("font-size", 12.5).attr("font-weight", 800).attr("fill", s.vcol).text(s.val);
+      // 4행: 출처
+      svg.append("text").attr("x", cx).attr("y", yT + 78).attr("text-anchor", "middle")
+        .attr("font-size", 9).attr("font-weight", 600).attr("fill", s.ccol).text(s.cap);
     });
     // 좁혀가는 방향 화살표
     svg.append("text").attr("x", cx).attr("y", H - 2).attr("text-anchor", "middle")
@@ -357,24 +390,31 @@
   function journey() {
     var el = document.getElementById("chart-journey");
     if (!el || el.__done) return; el.__done = true;
-    var W = 1040, H = 232, m = { t: 18, r: 20, b: 26, l: 30 };
+    var W = 1040, H = 232, m = { t: 18, r: 20, b: 26, l: 48 };
     var stages = ["탐색·발견", "QR 스캔", "결제", "충전 진행", "완료·정산"];
     var asIs = [12, -18, -24, -30, -2];
     var toBe = [26, 16, 20, 22, 36];
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var x = d3.scalePoint().domain(stages).range([m.l, W - m.r]).padding(0.5);
     var y = d3.scaleLinear().domain([-40, 45]).range([H - m.b, m.t]);
 
-    // 단계 세로 가이드 + 중립선
+    // ── 배경 점선 그리드 (박스 테두리=frame이 X/Y축 담당) ──
+    var yTicks = [40, 20, 0, -20, -40];
+    // 가로 점선 그리드 (중립=0은 약간 강조)
+    yTicks.forEach(function (t) {
+      svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", y(t)).attr("y2", y(t))
+        .attr("stroke", t === 0 ? C.gray : C.line).attr("stroke-dasharray", t === 0 ? "4 3" : "2 3");
+    });
+    // 세로 점선 그리드 (단계별)
     stages.forEach(function (s) {
       svg.append("line").attr("x1", x(s)).attr("x2", x(s)).attr("y1", m.t).attr("y2", H - m.b)
-        .attr("stroke", C.line).attr("stroke-dasharray", "2 4");
+        .attr("stroke", C.line).attr("stroke-dasharray", "2 3");
     });
-    svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", y(0)).attr("y2", y(0))
-      .attr("stroke", C.gray).attr("stroke-width", 1);
-    svg.append("text").attr("x", m.l + 2).attr("y", y(0) - 4).attr("font-size", 10).attr("fill", C.ink3).text("중립");
-    svg.append("text").attr("x", m.l - 2).attr("y", y(40)).attr("font-size", 11).attr("font-weight", 700).attr("fill", C.ink3).text("▲ 만족");
-    svg.append("text").attr("x", m.l - 2).attr("y", y(-34)).attr("font-size", 11).attr("font-weight", 700).attr("fill", C.red).text("▼ 불만");
+    // Y축 라벨 (감정 수준)
+    svg.append("text").attr("x", m.l - 8).attr("y", y(40) + 4).attr("text-anchor", "end").attr("font-size", 10).attr("font-weight", 700).attr("fill", C.strong).text("만족");
+    svg.append("text").attr("x", m.l - 8).attr("y", y(0) + 4).attr("text-anchor", "end").attr("font-size", 10).attr("fill", C.ink3).text("중립");
+    svg.append("text").attr("x", m.l - 8).attr("y", y(-40) + 4).attr("text-anchor", "end").attr("font-size", 10).attr("font-weight", 700).attr("fill", C.red).text("불만");
 
     var line = d3.line().x(function (d, i) { return x(stages[i]); }).y(function (d) { return y(d); }).curve(d3.curveMonotoneX);
     // 감정 수준 → 색 (빨강 부정 · 주황 · 노랑 중립 · 연두 · 초록 긍정)
@@ -420,6 +460,7 @@
     var x = d3.scaleLinear().domain([0, 100]).range([m.l, W - m.r]);
     var y = d3.scaleLinear().domain([0, 100]).range([H - m.b, m.t]);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     // 목표 사분면(저가·고기능 = 좌상단) 음영
     svg.append("rect").attr("x", x(0)).attr("y", y(100))
       .attr("width", x(50) - x(0)).attr("height", y(50) - y(100)).attr("fill", C.mist);
@@ -466,6 +507,7 @@
     var x = d3.scaleBand().domain(data.map(function (d) { return d.lab; })).range([m.l, W - m.r]).padding(0.4);
     var y = d3.scaleLinear().domain([0, 200]).range([H - m.b, m.t]);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     var ya = d3.axisLeft(y).tickValues([0, 50, 100, 150, 200]).tickSize(-(W - m.l - m.r)).tickFormat(function (d) { return d + "M"; });
     svg.append("g").attr("transform", "translate(" + m.l + ",0)").call(ya).call(styleAxis);
     svg.append("text").attr("x", m.l - 2).attr("y", m.t - 10).attr("font-size", 10).attr("font-weight", 700)
@@ -500,11 +542,12 @@
       { label: "계정·KYC 온보딩", from: 15, to: 7, dom: [0, 18], unit: "%" }
     ];
     var svg = newSvg(el, W, H);
-    var yb = d3.scaleBand().domain(rows.map(function (d) { return d.label; })).range([m.t, H - m.b]).padding(0.5);
+    frame(svg, m, W, H);
+    var yb = d3.scaleBand().domain(rows.map(function (d) { return d.label; })).range([m.t + 16, H - m.b - 16]).padding(0.5);
     rows.forEach(function (d) {
       var cy = yb(d.label) + yb.bandwidth() / 2;
-      var xs = d3.scaleLinear().domain(d.dom).range([m.l, W - m.r]);
-      svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", cy).attr("y2", cy)
+      var xs = d3.scaleLinear().domain(d.dom).range([m.l + 18, W - m.r - 18]);
+      svg.append("line").attr("x1", m.l + 18).attr("x2", W - m.r - 18).attr("y1", cy).attr("y2", cy)
         .attr("stroke", C.line).attr("stroke-width", 4).attr("stroke-linecap", "round");
       svg.append("line").attr("x1", xs(d.from)).attr("x2", xs(d.to)).attr("y1", cy).attr("y2", cy)
         .attr("stroke", C.brand).attr("stroke-width", 4).attr("stroke-linecap", "round");
@@ -538,6 +581,8 @@
     var x = d3.scaleLinear().domain([0, 26603]).range([m.l, W - m.r]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.l; })).range([m.t, H - m.b]).padding(0.34);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
+    gridX(svg, x, m, W, H, [0, 8000, 16000, 24000]);
     rows.forEach(function (d) {
       var cy = y(d.l), bh = y.bandwidth();
       svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
@@ -560,6 +605,8 @@
     var x = d3.scaleLinear().domain([0, 132]).range([m.l, W - m.r]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.l; })).range([m.t, H - m.b]).padding(0.4);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
+    gridX(svg, x, m, W, H, [0, 40, 80, 120]);
     rows.forEach(function (d) {
       var cy = y(d.l), bh = y.bandwidth();
       svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
@@ -586,6 +633,7 @@
     var x = d3.scaleLinear().domain([0, 36]).range([m.l, W - m.r]);
     var yb = d3.scaleBand().domain(ph.map(function (d) { return d.k; })).range([m.t, H - m.b]).padding(0.45);
     var svg = newSvg(el, W, H);
+    frame(svg, m, W, H);
     // 월 축
     var xa = d3.axisBottom(x).tickValues([0, 3, 9, 18, 36]).tickSize(-(H - m.t - m.b)).tickFormat(function (d) { return d + "M"; });
     svg.append("g").attr("transform", "translate(0," + (H - m.b) + ")").call(xa).call(styleAxis);
