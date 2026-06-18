@@ -13,13 +13,10 @@ TMP="$(mktemp -t kokkok-pdf-XXXX).pdf"
   --virtual-time-budget=25000 --run-all-compositor-stages-before-draw \
   --no-pdf-header-footer --print-to-pdf="$TMP" "file://$HTML?print=1"
 
-# 2) 이미지 다운샘플 압축(벡터 텍스트는 보존). gs 없으면 원본 사용.
-if command -v gs >/dev/null 2>&1; then
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook \
-     -dDownsampleColorImages=true -dColorImageResolution=150 \
-     -dDownsampleGrayImages=true  -dGrayImageResolution=150 \
-     -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$OUT" "$TMP" && rm -f "$TMP"
-else
-  mv "$TMP" "$OUT"; echo "⚠ ghostscript 미설치 — 압축 생략. 'brew install ghostscript' 권장."
-fi
+# 2) Chrome 출력 그대로 사용 (목차·간지 → 슬라이드 내부 링크 보존).
+#    ※ ghostscript 압축은 내부 링크 주석을 제거하므로 사용하지 않음.
+#    용량은 소스 이미지를 적정 해상도(≤1600px)로 유지해 관리.
+mv "$TMP" "$OUT"
+# qpdf가 있으면 무손실 선형화(링크 보존, 소폭 최적화)
+command -v qpdf >/dev/null 2>&1 && qpdf --linearize --replace-input "$OUT" 2>/dev/null || true
 echo "✅ $OUT  ($(du -h "$OUT" | cut -f1) · $(mdls -name kMDItemNumberOfPages "$OUT" 2>/dev/null | awk '{print $3}')p)"

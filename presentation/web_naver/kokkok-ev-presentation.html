@@ -11,7 +11,7 @@
   <div class="deck" id="deck">
 
   <!-- 01 COVER -->
-  <section class="slide cover is-active" data-section="INTRO">
+  <section id="s1" class="slide cover is-active" data-section="INTRO">
     <h1 class="cover__title" style="text-transform:none;font-size:54px;line-height:1.2;top:90px;right:120px">
       데이터로 문제를 풀어<br>서비스를 만드는 <span style="color:var(--brand-strong)">기획자</span></h1>
     <div style="position:absolute;left:56px;top:300px;right:120px;font-size:14px;line-height:1.8;color:var(--ink-2);max-width:680px">
@@ -22,7 +22,7 @@
   </section>
 
   <!-- 02 CONTENTS -->
-  <section class="slide" data-section="INTRO">
+  <section id="s2" class="slide" data-section="INTRO">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <h2 class="h-page" style="margin-bottom:2px">CONTENTS</h2>
@@ -31,83 +31,83 @@
         <div>
           <div class="h-col"><span class="ch-badge">01</span>시장 분석</div>
           <ol class="txt" style="line-height:1.62;font-size:10.5px">
-            <li class="toc-link" data-goto="4"><b class="green">02</b>&nbsp;&nbsp;거시 환경 분석 (PEST)</li>
-            <li class="toc-link" data-goto="5"><b class="green">03</b>&nbsp;&nbsp;시장 규모 (TAM·SAM·SOM)</li>
-            <li class="toc-link" data-goto="6"><b class="green">04</b>&nbsp;&nbsp;분석 대상 기업</li>
-            <li class="toc-link" data-goto="7"><b class="green">05</b>&nbsp;&nbsp;경쟁사 분석 ① 충전앱</li>
-            <li class="toc-link" data-goto="8"><b class="green">06</b>&nbsp;&nbsp;경쟁사 분석 ② 슈퍼앱</li>
-            <li class="toc-link" data-goto="9"><b class="green">07</b>&nbsp;&nbsp;경쟁사 분석 ③ 뉴스 점유율</li>
-            <li class="toc-link" data-goto="10"><b class="green">08</b>&nbsp;&nbsp;시장 진입 교훈</li>
+            <li><a class="toc-link" href="#s5" data-goto="4"><b class="green">02</b>&nbsp;&nbsp;거시 환경 분석 (PEST)</a></li>
+            <li><a class="toc-link" href="#s6" data-goto="5"><b class="green">03</b>&nbsp;&nbsp;시장 규모 (TAM·SAM·SOM)</a></li>
+            <li><a class="toc-link" href="#s7" data-goto="6"><b class="green">04</b>&nbsp;&nbsp;분석 대상 기업</a></li>
+            <li><a class="toc-link" href="#s8" data-goto="7"><b class="green">05</b>&nbsp;&nbsp;경쟁사 분석 ① 충전앱</a></li>
+            <li><a class="toc-link" href="#s9" data-goto="8"><b class="green">06</b>&nbsp;&nbsp;경쟁사 분석 ② 슈퍼앱</a></li>
+            <li><a class="toc-link" href="#s10" data-goto="9"><b class="green">07</b>&nbsp;&nbsp;경쟁사 분석 ③ 뉴스 점유율</a></li>
+            <li><a class="toc-link" href="#s11" data-goto="10"><b class="green">08</b>&nbsp;&nbsp;시장 진입 교훈</a></li>
           </ol>
         </div>
         <div>
           <div class="h-col"><span class="ch-badge">02</span>문제 정의</div>
           <ol class="txt" style="line-height:1.62;font-size:10.5px">
-            <li class="toc-link" data-goto="12"><b class="green">09</b>&nbsp;&nbsp;왜 EV 충전인가 — 골든타임</li>
+            <li><a class="toc-link" href="#s13" data-goto="12"><b class="green">09</b>&nbsp;&nbsp;왜 EV 충전인가 — 골든타임</a></li>
           </ol>
         </div>
         <div>
           <div class="h-col"><span class="ch-badge">03</span>데이터 수집·분석</div>
           <ol class="txt" style="line-height:1.62;font-size:10.5px">
-            <li class="toc-link" data-goto="14"><b class="green">10</b>&nbsp;&nbsp;데이터 요구사항 정의 (DRD)</li>
-            <li class="toc-link" data-goto="15"><b class="green">11</b>&nbsp;&nbsp;데이터 아키텍처</li>
-            <li class="toc-link" data-goto="16"><b class="green">12</b>&nbsp;&nbsp;수집 현황</li>
-            <li class="toc-link" data-goto="17"><b class="green">13</b>&nbsp;&nbsp;다국어 전처리</li>
-            <li class="toc-link" data-goto="18"><b class="green">14</b>&nbsp;&nbsp;분석 ① 채널별 감성</li>
-            <li class="toc-link" data-goto="19"><b class="green">15</b>&nbsp;&nbsp;분석 ② 불만 구조</li>
-            <li class="toc-link" data-goto="20"><b class="green">16</b>&nbsp;&nbsp;분석 ③ 경쟁 포지셔닝</li>
-            <li class="toc-link" data-goto="21"><b class="green">17</b>&nbsp;&nbsp;분석 ④ 충전앱 레이어</li>
-            <li class="toc-link" data-goto="22"><b class="green">18</b>&nbsp;&nbsp;핵심 인사이트</li>
-            <li class="toc-link" data-goto="23"><b class="green">19</b>&nbsp;&nbsp;하드웨어 이슈 맵</li>
-            <li class="toc-link" data-goto="24"><b class="green">20</b>&nbsp;&nbsp;고객 페르소나</li>
+            <li><a class="toc-link" href="#s15" data-goto="14"><b class="green">10</b>&nbsp;&nbsp;데이터 요구사항 정의 (DRD)</a></li>
+            <li><a class="toc-link" href="#s16" data-goto="15"><b class="green">11</b>&nbsp;&nbsp;데이터 아키텍처</a></li>
+            <li><a class="toc-link" href="#s17" data-goto="16"><b class="green">12</b>&nbsp;&nbsp;수집 현황</a></li>
+            <li><a class="toc-link" href="#s18" data-goto="17"><b class="green">13</b>&nbsp;&nbsp;다국어 전처리</a></li>
+            <li><a class="toc-link" href="#s19" data-goto="18"><b class="green">14</b>&nbsp;&nbsp;분석 ① 채널별 감성</a></li>
+            <li><a class="toc-link" href="#s20" data-goto="19"><b class="green">15</b>&nbsp;&nbsp;분석 ② 불만 구조</a></li>
+            <li><a class="toc-link" href="#s21" data-goto="20"><b class="green">16</b>&nbsp;&nbsp;분석 ③ 경쟁 포지셔닝</a></li>
+            <li><a class="toc-link" href="#s22" data-goto="21"><b class="green">17</b>&nbsp;&nbsp;분석 ④ 충전앱 레이어</a></li>
+            <li><a class="toc-link" href="#s23" data-goto="22"><b class="green">18</b>&nbsp;&nbsp;핵심 인사이트</a></li>
+            <li><a class="toc-link" href="#s24" data-goto="23"><b class="green">19</b>&nbsp;&nbsp;하드웨어 이슈 맵</a></li>
+            <li><a class="toc-link" href="#s25" data-goto="24"><b class="green">20</b>&nbsp;&nbsp;고객 페르소나</a></li>
           </ol>
         </div>
         <div>
           <div class="h-col"><span class="ch-badge">04</span>제품 기획·설계</div>
           <ol class="txt" style="line-height:1.62;font-size:10.5px">
-            <li class="toc-link" data-goto="26"><b class="green">21</b>&nbsp;&nbsp;우리가 만든 것</li>
-            <li class="toc-link" data-goto="27"><b class="green">22</b>&nbsp;&nbsp;기획·설계 산출물 3묶음</li>
-            <li class="toc-link" data-goto="28"><b class="green">23</b>&nbsp;&nbsp;데이터에서 기능으로</li>
-            <li class="toc-link" data-goto="29"><b class="green">24</b>&nbsp;&nbsp;제품 포지셔닝</li>
-            <li class="toc-link" data-goto="30"><b class="green">25</b>&nbsp;&nbsp;PRD 기능 정의 (11개)</li>
-            <li class="toc-link" data-goto="31"><b class="green">26</b>&nbsp;&nbsp;사용자 여정 지도</li>
-            <li class="toc-link" data-goto="32"><b class="green">27</b>&nbsp;&nbsp;제품 기획 ② 핵심 Flow</li>
-            <li class="toc-link" data-goto="33"><b class="green">28</b>&nbsp;&nbsp;제품 기획 ③ OCPP 연동</li>
-            <li class="toc-link" data-goto="34"><b class="green">29</b>&nbsp;&nbsp;제품 기획 ④ 요금 정책</li>
-            <li class="toc-link" data-goto="35"><b class="green">30</b>&nbsp;&nbsp;완성된 정책안</li>
-            <li class="toc-link" data-goto="36"><b class="green">31</b>&nbsp;&nbsp;사업성</li>
-            <li class="toc-link" data-goto="37"><b class="green">32</b>&nbsp;&nbsp;벤치마크·경쟁사 선정</li>
-            <li class="toc-link" data-goto="38"><b class="green">33</b>&nbsp;&nbsp;왜 우리가 이기나</li>
+            <li><a class="toc-link" href="#s27" data-goto="26"><b class="green">21</b>&nbsp;&nbsp;우리가 만든 것</a></li>
+            <li><a class="toc-link" href="#s28" data-goto="27"><b class="green">22</b>&nbsp;&nbsp;기획·설계 산출물 3묶음</a></li>
+            <li><a class="toc-link" href="#s29" data-goto="28"><b class="green">23</b>&nbsp;&nbsp;데이터에서 기능으로</a></li>
+            <li><a class="toc-link" href="#s30" data-goto="29"><b class="green">24</b>&nbsp;&nbsp;제품 포지셔닝</a></li>
+            <li><a class="toc-link" href="#s31" data-goto="30"><b class="green">25</b>&nbsp;&nbsp;PRD 기능 정의 (11개)</a></li>
+            <li><a class="toc-link" href="#s32" data-goto="31"><b class="green">26</b>&nbsp;&nbsp;사용자 여정 지도</a></li>
+            <li><a class="toc-link" href="#s33" data-goto="32"><b class="green">27</b>&nbsp;&nbsp;제품 기획 ② 핵심 Flow</a></li>
+            <li><a class="toc-link" href="#s34" data-goto="33"><b class="green">28</b>&nbsp;&nbsp;제품 기획 ③ OCPP 연동</a></li>
+            <li><a class="toc-link" href="#s35" data-goto="34"><b class="green">29</b>&nbsp;&nbsp;제품 기획 ④ 요금 정책</a></li>
+            <li><a class="toc-link" href="#s36" data-goto="35"><b class="green">30</b>&nbsp;&nbsp;완성된 정책안</a></li>
+            <li><a class="toc-link" href="#s37" data-goto="36"><b class="green">31</b>&nbsp;&nbsp;사업성</a></li>
+            <li><a class="toc-link" href="#s38" data-goto="37"><b class="green">32</b>&nbsp;&nbsp;벤치마크·경쟁사 선정</a></li>
+            <li><a class="toc-link" href="#s39" data-goto="38"><b class="green">33</b>&nbsp;&nbsp;왜 우리가 이기나</a></li>
           </ol>
         </div>
         <div>
           <div class="h-col"><span class="ch-badge">05</span>기대효과 &amp; 회고</div>
           <ol class="txt" style="line-height:1.62;font-size:10.5px">
-            <li class="toc-link" data-goto="40"><b class="green">34</b>&nbsp;&nbsp;기대 효과 KPI</li>
-            <li class="toc-link" data-goto="41"><b class="green">35</b>&nbsp;&nbsp;실행 로드맵 &amp; 제안</li>
-            <li class="toc-link" data-goto="42"><b class="green">36</b>&nbsp;&nbsp;방법론 (CRISP-DM)</li>
-            <li class="toc-link" data-goto="43"><b class="green">37</b>&nbsp;&nbsp;회고</li>
-            <li class="toc-link" data-goto="44"><b class="green">38</b>&nbsp;&nbsp;리스크 · 가정 · 한계</li>
+            <li><a class="toc-link" href="#s41" data-goto="40"><b class="green">34</b>&nbsp;&nbsp;기대 효과 KPI</a></li>
+            <li><a class="toc-link" href="#s42" data-goto="41"><b class="green">35</b>&nbsp;&nbsp;실행 로드맵 &amp; 제안</a></li>
+            <li><a class="toc-link" href="#s43" data-goto="42"><b class="green">36</b>&nbsp;&nbsp;방법론 (CRISP-DM)</a></li>
+            <li><a class="toc-link" href="#s44" data-goto="43"><b class="green">37</b>&nbsp;&nbsp;회고</a></li>
+            <li><a class="toc-link" href="#s45" data-goto="44"><b class="green">38</b>&nbsp;&nbsp;리스크 · 가정 · 한계</a></li>
           </ol>
         </div>
         <div>
           <div class="h-col"><span class="ch-badge" style="background:var(--ink-3)">A</span>부록</div>
           <ol class="txt" style="line-height:1.62;font-size:10.5px">
-            <li class="toc-link" data-goto="47"><b class="green">39</b>&nbsp;&nbsp;OCPP 1.6-J 명세</li>
-            <li class="toc-link" data-goto="48"><b class="green">40</b>&nbsp;&nbsp;하드웨어 스펙 비교</li>
-            <li class="toc-link" data-goto="49"><b class="green">41</b>&nbsp;&nbsp;ERD</li>
-            <li class="toc-link" data-goto="50"><b class="green">42</b>&nbsp;&nbsp;DB 구조 설계 (1/2)</li>
-            <li class="toc-link" data-goto="51"><b class="green">43</b>&nbsp;&nbsp;DB 구조 설계 (2/2)</li>
-            <li class="toc-link" data-goto="52"><b class="green">44</b>&nbsp;&nbsp;알고리즘 Flow Chart</li>
-            <li class="toc-link" data-goto="53"><b class="green">45</b>&nbsp;&nbsp;시퀀스 다이어그램</li>
-            <li class="toc-link" data-goto="54"><b class="green">46</b>&nbsp;&nbsp;사용자 시나리오</li>
-            <li class="toc-link" data-goto="55"><b class="green">47</b>&nbsp;&nbsp;스토리보드</li>
-            <li class="toc-link" data-goto="56"><b class="green">48</b>&nbsp;&nbsp;App flow</li>
-            <li class="toc-link" data-goto="57"><b class="green">49</b>&nbsp;&nbsp;프로토타이핑</li>
-            <li class="toc-link" data-goto="58"><b class="green">50</b>&nbsp;&nbsp;요금·운영 정책</li>
-            <li class="toc-link" data-goto="59"><b class="green">51</b>&nbsp;&nbsp;용어 사전 ①</li>
-            <li class="toc-link" data-goto="60"><b class="green">52</b>&nbsp;&nbsp;용어 사전 ②</li>
-            <li class="toc-link" data-goto="61"><b class="green">53</b>&nbsp;&nbsp;데이터 인벤토리</li>
+            <li><a class="toc-link" href="#s48" data-goto="47"><b class="green">39</b>&nbsp;&nbsp;OCPP 1.6-J 명세</a></li>
+            <li><a class="toc-link" href="#s49" data-goto="48"><b class="green">40</b>&nbsp;&nbsp;하드웨어 스펙 비교</a></li>
+            <li><a class="toc-link" href="#s50" data-goto="49"><b class="green">41</b>&nbsp;&nbsp;ERD</a></li>
+            <li><a class="toc-link" href="#s51" data-goto="50"><b class="green">42</b>&nbsp;&nbsp;DB 구조 설계 (1/2)</a></li>
+            <li><a class="toc-link" href="#s52" data-goto="51"><b class="green">43</b>&nbsp;&nbsp;DB 구조 설계 (2/2)</a></li>
+            <li><a class="toc-link" href="#s53" data-goto="52"><b class="green">44</b>&nbsp;&nbsp;알고리즘 Flow Chart</a></li>
+            <li><a class="toc-link" href="#s54" data-goto="53"><b class="green">45</b>&nbsp;&nbsp;시퀀스 다이어그램</a></li>
+            <li><a class="toc-link" href="#s55" data-goto="54"><b class="green">46</b>&nbsp;&nbsp;사용자 시나리오</a></li>
+            <li><a class="toc-link" href="#s56" data-goto="55"><b class="green">47</b>&nbsp;&nbsp;스토리보드</a></li>
+            <li><a class="toc-link" href="#s57" data-goto="56"><b class="green">48</b>&nbsp;&nbsp;App flow</a></li>
+            <li><a class="toc-link" href="#s58" data-goto="57"><b class="green">49</b>&nbsp;&nbsp;프로토타이핑</a></li>
+            <li><a class="toc-link" href="#s59" data-goto="58"><b class="green">50</b>&nbsp;&nbsp;요금·운영 정책</a></li>
+            <li><a class="toc-link" href="#s60" data-goto="59"><b class="green">51</b>&nbsp;&nbsp;용어 사전 ①</a></li>
+            <li><a class="toc-link" href="#s61" data-goto="60"><b class="green">52</b>&nbsp;&nbsp;용어 사전 ②</a></li>
+            <li><a class="toc-link" href="#s62" data-goto="61"><b class="green">53</b>&nbsp;&nbsp;데이터 인벤토리</a></li>
           </ol>
         </div>
       </div>
@@ -116,7 +116,7 @@
   </section>
 
   <!-- 03 OVERVIEW -->
-  <section class="slide" data-section="INTRO">
+  <section id="s3" class="slide" data-section="INTRO">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <h2 class="h-page">OVERVIEW</h2>
@@ -164,19 +164,19 @@
   </section>
 
   <!-- 04 CHAPTER 01 -->
-  <section class="slide divider divider--p45" data-section="MARKET">
+  <section id="s4" class="slide divider divider--p45" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body" style="display:grid;place-items:center">
       <div class="dv45">
         <h1 class="dv45__title">시장 분석</h1>
-        <ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:680px"><li><b class="green">02</b>&nbsp;&nbsp;거시 환경 분석 (PEST)</li><li><b class="green">03</b>&nbsp;&nbsp;시장 규모 (TAM·SAM·SOM)</li><li><b class="green">04</b>&nbsp;&nbsp;분석 대상 기업</li><li><b class="green">05</b>&nbsp;&nbsp;경쟁사 분석 ① 충전앱</li><li><b class="green">06</b>&nbsp;&nbsp;경쟁사 분석 ② 슈퍼앱</li><li><b class="green">07</b>&nbsp;&nbsp;경쟁사 분석 ③ 뉴스 점유율</li><li><b class="green">08</b>&nbsp;&nbsp;시장 진입 교훈</li></ul>
+        <ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:680px"><li><a class="toc-link" href="#s5" data-goto="4"><b class="green">02</b>&nbsp;&nbsp;거시 환경 분석 (PEST)</a></li><li><a class="toc-link" href="#s6" data-goto="5"><b class="green">03</b>&nbsp;&nbsp;시장 규모 (TAM·SAM·SOM)</a></li><li><a class="toc-link" href="#s7" data-goto="6"><b class="green">04</b>&nbsp;&nbsp;분석 대상 기업</a></li><li><a class="toc-link" href="#s8" data-goto="7"><b class="green">05</b>&nbsp;&nbsp;경쟁사 분석 ① 충전앱</a></li><li><a class="toc-link" href="#s9" data-goto="8"><b class="green">06</b>&nbsp;&nbsp;경쟁사 분석 ② 슈퍼앱</a></li><li><a class="toc-link" href="#s10" data-goto="9"><b class="green">07</b>&nbsp;&nbsp;경쟁사 분석 ③ 뉴스 점유율</a></li><li><a class="toc-link" href="#s11" data-goto="10"><b class="green">08</b>&nbsp;&nbsp;시장 진입 교훈</a></li></ul>
       </div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 및 데이터 분석 전문가 성장 과정(4회차)</span><span class="foot__page"></span></div>
   </section>
 
   <!-- 05 PEST -->
-  <section class="slide" data-section="MARKET">
+  <section id="s5" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · MACRO</div>
@@ -203,7 +203,7 @@
   </section>
 
   <!-- 06 TAM-SAM-SOM -->
-  <section class="slide" data-section="MARKET">
+  <section id="s6" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · MACRO</div>
@@ -229,7 +229,7 @@
   </section>
 
   <!-- 07 분석 대상 9개 기업 -->
-  <section class="slide" data-section="MARKET">
+  <section id="s7" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
@@ -268,7 +268,7 @@
   </section>
 
   <!-- 08 경쟁사 분석 ① 충전앱 -->
-  <section class="slide" data-section="MARKET">
+  <section id="s8" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
@@ -292,7 +292,7 @@
   </section>
 
   <!-- 09 경쟁사 분석 ② 슈퍼앱 -->
-  <section class="slide" data-section="MARKET">
+  <section id="s9" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
@@ -318,7 +318,7 @@
   </section>
 
   <!-- 10 경쟁사 분석 ③ SoV -->
-  <section class="slide" data-section="MARKET">
+  <section id="s10" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET · COMPETITORS</div>
@@ -341,7 +341,7 @@
   </section>
 
   <!-- 11 시장 진입 교훈 Grab -->
-  <section class="slide" data-section="MARKET">
+  <section id="s11" class="slide" data-section="MARKET">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">MARKET LESSON</div>
@@ -359,14 +359,14 @@
   </section>
 
   <!-- 12 CHAPTER 02 -->
-  <section class="slide divider divider--p45" data-section="PROBLEM">
+  <section id="s12" class="slide divider divider--p45" data-section="PROBLEM">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
-    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">문제 정의</h1><ul class="dv45__list dv45__list--toc" style="max-width:360px"><li><b class="green">09</b>&nbsp;&nbsp;왜 EV 충전인가 — 골든타임의 라오스 시장</li></ul></div></div>
+    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">문제 정의</h1><ul class="dv45__list dv45__list--toc" style="max-width:360px"><li><a class="toc-link" href="#s13" data-goto="12"><b class="green">09</b>&nbsp;&nbsp;왜 EV 충전인가 — 골든타임의 라오스 시장</a></li></ul></div></div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 및 데이터 분석 전문가 성장 과정(4회차)</span><span class="foot__page"></span></div>
   </section>
 
   <!-- 13 PROBLEM 골든타임 -->
-  <section class="slide" data-section="PROBLEM">
+  <section id="s13" class="slide" data-section="PROBLEM">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PROBLEM</div>
@@ -383,14 +383,14 @@
   </section>
 
   <!-- 14 CHAPTER 03 -->
-  <section class="slide divider divider--p45" data-section="DATA">
+  <section id="s14" class="slide divider divider--p45" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
-    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">데이터 수집·분석</h1><ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:760px"><li><b class="green">10</b>&nbsp;&nbsp;데이터 요구사항 정의 (DRD)</li><li><b class="green">11</b>&nbsp;&nbsp;데이터 아키텍처</li><li><b class="green">12</b>&nbsp;&nbsp;수집 현황</li><li><b class="green">13</b>&nbsp;&nbsp;다국어 전처리</li><li><b class="green">14</b>&nbsp;&nbsp;분석 ① 채널별 감성</li><li><b class="green">15</b>&nbsp;&nbsp;분석 ② 불만 구조</li><li><b class="green">16</b>&nbsp;&nbsp;분석 ③ 경쟁 포지셔닝</li><li><b class="green">17</b>&nbsp;&nbsp;분석 ④ 충전앱 레이어</li><li><b class="green">18</b>&nbsp;&nbsp;핵심 인사이트</li><li><b class="green">19</b>&nbsp;&nbsp;하드웨어 이슈 맵</li><li><b class="green">20</b>&nbsp;&nbsp;고객 페르소나</li></ul></div></div>
+    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">데이터 수집·분석</h1><ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:760px"><li><a class="toc-link" href="#s15" data-goto="14"><b class="green">10</b>&nbsp;&nbsp;데이터 요구사항 정의 (DRD)</a></li><li><a class="toc-link" href="#s16" data-goto="15"><b class="green">11</b>&nbsp;&nbsp;데이터 아키텍처</a></li><li><a class="toc-link" href="#s17" data-goto="16"><b class="green">12</b>&nbsp;&nbsp;수집 현황</a></li><li><a class="toc-link" href="#s18" data-goto="17"><b class="green">13</b>&nbsp;&nbsp;다국어 전처리</a></li><li><a class="toc-link" href="#s19" data-goto="18"><b class="green">14</b>&nbsp;&nbsp;분석 ① 채널별 감성</a></li><li><a class="toc-link" href="#s20" data-goto="19"><b class="green">15</b>&nbsp;&nbsp;분석 ② 불만 구조</a></li><li><a class="toc-link" href="#s21" data-goto="20"><b class="green">16</b>&nbsp;&nbsp;분석 ③ 경쟁 포지셔닝</a></li><li><a class="toc-link" href="#s22" data-goto="21"><b class="green">17</b>&nbsp;&nbsp;분석 ④ 충전앱 레이어</a></li><li><a class="toc-link" href="#s23" data-goto="22"><b class="green">18</b>&nbsp;&nbsp;핵심 인사이트</a></li><li><a class="toc-link" href="#s24" data-goto="23"><b class="green">19</b>&nbsp;&nbsp;하드웨어 이슈 맵</a></li><li><a class="toc-link" href="#s25" data-goto="24"><b class="green">20</b>&nbsp;&nbsp;고객 페르소나</a></li></ul></div></div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 및 데이터 분석 전문가 성장 과정(4회차)</span><span class="foot__page"></span></div>
   </section>
 
   <!-- 15 DRD -->
-  <section class="slide" data-section="DATA">
+  <section id="s15" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPROACH · DRD</div>
@@ -427,7 +427,7 @@
   </section>
 
   <!-- 16 데이터 아키텍처 -->
-  <section class="slide" data-section="DATA">
+  <section id="s16" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPROACH</div>
@@ -447,7 +447,7 @@
   </section>
 
   <!-- 17 수집 현황 -->
-  <section class="slide" data-section="DATA">
+  <section id="s17" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">COLLECTION</div>
@@ -491,7 +491,7 @@
   </section>
 
   <!-- 18 다국어 전처리 -->
-  <section class="slide" data-section="DATA">
+  <section id="s18" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PIPELINE</div>
@@ -519,7 +519,7 @@
   </section>
 
   <!-- 19 INSIGHT 01 채널별 감성 -->
-  <section class="slide" data-section="DATA">
+  <section id="s19" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">INSIGHT · 01</div>
@@ -538,7 +538,7 @@
   </section>
 
   <!-- 20 INSIGHT 02 불만 구조 2계층 -->
-  <section class="slide" data-section="DATA">
+  <section id="s20" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">INSIGHT · 02</div>
@@ -557,7 +557,7 @@
   </section>
 
   <!-- 21 INSIGHT 03 포지셔닝 -->
-  <section class="slide" data-section="DATA">
+  <section id="s21" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">INSIGHT · 03</div>
@@ -576,7 +576,7 @@
   </section>
 
   <!-- 22 INSIGHT 04 충전앱 레이어 -->
-  <section class="slide" data-section="DATA">
+  <section id="s22" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">INSIGHT · 04</div>
@@ -595,7 +595,7 @@
   </section>
 
   <!-- 23 KEY INSIGHT -->
-  <section class="slide" data-section="DATA">
+  <section id="s23" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">KEY INSIGHT</div>
@@ -619,7 +619,7 @@
   </section>
 
   <!-- 24 INSIGHT HW -->
-  <section class="slide" data-section="DATA">
+  <section id="s24" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">INSIGHT · HW</div>
@@ -638,7 +638,7 @@
   </section>
 
   <!-- 25 PERSONA -->
-  <section class="slide" data-section="DATA">
+  <section id="s25" class="slide" data-section="DATA">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">DATA · PERSONA</div>
@@ -668,14 +668,14 @@
   </section>
 
   <!-- 26 CHAPTER 04 -->
-  <section class="slide divider divider--p45" data-section="PRODUCT">
+  <section id="s26" class="slide divider divider--p45" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
-    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">제품 기획·설계</h1><ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:760px"><li><b class="green">21</b>&nbsp;&nbsp;우리가 만든 것</li><li><b class="green">22</b>&nbsp;&nbsp;기획·설계 산출물 3묶음</li><li><b class="green">23</b>&nbsp;&nbsp;데이터에서 기능으로</li><li><b class="green">24</b>&nbsp;&nbsp;제품 포지셔닝</li><li><b class="green">25</b>&nbsp;&nbsp;PRD 기능 정의 (11개)</li><li><b class="green">26</b>&nbsp;&nbsp;사용자 여정 지도</li><li><b class="green">27</b>&nbsp;&nbsp;제품 기획 ② 핵심 Flow</li><li><b class="green">28</b>&nbsp;&nbsp;제품 기획 ③ OCPP 연동</li><li><b class="green">29</b>&nbsp;&nbsp;제품 기획 ④ 요금 정책</li><li><b class="green">30</b>&nbsp;&nbsp;완성된 정책안</li><li><b class="green">31</b>&nbsp;&nbsp;사업성</li><li><b class="green">32</b>&nbsp;&nbsp;벤치마크·경쟁사 선정</li><li><b class="green">33</b>&nbsp;&nbsp;왜 우리가 이기나</li></ul></div></div>
+    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">제품 기획·설계</h1><ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:760px"><li><a class="toc-link" href="#s27" data-goto="26"><b class="green">21</b>&nbsp;&nbsp;우리가 만든 것</a></li><li><a class="toc-link" href="#s28" data-goto="27"><b class="green">22</b>&nbsp;&nbsp;기획·설계 산출물 3묶음</a></li><li><a class="toc-link" href="#s29" data-goto="28"><b class="green">23</b>&nbsp;&nbsp;데이터에서 기능으로</a></li><li><a class="toc-link" href="#s30" data-goto="29"><b class="green">24</b>&nbsp;&nbsp;제품 포지셔닝</a></li><li><a class="toc-link" href="#s31" data-goto="30"><b class="green">25</b>&nbsp;&nbsp;PRD 기능 정의 (11개)</a></li><li><a class="toc-link" href="#s32" data-goto="31"><b class="green">26</b>&nbsp;&nbsp;사용자 여정 지도</a></li><li><a class="toc-link" href="#s33" data-goto="32"><b class="green">27</b>&nbsp;&nbsp;제품 기획 ② 핵심 Flow</a></li><li><a class="toc-link" href="#s34" data-goto="33"><b class="green">28</b>&nbsp;&nbsp;제품 기획 ③ OCPP 연동</a></li><li><a class="toc-link" href="#s35" data-goto="34"><b class="green">29</b>&nbsp;&nbsp;제품 기획 ④ 요금 정책</a></li><li><a class="toc-link" href="#s36" data-goto="35"><b class="green">30</b>&nbsp;&nbsp;완성된 정책안</a></li><li><a class="toc-link" href="#s37" data-goto="36"><b class="green">31</b>&nbsp;&nbsp;사업성</a></li><li><a class="toc-link" href="#s38" data-goto="37"><b class="green">32</b>&nbsp;&nbsp;벤치마크·경쟁사 선정</a></li><li><a class="toc-link" href="#s39" data-goto="38"><b class="green">33</b>&nbsp;&nbsp;왜 우리가 이기나</a></li></ul></div></div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 및 데이터 분석 전문가 성장 과정(4회차)</span><span class="foot__page"></span></div>
   </section>
 
   <!-- 27 LIFECYCLE -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s27" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · LIFECYCLE</div>
@@ -694,7 +694,7 @@
   </section>
 
   <!-- 28 ARTIFACTS -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s28" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · ARTIFACTS</div>
@@ -710,7 +710,7 @@
   </section>
 
   <!-- 29 BRIDGE -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s29" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">BRIDGE</div>
@@ -749,7 +749,7 @@
   </section>
 
   <!-- 30 STRATEGY 포지셔닝 -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s30" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · STRATEGY</div>
@@ -771,7 +771,7 @@
   </section>
 
   <!-- 31 PRD -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s31" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · PRD</div>
@@ -800,7 +800,7 @@
   </section>
 
   <!-- 32 JOURNEY -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s32" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · JOURNEY</div>
@@ -822,7 +822,7 @@
   </section>
 
   <!-- 33 FLOW -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s33" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · FLOW</div>
@@ -847,7 +847,7 @@
   </section>
 
   <!-- 34 OCPP 3사 검증 -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s34" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · HARDWARE</div>
@@ -876,7 +876,7 @@
   </section>
 
   <!-- 35 요금정책 -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s35" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · POLICY</div>
@@ -907,7 +907,7 @@
   </section>
 
   <!-- 36 완성된 정책안 -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s36" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">PRODUCT · POLICY</div>
@@ -946,7 +946,7 @@
   </section>
 
   <!-- 37 사업성 -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s37" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">BUSINESS CASE</div>
@@ -977,7 +977,7 @@
   </section>
 
   <!-- 38 BENCHMARK -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s38" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">BENCHMARK</div>
@@ -1003,7 +1003,7 @@
   </section>
 
   <!-- 39 WHY WE WIN -->
-  <section class="slide" data-section="PRODUCT">
+  <section id="s39" class="slide" data-section="PRODUCT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">WHY WE WIN</div>
@@ -1029,14 +1029,14 @@
   </section>
 
   <!-- 40 CHAPTER 05 -->
-  <section class="slide divider divider--p45" data-section="IMPACT">
+  <section id="s40" class="slide divider divider--p45" data-section="IMPACT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
-    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">기대효과 &amp; 회고</h1><ul class="dv45__list dv45__list--toc" style="max-width:420px"><li><b class="green">34</b>&nbsp;&nbsp;기대 효과 KPI</li><li><b class="green">35</b>&nbsp;&nbsp;실행 로드맵 &amp; 제안</li><li><b class="green">36</b>&nbsp;&nbsp;방법론 (CRISP-DM)</li><li><b class="green">37</b>&nbsp;&nbsp;회고</li><li><b class="green">38</b>&nbsp;&nbsp;리스크 · 가정 · 한계</li></ul></div></div>
+    <div class="body" style="display:grid;place-items:center"><div class="dv45"><h1 class="dv45__title">기대효과 &amp; 회고</h1><ul class="dv45__list dv45__list--toc" style="max-width:420px"><li><a class="toc-link" href="#s41" data-goto="40"><b class="green">34</b>&nbsp;&nbsp;기대 효과 KPI</a></li><li><a class="toc-link" href="#s42" data-goto="41"><b class="green">35</b>&nbsp;&nbsp;실행 로드맵 &amp; 제안</a></li><li><a class="toc-link" href="#s43" data-goto="42"><b class="green">36</b>&nbsp;&nbsp;방법론 (CRISP-DM)</a></li><li><a class="toc-link" href="#s44" data-goto="43"><b class="green">37</b>&nbsp;&nbsp;회고</a></li><li><a class="toc-link" href="#s45" data-goto="44"><b class="green">38</b>&nbsp;&nbsp;리스크 · 가정 · 한계</a></li></ul></div></div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 및 데이터 분석 전문가 성장 과정(4회차)</span><span class="foot__page"></span></div>
   </section>
 
   <!-- 41 IMPACT KPI -->
-  <section class="slide" data-section="IMPACT">
+  <section id="s41" class="slide" data-section="IMPACT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">IMPACT</div>
@@ -1048,7 +1048,7 @@
   </section>
 
   <!-- 42 ROADMAP & ASK -->
-  <section class="slide" data-section="IMPACT">
+  <section id="s42" class="slide" data-section="IMPACT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">ROADMAP &amp; ASK</div>
@@ -1060,7 +1060,7 @@
   </section>
 
   <!-- 43 METHOD CRISP-DM -->
-  <section class="slide" data-section="IMPACT">
+  <section id="s43" class="slide" data-section="IMPACT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">RETROSPECTIVE · METHOD</div>
@@ -1091,7 +1091,7 @@
   </section>
 
   <!-- 44 회고 -->
-  <section class="slide" data-section="IMPACT">
+  <section id="s44" class="slide" data-section="IMPACT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">RETROSPECTIVE</div>
@@ -1110,7 +1110,7 @@
   </section>
 
   <!-- 45 RISKS -->
-  <section class="slide" data-section="IMPACT">
+  <section id="s45" class="slide" data-section="IMPACT">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">RISKS &amp; ASSUMPTIONS</div>
@@ -1126,7 +1126,7 @@
   </section>
 
   <!-- 46 CLOSING -->
-  <section class="slide cover" data-section="IMPACT">
+  <section id="s46" class="slide cover" data-section="IMPACT">
     <div style="position:absolute;left:56px;top:96px;right:120px">
       <div class="h-eyebrow" style="font-size:15px;color:var(--brand-strong)">정리하며</div>
       <h1 style="text-transform:none;font-size:44px;line-height:1.25;font-weight:800;margin-top:10px">데이터로 문제를 풀고,<br>근거로 서비스를 설계했습니다.</h1>
@@ -1142,19 +1142,19 @@
   </section>
 
   <!-- 47 APPENDIX intro -->
-  <section class="slide divider divider--p45" data-section="APPENDIX">
+  <section id="s47" class="slide divider divider--p45" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body" style="display:grid;place-items:center">
       <div class="dv45">
         <h1 class="dv45__title">부록 — 단계별 산출물</h1>
-        <ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:760px;margin:20px auto 0"><li><b class="green">39</b>&nbsp;&nbsp;OCPP 1.6-J 명세</li><li><b class="green">40</b>&nbsp;&nbsp;하드웨어 스펙 비교</li><li><b class="green">41</b>&nbsp;&nbsp;ERD</li><li><b class="green">42</b>&nbsp;&nbsp;DB 구조 설계 (1/2)</li><li><b class="green">43</b>&nbsp;&nbsp;DB 구조 설계 (2/2)</li><li><b class="green">44</b>&nbsp;&nbsp;알고리즘 Flow Chart</li><li><b class="green">45</b>&nbsp;&nbsp;시퀀스 다이어그램</li><li><b class="green">46</b>&nbsp;&nbsp;사용자 시나리오</li><li><b class="green">47</b>&nbsp;&nbsp;스토리보드</li><li><b class="green">48</b>&nbsp;&nbsp;App flow</li><li><b class="green">49</b>&nbsp;&nbsp;프로토타이핑</li><li><b class="green">50</b>&nbsp;&nbsp;요금·운영 정책</li><li><b class="green">51</b>&nbsp;&nbsp;용어 사전 ①</li><li><b class="green">52</b>&nbsp;&nbsp;용어 사전 ②</li><li><b class="green">53</b>&nbsp;&nbsp;데이터 인벤토리</li></ul>
+        <ul class="dv45__list dv45__list--toc" style="columns:2;column-gap:56px;max-width:760px;margin:20px auto 0"><li><a class="toc-link" href="#s48" data-goto="47"><b class="green">39</b>&nbsp;&nbsp;OCPP 1.6-J 명세</a></li><li><a class="toc-link" href="#s49" data-goto="48"><b class="green">40</b>&nbsp;&nbsp;하드웨어 스펙 비교</a></li><li><a class="toc-link" href="#s50" data-goto="49"><b class="green">41</b>&nbsp;&nbsp;ERD</a></li><li><a class="toc-link" href="#s51" data-goto="50"><b class="green">42</b>&nbsp;&nbsp;DB 구조 설계 (1/2)</a></li><li><a class="toc-link" href="#s52" data-goto="51"><b class="green">43</b>&nbsp;&nbsp;DB 구조 설계 (2/2)</a></li><li><a class="toc-link" href="#s53" data-goto="52"><b class="green">44</b>&nbsp;&nbsp;알고리즘 Flow Chart</a></li><li><a class="toc-link" href="#s54" data-goto="53"><b class="green">45</b>&nbsp;&nbsp;시퀀스 다이어그램</a></li><li><a class="toc-link" href="#s55" data-goto="54"><b class="green">46</b>&nbsp;&nbsp;사용자 시나리오</a></li><li><a class="toc-link" href="#s56" data-goto="55"><b class="green">47</b>&nbsp;&nbsp;스토리보드</a></li><li><a class="toc-link" href="#s57" data-goto="56"><b class="green">48</b>&nbsp;&nbsp;App flow</a></li><li><a class="toc-link" href="#s58" data-goto="57"><b class="green">49</b>&nbsp;&nbsp;프로토타이핑</a></li><li><a class="toc-link" href="#s59" data-goto="58"><b class="green">50</b>&nbsp;&nbsp;요금·운영 정책</a></li><li><a class="toc-link" href="#s60" data-goto="59"><b class="green">51</b>&nbsp;&nbsp;용어 사전 ①</a></li><li><a class="toc-link" href="#s61" data-goto="60"><b class="green">52</b>&nbsp;&nbsp;용어 사전 ②</a></li><li><a class="toc-link" href="#s62" data-goto="61"><b class="green">53</b>&nbsp;&nbsp;데이터 인벤토리</a></li></ul>
       </div>
     </div>
     <div class="foot"><span class="foot__brand">KOKKOK EV · 핀테크 서비스 기획 및 데이터 분석 전문가 성장 과정(4회차)</span><span class="foot__page"></span></div>
   </section>
 
   <!-- 48 OCPP 명세서 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s48" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1172,7 +1172,7 @@
   </section>
 
   <!-- 48b 하드웨어 스펙 비교 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s49" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1184,7 +1184,7 @@
   </section>
 
   <!-- 49 ERD -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s50" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1196,7 +1196,7 @@
   </section>
 
   <!-- 50 DB 구조 설계 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s51" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1219,7 +1219,7 @@
   </section>
 
   <!-- 50b DB 구조 설계 2/2 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s52" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1241,7 +1241,7 @@
   </section>
 
   <!-- 51 Flow Chart -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s53" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1259,7 +1259,7 @@
   </section>
 
   <!-- 52 시퀀스 다이어그램 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s54" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1282,7 +1282,7 @@
   </section>
 
   <!-- 53 시나리오 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s55" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 기획 산출물</div>
@@ -1301,7 +1301,7 @@
   </section>
 
   <!-- 54 스토리보드 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s56" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 기획 산출물</div>
@@ -1318,7 +1318,7 @@
   </section>
 
   <!-- 54b App flow -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s57" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 기획 산출물</div>
@@ -1345,7 +1345,7 @@
   </section>
 
   <!-- 55 프로토타이핑 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s58" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 기획 산출물</div>
@@ -1357,7 +1357,7 @@
   </section>
 
   <!-- 55b 정책 산출물 (12장 1슬라이드) -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s59" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · 설계 산출물</div>
@@ -1382,7 +1382,7 @@
   </section>
 
   <!-- 56 용어 사전 ① -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s60" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · GLOSSARY</div>
@@ -1432,7 +1432,7 @@
   </section>
 
   <!-- 57 용어 사전 ② -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s61" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · GLOSSARY</div>
@@ -1476,7 +1476,7 @@
   </section>
 
   <!-- 58 데이터 인벤토리 -->
-  <section class="slide" data-section="APPENDIX">
+  <section id="s62" class="slide" data-section="APPENDIX">
     <nav class="nav"><div class="nav__logo">COCONUT SILO<span class="dot">.</span></div><div class="nav__tabs"><span class="nav__tab" data-section="MARKET">시장 분석</span><span class="nav__tab" data-section="PROBLEM">문제 정의</span><span class="nav__tab" data-section="DATA">데이터·분석</span><span class="nav__tab" data-section="PRODUCT">기획·설계</span><span class="nav__tab" data-section="IMPACT">기대효과</span><span class="nav__tab" data-section="APPENDIX">부록</span></div><div class="nav__icons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div></nav>
     <div class="body">
       <div class="h-eyebrow">APPENDIX · DATA INVENTORY</div>

@@ -165,6 +165,7 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
 .tab__ind--xs i.on { width: 8px; border-radius: 2px; }
 /* 목차(CONTENTS) 클릭 가능한 항목 */
 .toc-link { cursor: pointer; transition: color .15s; }
+a.toc-link { text-decoration: none; color: inherit; display: inline; }
 .toc-link:hover { color: var(--brand-strong); }
 .toc-link:hover .green, .toc-link:hover b { color: var(--brand-strong); }
 .nav__sub {

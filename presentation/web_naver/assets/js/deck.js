@@ -131,6 +131,7 @@
   document.querySelectorAll("[data-goto]").forEach((el) => {
     el.style.cursor = "pointer";
     el.addEventListener("click", (e) => {
+      e.preventDefault();   // 앵커(href=#sN)의 기본 점프 방지 — JS로 슬라이드 전환
       e.stopPropagation();
       const n = parseInt(el.dataset.goto, 10);
       if (!isNaN(n)) show(n);
