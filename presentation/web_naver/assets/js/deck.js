@@ -21,11 +21,18 @@
 
   /* ---- 한 탭(nav)에 챕터 페이지 인디케이터 도트 렌더 ---- */
   function renderInd(tab, N, dotIndex) {
-    const old = tab.querySelector(".tab__ind");
+    const old = tab.querySelector(".tab__ind, .tab__count");
     if (old) old.remove();
     if (!N) return;
+    // 항목이 많은 챕터(>8): 도트 과확장 대신 'k / N' 텍스트 카운터
+    if (N > 8) {
+      const c = document.createElement("span");
+      c.className = "tab__count";
+      c.textContent = (Math.max(0, dotIndex) + 1) + " / " + N;
+      tab.appendChild(c);
+      return;
+    }
     const ind = document.createElement("span");
-    // 도트 크기는 항목 수와 무관하게 단일(많으면 인디케이터가 양옆으로 넓어짐)
     ind.className = "tab__ind";
     for (let k = 0; k < N; k++) {
       const dot = document.createElement("i");

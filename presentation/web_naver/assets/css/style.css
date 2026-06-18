@@ -95,7 +95,7 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  padding: 0 28px;
+  padding: 0 var(--pad-x);   /* 본문·footer와 좌우 정렬 통일 (was 28px) */
   font-size: 11px;
   letter-spacing: .04em;
   position: relative;
@@ -157,6 +157,16 @@ sup { font-size: .58em; font-weight: 700; vertical-align: super; }
   background: var(--brand);
 }
 /* 도트 크기는 챕터별 항목 수와 무관하게 단일 — 많으면 인디케이터가 양옆으로 넓어짐 */
+/* 항목이 많은 챕터(>8): 도트 과확장 대신 텍스트 카운터 */
+.tab__count {
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  margin-top: 6px;
+  font-size: 9.5px; font-weight: 800;
+  color: var(--brand-strong);
+  letter-spacing: 0; white-space: nowrap;
+}
 /* 목차(CONTENTS) 클릭 가능한 항목 */
 .toc-link { cursor: pointer; transition: color .15s; }
 a.toc-link { text-decoration: none; color: inherit; display: inline; }
@@ -184,6 +194,11 @@ a.nav__logo { color: var(--ink); }
 a.nav__tab { color: var(--ink-3); }
 a.nav__tab.is-active { color: var(--ink); }
 .nav__icons a { color: var(--ink); display: inline-flex; align-items: center; }
+/* 클릭 가능 어포던스 — hover 피드백 */
+a.nav__tab:hover { color: var(--ink); }
+a.nav__logo:hover, .nav__icons a:hover { opacity: .6; }
+a.nav__logo, .nav__icons a { transition: opacity .15s; }
+a.nav__tab { transition: color .15s; }
 
 /* =========================  FOOTER  =========================== */
 .foot {
@@ -201,6 +216,7 @@ a.nav__tab.is-active { color: var(--ink); }
 }
 .foot__brand { color: var(--ink-2); }
 .foot__page  { font-weight: 700; font-size: 13px; }
+.foot__tot   { font-weight: 400; font-size: 11px; color: var(--ink-3); }
 
 /* =========================  BODY AREA  ======================== */
 .body {
