@@ -188,7 +188,7 @@
   function twolayer() {
     var el = document.getElementById("chart-twolayer");
     if (!el || el.__done) return; el.__done = true;
-    var W = 560, H = 372, m = { l: 132, r: 52 };
+    var W = 560, H = 372, m = { t: 6, r: 52, b: 40, l: 132 };
     var groups = [
       { title: "라이드헤일링 앱 · Green SM", sub: "부정 14,234건 (92%) — 우리 도메인 아님",
         color: C.gray, rows: [["배차·호출실패", 21.4], ["드라이버", 12.0], ["목적지·경로", 6.1]] },
@@ -198,7 +198,8 @@
     var svg = newSvg(el, W, H);
     frame(svg, m, W, H);
     var x = d3.scaleLinear().domain([0, 30]).range([m.l, W - m.r]);
-    gridX(svg, x, m, W, H, [0, 10, 20, 30]);
+    var xa = d3.axisBottom(x).tickValues([0, 10, 20, 30]).tickSize(-(H - m.t - m.b)).tickFormat(function (d) { return d + "%"; });
+    svg.append("g").attr("transform", "translate(0," + (H - m.b) + ")").call(xa).call(styleAxis);
     var nRows = 8, headH = 24, top = 6, gapG = 12, botPad = 40;
     var avail = H - top - groups.length * headH - groups.length * gapG - botPad;
     var rh = avail / nRows;
@@ -538,11 +539,11 @@
     ];
     var svg = newSvg(el, W, H);
     frame(svg, m, W, H);
-    var yb = d3.scaleBand().domain(rows.map(function (d) { return d.label; })).range([m.t, H - m.b]).padding(0.5);
+    var yb = d3.scaleBand().domain(rows.map(function (d) { return d.label; })).range([m.t + 16, H - m.b - 16]).padding(0.5);
     rows.forEach(function (d) {
       var cy = yb(d.label) + yb.bandwidth() / 2;
-      var xs = d3.scaleLinear().domain(d.dom).range([m.l, W - m.r]);
-      svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", cy).attr("y2", cy)
+      var xs = d3.scaleLinear().domain(d.dom).range([m.l + 18, W - m.r - 18]);
+      svg.append("line").attr("x1", m.l + 18).attr("x2", W - m.r - 18).attr("y1", cy).attr("y2", cy)
         .attr("stroke", C.line).attr("stroke-width", 4).attr("stroke-linecap", "round");
       svg.append("line").attr("x1", xs(d.from)).attr("x2", xs(d.to)).attr("y1", cy).attr("y2", cy)
         .attr("stroke", C.brand).attr("stroke-width", 4).attr("stroke-linecap", "round");
@@ -574,10 +575,10 @@
       { l: "PEA", v: 499 }, { l: "EleXA", v: 263 }, { l: "LOCA EV", v: 7 }
     ];
     var x = d3.scaleLinear().domain([0, 26603]).range([m.l, W - m.r]);
-    gridX(svg, x, m, W, H, [0, 8000, 16000, 24000]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.l; })).range([m.t, H - m.b]).padding(0.34);
     var svg = newSvg(el, W, H);
     frame(svg, m, W, H);
+    gridX(svg, x, m, W, H, [0, 8000, 16000, 24000]);
     rows.forEach(function (d) {
       var cy = y(d.l), bh = y.bandwidth();
       svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
@@ -598,10 +599,10 @@
     var W = 420, H = 96, m = { t: 8, r: 48, b: 8, l: 44 };
     var rows = [{ l: "2022", v: 10 }, { l: "2026", v: 132, hi: true }];
     var x = d3.scaleLinear().domain([0, 132]).range([m.l, W - m.r]);
-    gridX(svg, x, m, W, H, [0, 40, 80, 120]);
     var y = d3.scaleBand().domain(rows.map(function (d) { return d.l; })).range([m.t, H - m.b]).padding(0.4);
     var svg = newSvg(el, W, H);
     frame(svg, m, W, H);
+    gridX(svg, x, m, W, H, [0, 40, 80, 120]);
     rows.forEach(function (d) {
       var cy = y(d.l), bh = y.bandwidth();
       svg.append("rect").attr("x", m.l).attr("y", cy).attr("height", bh)
