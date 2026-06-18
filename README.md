@@ -1099,18 +1099,18 @@ Tableau (대시보드 — 예정)
 | 분석 앱 수 | 3개 | **5개** | LOCA EV 리뷰 7건 → 태국 비교군 추가 / [Phase 2 상세](#-앱스토어-리뷰-수집--총-28890건) |
 | Green SM·V-Green | 별도 앱 | **동일 앱 `MUL` 처리** | `com.gsm.customer` 동일 ID 확인 / [Phase 2 상세](#-앱스토어-리뷰-수집--총-28890건) |
 | Google Play 수집 | `count=500` 1회 | **언어별 5회 반복** | 언어·국가 조합당 2~3천 건 제한 / [Phase 2 상세](#-앱스토어-리뷰-수집--총-28890건) |
-| Supabase 연결 | Seoul pooler | **Singapore Session Pooler** | 리전 불일치 접속 실패 / [Phase 3 상세](#-초기-계획과-달라진-점--번역-전략-전면-수정) |
+| Supabase 연결 | Seoul pooler | **Singapore Session Pooler** | 리전 불일치 접속 실패 / [Phase 3 상세](#-phase-3-다국어-전처리--완료) |
 | 뉴스 수집 | 없음 | **733건 추가** (이후 SoV·정책까지 확장) | VOC·Market Intel 분리 필요 / [Phase 2 상세](#-뉴스-기사-수집--733건--계획에-없던-추가-항목) |
-| 슈퍼앱 리뷰 | 없음 | **3,370건 추가** (`superapp_reviews`) | 슈퍼앱 EV 통합 경쟁 분석 / [Phase 2 상세](#-슈퍼앱-리뷰-수집--3370건-grabgojeklocataxikokkok-move--계획에-없던-추가-항목) |
-| 참조 통계 | 없음 | **54건 추가** (`reference_stats`) | 거시·단가/IR 단일 관리 / [Phase 1 상세](#✅-phase-1-인프라-세팅-및-db-스키마-설계--완료) |
+| 슈퍼앱 리뷰 | 없음 | **3,370건 추가** (`superapp_reviews`) | 슈퍼앱 EV 통합 경쟁 분석 / [Phase 2 상세](#-슈퍼앱-리뷰-수집--3370건-grabgojekloca-taxikokkok-move--계획에-없던-추가-항목) |
+| 참조 통계 | 없음 | **54건 추가** (`reference_stats`) | 거시·단가/IR 단일 관리 / [Phase 1 상세](#-phase-1-인프라-세팅-및-db-스키마-설계--완료) |
 | 유튜브 수집 | 키워드 검색만 | **하이브리드** | 검색만으로는 무관련 영상 포함 / [Phase 2 상세](#-유튜브-수집--영상-21개--댓글-527건--자막-2625세그먼트) |
 | youtube-transcript-api | 클래스 메서드 | **인스턴스 메서드** | 라이브러리 버전 업 API 변경 / [Phase 2 상세](#-유튜브-수집--영상-21개--댓글-527건--자막-2625세그먼트) |
 | 네이버 블로그 필터 | OR 조건 | **3중 AND 조건** | OR은 무관련 글 대량 통과 / [Phase 2 상세](#-네이버-블로그-수집--42건) |
-| 번역 전략 | 전체 번역 | **선택적 번역** | googletrans 12시간 소요 / [Phase 3 상세](#✅-phase-3-다국어-전처리--완료) |
-| 감성 분석 | 영어 번역 후 | **다국어 직접 처리** | XLM-RoBERTa 100개 언어 지원 / [Phase 3 상세](#✅-phase-3-다국어-전처리--완료) |
-| DB UPDATE 방식 | SQL 일괄 UPDATE | **200건 배치 처리** | Supabase 10초 timeout / [Phase 3 상세](#✅-phase-3-다국어-전처리--완료) |
-| Phase 4 분석 실행 | DB SQL 집계 | **Python DataFrame** | 동일 timeout 이슈 / [Phase 4 상세](#✅-phase-4-데이터-분석--완료) |
-| 스키마 컬럼 | 최초 설계 누락 | **ALTER TABLE로 추가** | 실행 중 오류 발견 / [Phase 1 상세](#✅-phase-1-인프라-세팅-및-db-스키마-설계--완료) |
+| 번역 전략 | 전체 번역 | **선택적 번역** | googletrans 12시간 소요 / [Phase 3 상세](#-phase-3-다국어-전처리--완료) |
+| 감성 분석 | 영어 번역 후 | **다국어 직접 처리** | XLM-RoBERTa 100개 언어 지원 / [Phase 3 상세](#-phase-3-다국어-전처리--완료) |
+| DB UPDATE 방식 | SQL 일괄 UPDATE | **200건 배치 처리** | Supabase 10초 timeout / [Phase 3 상세](#-phase-3-다국어-전처리--완료) |
+| Phase 4 분석 실행 | DB SQL 집계 | **Python DataFrame** | 동일 timeout 이슈 / [Phase 4 상세](#-phase-4-데이터-분석--완료) |
+| 스키마 컬럼 | 최초 설계 누락 | **ALTER TABLE로 추가** | 실행 중 오류 발견 / [Phase 1 상세](#-phase-1-인프라-세팅-및-db-스키마-설계--완료) |
 
 ---
 
