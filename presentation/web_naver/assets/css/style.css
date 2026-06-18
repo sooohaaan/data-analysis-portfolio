@@ -804,6 +804,12 @@ ol.txt { list-style: none; padding-left: 0; }
 .qbadge { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--brand-mist); color: var(--brand-strong); font-size: 10px; font-weight: 800; margin-right: 8px; vertical-align: middle; }
 
 /* 페르소나 아바타 */
+/* 인라인 SVG 아이콘 (정보 인지 보강) */
+.ic { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+.ic--dv { display: block; width: 34px; height: 34px; margin: 0 auto 12px; color: var(--brand); stroke-width: 1.6; }
+.ic--t  { width: 15px; height: 15px; margin-right: 7px; color: var(--brand-strong); vertical-align: -0.18em; }
+.ic--td { width: 14px; height: 14px; margin-right: 5px; color: var(--brand-strong); vertical-align: -0.16em; }
+
 .pavatar { width: 46px; height: 46px; border-radius: 50%; background: var(--brand-mist); color: var(--brand-strong);
   display: grid; place-items: center; font-weight: 800; font-size: 18px; flex: 0 0 auto; }
 
