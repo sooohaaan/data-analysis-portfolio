@@ -1,6 +1,6 @@
 # 📍 라오스·인접국 EV 충전 서비스 현황 분석
 
-> **작성일**: 2026-06-06 | **작성자**: 마수한 (Data Engineer & PM)
+> **작성일**: 2026-06-06 | **작성자**: 마수한 (Data Engineer · Service Planning)
 > **분석 기간**: 2026-05-31 ~ 2026-06-06
 
 > 🔄 **2026-06-13 도메인 분리 재분류 반영**: app_reviews 28,890건의 92%가 Green SM(베트남 EV 라이드헤일링 앱 Xanh SM)으로 충전 전용 VOC가 극소임을 확인. VOC를 **충전앱 레이어(PTT·PEA·EleXA·LOCA)**와 **라이드헤일링 레이어(Green SM)**로 분리 재분류(기타 50.0%→16.6%). §4 Pain Point는 충전앱 레이어 중심으로 교체하고, 라이드헤일링 수치는 KOKKOK Move 시사점으로 분리. 산출물: `src/review_classifier.py`, `notebooks/09_review_reclassification.ipynb`, `outputs/18_complaint_2layer.png`.

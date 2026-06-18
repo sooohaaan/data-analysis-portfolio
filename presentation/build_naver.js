@@ -177,7 +177,7 @@ function divider(key, no, ko, en, sub) {
   s.addText("코코넛사일로  Coconut Silo", {
     x: W - 6.6, y: 6.26, w: 5.98, h: 0.34, fontFace: HF, fontSize: 15, bold: true, color: C.ink, align: "right", valign: "middle", margin: 0,
   });
-  s.addText("마수한 (Data Engineer & PM)  ·  김재희 (Data Analyst & PM)", {
+  s.addText("마수한 · 김재희 (Data Engineer · Data Analyst · Service Planning)", {
     x: W - 8.5, y: 6.64, w: 7.88, h: 0.3, fontFace: BF, fontSize: 11, color: C.muted, align: "right", valign: "middle", margin: 0,
   });
 })();
@@ -241,9 +241,9 @@ function divider(key, no, ko, en, sub) {
   s.addShape(pres.shapes.LINE, { x: M + 0.4, y: 5.25, w: 5.5, h: 0, line: { color: C.line, width: 1 } });
   s.addText([
     { text: "마수한", options: { bold: true, color: C.ink } },
-    { text: "  Data Engineer & PM — 인프라·파이프라인·전처리·PRD·화면설계\n", options: { color: C.muted } },
+    { text: "  Data Engineer · Service Planning — 인프라·파이프라인·전처리·PRD·화면설계\n", options: { color: C.muted } },
     { text: "김재희", options: { bold: true, color: C.ink } },
-    { text: "  Data Analyst & PM — 데이터 정제·SQL 분석·Tableau·유저 시나리오", options: { color: C.muted } },
+    { text: "  Data Analyst · Service Planning — 데이터 정제·SQL 분석·Tableau·유저 시나리오", options: { color: C.muted } },
   ], { x: M + 0.4, y: 5.4, w: 5.5, h: 1.0, fontFace: BF, fontSize: 11.5, lineSpacingMultiple: 1.25, valign: "top", margin: 0 });
 
   // right: facts grid

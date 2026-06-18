@@ -11,7 +11,7 @@
 | 항목 | 내용 |
 |------|------|
 | **프로젝트명** | 코코넛사일로 Kokkok EV 서비스 기획 |
-| **팀원** | 마수한(Data Engineer & PM), 김재희(Data Analyst & PM) |
+| **팀원** | 마수한 · 김재희 (Data Engineer · Data Analyst · Service Planning) |
 | **분석 대상** | 라오스·베트남 EV 충전 서비스 (태국 비교군 포함) |
 | **주요 분석 앱** | Green SM, LOCA EV, PTT blueplus+, PEA VOLTA, EleXA |
 | **모빌리티 슈퍼앱 비교군** | Grab · Gojek · LOCA Taxi · KOKKOK Move (슈퍼앱 EV 통합 전략 근거) |
@@ -1187,5 +1187,5 @@ Tableau (대시보드 — 예정)
 
 | 역할 | 이름 | 담당 업무 |
 |------|------|-----------|
-| **Data Engineer & PM** | 마수한 | 인프라 구축, ERD/스키마 설계, 전체 데이터 파이프라인 개발, 전처리·감성분석 실행, PRD·기능 명세서 작성, Figma 화면설계 |
-| **Data Analyst & PM** | 김재희 | 데이터 정제·번역 검수(라오어·베트남어), SNS 데이터 수동 보완, SQL 분석, Tableau 시각화, 유저 시나리오 분석, ERD(서비스 DB) |
+| **Data Engineer · Service Planning** | 마수한 | 인프라 구축, ERD/스키마 설계, 전체 데이터 파이프라인 개발, 전처리·감성분석 실행, PRD·기능 명세서 작성, Figma 화면설계 |
+| **Data Analyst · Service Planning** | 김재희 | 데이터 정제·번역 검수(라오어·베트남어), SNS 데이터 수동 보완, SQL 분석, Tableau 시각화, 유저 시나리오 분석, ERD(서비스 DB) |

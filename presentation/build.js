@@ -182,7 +182,7 @@ function divider(key, no, ko, en, sub) {
     s.addText(k, { x: x + 0.18, y: by, w: bw - 0.2, h: 0.3, fontFace: BF, fontSize: 10.5, bold: true, color: C.tealLt, charSpacing: 1, margin: 0 });
     s.addText(v, { x: x + 0.18, y: by + 0.32, w: bw - 0.2, h: 0.5, fontFace: BF, fontSize: 12.5, bold: true, color: C.white, margin: 0, valign: "top" });
   });
-  s.addText("발표자  마수한 (Data Engineer & PM) · 김재희 (Data Analyst & PM)", {
+  s.addText("발표자  마수한 · 김재희 (Data Engineer · Data Analyst · Service Planning)", {
     x: M + 0.1, y: 6.75, w: 11, h: 0.3, fontFace: BF, fontSize: 11, color: "8FB3AE", margin: 0,
   });
 })();
@@ -246,9 +246,9 @@ function divider(key, no, ko, en, sub) {
   s.addShape(pres.shapes.LINE, { x: M + 0.4, y: 5.25, w: 5.5, h: 0, line: { color: C.line, width: 1 } });
   s.addText([
     { text: "마수한", options: { bold: true, color: C.ink } },
-    { text: "  Data Engineer & PM — 인프라·파이프라인·전처리·PRD·화면설계\n", options: { color: C.muted } },
+    { text: "  Data Engineer · Service Planning — 인프라·파이프라인·전처리·PRD·화면설계\n", options: { color: C.muted } },
     { text: "김재희", options: { bold: true, color: C.ink } },
-    { text: "  Data Analyst & PM — 데이터 정제·SQL 분석·Tableau·유저 시나리오", options: { color: C.muted } },
+    { text: "  Data Analyst · Service Planning — 데이터 정제·SQL 분석·Tableau·유저 시나리오", options: { color: C.muted } },
   ], { x: M + 0.4, y: 5.4, w: 5.5, h: 1.0, fontFace: BF, fontSize: 11.5, lineSpacingMultiple: 1.25, valign: "top", margin: 0 });
 
   // right: facts grid
